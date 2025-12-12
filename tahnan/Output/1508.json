@@ -1,0 +1,7 @@
+{
+  "language":"cpp",
+  "test_cases":[{"input":"","expected":"Percentage: 80\nGrade: B\n"}],
+  "driver":"#include <iostream>\n#include <fstream>\n#include <sstream>\n#include <vector>\n#include <string>\n#include <cstdlib>\nusing namespace std;\nint main(){vector<pair<string,string>> tests={{\"\",\"Percentage: 80\\nGrade: B\\n\"}};int compile_status=system(\"g++ student.cpp -o student.out\");if(compile_status!=0){cout<<\"Compilation failed!\";return 0;}int passed=0;for(auto &t:tests){ofstream fin(\"input.txt\");fin<<t.first;fin.close();system(\"./student.out < input.txt > output.txt\");ifstream fout(\"output.txt\");stringstream buffer;buffer<<fout.rdbuf();string out=buffer.str();fout.close();if(out==t.second) passed++;}cout<<passed<<\"/\"<<tests.size();return 0;}",
+  "code_quality":4,
+  "correctness":9
+}

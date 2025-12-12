@@ -1,0 +1,12 @@
+{
+  "language": "cpp",
+  "test_cases": [
+    {
+      "input": "",
+      "expected": "Order ID: ORD001\nDelivery Address: CityA\nItems: Book Pen \nEstimated Delivery: 2 days\n"
+    }
+  ],
+  "driver": "#include <iostream>\n#include <fstream>\n#include <sstream>\n#include <vector>\n#include <string>\n#include <cstdlib>\nusing namespace std;\nint main(){\n    vector<pair<string,string>> tests={{\"\",\"Order ID: ORD001\\nDelivery Address: CityA\\nItems: Book Pen \\nEstimated Delivery: 2 days\\n\"}};\n    int compile_status=system(\"g++ student.cpp -o student.out\");\n    if(compile_status!=0){cout<<\"Compilation failed!\";return 0;}\n    int passed=0;\n    for(auto &t:tests){\n        ofstream fin(\"input.txt\");\n        fin<<t.first;\n        fin.close();\n        system(\"./student.out < input.txt > output.txt\");\n        ifstream fout(\"output.txt\");\n        stringstream buffer;\n        buffer<<fout.rdbuf();\n        string out=buffer.str();\n        fout.close();\n        if(out==t.second) passed++;\n    }\n    cout<<passed<<\"/\"<<tests.size();\n    return 0;\n}",
+  "code_quality": 2,
+  "correctness": 0
+}

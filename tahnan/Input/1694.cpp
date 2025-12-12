@@ -1,0 +1,2 @@
+#include <iostream>
+using namespace std;class ElectricVehicle{public:int batteryCapacity,currentCharge,rangePerCharge;void chargeBattery(int c){currentCharge+=c;cout<<"Charged "<<c<<"\n";}void drive(int d){if(d>rangePerCharge)cout<<"Cannot drive\n";else cout<<"Driving "<<d<<"\n";}};int main(){ElectricVehicle ev;ev.batteryCapacity=100;ev.currentCharge=50;ev.rangePerCharge=40;ev.chargeBattery(20);ev.drive(30);return 0;}

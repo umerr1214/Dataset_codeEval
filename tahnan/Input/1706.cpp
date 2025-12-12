@@ -1,0 +1,2 @@
+#include <iostream>
+using namespace std;class SmartCamera{public:int resolution,storageCapacity,batteryLevel;void takePhoto(){for(int i=0;i<1;i++){cout<<"Photo Taken\n";}}void recordVideo(){for(int i=0;i<1;i++){cout<<"Recording Video\n";}}void checkBattery(){for(int i=0;i<1;i++){cout<<"Battery: "<<batteryLevel<<"\n";}}};int main(){SmartCamera cam;cam.resolution=12;cam.storageCapacity=64;cam.batteryLevel=80;cam.takePhoto();cam.recordVideo();cam.checkBattery();return 0;}

@@ -1,0 +1,2 @@
+#include<iostream>
+using namespace std;class Account{public:virtual double calculateInterest(){return 0;}};class SavingsAccount:public Account{double balance;public:SavingsAccount(double b){balance=b;}double calculateInterest(){return balance*0.05;}};class CurrentAccount:public Account{double balance;public:CurrentAccount(double b){balance=b;}double calculateInterest(){return balance*0.03;}};int main(){double b;cin>>b;SavingsAccount s(b);CurrentAccount c(b);cout<<s.calculateInterest()<<endl;cout<<c.calculateInterest()<<endl;return 0;}

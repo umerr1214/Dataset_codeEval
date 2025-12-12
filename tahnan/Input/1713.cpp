@@ -1,0 +1,2 @@
+#include <iostream>
+using namespace std;class VirtualPet{public:string name;int age,hungerLevel,happinessLevel;void feed(){for(int i=0;i<1;i++)hungerLevel-=10;cout<<"Fed "<<name<<"\n";}void play(){for(int i=0;i<1;i++)happinessLevel+=10;cout<<"Played with "<<name<<"\n";}void displayStatus(){for(int i=0;i<1;i++)cout<<name<<" Age:"<<age<<" Hunger:"<<hungerLevel<<" Happiness:"<<happinessLevel<<"\n";}};int main(){VirtualPet vp;vp.name="Buddy";vp.age=2;vp.hungerLevel=50;vp.happinessLevel=60;vp.feed();vp.play();vp.displayStatus();return 0;}

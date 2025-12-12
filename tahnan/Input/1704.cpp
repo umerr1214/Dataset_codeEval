@@ -1,0 +1,2 @@
+#include <iostream>
+using namespace std;class SmartPlantPot{public:int soilMoisture,waterLevel,sunlightExposure;void waterPlant(int w){waterLevel+=w;cout<<"Watered "<<w<<"\n";}void adjustSunlight(int s){sunlightExposure=s;cout<<"Sunlight "<<s<<"\n";}void displayStatus(){cout<<"Soil:"<<soilMoisture<<" Water:"<<waterLevel<<" Sun:"<<sunlightExposure<<"\n";}};int main(){SmartPlantPot p;p.soilMoisture=50;p.waterLevel=30;p.sunlightExposure=5;p.waterPlant(20);p.adjustSunlight(8);p.displayStatus();return 0;}

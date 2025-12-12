@@ -1,0 +1,11 @@
+{
+  "language": "cpp",
+  "test_cases": [
+    {"input": "3 5 10 3\n", "expected": "Max: 10\n"},
+    {"input": "0\n", "expected": "Empty array\nMax: 0\n"},
+    {"input": "12 1 2 3 4 5 6 7 8 9 10 11 12\n", "expected": "Array full\nMax: 10\n"}
+  ],
+  "driver": "#include <iostream>\\n#include <fstream>\\n#include <sstream>\\n#include <vector>\\n#include <string>\\n#include <cstdlib>\\nusing namespace std;\\nint main(){vector<pair<string,string>> tests={{\"3 5 10 3\\n\",\"Max: 10\\n\"},{\"0\\n\",\"Empty array\\nMax: 0\\n\"},{\"12 1 2 3 4 5 6 7 8 9 10 11 12\\n\",\"Array full\\nMax: 10\\n\"}};int compile_status=system(\"g++ student.cpp -o student.out 2> compile_log.txt\");if(compile_status!=0){cout<<\"Compilation failed!\";return 0;}int passed=0;for(auto &t:tests){ofstream fin(\"input.txt\");fin<<t.first;fin.close();system(\"./student.out < input.txt > output.txt\");ifstream fout(\"output.txt\");stringstream buffer;buffer<<fout.rdbuf();string out=buffer.str();fout.close();if(out==t.second)passed++;}cout<<passed<<\"/\"<<tests.size();return 0;}",
+  "code_quality": 5,
+  "correctness": 7
+}

@@ -1,0 +1,2 @@
+#include <iostream>
+using namespace std;class SmartWindow{public:bool isOpen;int transparencyLevel;void open(){for(int i=0;i<1;i++)isOpen=true;cout<<"Opened\n";}void close(){for(int i=0;i<1;i++)isOpen=false;cout<<"Closed\n";}void adjustTransparency(int t){for(int i=0;i<1;i++)transparencyLevel=t;cout<<"Transparency "<<t<<"\n";}};int main(){SmartWindow w;w.isOpen=false;w.transparencyLevel=50;w.open();w.adjustTransparency(70);w.close();return 0;}

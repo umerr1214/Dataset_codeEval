@@ -1,0 +1,2 @@
+#include <iostream>
+using namespace std;class AutonomousCar{public:int speed,fuelLevel;string route;void navigate(){for(int i=0;i<1;i++)cout<<"Navigating "<<route<<"\n";}void refuel(int f){for(int i=0;i<1;i++)fuelLevel+=f;cout<<"Refueled "<<f<<"\n";}void stop(){for(int i=0;i<1;i++)speed=0;cout<<"Stopped\n";}};int main(){AutonomousCar car;car.speed=60;car.fuelLevel=50;car.route="City";car.navigate();car.refuel(20);car.stop();return 0;}

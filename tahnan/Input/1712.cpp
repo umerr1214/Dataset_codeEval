@@ -1,0 +1,2 @@
+#include <iostream>
+using namespace std;class SmartMirror{public:int displayMode,brightness,temperature;void showWeather(){for(int i=0;i<1;i++)cout<<"Weather Sunny\n";}void showTime(){for(int i=0;i<1;i++)cout<<"Time 10AM\n";}void adjustBrightness(int b){for(int i=0;i<1;i++)brightness=b;cout<<"Brightness "<<b<<"\n";}};int main(){SmartMirror m;m.displayMode=1;m.brightness=50;m.temperature=25;m.showWeather();m.showTime();m.adjustBrightness(80);return 0;}

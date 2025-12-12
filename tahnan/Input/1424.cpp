@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class CPU {
+public:
+    double clockSpeed;
+    int coreCount;
+    CPU(double clk, int cores) {
+        clockSpeed = clk
+        coreCount = cores;
+    }
+    virtual void benchmark() {
+        cout << "Generic CPU benchmark" << endl;
+    }
+};
+
+class IntelCPU : public CPU {
+public:
+    IntelCPU(double clk, int cores) : CPU(clk, cores) {}
+    void benchmark() override {
+        cout << "Intel CPU benchmark" << endl
+    }
+};
+
+class AMDCPU : public CPU {
+public:
+    AMDCPU(double clk, int cores) : CPU(clk, cores) {}
+    void benchmark() override {
+        cout << "AMD CPU benchmark" << endl;
+    }
+};
+
+int main() {
+    IntelCPU i7(3.5, 4);
+    i7.benchmark();
+    AMDCPU ryzen(3.8, 6);
+    ryzen.benchmark();
+    return 0;
+}

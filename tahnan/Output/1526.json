@@ -1,0 +1,12 @@
+{
+  "language": "cpp",
+  "test_cases": [
+    {
+      "input": "",
+      "expected": "Current: 22, Target: 25, Mode: HEAT\nCurrent: 23, Target: 25, Mode: HEAT\nCurrent: 24, Target: 25, Mode: HEAT\nCurrent: 25, Target: 25, Mode: HEAT\n"
+    }
+  ],
+  "driver": "#include <iostream>\n#include <fstream>\n#include <sstream>\n#include <vector>\n#include <string>\n#include <cstdlib>\nusing namespace std;\nint main(){\nvector<pair<string,string>> tests={{\"\",\"Current: 22, Target: 25, Mode: HEAT\\nCurrent: 23, Target: 25, Mode: HEAT\\nCurrent: 24, Target: 25, Mode: HEAT\\nCurrent: 25, Target: 25, Mode: HEAT\\n\"}};\nint compile_status=system(\"g++ student.cpp -o student.out\");\nif(compile_status!=0){cout<<\"Compilation failed!\";return 0;}\nint passed=0;\nfor(auto &t:tests){ofstream fin(\"input.txt\");fin<<t.first;fin.close();system(\"./student.out < input.txt > output.txt\");ifstream fout(\"output.txt\");stringstream buffer;buffer<<fout.rdbuf();string out=buffer.str();fout.close();if(out==t.second) passed++;}\ncout<<passed<<\"/\"<<tests.size();\nreturn 0;\n}",
+  "code_quality": 2,
+  "correctness": 0
+}

@@ -1,0 +1,2 @@
+#include <iostream>
+using namespace std;class NetworkDevice{public:string ip,mac;NetworkDevice(string i,string m){ip=i;mac=m;}virtual void config(){cout<<"Base config";}};class Router:public NetworkDevice{public:Router(string i,string m):NetworkDevice(i,m){} void config(){cout<<"Router config";}};class Switch:public NetworkDevice{public:Switch(string i,string m):NetworkDevice(i,m){} void config(){cout<<"Switch config";}};int main(){Router r("192.168.1.1","AA:BB");Switch s("192.168.1.2","CC:DD");r.config();s.config();}

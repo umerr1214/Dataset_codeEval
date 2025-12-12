@@ -1,0 +1,2 @@
+#include<iostream>
+using namespace std;class Shape{public:virtual double area()=0;};class Rectangle:public Shape{double l,w;public:Rectangle(double a,double b){l=a;w=b;}double area(){return l*w;}};class Circle:public Shape{double r;public:Circle(double rad){r=rad;}double area(){return 3.14*r*r;}};int main(){int ch;double x,y;cin>>ch;if(ch==1){cin>>x>>y;Rectangle r(x,y);cout<<"Area: "<<r.area()<<endl;}else{cin>>x;Circle c(x);cout<<"Area: "<<c.area()<<endl;}return 0;}
