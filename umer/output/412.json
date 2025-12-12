@@ -1,0 +1,16 @@
+{
+  "language": "c++",
+  "question": "Create a function called calculateArea that calculates and returns the area of a square given the length of its side. Signature: double calculateArea(double sideLength);",
+  "test_cases": [
+    { "input": "5.0", "expected": "25" },
+    { "input": "3.5", "expected": "12.25" },
+    { "input": "10.0", "expected": "100" },
+    { "input": "0.0", "expected": "0" },
+    { "input": "-2.5", "expected": "6.25" }
+  ],
+  "driver": "#include <iostream>\n#include <cassert>\n#include <cmath>\nusing namespace std;\n\ndouble calculateArea(double sideLength);\n\nint main() {\n    assert(abs(calculateArea(5.0) - 25.0) < 0.001);\n    assert(abs(calculateArea(3.5) - 12.25) < 0.001);\n    assert(abs(calculateArea(10.0) - 100.0) < 0.001);\n    assert(abs(calculateArea(0.0) - 0.0) < 0.001);\n    assert(abs(calculateArea(-2.5) - 6.25) < 0.001);\n    cout << \"All tests passed!\" << endl;\n    return 0;\n}",
+  "code_quality": 6,
+  "correctness": 7,
+  "error_type": "Robustness Issue",
+  "errors": ["Function does not validate input - accepts negative side lengths which are geometrically invalid for a square"]
+}

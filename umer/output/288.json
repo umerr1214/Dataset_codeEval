@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Write a program that calculates the occupancy rate for a hotel. The program should start by asking the user how many floors the hotel has. A loop should then iterate once for each floor. In each iteration, the loop should ask the user for the number of rooms on the floor and how many of them are occupied. After all the iterations, the program should display how many rooms the hotel has, how many of them are occupied, how many are unoccupied, and the percentage of rooms that are occupied. The percentage may be calculated by dividing the number of rooms occupied by the number of rooms.\nNOTE: It is traditional that most hotels do not have a thirteenth floor. The loop in this program should skip the entire thirteenth iteration.",
+  "test_cases": [
+    { "input": "15 10 5 12 8 10 6 8 4 9 7 11 9 15 12 20 18", "expected": "Hotel Occupancy Report with proper 13th floor skip" },
+    { "input": "5 20 15 25 20 30 25 15 10 18 12", "expected": "Total rooms: 108, Occupied: 82, Unoccupied: 26, Rate: 75.93%" }
+  ],
+  "driver": "#include <iostream>\n#include <iomanip>\nusing namespace std;\n\nint main() {\n    // Test the correct implementation\n    return 0;\n}",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
+}

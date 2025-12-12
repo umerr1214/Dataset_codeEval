@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "For the first part of this lab, we are going to see if base class pointers can point to an object of derived class and vice versa. Perform the following steps:\n• Create a class called Animal.\n• An animal can speak so create a public method named speak in the which returns a char *\n• Modify the definition of the speak method so that it returns the string \"speak() called.\".\n• A Dog is an Animal. Create a class named Dog. Use public inheritance.\n• The Dog class will inherit the speak method from Animal. Override this method in the Dog class so that it returns \"woof!\" when called.\n• Add the following lines in the main function of your program:\n\nAnimal objAnimal;\nDog objDog;\nAnimal *ptrAnimal = &objAnimal;\nDog *ptrDog = &objDog;\n\ncout << objAnimal.speak() << endl;\ncout << objDog.speak() << endl;\ncout << ptrAnimal->speak() << endl;\ncout << ptrDog->speak() << endl;\ncout << ptrDog->Animal::speak() << endl;",
+  "test_cases": [
+    { "input": "", "expected": "speak() called.\nwoof!\nspeak() called.\nwoof!\nspeak() called." }
+  ],
+  "driver": "int main() {\n    Animal objAnimal;\n    Dog objDog;\n    Animal *ptrAnimal = &objAnimal;\n    Dog *ptrDog = &objDog;\n    \n    cout << objAnimal.speak() << endl;\n    cout << objDog.speak() << endl;\n    cout << ptrAnimal->speak() << endl;\n    cout << ptrDog->speak() << endl;\n    cout << ptrDog->Animal::speak() << endl;\n    \n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after cout << ptrDog->Animal::speak() << endl statement on line 27"]
+}

@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "You are driving a little too fast, and a police officer stops you. Write C++ program to input the speed and date and compute the result, encoded as an integer value: 0=no ticket, 1=small ticket, 2=big ticket. If speed is 60 or less, the result is 0. If speed is between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2. If it is your birthday on that day, your speed can be 5 higher in all cases.",
+  "test_cases": [
+    { "input": "65 1", "expected": "1 (incorrect, should be 0 with birthday bonus)" },
+    { "input": "75 1", "expected": "2 (incorrect, should be 1 with birthday bonus)" },
+    { "input": "60 0", "expected": "0 (correct)" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test the logical error\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 4,
+  "error_type": "Logical Error",
+  "errors": ["Line 17: Adds 5 to speed instead of subtracting 5 - birthday bonus should allow 5 higher speed, so we should reduce the effective speed for comparison"]
+}

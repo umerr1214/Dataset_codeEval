@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Use of friend functions. Add two more functions in class Distance: 1. friend istream &operator>>( istream &input, Distance &D ) 2. friend ostream &operator<<( ostream &output, const Distance &D ). In these two functions you have to Input and Output the Distance object.",
+  "test_cases": [
+    { "input": "5\n8\n3\n6\n", "expected": "Enter distance 1:\nEnter feet: Enter inches: Enter distance 2:\nEnter feet: Enter inches: Distance 1: 5 feet 8 inches\nDistance 2: 3 feet 6 inches\nAfter ++d1: 6 feet 9 inches\nd3 = -d2: -3 feet -6 inches" }
+  ],
+  "driver": "int main() { Distance d1, d2; cout << \"Enter distance 1:\" << endl; cin >> d1; cout << \"Enter distance 2:\" << endl; cin >> d2; cout << \"Distance 1: \" << d1 << endl; cout << \"Distance 2: \" << d2 << endl; ++d1; cout << \"After ++d1: \" << d1 << endl; Distance d3 = -d2; cout << \"d3 = -d2: \" << d3 << endl; return 0; }",
+  "code_quality": 4,
+  "correctness": 5,
+  "error_type": "Logical Error",
+  "errors": ["Output operator swaps feet and inches values in display"]
+}

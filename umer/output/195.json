@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Write two function templates GetMax and GetMin that take two arguments and return the maximum and minimum of the two respectively. Then implement a class template called Pair that stores two variables of the same type. The program should work with the provided main function that tests these templates with int, long, and char types.",
+  "test_cases": [
+    { "input": "5 6 10 5 'a' 'c'", "expected": "6\n5\na" }
+  ],
+  "driver": "int main () {\n  int i=5, j=6, k;\n  long l=10, m=5, n;\n  char c1 = 'a' , c2 = 'c' , c3;\n  k= GetMax<int>(i,j);\n  n= GetMin<long>(l,m);\n  c3 = GetMin<char>(c1,c2);\n  cout << k << endl;\n  cout << n << endl;\n  cout << c3 << endl;\n  return 0;\n}",
+  "code_quality": 5,
+  "correctness": 4,
+  "error_type": "Semantic Error",
+  "errors": ["Missing template parameter specification in function calls", "Template functions called without explicit type parameters", "Compiler may not be able to deduce template types in some cases"]
+}

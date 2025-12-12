@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Write a program to print out all Armstrong numbers between 1 and 500. If sum of cubes of each digit of the number is equal to the number itself, then the number is called an Armstrong number.\nFor example, 153 = ( 1 * 1 * 1 ) + ( 5 * 5 * 5 ) + ( 3 * 3 * 3 )",
+  "test_cases": [
+    { "input": "", "expected": "1 153 371 407" },
+    { "input": "", "expected": "Armstrong numbers between 1 and 500:" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test the program\n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after cout statement on line 21"]
+}

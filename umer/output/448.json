@@ -1,0 +1,27 @@
+{
+  "language": "c++",
+  "question": "Create a function called printMessage that prints a given message to the console. Signature: void printMessage(const std::string& message);",
+  "test_cases": [
+    {
+      "input": "Hi",
+      "expected": "Hi"
+    },
+    {
+      "input": "Short",
+      "expected": "Short"
+    },
+    {
+      "input": "This string is way too long for the buffer",
+      "expected": "This string is way too long for the buffer"
+    }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid printMessage(const string& message);\n\nint main() {\n    string line;\n    while (getline(cin, line)) {\n        printMessage(line);\n    }\n    return 0;\n}",
+  "code_quality": 6,
+  "correctness": 7,
+  "error_type": "Robustness Issue",
+  "errors": [
+    "Buffer overflow vulnerability",
+    "Unsafe use of strcpy with fixed buffer",
+    "Crashes on long inputs"
+  ]
+}

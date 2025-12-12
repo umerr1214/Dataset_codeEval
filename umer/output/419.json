@@ -1,0 +1,16 @@
+{
+  "language": "c++",
+  "question": "Overloaded function: Create another version of calculateArea that calculates and returns the area of a rectangle given its length and width. Signature: double calculateArea(double length, double width);",
+  "test_cases": [
+    { "input": "5.0 3.0", "expected": "15" },
+    { "input": "4.5 2.0", "expected": "9" },
+    { "input": "10.0 7.5", "expected": "75" },
+    { "input": "0.0 5.0", "expected": "0" },
+    { "input": "3.2 4.8", "expected": "15.36" }
+  ],
+  "driver": "#include <iostream>\n#include <cassert>\n#include <cmath>\nusing namespace std;\n\ndouble calculateArea(double sideLength);\ndouble calculateArea(double length, double width);\n\nint main() {\n    assert(abs(calculateArea(5.0, 3.0) - 15.0) < 0.001);\n    assert(abs(calculateArea(4.5, 2.0) - 9.0) < 0.001);\n    assert(abs(calculateArea(10.0, 7.5) - 75.0) < 0.001);\n    assert(abs(calculateArea(0.0, 5.0) - 0.0) < 0.001);\n    assert(abs(calculateArea(3.2, 4.8) - 15.36) < 0.001);\n    cout << \"All tests passed!\" << endl;\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": ["Extremely inefficient nested loop implementation instead of simple multiplication, poor readability with unnecessary complexity"]
+}

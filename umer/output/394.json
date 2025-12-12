@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Implement a function in C++ that receives a string and converts all its characters to uppercase using pass-by-reference. Signature: void convertToUppercase(std::string& str);",
+  "test_cases": [
+    { "input": "hello world", "expected": "Uppercase string: HELLO WORLD" },
+    { "input": "Test123", "expected": "Uppercase string: TEST123" },
+    { "input": "c++ programming", "expected": "Uppercase string: C++ PROGRAMMING" },
+    { "input": "", "expected": "Uppercase string: " }
+  ],
+  "driver": "#include <iostream>\n#include <string>\n#include <cctype>\nusing namespace std;\n\nvoid convertToUppercase(std::string& str);\n\nint main() {\n    string text;\n    getline(cin, text);\n    convertToUppercase(text);\n    cout << \"Uppercase string: \" << text << endl;\n    return 0;\n}",
+  "code_quality": 7,
+  "correctness": 8,
+  "error_type": "Robustness Issue",
+  "errors": ["No validation for empty string input - may cause issues with some edge cases", "No bounds checking for string access"]
+}

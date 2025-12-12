@@ -1,0 +1,26 @@
+{
+  "language": "c++",
+  "question": "Overloaded function: Create another version of calculateVolume that calculates and returns the volume of a rectangular prism given its length, width, and height. Signature: double calculateVolume(double length, double width, double height);",
+  "test_cases": [
+    {
+      "input": "2 3 4",
+      "expected": "24"
+    },
+    {
+      "input": "5 2 2",
+      "expected": "20"
+    },
+    {
+      "input": "1 1 1",
+      "expected": "1"
+    }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\ndouble calculateVolume(double, double, double);\n\nint main() {\n    double l, w, h;\n    while (cin >> l >> w >> h) {\n        cout << calculateVolume(l, w, h) << endl;\n    }\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": [
+    "Unnecessary intermediate variables",
+    "Verbose code for simple calculation"
+  ]
+}

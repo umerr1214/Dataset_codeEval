@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Write a program that inputs a number from the user and displays its factorial. It asks the user whether user wants to calculate another factorial or not. If the users inputs 1, it again inputs number and calculate another factorial. If the user inputs 0, the program terminates.",
+  "test_cases": [
+    { "input": "5 1 3 0", "expected": "Factorial of 5 is 120, Factorial of 3 is 6, Program terminated" },
+    { "input": "0 1 4 0", "expected": "Factorial of 0 is 1, Factorial of 4 is 24, Program terminated" },
+    { "input": "6 0", "expected": "Factorial of 6 is 720, Program terminated" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test the correct implementation\n    return 0;\n}",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
+}

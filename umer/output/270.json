@@ -1,0 +1,16 @@
+{
+  "language": "c++",
+  "question": "Write a program to find greatest common divisor (GCD) or highest common factor (HCF) of given two numbers.",
+  "test_cases": [
+    { "input": "48 18", "expected": "6" },
+    { "input": "56 42", "expected": "14" },
+    { "input": "17 13", "expected": "1" },
+    { "input": "100 25", "expected": "25" },
+    { "input": "7 3", "expected": "1" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test the correct implementation\n    return 0;\n}",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
+}

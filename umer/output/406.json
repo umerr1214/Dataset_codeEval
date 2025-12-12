@@ -1,0 +1,16 @@
+{
+  "language": "c++",
+  "question": "Write a function in C++ that takes a floating-point number as input and rounds it to the nearest integer. The rounded value should be stored in a variable passed by reference. Signature: void roundToNearestInteger(double num, int& roundedNum)",
+  "test_cases": [
+    { "input": "3.7", "expected": "Rounded value: 4" },
+    { "input": "2.3", "expected": "Rounded value: 2" },
+    { "input": "-1.6", "expected": "Rounded value: -2" },
+    { "input": "5.5", "expected": "Rounded value: 6" },
+    { "input": "1e20", "expected": "Potential overflow or undefined behavior" }
+  ],
+  "driver": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nvoid roundToNearestInteger(double num, int& roundedNum);\n\nint main() {\n    double number;\n    int rounded;\n    cin >> number;\n    roundToNearestInteger(number, rounded);\n    cout << \"Rounded value: \" << rounded << endl;\n    return 0;\n}",
+  "code_quality": 7,
+  "correctness": 8,
+  "error_type": "Robustness Issue",
+  "errors": ["No validation for double values that exceed int range - may cause overflow when converting from double to int"]
+}

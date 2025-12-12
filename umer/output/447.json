@@ -1,0 +1,26 @@
+{
+  "language": "c++",
+  "question": "Create a function called printMessage that prints a given message to the console. Signature: void printMessage(const std::string& message);",
+  "test_cases": [
+    {
+      "input": "Hello",
+      "expected": "Hello"
+    },
+    {
+      "input": "World",
+      "expected": "World"
+    },
+    {
+      "input": "",
+      "expected": ""
+    }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid printMessage(const string& message);\n\nint main() {\n    string line;\n    while (getline(cin, line)) {\n        printMessage(line);\n    }\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 5,
+  "error_type": "Semantic Error",
+  "errors": [
+    "Prints string length instead of string content",
+    "Misunderstanding of function purpose"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Write a program that prompts the user to enter a number. Your task is to determine whether a number is positive or negative. If a number is positive, then check whether it is an even or an odd number. If the number is even then display a message \"Positive Even Number\" if it is an odd number then print \"Positive Odd Number\". If a number is negative, then check whether it is a perfect square or not. If a number is a perfect square, then print the message \"Negative value with perfect square of absolute\" otherwise simply display the message \"Neither positive nor perfect square of absolute\". (using nested if-else statement)\nSample Output: Enter a number: 864\nPositive Even number\nEnter a number: 923\nPositive Odd Number",
+  "test_cases": [
+    { "input": "864", "expected": "Positive Even Number" },
+    { "input": "923", "expected": "Positive Odd Number" },
+    { "input": "-49", "expected": "Negative value with perfect square of absolute" }
+  ],
+  "driver": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    // Test the program with different inputs\n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after return statement on line 27"]
+}

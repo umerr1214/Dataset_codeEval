@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Write a program to print out all Armstrong numbers between 1 and 500. If sum of cubes of each digit of the number is equal to the number itself, then the number is called an Armstrong number.\nFor example, 153 = ( 1 * 1 * 1 ) + ( 5 * 5 * 5 ) + ( 3 * 3 * 3 )",
+  "test_cases": [
+    { "input": "", "expected": "1 153 371 407" },
+    { "input": "", "expected": "Armstrong numbers between 1 and 500:" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test with proper formatting\n    return 0;\n}",
+  "code_quality": 3,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": ["Entire algorithm logic compressed into one extremely long unreadable line", "No spaces around operators", "No proper indentation or formatting", "Extremely difficult to read and debug", "Poor maintainability", "No comments explaining the algorithm"]
+}

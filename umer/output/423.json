@@ -1,0 +1,16 @@
+{
+  "language": "c++",
+  "question": "Implement a function called sumNumbers that calculates and returns the sum of two integers. Signature: int sumNumbers(int num1, int num2);",
+  "test_cases": [
+    { "input": "5 3", "expected": "8" },
+    { "input": "10 -2", "expected": "8" },
+    { "input": "-5 -3", "expected": "-8" },
+    { "input": "0 7", "expected": "7" },
+    { "input": "100 200", "expected": "300" }
+  ],
+  "driver": "#include <iostream>\n#include <cassert>\nusing namespace std;\n\nint sumNumbers(int num1, int num2);\n\nint main() {\n    assert(sumNumbers(5, 3) == 8);\n    assert(sumNumbers(10, -2) == 8);\n    assert(sumNumbers(-5, -3) == -8);\n    assert(sumNumbers(0, 7) == 7);\n    assert(sumNumbers(100, 200) == 300);\n    cout << \"All tests passed!\" << endl;\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 5,
+  "error_type": "Semantic Error",
+  "errors": ["Function signature mismatch: returns double instead of int as specified in the signature"]
+}

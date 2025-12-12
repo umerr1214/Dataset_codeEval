@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Write a function void printDiagonal() for printing number in diagonal excluding multiple of 3, as shown in sample output. Note: Input shall be taken within the function and not as a parameter.",
+  "test_cases": [
+    { "input": "5", "expected": "1\n2\n5\n10\n16\n\n4\n7\n11\n17\n\n8\n13\n19\n\n14\n20\n\n22\n" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nvoid printDiagonal();\n\nint main() {\n    printDiagonal();\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 4,
+  "error_type": "Semantic Error",
+  "errors": ["Function does not handle spacing correctly between numbers", "Output format doesn't match expected diagonal pattern with proper spacing"]
+}

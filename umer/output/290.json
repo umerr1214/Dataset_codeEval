@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Write a program that inputs a number from the user and displays its factorial. It asks the user whether user wants to calculate another factorial or not. If the users inputs 1, it again inputs number and calculate another factorial. If the user inputs 0, the program terminates.",
+  "test_cases": [
+    { "input": "5 1", "expected": "Program terminates immediately without calculating factorial" },
+    { "input": "4 0", "expected": "Program never enters the loop since choice starts as 1" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test the logical error\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": ["Line 7: Uses != 1 instead of == 1 in while condition. Since choice starts as 1, the loop never executes, so no factorial is ever calculated"]
+}

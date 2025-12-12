@@ -1,0 +1,16 @@
+{
+  "language": "c++",
+  "question": "Overloaded function: Create another version of sumNumbers that calculates and returns the sum of three integers. Signature: int sumNumbers(int num1, int num2, int num3);",
+  "test_cases": [
+    { "input": "5 3 2", "expected": "10" },
+    { "input": "2147483647 1 1", "expected": "overflow" },
+    { "input": "-2147483648 -1 -1", "expected": "overflow" },
+    { "input": "0 7 3", "expected": "10" },
+    { "input": "100 200 50", "expected": "350" }
+  ],
+  "driver": "#include <iostream>\n#include <cassert>\n#include <climits>\nusing namespace std;\n\nint sumNumbers(int num1, int num2);\nint sumNumbers(int num1, int num2, int num3);\n\nint main() {\n    assert(sumNumbers(5, 3, 2) == 10);\n    assert(sumNumbers(0, 7, 3) == 10);\n    assert(sumNumbers(100, 200, 50) == 350);\n    // Note: Overflow tests would require special handling\n    cout << \"All tests passed!\" << endl;\n    return 0;\n}",
+  "code_quality": 7,
+  "correctness": 8,
+  "error_type": "Robustness Issue",
+  "errors": ["Three-parameter function does not handle integer overflow - adding three large numbers can cause undefined behavior"]
+}

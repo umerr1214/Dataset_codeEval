@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "class Time Remember to make data members private. Members: int hour; int minute; int second; void setHour ( int h ); void setMinute ( int m ); void setSecond ( int s ); void setTime ( int h, int m, int s ); int getHour ( ); int getMinute ( ); int getSecond ( ); void printTwentyFourHourFormat(); // print universal time void printTwelveHourFormat(); // print standard time void incSec( int = 1 ); // increment in the second of the calling time object // default increment is 1 void incMin( int = 1 ); // increment in the minute of the calling time object // default increment is 1 void incHour( int = 1 ); // increment in the hour of the calling time object // default increment is 1 Input Validation: All Time object should have values of hour >= 1 and <= 23. And minute and second in range >= 1 and <= 59 Do proper validations",
+  "test_cases": [
+    { "input": "", "expected": "Default time: 01:01:01\nParameterized time (24-hour): 14:30:45\nParameterized time (12-hour): 02:30:45 PM\nAfter setting time: 09:15:30 AM\nAfter incrementing seconds by 35: 09:16:05\nAfter incrementing minutes by 50: 10:06:05\nAfter incrementing hours by 5: 15:06:05" },
+    { "input": "", "expected": "Default time: 01:01:01\nParameterized time (24-hour): 14:30:45\nParameterized time (12-hour): 02:30:45 PM\nAfter setting time: 09:15:30 AM\nAfter incrementing seconds by 35: 09:16:05\nAfter incrementing minutes by 50: 10:06:05\nAfter incrementing hours by 5: 15:06:05" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    Time t1;\n    cout << \"Default time: \";\n    t1.printTwentyFourHourFormat();\n    \n    Time t2(14, 30, 45);\n    cout << \"Parameterized time (24-hour): \";\n    t2.printTwentyFourHourFormat();\n    cout << \"Parameterized time (12-hour): \";\n    t2.printTwelveHourFormat();\n    \n    t1.setTime(9, 15, 30);\n    cout << \"After setting time: \";\n    t1.printTwelveHourFormat();\n    \n    t1.incSec(35);\n    cout << \"After incrementing seconds by 35: \";\n    t1.printTwentyFourHourFormat();\n    \n    t1.incMin(50);\n    cout << \"After incrementing minutes by 50: \";\n    t1.printTwentyFourHourFormat();\n    \n    t1.incHour(5);\n    cout << \"After incrementing hours by 5: \";\n    t1.printTwentyFourHourFormat();\n    \n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after closing brace of main function"]
+}

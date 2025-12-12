@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Write a program that asks the user to enter an item's wholesale cost and its markup percentage. It should then display the item's retail price. The program should have a function named calculateRetail that receives the wholesale cost and the markup percentage as parameters and returns the retail price of the item. Input Validation: Do not accept negative values for either the wholesale cost of the item or the markup percentage.",
+  "test_cases": [
+    { "input": "5.00\n100", "expected": "Retail price: $10" },
+    { "input": "5.00\n50", "expected": "Retail price: $7.5" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\ndouble calculateRetail(double wholesale, double markup);\n\nint main() {\n    // Test the function\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 5,
+  "error_type": "Semantic Error",
+  "errors": ["Missing newline character in output format", "Output format doesn't match expected format exactly"]
+}

@@ -1,0 +1,19 @@
+{
+  "language": "c++",
+  "question": "Implement a class called Complex. The Complex class will have two data members:\n●\tint real;\t\t // The real part of complex number\n●\tint imaginary; \t\t// Imaginary part of the complex number.\n\nYou have to implement default constructor, overloaded constructor, copy constructor, destructor and overload the operators +, - , << , >>, ==, !=,=\n\nsample run:\nint main()\n{\n\tComplex C1;\n\tComplex C2(5,6);\n\tComplex C3;\n\n\tcout<<\"Input a complex number\"<<endl;\n\tcin>>C3;\n\n\tcout<<C1<<C2<<C3;\n\n\tif(C1==C2)\n\t\tcout<<\"C1 == C2\"<<endl;\n\telse\n\t\tcout<<\"C1 != C2\"<<endl;\n\n\tif(C1!=C3)\n\t\tcout<<\"C1 != C3\"<<endl;\n\telse\n\t\tcout<<\"C1==C3\"<<endl;\n\n\tComplex C4= C2 - C3;\n\tcout<<C4;\n\n\tsystem(\"pause\");\n\treturn 0;\n}",
+  "test_cases": [
+    {
+      "input": "2 3",
+      "expected": "Input a complex number\nEnter real part: Enter imaginary part: 0+0i5+6i2+3i\nC1 != C2\nC1 != C3\n3+3i\n"
+    }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    Complex a; Complex b(5,6); Complex c;\n    cout<<\"Input a complex number\"<<endl; cin>>c;\n    cout<<a<<b<<c<<endl;\n    if(a==b) cout<<\"C1 == C2\"<<endl; else cout<<\"C1 != C2\"<<endl;\n    if(a!=c) cout<<\"C1 != C3\"<<endl; else cout<<\"C1==C3\"<<endl;\n    Complex d=b-c; cout<<d<<endl;\n    return 0;\n}",
+  "code_quality": 3,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": [
+    "Poor code formatting (one-liners)",
+    "Non-descriptive variable names (r, i, o, x)",
+    "Pass-by-value for complex objects instead of const reference"
+  ]
+}

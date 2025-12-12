@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Change the main function of your program and replace it with the code below. Execute it and paste the output in the box below.\n\nDog lassie;\nAnimal *myPet = &lassie;\ncout << myPet->speak() << endl;\n\nspeak() called\nYou will see that as expected, the speak method of the base class was called. What if we wanted to use the definition of the derived class function? To accomplish this, we can add the keyword virtual to the declaration of the speak() method in the Animal class. Specifying a function as virtual makes sure that whenever we use a base class pointer pointing to an object of a derived class to call a function, the definition of the method declared in the derived class is used. Modify the speak method of the Animal class as shown below, compile your code, execute it and paste the output in the space provided below.\n\nvirtual char * speak()\n{\n    return \"speak() called.\";\n}\n\nwoof!",
+  "test_cases": [
+    { "input": "", "expected": "woof!" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nclass Animal {\npublic:\n    virtual char* speak() {\n        return \"speak() called.\";\n    }\n};\n\nclass Dog : public Animal {\npublic:\n    char* speak() override {\n        return \"woof!\";\n    }\n};\n\nint main() {\n    Dog lassie;\n    Animal *myPet = &lassie;\n    cout << myPet->speak() << endl;\n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after cout statement on line 21"]
+}

@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Create a class Student having following private data members: string roll-number, Int age, Float cgpa. Create a public member function print in Student class which prints a Student info in following format: roll#/age/cgpa (e.g. 21L-1234/ 25/ 3.24 for std_1). Write a default Constructor of Student that initializes the objects with the default values (21L-1234, 25, 3.24) and prints a message \"Default Constructor Called\". Write an overloaded/parameterized Constructor of Student class that initializes the data members of student class with the received parameters (r , a and c) and prints \"Overloaded/parameterized Constructor Called\". Create a public function getInput in your student class that takes input from user to populate a Student object. Create separate setter functions for each data member and similarly getter functions for each data member. Dynamically create an object std_3 using default constructor. Call the setter functions for std_3 and pass the relevant data into the parameters. Call the getter functions from main function for std_3 and display the data inside main function.",
+  "test_cases": [
+    { "input": "21L-7890\n20\n3.5", "expected": "Default Constructor Called\n21L-1234/25/3.24\nOverloaded/parameterized Constructor Called\n21L-5678/19/3.46\nEnter roll number: Enter age: Enter CGPA: 21L-7890/20/3.5\nDefault Constructor Called\nStudent 3 data:\nRoll Number: 21L-9999\nAge: 22\nCGPA: 3.85" },
+    { "input": "21L-1111\n21\n3.8", "expected": "Default Constructor Called\n21L-1234/25/3.24\nOverloaded/parameterized Constructor Called\n21L-5678/19/3.46\nEnter roll number: Enter age: Enter CGPA: 21L-1111/21/3.8\nDefault Constructor Called\nStudent 3 data:\nRoll Number: 21L-9999\nAge: 22\nCGPA: 3.85" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    Student std_1;\n    std_1.print();\n    \n    Student std_2(\"21L-5678\", 19, 3.46);\n    std_2.print();\n    \n    std_1.getInput();\n    std_1.print();\n    \n    Student* std_3 = new Student();\n    std_3->setRollNumber(\"21L-9999\");\n    std_3->setAge(22);\n    std_3->setCgpa(3.85);\n    \n    cout << \"Student 3 data:\" << endl;\n    cout << \"Roll Number: \" << std_3->getRollNumber() << endl;\n    cout << \"Age: \" << std_3->getAge() << endl;\n    cout << \"CGPA: \" << std_3->getCgpa() << endl;\n    \n    delete std_3;\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 5,
+  "error_type": "Logical Error",
+  "errors": ["Memory leak: dynamically allocated object std_3 is not properly deleted, causing memory leak"]
+}

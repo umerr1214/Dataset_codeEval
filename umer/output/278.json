@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Print the square roots of the first 25 odd positive integers",
+  "test_cases": [
+    { "input": "", "expected": "Will print square roots of even numbers instead of odd numbers" },
+    { "input": "", "expected": "sqrt(2) = 1.414, sqrt(4) = 2, sqrt(6) = 2.449, ..." }
+  ],
+  "driver": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    // Test the logical error\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": ["Line 12: Uses == 0 to check for odd numbers, which actually checks for even numbers. Should be num % 2 == 1 or num % 2 != 0 for odd numbers"]
+}

@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Implement a Pair class template with: private array 'values' of size 2, constructor taking two parameters, inline GetMax function, GetMin function defined outside class body. The program should work with the provided main function that creates a Pair<double> object and calls getmax().",
+  "test_cases": [
+    { "input": "1.012 1.01234", "expected": "1.01234" }
+  ],
+  "driver": "int main () {\n  Pair <double> myobject (1.012, 1.01234);\n  cout << myobject.getmax();\n  return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing closing brace for main function", "Compilation will fail due to syntax error"]
+}

@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Implement the following function in C++ called that takes in as input a number N and prints the first N number of the fibonacci sequence. Please also write the driver program for N = 10 and 15.\nvoid fibonacciSeries(int n)",
+  "test_cases": [
+    { "input": "10", "expected": "0 1 1 2 3 5 8 13 21 34" },
+    { "input": "15", "expected": "0 1 1 2 3 5 8 13 21 34 55 89 144 233 377" },
+    { "input": "5", "expected": "0 1 1 2 3" }
+  ],
+  "driver": "#include <iostream>\n#include <sstream>\nusing namespace std;\n\nint main() {\n    // Test case implementation\n    return 0;\n}",
+  "code_quality": 7,
+  "correctness": 8,
+  "error_type": "Robustness Issue",
+  "errors": ["No input validation for negative or zero values", "Function doesn't handle edge cases gracefully", "No error messages for invalid input", "May produce unexpected behavior with negative input"]
+}

@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "(Nested-if) Write a C++ program that takes four numbers from user as an input. Find the maximum from the given numbers using nested if.\nSample Output: Input: 21 7 11 34 Output: 34",
+  "test_cases": [
+    { "input": "21 7 11 34", "expected": "34" },
+    { "input": "5 10 3 8", "expected": "10" },
+    { "input": "1 1 1 1", "expected": "1" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test the program with different inputs\n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after cout statement on line 35"]
+}

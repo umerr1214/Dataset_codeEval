@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Include string header file in the code like #include<string> and run the following statements\ncout << string(2, ' '); //it will print 2 spaces\ncout << string(3, '*'); //it will print 3 stars after spaces\nNow write a program to print the following pattern using single loop and with only two cout statements (one for the spaces and other for printing the stars on the screen). The hyphen (-) in the pattern are representing spaces. Prompt the user to enter number of lines. Input value of lines is 4 in the example\n-\t-\t-\t*\t-\t-\t-\n-\t-\t*\t*\t*\t-\t-\n-\t*\t*\t*\t*\t*\t-\n*\t*\t*\t*\t*\t*\t*",
+  "test_cases": [
+    { "input": "4", "expected": "   *\n  ***\n *****\n*******" },
+    { "input": "3", "expected": "  *\n ***\n*****" },
+    { "input": "5", "expected": "    *\n   ***\n  *****\n *******\n*********" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    // Test the correct implementation\n    return 0;\n}",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
+}

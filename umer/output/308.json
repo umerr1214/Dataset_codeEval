@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Raising a number to a power p is the same as multiplying n by itself p times. Write a function called power that takes two arguments, a double value for n and an int value for p, and return the result as double value. Use default argument of 2 for p, so that if this argument is omitted the number will be squared. Write the main function that gets value from the user to test power function.",
+  "test_cases": [
+    { "input": "2.0 3", "expected": "8" },
+    { "input": "5.0 2", "expected": "25" },
+    { "input": "3.0", "expected": "9" }
+  ],
+  "driver": "#include <iostream>\n#include <sstream>\nusing namespace std;\n\nint main() {\n    // Test case implementation\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": ["Uses addition (+=) instead of multiplication (*=) in power calculation", "Function calculates n*p instead of n^p", "Produces completely wrong mathematical result"]
+}

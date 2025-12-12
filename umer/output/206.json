@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Add a static data member 'count' to the Pair class template, with static functions to set and get its value. Implement template specialization for Container class with char type having uppercase function instead of increase. The program should create multiple Pair objects and display count of int and double objects.",
+  "test_cases": [
+    { "input": "Multiple Pair objects creation", "expected": "Count of int objects: 2\nCount of double objects: 3" }
+  ],
+  "driver": "int main () {\n  Pair <double> myobject1 (1.012, 1.01234);\n  Pair <double> myobject2 (2.012, 2.01234);\n  Pair <double> myobject3 (3.012, 3.01234);\n  Pair <int> myobject4 (1, 1);\n  Pair <int> myobject5 (2, 4);\n  cout << \"Count of int objects: \" << Pair<int>::getCount() << endl;\n  cout << \"Count of double objects: \" << Pair<double>::getCount() << endl;\n  return 0;\n}",
+  "code_quality": 4,
+  "correctness": 4,
+  "error_type": "Logical Error",
+  "errors": ["Count decremented instead of incremented in constructor", "Container increase function decrements instead of increments", "Uppercase function checks uppercase letters instead of lowercase", "Uppercase conversion adds 32 instead of subtracting"]
+}

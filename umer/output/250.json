@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Write a program that simulates a simple calculator. It reads two operands (int type) and an operator (character type). It performs the following arithmetic operations.\n• a + b\n• a - b\n• a * b\n• a / b\n• a % b\nSample Output: Input: Enter First Operand: 10 Enter Second Operand: 5 Enter operator: + Output: 10 + 5 = 15",
+  "test_cases": [
+    { "input": "10 5 +", "expected": "10 + 5 = 15" },
+    { "input": "10 0 /", "expected": "Program crashes or undefined behavior" },
+    { "input": "abc", "expected": "Program fails with invalid input" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test with edge cases and invalid inputs\n    return 0;\n}",
+  "code_quality": 6,
+  "correctness": 7,
+  "error_type": "Robustness Issue",
+  "errors": ["No division by zero check", "No modulo by zero check", "No input validation for non-integer inputs", "No handling of input stream errors", "Assumes cin operations always succeed", "No error recovery mechanism"]
+}

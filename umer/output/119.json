@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Consider the Time class in the following code and write the body of the function prototypes given for class Time. And in main function write a line of code that creates an instance of the Time class and sets the time to 12:34:56 using the cascading technique.",
+  "test_cases": [
+    { "input": "", "expected": "12:34:56" }
+  ],
+  "driver": "int main() { Time t; t.setHour(12).setMinute(34).setSecond(56); t.printUniversal(); return 0; }",
+  "code_quality": 4,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": ["Not using cascading technique as required - uses separate method calls instead of chaining"]
+}

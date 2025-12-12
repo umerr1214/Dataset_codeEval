@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Write a function in C++ that takes two integers and calculates their quotient and remainder using pass-by-reference. Signature: void calculateQuotientAndRemainder(int dividend, int divisor, int& quotient, int& remainder);",
+  "test_cases": [
+    { "input": "10 3", "expected": "Quotient: 3\nRemainder: 1" },
+    { "input": "15 4", "expected": "Quotient: 3\nRemainder: 3" },
+    { "input": "20 5", "expected": "Quotient: 4\nRemainder: 0" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nvoid calculateQuotientAndRemainder(int dividend, int divisor, int& quotient, int& remainder);\n\nint main() {\n    int dividend, divisor, quotient, remainder;\n    cin >> dividend >> divisor;\n    calculateQuotientAndRemainder(dividend, divisor, quotient, remainder);\n    cout << \"Quotient: \" << quotient << endl;\n    cout << \"Remainder: \" << remainder << endl;\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": ["Poor variable naming: uses single-letter variables 'a', 'b', 'c', 'd' instead of descriptive names", "Inconsistent variable naming compared to function signature"]
+}

@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Write a program to find greatest common divisor (GCD) or highest common factor (HCF) of given two numbers.",
+  "test_cases": [
+    { "input": "48 18", "expected": "Compilation error due to type mismatch" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    // Test type compatibility\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 5,
+  "error_type": "Semantic Error",
+  "errors": ["Line 10: Variable 'gcd' declared as string but should be int", "Line 18: Type mismatch - attempting to assign int value to string variable 'gcd'"]
+}

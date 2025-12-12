@@ -1,0 +1,26 @@
+{
+  "language": "c++",
+  "question": "Create a function called printMessage that prints a given message to the console. Signature: void printMessage(const std::string& message);",
+  "test_cases": [
+    {
+      "input": "Hello World",
+      "expected": "Hello World"
+    },
+    {
+      "input": "Testing 123",
+      "expected": "Testing 123"
+    },
+    {
+      "input": "Efficiency Check",
+      "expected": "Efficiency Check"
+    }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid printMessage(const string& message);\n\nint main() {\n    string line;\n    while (getline(cin, line)) {\n        printMessage(line);\n    }\n    return 0;\n}",
+  "code_quality": 3,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": [
+    "Inefficient character-by-character printing",
+    "Unnecessary loop complexity"
+  ]
+}

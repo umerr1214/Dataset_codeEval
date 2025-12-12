@@ -1,0 +1,19 @@
+{
+  "language": "c++",
+  "question": "Create a class ArrayInt with data members: int* ptr (dynamic array) and int size. Implement: Default constructor, Overloaded constructor (deep copy), Copy constructor (deep copy), Destructor, Getters/Setters, Display Function. Overload operators: ==, !=, += (append ArrayInt/int), -= (remove ArrayInt/int).",
+  "test_cases": [
+    {
+      "input": "",
+      "expected": "1 2 3 \n1 2 3 4 \n"
+    }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int x[]={1,2,3}; ArrayInt a(x,3); a.disp();\n    a+=4; a.disp();\n    return 0;\n}",
+  "code_quality": 3,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": [
+    "Poor code formatting (one-liners)",
+    "Non-descriptive variable names",
+    "Inefficient implementation of operator+=(ArrayInt) calling operator+=(int) repeatedly"
+  ]
+}

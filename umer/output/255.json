@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "You are driving a little too fast, and a police officer stops you. Write C++ program to input the speed and date and compute the result, encoded as an integer value: 0=no ticket, 1=small ticket, 2=big ticket. If speed is 60 or less, the result is 0. If speed is between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2. If it is your birthday on that day, your speed can be 5 higher in all cases.",
+  "test_cases": [
+    { "input": "65 1", "expected": "Compilation error due to type mismatch" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    // Test type compatibility\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 5,
+  "error_type": "Semantic Error",
+  "errors": ["Line 14: Variable 'result' declared as string but should be int", "Lines 23, 25, 27: Type mismatch - attempting to assign int values to string variable 'result'"]
+}

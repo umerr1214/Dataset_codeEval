@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Write a function in C++ that takes a character and a string as input. The function should count the number of occurrences of the character within the string and return the count using pass-by-reference. Signature: void countCharacterOccurrences(char ch, const std::string& str, int& count);",
+  "test_cases": [
+    { "input": "", "expected": "String: Hello World\nCharacter: l\nOccurrences: 3" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid countCharacterOccurrences(char ch, const string& str, int& count);\n\nint main() {\n    string text = \"Hello World\";\n    char character = 'l';\n    int occurrences;\n    cout << \"String: \" << text << endl;\n    cout << \"Character: \" << character << endl;\n    countCharacterOccurrences(character, text, occurrences);\n    cout << \"Occurrences: \" << occurrences << endl;\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": ["Function uses pass-by-value for count instead of pass-by-reference", "Count value won't be returned to main function because parameter is copied, not referenced"]
+}

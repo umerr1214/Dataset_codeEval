@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Create a class ArrayInt with data members: int* ptr (dynamic array) and int size. Implement: Default constructor, Overloaded constructor (deep copy), Copy constructor (deep copy), Destructor, Getters/Setters, Display Function. Overload operators: ==, !=, += (append ArrayInt/int), -= (remove ArrayInt/int).",
+  "test_cases": [
+    {
+      "input": "",
+      "expected": "Original Array: 1 2 3 4 5 \nCopy Constructor Called\nTesting += int:\n1 2 3 4 5 6 \nTesting += ArrayInt:\n1 2 3 4 5 6 7 8 \nTesting -= int:\n1 2 4 5 6 7 8 \nTesting -= ArrayInt:\n2 4 6 7 8 \nArrays are correctly different.\n"
+    }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[] = {1, 2, 3, 4, 5};\n    ArrayInt a1(arr, 5);\n    \n    cout << \"Original Array: \";\n    a1.display();\n\n    ArrayInt a2 = a1; // Tests copy constructor\n    \n    cout << \"Testing += int:\" << endl;\n    a1 += 6;\n    a1.display();\n    \n    cout << \"Testing += ArrayInt:\" << endl;\n    int arr2[] = {7, 8};\n    ArrayInt a3(arr2, 2);\n    a1 += a3;\n    a1.display();\n    \n    cout << \"Testing -= int:\" << endl;\n    a1 -= 3;\n    a1.display();\n\n    cout << \"Testing -= ArrayInt:\" << endl;\n    int arr3[] = {1, 5};\n    ArrayInt a4(arr3, 2);\n    a1 -= a4;\n    a1.display();\n\n    if (a1 != a2) {\n        cout << \"Arrays are correctly different.\" << endl;\n    }\n\n    return 0;\n}",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
+}

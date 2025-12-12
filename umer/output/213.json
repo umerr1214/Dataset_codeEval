@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Create an exception class 'DivideByZeroException' that overrides what() function. Write a divide function that takes dividend and divisor integers and returns division result. Throw DivideByZeroException if divisor is 0. Write main function with try-catch block to handle the exception.",
+  "test_cases": [
+    { "input": "10 0", "expected": "Error: Division by zero is not allowed!" }
+  ],
+  "driver": "int main() {\n  try {\n    int dividend = 10;\n    int divisor = 0;\n    double result = divide(dividend, divisor);\n    cout << \"Result: \" << result << endl;\n  } catch (const DivideByZeroException& e) {\n    cout << e.what() << endl;\n  }\n  return 0;\n}",
+  "code_quality": 5,
+  "correctness": 5,
+  "error_type": "Semantic Error",
+  "errors": ["Catch block uses wrong exception type name 'DivideByZeroError' instead of 'DivideByZeroException'", "Type mismatch will prevent exception from being caught", "Will cause compilation error due to undefined type"]
+}

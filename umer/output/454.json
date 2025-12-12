@@ -1,0 +1,26 @@
+{
+  "language": "c++",
+  "question": "Overloaded function: Create another version of printMessage that prints a given message a specified number of times. Signature: void printMessage(const std::string& message, int numTimes);",
+  "test_cases": [
+    {
+      "input": "Hello 3",
+      "expected": "Hello\nHello\nHello"
+    },
+    {
+      "input": "Negative -1",
+      "expected": ""
+    },
+    {
+      "input": "Zero 0",
+      "expected": ""
+    }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid printMessage(const string& message, int numTimes);\n\nint main() {\n    string message;\n    int num;\n    while (cin >> message >> num) {\n        printMessage(message, num);\n    }\n    return 0;\n}",
+  "code_quality": 6,
+  "correctness": 7,
+  "error_type": "Robustness Issue",
+  "errors": [
+    "Infinite loop for negative inputs",
+    "Unsafe loop condition != instead of <"
+  ]
+}

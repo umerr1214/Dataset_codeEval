@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Write a program which takes 3 integer values, a b c, as input and prints their sum. However, if one of the values is the same as another of the values, it does not count towards the sum. For example, if 1,2,3 is input then the system should output 6. If 2,2,3 is input then the system should output 3.",
+  "test_cases": [
+    { "input": "1 2 3", "expected": "Compilation error due to type mismatch" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    // Test type compatibility\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 4,
+  "error_type": "Semantic Error",
+  "errors": ["Line 25: Type mismatch - attempting to assign int variable 'sum' to string variable 'result' without proper conversion"]
+}

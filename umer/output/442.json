@@ -1,0 +1,26 @@
+{
+  "language": "c++",
+  "question": "Overloaded function: Create another version of findMax that finds and returns the maximum value among three integers. Signature: int findMax(int num1, int num2, int num3);",
+  "test_cases": [
+    {
+      "input": "5 5 2",
+      "expected": "5"
+    },
+    {
+      "input": "10 10 10",
+      "expected": "10"
+    },
+    {
+      "input": "3 1 1",
+      "expected": "3"
+    }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint findMax(int, int, int);\n\nint main() {\n    int a, b, c;\n    while (cin >> a >> b >> c) {\n        cout << findMax(a, b, c) << endl;\n    }\n    return 0;\n}",
+  "code_quality": 6,
+  "correctness": 7,
+  "error_type": "Robustness Issue",
+  "errors": [
+    "Fails when multiple inputs are equal and maximum",
+    "Strict inequality excludes equal max values"
+  ]
+}

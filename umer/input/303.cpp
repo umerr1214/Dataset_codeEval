@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int lines;
+    cout << "Enter number of lines: ";
+    cin >> lines;
+    
+    for (int i = 0; i < lines; i++) {
+        // Print leading spaces
+        for (int j = 0; j < i; j++) {
+            cout << " ";
+        }
+        
+        // Print stars - SEMANTIC ERROR: using undefined variable
+        for (int k = 0; k < (2 * numLines - 2 * i - 1); k++) {
+            cout << "*";
+        }
+        
+        cout << endl;
+    }
+    
+    return 0;
+}

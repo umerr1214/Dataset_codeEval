@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Input 3 numbers from the user and determine if a duplicate exists in the numbers. For example, if the user inputs 1,2,1, your program should output \"duplicate exists\" otherwise it should output \"duplicate does not exist\".",
+  "test_cases": [
+    { "input": "1 2 1", "expected": "duplicate does not exist (incorrect, should be duplicate exists)" },
+    { "input": "1 1 1", "expected": "duplicate exists (correct)" },
+    { "input": "1 2 3", "expected": "duplicate does not exist (correct)" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test the logical error\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": ["Line 10: Uses AND (&&) instead of OR (||) - only detects when all three numbers are identical, not when any two are duplicates"]
+}

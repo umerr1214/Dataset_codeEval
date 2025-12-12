@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Write a program that simulates a simple calculator. It reads two operands (int type) and an operator (character type). It performs the following arithmetic operations.\n• a + b\n• a - b\n• a * b\n• a / b\n• a % b\nSample Output: Input: Enter First Operand: 10 Enter Second Operand: 5 Enter operator: + Output: 10 + 5 = 15",
+  "test_cases": [
+    { "input": "10 5 +", "expected": "Compilation error due to type mismatch" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    // Test type compatibility\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 4,
+  "error_type": "Semantic Error",
+  "errors": ["Line 16: Variable 'result' declared as string but should be int", "Lines 19, 22, 25, 28, 31: Type mismatch - attempting to assign int arithmetic results to string variable 'result'"]
+}

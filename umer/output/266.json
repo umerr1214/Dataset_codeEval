@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Write a program to find greatest common divisor (GCD) or highest common factor (HCF) of given two numbers.",
+  "test_cases": [
+    { "input": "48 18", "expected": "Incorrect result due to algorithm error" },
+    { "input": "56 42", "expected": "Incorrect result due to algorithm error" },
+    { "input": "12 8", "expected": "Incorrect result due to algorithm error" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test the logical error\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 4,
+  "error_type": "Logical Error",
+  "errors": ["Line 13: Sets temp = a instead of temp = b, which breaks the Euclidean algorithm and leads to incorrect GCD calculation"]
+}

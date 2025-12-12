@@ -1,0 +1,9 @@
+{
+  "language": "cpp",
+  "test_cases": [
+    { "input": "", "expected": "1 2 3 4 5\n2 3 4 5 1\n2 3 4 5 1\n3 4 5 1 2\n" }
+  ],
+  "driver": "#include <iostream>\n#include <fstream>\n#include <sstream>\n#include <vector>\n#include <string>\n#include <cstdlib>\nusing namespace std;\nint main(){vector<pair<string,string>> tests={{\"\",\"1 2 3 4 5\\n2 3 4 5 1\\n2 3 4 5 1\\n3 4 5 1 2\\n\"}};int compile_status=system(\"g++ student.cpp -o student.out 2> compile_log.txt\");if(compile_status!=0){cout<<\"Compilation failed!\";return 0;}int passed=0;for(auto &t:tests){system(\"./student.out > output.txt\");ifstream fout(\"output.txt\");stringstream buffer;buffer<<fout.rdbuf();string out=buffer.str();fout.close();if(out==t.second)passed++;}cout<<passed<<\"/\"<<tests.size();return 0;}",
+  "code_quality": 5,
+  "correctness": 5
+}

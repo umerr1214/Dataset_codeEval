@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Include string header file in the code like #include<string> and run the following statements\ncout << string(2, ' '); //it will print 2 spaces\ncout << string(3, '*'); //it will print 3 stars after spaces\nNow write a program to print the following pattern using single loop and with only two cout statements (one for the spaces and other for printing the stars on the screen). The hyphen (-) in the pattern are representing spaces. Prompt the user to enter number of lines. Input value of lines is 4 in the example\n-\t-\t-\t*\t-\t-\t-\n-\t-\t*\t*\t*\t-\t-\n-\t*\t*\t*\t*\t*\t-\n*\t*\t*\t*\t*\t*\t*",
+  "test_cases": [
+    { "input": "4", "expected": "Triangle pattern with spaces and stars" },
+    { "input": "-5", "expected": "Program accepts invalid negative input" },
+    { "input": "0", "expected": "Program may not handle zero properly" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    // Test with edge cases and invalid inputs\n    return 0;\n}",
+  "code_quality": 7,
+  "correctness": 8,
+  "error_type": "Robustness Issue",
+  "errors": ["No input validation for negative numbers", "No handling of zero or very large numbers", "No bounds checking on input values", "Assumes cin operations always succeed", "No error recovery mechanism", "Could cause performance issues with very large inputs"]
+}

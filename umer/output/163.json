@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Now we will see what happens if we change this. Change the main function so that ptrAnimal is pointing to the object of Dog, execute your program and paste the output below:\n\nspeak() called\nwoof!\nspeak() called\nwoof!\n\nNow modify the code so that ptrDog points to objAnimal and compile your program. It will not compile successfully. Paste the error in the space below. What does this show?\n\n'initializing': cannot convert from 'animal *' to 'dog *'\n\nYou can see that there was no problem pointing to an object of a derived class by a pointer of the base class but when calling a function through this pointer, the definition of the base class is used. In the other case, there was a compilation error which showed that it is not possible to point a derived class pointer to an object of base class.",
+  "test_cases": [
+    { "input": "", "expected": "Compilation error: cannot convert from 'Animal *' to 'Dog *'" }
+  ],
+  "driver": "int main() {\n    Animal objAnimal;\n    Dog objDog;\n    Animal *ptrAnimal = &objDog;\n    // Dog *ptrDog = &objAnimal; // This line causes compilation error\n    \n    cout << objAnimal.speak() << endl;\n    cout << objDog.speak() << endl;\n    cout << ptrAnimal->speak() << endl;\n    \n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after cout << ptrDog->speak() << endl statement on line 25", "Also contains semantic error with invalid pointer assignment but syntax error takes precedence"]
+}

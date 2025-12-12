@@ -1,0 +1,16 @@
+{
+  "language": "c++",
+  "question": "Write a function called findMax that finds and returns the maximum value between two integers. Signature: int findMax(int num1, int num2);",
+  "test_cases": [
+    { "input": "5 3", "expected": "5" },
+    { "input": "10 15", "expected": "15" },
+    { "input": "-5 -3", "expected": "-3" },
+    { "input": "0 7", "expected": "7" },
+    { "input": "100 100", "expected": "100" }
+  ],
+  "driver": "#include <iostream>\n#include <cassert>\nusing namespace std;\n\nint findMax(int num1, int num2);\n\nint main() {\n    assert(findMax(5, 3) == 5);\n    assert(findMax(10, 15) == 15);\n    assert(findMax(-5, -3) == -3);\n    assert(findMax(0, 7) == 7);\n    assert(findMax(100, 100) == 100);\n    cout << \"All tests passed!\" << endl;\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 5,
+  "error_type": "Semantic Error",
+  "errors": ["Function signature mismatch: returns double instead of int as specified in the signature"]
+}

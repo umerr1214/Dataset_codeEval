@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Use of friend functions. Add two more functions in class Distance: 1. friend istream &operator>>( istream &input, Distance &D ) 2. friend ostream &operator<<( ostream &output, const Distance &D ). In these two functions you have to Input and Output the Distance object.",
+  "test_cases": [
+    { "input": "5\n8\n3\n6\n", "expected": "Enter distance 1:\nEnter feet: Enter inches: Enter distance 2:\nEnter feet: Enter inches: \nDistance 1: 5 feet 8 inches\nDistance 2: 3 feet 6 inches\nAfter ++d1: 6 feet 9 inches\nAfter --d2: 2 feet 5 inches\nd3 = -d1: -6 feet -9 inches\nd4 = d2: 2 feet 5 inches" }
+  ],
+  "driver": "int main() { Distance d1, d2; cout << \"Enter distance 1:\" << endl; cin >> d1; cout << \"Enter distance 2:\" << endl; cin >> d2; cout << \"\\nDistance 1: \" << d1 << endl; cout << \"Distance 2: \" << d2 << endl; ++d1; cout << \"After ++d1: \" << d1 << endl; --d2; cout << \"After --d2: \" << d2 << endl; Distance d3 = -d1; cout << \"d3 = -d1: \" << d3 << endl; Distance d4; d4 = d2; cout << \"d4 = d2: \" << d4 << endl; return 0; }",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
+}

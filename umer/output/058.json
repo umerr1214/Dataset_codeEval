@@ -1,0 +1,22 @@
+{
+  "language": "c++",
+  "question": "Write C++ functions for matrix operations including AllocateMemory, InitializeMatrix, DisplayMatrix, DeallocateMemory, sumCol (column sums), and diag (diagonal elements). Use dynamic memory allocation with new/delete operators.",
+  "test_cases": [
+    { "input": "2\n3", "expected": "The array is:\n0 0 0 \n0 0 0 \nColumn sums: 0 0 0 \nDiagonal elements: 0 0 " },
+    { "input": "3\n3", "expected": "The array is:\n0 0 0 \n0 0 0 \n0 0 0 \nColumn sums: 0 0 0 \nDiagonal elements: 0 0 0 " },
+    { "input": "1\n4", "expected": "The array is:\n0 0 0 0 \nColumn sums: 0 0 0 0 \nDiagonal elements: 0 " }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int rows, cols;\n    int** matrix = AllocateMemory(rows, cols);\n    InitializeMatrix(matrix, rows, cols);\n    DisplayMatrix(matrix, rows, cols);\n    \n    int* columnSums = sumCol(matrix, rows, cols);\n    cout << \"Column sums: \";\n    for (int j = 0; j < cols; j++) {\n        cout << columnSums[j] << \" \";\n    }\n    cout << endl;\n    \n    int minDim = (rows < cols) ? rows : cols;\n    int* diagonal = diag(matrix, rows, cols);\n    cout << \"Diagonal elements: \";\n    for (int i = 0; i < minDim; i++) {\n        cout << diagonal[i] << \" \";\n    }\n    cout << endl;\n    \n    delete[] columnSums;\n    delete[] diagonal;\n    DeallocateMemory(matrix, rows);\n    \n    return 0;\n}",
+  "code_quality": 6,
+  "correctness": 7,
+  "error_type": "Robustness Issue",
+  "errors": [
+    "No input validation for rows and columns (could be negative or zero)",
+    "No null pointer checks before using matrix pointers",
+    "No memory allocation failure checks for new operations",
+    "No bounds checking for array access",
+    "Missing error handling for edge cases",
+    "No validation of function parameters",
+    "Potential crashes with invalid input or memory allocation failures"
+  ]
+}

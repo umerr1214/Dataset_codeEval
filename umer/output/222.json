@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Write a program to calculate the area and perimeter of a rectangle. Take input from user, print the calculated area and perimeter, clear screen, and add system pause. The program should demonstrate basic input/output operations and system commands.",
+  "test_cases": [
+    { "input": "5 3", "expected": "Area of rectangle: 15\nPerimeter of rectangle: 16" }
+  ],
+  "driver": "int main() {\n  double length, width;\n  cout << \"Enter the length of rectangle: \";\n  cin >> length;\n  cout << \"Enter the width of rectangle: \";\n  cin >> width;\n  double area = length * width;\n  double perimeter = 2 * (length + width);\n  cout << \"Area of rectangle: \" << area << endl;\n  cout << \"Perimeter of rectangle: \" << perimeter << endl;\n  system(\"cls\");\n  system(\"pause\");\n  return 0;\n}",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
+}

@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "In the above exercises, we have seen a very simple implementation of Polymorphism. The real power of this feature is realized when we have a collection of objects of multiple derived classes and we use a pointer of the base class to call their respective overloaded methods. A Cat is an animal too. Let's see how we can use an array of base class pointers to utilize the essence of polymorphism.\n\n• Define a class Cat. Inherit publicly from Animal just like we did in class Dog.\n• Overload the speak() method so that it returns \"mew!\".\n• Modify the main function as shown below.\n• Compile, execute and paste the output in the space given below.\n\nconst int size = 2;\nAnimal * myPets[size];\nCat whiskers;\nDog mutley;\n\nmyPets[0] = &whiskers;\nmyPets[1] = &mutley;\n\nfor(int i=0; i<size; i++)\n    cout << myPets[i]->speak() << endl;\n\nmeow!\nwoof!",
+  "test_cases": [
+    { "input": "", "expected": "meow!\nwoof!" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nclass Animal {\npublic:\n    virtual char* speak() {\n        return \"speak() called.\";\n    }\n    virtual ~Animal() = default;\n};\n\nclass Dog : public Animal {\npublic:\n    char* speak() override {\n        return \"woof!\";\n    }\n};\n\nclass Cat : public Animal {\npublic:\n    char* speak() override {\n        return \"meow!\";\n    }\n};\n\nint main() {\n    const int size = 2;\n    Animal * myPets[size];\n    Cat whiskers;\n    Dog mutley;\n    myPets[0] = &whiskers;\n    myPets[1] = &mutley;\n    for(int i=0; i<size; i++)\n        cout << myPets[i]->speak() << endl;\n    return 0;\n}",
+  "code_quality": 7,
+  "correctness": 8,
+  "error_type": "Robustness Issue",
+  "errors": ["No bounds checking for array access", "No null pointer checks before dereferencing myPets[i]", "Fixed-size array could be problematic for scalability"]
+}

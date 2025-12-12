@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Write a program for a simple c++ calculator which have different functions for different operations. Make a menu base selection screen using switch statement. Ever operation should have its own function. Calculator should have following operations.\nNote: Your variables define has local scope. Sum your Roll_No (which is Globally define) with the result.\n• Addition\n• Subtraction\n• Multiplication\n• Division\nWhich operation you want to perform?\nPress 1 for Addition\nPress 2 for Subtraction\nPress 3 for Multiplication\nPress 4 for Division",
+  "test_cases": [
+    { "input": "1\n4\n6", "expected": "Your sum is 10\nSum with roll_no is: 10+7258=7268" },
+    { "input": "2\n10\n3", "expected": "Your difference is 7\nSum with roll_no is: 7+7258=7265" },
+    { "input": "3\n5\n4", "expected": "Your product is 20\nSum with roll_no is: 20+7258=7278" }
+  ],
+  "driver": "#include <iostream>\n#include <sstream>\nusing namespace std;\n\nint main() {\n    // Test case implementation\n    return 0;\n}",
+  "code_quality": 6,
+  "correctness": 7,
+  "error_type": "Robustness Issue",
+  "errors": ["No division by zero check in division function", "No input validation for menu choice", "No error handling for invalid numeric input", "Program may crash or produce undefined behavior with invalid inputs"]
+}

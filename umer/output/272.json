@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Write a program to print out all Armstrong numbers between 1 and 500. If sum of cubes of each digit of the number is equal to the number itself, then the number is called an Armstrong number.\nFor example, 153 = ( 1 * 1 * 1 ) + ( 5 * 5 * 5 ) + ( 3 * 3 * 3 )",
+  "test_cases": [
+    { "input": "", "expected": "Incorrect output - will find numbers where sum of squares equals the number, not cubes" },
+    { "input": "", "expected": "Will not find 153, 371, 407 (actual Armstrong numbers)" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test the logical error\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": ["Line 14: Uses digit * digit (square) instead of digit * digit * digit (cube) - Armstrong numbers require sum of cubes, not squares"]
+}

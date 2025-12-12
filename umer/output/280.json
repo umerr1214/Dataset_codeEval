@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Print the square roots of the first 25 odd positive integers",
+  "test_cases": [
+    { "input": "", "expected": "sqrt(1) = 1, sqrt(3) = 1.732, sqrt(5) = 2.236, ..." },
+    { "input": "", "expected": "Works but lacks flexibility and robustness" }
+  ],
+  "driver": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    // Test with fixed parameters\n    return 0;\n}",
+  "code_quality": 7,
+  "correctness": 8,
+  "error_type": "Robustness Issue",
+  "errors": ["Hard-coded limit of 25 - not flexible", "No input validation or user interaction", "No error handling for sqrt function", "No bounds checking for potential overflow", "No precision control for output formatting", "Assumes all operations will succeed"]
+}

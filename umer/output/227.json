@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Write C++ expressions that represents the following English expression. Assume that all variables have been properly defined and initialized.\n1. x is even and y is odd (x and y are integers)\n2.\n3. x is not between -47.5 and 132.0 (x is double)\n4. w is more than 200, and one or more of the following three conditions is fulfilled:\n• x is less than 98.6\n• y is less than 60.0\n• z is more than 160.0\n5. score is between 50 and 60 inclusive\n6. age is outside the range p to q\n7. at least one of x and y value is odd\n8. the hit is not more than 6.7 units away from target\n9. ch is an uppercase alphabetic character (between 'A' and 'Z')\n10. year is divisible by 4\n11. w is either equal to 6 or not greater than 3",
+  "test_cases": [
+    { "input": "Standard test values", "expected": "Correct output but poor code style" }
+  ],
+  "driver": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    // Test expressions with proper formatting\n    return 0;\n}",
+  "code_quality": 3,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": ["Poor code formatting with all cout statements on one line", "Magic numbers without explanation", "No comments explaining complex logic", "Could use functions for repeated patterns", "Inconsistent spacing and formatting"]
+}

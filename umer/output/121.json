@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Define a class CRecord with two private data members that store a name and an integer item number. Define a getRecord() function member of the CRecord class that will set values for the data members by reading input from the keyboard and a putRecord() function member that outputs the values of the data members. Implement the getRecord() function such that calling program can detect when a zero item number is entered. Test your CRecord class with a main() function that reads and outputs CRecord objects until a zero item number is entered.",
+  "test_cases": [
+    { "input": "John\n123\nJane\n456\nBob\n0\n", "expected": "Name: John, Item Number: 123\nName: Jane, Item Number: 456\nZero item number entered. Program terminated." }
+  ],
+  "driver": "int main() { CRecord record; while (record.getRecord()) { record.putRecord(); } cout << \"Zero item number entered. Program terminated.\" << endl; return 0; }",
+  "code_quality": 2,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing return statement in main function"]
+}

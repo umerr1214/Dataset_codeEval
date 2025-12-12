@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Write a program in C++ (using function with parameter passed in by value) for finding the character grade against marks out of 100. The character grade is determined as follows:\nIf the marks are more than 80 the grade is A\nIf the marks are more than 65 but less than 80 the grade is B\nIf the marks are more than 50 but less than 65 the grade is C\nIf the marks are less than 50 the grade is F\nThe function's signature should be as follows:\nvoid calculateGrade( int marks, char &grade)\nThe driver program should include a loop that lets the user repeat the grade calculation until the user enters -1.",
+  "test_cases": [
+    { "input": "85\n-1", "expected": "Grade: A" },
+    { "input": "70\n-1", "expected": "Grade: B" },
+    { "input": "55\n-1", "expected": "Grade: C" },
+    { "input": "40\n-1", "expected": "Grade: F" }
+  ],
+  "driver": "#include <iostream>\n#include <sstream>\nusing namespace std;\n\nint main() {\n    // Test case implementation\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 6,
+  "error_type": "Semantic Error",
+  "errors": ["Use of undeclared variable 'studentGrade' on lines 26 and 27 - should be 'grade'"]
+}

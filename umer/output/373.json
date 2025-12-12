@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Implement a function in C++ that receives an integer and checks if it is a prime number. The function should update a boolean variable passed by reference to indicate the result. Signature: void checkPrime(int num, bool& isPrime);",
+  "test_cases": [
+    { "input": "", "expected": "Number: 17\nIs Prime: Yes" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nvoid checkPrime(int num, bool& isPrime);\n\nint main() {\n    int number = 17;\n    bool result;\n    cout << \"Number: \" << number << endl;\n    checkPrime(number, result);\n    cout << \"Is Prime: \" << (result ? \"Yes\" : \"No\") << endl;\n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after cout statement on line 23"]
+}

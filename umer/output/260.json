@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Write a program that prompts the user to enter a number. Your task is to determine whether a number is positive or negative. If a number is positive, then check whether it is an even or an odd number. If the number is even then display a message \"Positive Even Number\" if it is an odd number then print \"Positive Odd Number\". If a number is negative, then check whether it is a perfect square or not. If a number is a perfect square, then print the message \"Negative value with perfect square of absolute\" otherwise simply display the message \"Neither positive nor perfect square of absolute\". (using nested if-else statement)\nSample Output: Enter a number: 864\nPositive Even number\nEnter a number: 923\nPositive Odd Number",
+  "test_cases": [
+    { "input": "864", "expected": "Positive Odd Number (incorrect, should be Positive Even Number)" },
+    { "input": "923", "expected": "Positive Even Number (incorrect, should be Positive Odd Number)" },
+    { "input": "10", "expected": "Positive Odd Number (incorrect, should be Positive Even Number)" }
+  ],
+  "driver": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    // Test the logical error\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": ["Line 12: Uses != 0 instead of == 0 to check for even numbers - this reverses the logic and incorrectly identifies odd numbers as even and vice versa"]
+}

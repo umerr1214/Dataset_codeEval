@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Define a class Distance that will have Feet and Inches as its private members. Now make operator overloading functions ++, --, = and an over loaded function – (minus). The description of these function is as follow ++ will add 1 in feet and inches of the distance object, -- will subtract 1 from feet and inches of that object, = will give value of one object to another and – will simple negate the values that object. You have to define getters and setter as well.",
+  "test_cases": [
+    { "input": "", "expected": "Original d1: 5 feet 8 inches\nAfter ++d1: 6 feet 9 inches\nAfter --d1: 5 feet 8 inches\nd2 = d1: 5 feet 8 inches\nd3 = -d1: -5 feet -8 inches\nd4 before decrement: 0 feet 0 inches\nd4 after decrement: 0 feet 0 inches" }
+  ],
+  "driver": "int main() { Distance d1(5, 8); Distance d2; cout << \"Original d1: \"; d1.display(); ++d1; cout << \"After ++d1: \"; d1.display(); --d1; cout << \"After --d1: \"; d1.display(); d2 = d1; cout << \"d2 = d1: \"; d2.display(); Distance d3 = -d1; cout << \"d3 = -d1: \"; d3.display(); Distance d4(0, 0); cout << \"d4 before decrement: \"; d4.display(); --d4; cout << \"d4 after decrement: \"; d4.display(); return 0; }",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
+}

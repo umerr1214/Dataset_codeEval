@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Write C++ expressions that represents the following English expression. Assume that all variables have been properly defined and initialized.\n1. x is even and y is odd (x and y are integers)\n2.\n3. x is not between -47.5 and 132.0 (x is double)\n4. w is more than 200, and one or more of the following three conditions is fulfilled:\n• x is less than 98.6\n• y is less than 60.0\n• z is more than 160.0\n5. score is between 50 and 60 inclusive\n6. age is outside the range p to q\n7. at least one of x and y value is odd\n8. the hit is not more than 6.7 units away from target\n9. ch is an uppercase alphabetic character (between 'A' and 'Z')\n10. year is divisible by 4\n11. w is either equal to 6 or not greater than 3",
+  "test_cases": [
+    { "input": "age=25, p=20, q=30", "expected": "false (age is within range)" },
+    { "input": "age=15, p=20, q=30", "expected": "true (age is outside range)" }
+  ],
+  "driver": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    // Test expression 6 with different values\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 4,
+  "error_type": "Logical Error",
+  "errors": ["Expression 6 uses AND instead of OR - 'age is outside the range p to q' should be (age < p) || (age > q), not (age < p) && (age > q)"]
+}

@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Input 3 numbers from the user and determine if a duplicate exists in the numbers. For example, if the user inputs 1,2,1, your program should output \"duplicate exists\" otherwise it should output \"duplicate does not exist\".",
+  "test_cases": [
+    { "input": "1 2 1", "expected": "duplicate exists" },
+    { "input": "1 2 3", "expected": "duplicate does not exist" },
+    { "input": "5 5 5", "expected": "duplicate exists" },
+    { "input": "2 2 3", "expected": "duplicate exists" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test the correct implementation\n    return 0;\n}",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
+}

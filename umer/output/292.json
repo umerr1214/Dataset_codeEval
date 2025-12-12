@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Write a program that inputs a number from the user and displays its factorial. It asks the user whether user wants to calculate another factorial or not. If the users inputs 1, it again inputs number and calculate another factorial. If the user inputs 0, the program terminates.",
+  "test_cases": [
+    { "input": "5 1 3 0", "expected": "Factorial of 5 is 120, Factorial of 3 is 6, Program terminated" },
+    { "input": "-5 0", "expected": "Program calculates factorial of negative number incorrectly" },
+    { "input": "0 0", "expected": "Factorial of 0 should be 1, but may give incorrect result" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test with edge cases and invalid inputs\n    return 0;\n}",
+  "code_quality": 7,
+  "correctness": 8,
+  "error_type": "Robustness Issue",
+  "errors": ["No input validation for negative numbers", "No handling of large numbers that cause overflow", "No validation for choice input", "Factorial of 0 should be 1, but loop doesn't handle this correctly", "Assumes cin operations always succeed", "No error recovery mechanism"]
+}

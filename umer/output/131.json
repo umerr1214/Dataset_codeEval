@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Declare an addition operator that can be used to add two Box objects and returns final Box object. Where the structure of Class Box is Private members: Length, Breath, Height. Public: double getVolume(), void setLength(double length), void setBreath(double breath), void setheight(double height), And an operator overloading function that will add three properties of two boxes and assign them to a third box.",
+  "test_cases": [
+    { "input": "", "expected": "Box3 Volume: 504" }
+  ],
+  "driver": "int main() { Box box1, box2, box3; box1.setLength(10.0); box1.setBreath(5.0); box1.setHeight(3.0); box2.setLength(8.0); box2.setBreath(4.0); box2.setHeight(2.0); box3 = box1 + box2; cout << \"Box3 Volume: \" << box3.getVolume() << endl; return 0; }",
+  "code_quality": 4,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": ["Unnecessary temporary variable and inefficient assignment pattern"]
+}

@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Write a program that calculates the occupancy rate for a hotel. The program should start by asking the user how many floors the hotel has. A loop should then iterate once for each floor. In each iteration, the loop should ask the user for the number of rooms on the floor and how many of them are occupied. After all the iterations, the program should display how many rooms the hotel has, how many of them are occupied, how many are unoccupied, and the percentage of rooms that are occupied. The percentage may be calculated by dividing the number of rooms occupied by the number of rooms.\nNOTE: It is traditional that most hotels do not have a thirteenth floor. The loop in this program should skip the entire thirteenth iteration.",
+  "test_cases": [
+    { "input": "15 10 5", "expected": "Will only process 13th floor, skipping all others (incorrect behavior)" },
+    { "input": "5 20 15", "expected": "No floors processed since none are 13th floor" }
+  ],
+  "driver": "#include <iostream>\n#include <iomanip>\nusing namespace std;\n\nint main() {\n    // Test the logical error\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": ["Line 15: Uses != 13 with continue, which skips all floors except the 13th floor. Should be == 13 with continue to skip only the 13th floor"]
+}

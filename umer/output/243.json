@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "(Nested-if) Write a C++ program that takes four numbers from user as an input. Find the maximum from the given numbers using nested if.\nSample Output: Input: 21 7 11 34 Output: 34",
+  "test_cases": [
+    { "input": "21 7 11 34", "expected": "Compilation error due to type mismatch" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    // Test type compatibility\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 5,
+  "error_type": "Semantic Error",
+  "errors": ["Line 10: Variable 'max' declared as string but should be int", "Lines 16, 18, 22, 24, 28, 30, 34, 36: Type mismatch - attempting to assign int values to string variable 'max'"]
+}

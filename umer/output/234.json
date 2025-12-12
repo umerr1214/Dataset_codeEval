@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Write a program which takes 3 integer values, a b c, as input and prints their sum. However, if one of the values is the same as another of the values, it does not count towards the sum. For example, if 1,2,3 is input then the system should output 6. If 2,2,3 is input then the system should output 3.",
+  "test_cases": [
+    { "input": "1 2 3", "expected": "6" },
+    { "input": "2 2 3", "expected": "3" },
+    { "input": "1 1 1", "expected": "0" },
+    { "input": "5 5 10", "expected": "10" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Test the correct implementation\n    return 0;\n}",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
+}

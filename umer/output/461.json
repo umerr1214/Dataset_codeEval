@@ -1,0 +1,26 @@
+{
+  "language": "c++",
+  "question": "Implement a function called calculateVolume that calculates and returns the volume of a cube given the length of its side. Signature: double calculateVolume(double sideLength);",
+  "test_cases": [
+    {
+      "input": "3",
+      "expected": "27"
+    },
+    {
+      "input": "4",
+      "expected": "64"
+    },
+    {
+      "input": "2",
+      "expected": "8"
+    }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\ndouble calculateVolume(double);\n\nint main() {\n    double s;\n    while (cin >> s) {\n        cout << calculateVolume(s) << endl;\n    }\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": [
+    "Unnecessary loop for simple calculation",
+    "Less readable than direct multiplication"
+  ]
+}

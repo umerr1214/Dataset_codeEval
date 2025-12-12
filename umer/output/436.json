@@ -1,0 +1,16 @@
+{
+  "language": "c++",
+  "question": "Write a function called findMax that finds and returns the maximum value between two integers. Signature: int findMax(int num1, int num2);",
+  "test_cases": [
+    { "input": "5 3", "expected": "5" },
+    { "input": "2147483647 2147483646", "expected": "2147483647" },
+    { "input": "-2147483648 -2147483647", "expected": "-2147483647" },
+    { "input": "0 7", "expected": "7" },
+    { "input": "100 100", "expected": "100" }
+  ],
+  "driver": "#include <iostream>\n#include <cassert>\n#include <climits>\nusing namespace std;\n\nint findMax(int num1, int num2);\n\nint main() {\n    assert(findMax(5, 3) == 5);\n    assert(findMax(INT_MAX, INT_MAX-1) == INT_MAX);\n    assert(findMax(INT_MIN, INT_MIN+1) == INT_MIN+1);\n    assert(findMax(0, 7) == 7);\n    assert(findMax(100, 100) == 100);\n    cout << \"All tests passed!\" << endl;\n    return 0;\n}",
+  "code_quality": 8,
+  "correctness": 8,
+  "error_type": "Robustness Issue",
+  "errors": ["Function works correctly but lacks input validation or special handling for edge cases like INT_MAX and INT_MIN"]
+}

@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Implement a function in C++ that receives a string and modifies it by reversing its contents using pass-by-reference. Signature: void reverseString(std::string& str);",
+  "test_cases": [
+    { "input": "", "expected": "Original string: Hello World\nReversed string: dlroW olleH" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid reverseString(string& str);\n\nint main() {\n    string text = \"Hello World\";\n    cout << \"Original string: \" << text << endl;\n    reverseString(text);\n    cout << \"Reversed string: \" << text << endl;\n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after 'str[n - 1 - i] = temp' on line 10"]
+}

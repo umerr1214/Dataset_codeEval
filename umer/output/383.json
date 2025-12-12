@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Create a function in C++ that accepts a floating-point number and calculates its square root. The result should be stored in a variable passed by reference. Signature: void calculateSquareRoot(double num, double& result);",
+  "test_cases": [
+    { "input": "", "expected": "Number: 25\nSquare Root: 5" }
+  ],
+  "driver": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nvoid calculateSquareRoot(double num, double& result);\n\nint main() {\n    double number = 25.0;\n    double squareRoot;\n    cout << \"Number: \" << number << endl;\n    calculateSquareRoot(number, squareRoot);\n    cout << \"Square Root: \" << squareRoot << endl;\n    return 0;\n}",
+  "code_quality": 3,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": ["Poor variable naming - 'num' could be more descriptive", "No comments explaining the function purpose", "Code lacks proper documentation"]
+}

@@ -1,0 +1,19 @@
+{
+  "language": "c++",
+  "question": "Create a class ArrayInt with data members: int* ptr (dynamic array) and int size. Implement: Default constructor, Overloaded constructor (deep copy), Copy constructor (deep copy), Destructor, Getters/Setters, Display Function. Overload operators: ==, !=, += (append ArrayInt/int), -= (remove ArrayInt/int).",
+  "test_cases": [
+    {
+      "input": "",
+      "expected": "Original Array: 1 2 3 \nCopy Constructor Called\nCopy created.\nAfter scope: 1 2 3 \n"
+    }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[] = {1, 2, 3};\n    ArrayInt a1(arr, 3);\n    \n    cout << \"Original Array: \";\n    a1.display();\n\n    {\n        ArrayInt a2 = a1; // Calls copy constructor (Shallow copy)\n        cout << \"Copy created.\" << endl;\n    } // a2 destroyed, deletes ptr. a1.ptr is now dangling.\n\n    cout << \"After scope: \";\n    // This will likely crash or print garbage due to double free or use after free\n    a1.display(); \n\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": [
+    "Shallow copy in copy constructor leading to double free",
+    "Pointer comparison in operator==",
+    "Out of bounds access in operator-="
+  ]
+}

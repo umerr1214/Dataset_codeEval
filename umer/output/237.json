@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Input 3 numbers from the user and determine if a duplicate exists in the numbers. For example, if the user inputs 1,2,1, your program should output \"duplicate exists\" otherwise it should output \"duplicate does not exist\".",
+  "test_cases": [
+    { "input": "1 2 1", "expected": "Compilation error due to type mismatch" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    // Test type compatibility\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 6,
+  "error_type": "Semantic Error",
+  "errors": ["Line 12: Type mismatch - attempting to assign boolean value 'true' to string variable 'result'"]
+}

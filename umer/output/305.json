@@ -1,0 +1,14 @@
+{
+  "language": "c++",
+  "question": "Write a program to print the following pattern using single loop and with only two cout statements (one for the spaces and other for printing the stars on the screen). The hyphen (-) in the pattern are representing spaces. Get number of lines from user. Input value of lines is 4 in the example\n*\t*\t*\t*\t*\t*\t*\n-\t*\t*\t*\t*\t*\t-\n-\t-\t*\t*\t*\t-\t-\n-\t-\t-\t*\t-\t-\t-",
+  "test_cases": [
+    { "input": "4", "expected": "*******\n *****\n  ***\n   *" },
+    { "input": "3", "expected": "*****\n ***\n  *" },
+    { "input": "1", "expected": "*" }
+  ],
+  "driver": "#include <iostream>\n#include <sstream>\nusing namespace std;\n\nint main() {\n    // Test case implementation\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": ["Poor variable names (x, y, z, w instead of descriptive names)", "Inefficient nested loops for printing spaces", "Lack of comments explaining the pattern logic", "Complex formula without explanation"]
+}

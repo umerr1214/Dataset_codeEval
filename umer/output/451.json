@@ -1,0 +1,25 @@
+{
+  "language": "c++",
+  "question": "Overloaded function: Create another version of printMessage that prints a given message a specified number of times. Signature: void printMessage(const std::string& message, int numTimes);",
+  "test_cases": [
+    {
+      "input": "Hello 3",
+      "expected": "Hello\nHello\nHello"
+    },
+    {
+      "input": "World 1",
+      "expected": "World"
+    },
+    {
+      "input": "Test 0",
+      "expected": ""
+    }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid printMessage(const string& message, int numTimes);\n\nint main() {\n    string message;\n    int num;\n    while (cin >> message >> num) {\n        printMessage(message, num);\n    }\n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": [
+    "Missing semicolon after endl"
+  ]
+}

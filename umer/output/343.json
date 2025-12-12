@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Write C++ program that will ask the user to enter the width and length of a rectangle and then display the rectangle's area. The program calls the following functions: getLength, getWidth, getArea, and displayData.",
+  "test_cases": [
+    { "input": "5.0\n3.0", "expected": "Rectangle Length: 5\nRectangle Width: 3\nRectangle Area: 15" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\ndouble getLength();\ndouble getWidth();\ndouble getArea(double length, double width);\nvoid displayData(double length, double width, double area);\n\nint main() {\n    // Test the functions\n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after cout statement on line 24"]
+}

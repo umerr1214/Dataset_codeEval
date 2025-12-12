@@ -1,0 +1,12 @@
+{
+  "language": "c++",
+  "question": "Create a function in C++ that accepts two floating-point numbers and computes their sum and product using pass-by-reference. Signature: void computeSumAndProduct(double a, double b, double& sum, double& product);",
+  "test_cases": [
+    { "input": "", "expected": "Numbers: 5.5 and 3.2\nSum: 8.7\nProduct: 17.6" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nvoid computeSumAndProduct(double a, double b, double& sum, double& product);\n\nint main() {\n    double num1 = 5.5, num2 = 3.2;\n    double sum, product;\n    cout << \"Numbers: \" << num1 << \" and \" << num2 << endl;\n    computeSumAndProduct(num1, num2, sum, product);\n    cout << \"Sum: \" << sum << endl;\n    cout << \"Product: \" << product << endl;\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": ["Poor variable naming - 'a', 'b' could be more descriptive", "No comments explaining the function purpose", "Code lacks proper documentation"]
+}
