@@ -1,0 +1,42 @@
+{
+  "question": "Write a function called findMax that finds and returns the maximum value between two integers. Signature: int findMax(int num1, int num2);",
+  "test_cases": [
+    {
+      "input": "findMax(10, 5)",
+      "expected_output": "10",
+      "description": "First number is larger"
+    },
+    {
+      "input": "findMax(3, 8)",
+      "expected_output": "8",
+      "description": "Second number is larger"
+    },
+    {
+      "input": "findMax(-5, -2)",
+      "expected_output": "-2",
+      "description": "Both numbers are negative"
+    },
+    {
+      "input": "findMax(7, 7)",
+      "expected_output": "7",
+      "description": "Both numbers are equal"
+    },
+    {
+      "input": "findMax(0, -1)",
+      "expected_output": "0",
+      "description": "Zero and negative number"
+    }
+  ],
+  "driver_code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Test 1: \" << findMax(10, 5) << endl;\n    cout << \"Test 2: \" << findMax(3, 8) << endl;\n    cout << \"Test 3: \" << findMax(-5, -2) << endl;\n    cout << \"Test 4: \" << findMax(7, 7) << endl;\n    cout << \"Test 5: \" << findMax(0, -1) << endl;\n    return 0;\n}",
+  "error_type": "Logical Error",
+  "error_description": "Using less than operator instead of greater than operator, returns minimum instead of maximum",
+  "error_line": 5,
+  "scoring": {
+    "correctness": 0,
+    "efficiency": 8,
+    "readability": 8,
+    "best_practices": 7,
+    "error_handling": 5,
+    "total": 28
+  }
+}

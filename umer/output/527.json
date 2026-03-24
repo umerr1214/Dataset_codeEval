@@ -1,0 +1,16 @@
+{
+  "language": "c++",
+  "question": "Write a function in C++ that takes a floating-point number as input and rounds it to the nearest integer. The rounded value should be stored in a variable passed by reference. Signature: void roundToNearestInteger(double num, int& roundedNum)",
+  "test_cases": [
+    { "input": "3.7", "expected": "Original: 3.7\nRounded: 4" },
+    { "input": "2.3", "expected": "Original: 2.3\nRounded: 2" },
+    { "input": "5.5", "expected": "Original: 5.5\nRounded: 6" },
+    { "input": "-1.8", "expected": "Original: -1.8\nRounded: -2" },
+    { "input": "0.4", "expected": "Original: 0.4\nRounded: 0" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nvoid roundToNearestInteger(double num, int& roundedNum);\n\nint main() {\n    double value;\n    int result;\n    cin >> value;\n    cout << \"Original: \" << value << endl;\n    roundToNearestInteger(value, result);\n    cout << \"Rounded: \" << result << endl;\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": ["Manual rounding implementation instead of using standard round() function; overly complex nested if-else logic; poor readability; reinventing the wheel when standard library function exists"]
+}

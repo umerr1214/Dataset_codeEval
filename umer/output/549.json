@@ -1,0 +1,42 @@
+{
+  "question": "Overloaded function: Create another version of sumNumbers that calculates and returns the sum of three integers. Signature: int sumNumbers(int num1, int num2, int num3);",
+  "test_cases": [
+    {
+      "input": "sumNumbers(5, 3, 2)",
+      "expected_output": "10",
+      "description": "Basic addition of three positive numbers"
+    },
+    {
+      "input": "sumNumbers(-2, 7, 1)",
+      "expected_output": "6",
+      "description": "Addition with negative number"
+    },
+    {
+      "input": "sumNumbers(0, 0, 0)",
+      "expected_output": "0",
+      "description": "Addition of zeros"
+    },
+    {
+      "input": "sumNumbers(-5, -3, -1)",
+      "expected_output": "-9",
+      "description": "Addition of negative numbers"
+    },
+    {
+      "input": "sumNumbers(10, 20, 30)",
+      "expected_output": "60",
+      "description": "Addition of larger numbers"
+    }
+  ],
+  "driver_code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Test 1: \" << sumNumbers(5, 3, 2) << endl;\n    cout << \"Test 2: \" << sumNumbers(-2, 7, 1) << endl;\n    cout << \"Test 3: \" << sumNumbers(0, 0, 0) << endl;\n    cout << \"Test 4: \" << sumNumbers(-5, -3, -1) << endl;\n    cout << \"Test 5: \" << sumNumbers(10, 20, 30) << endl;\n    return 0;\n}",
+  "error_type": "Semantic Error",
+  "error_description": "Function return type is double instead of int as specified in the signature for three-parameter overloaded function",
+  "error_line": 10,
+  "scoring": {
+    "correctness": 3,
+    "efficiency": 8,
+    "readability": 7,
+    "best_practices": 4,
+    "error_handling": 5,
+    "total": 27
+  }
+}

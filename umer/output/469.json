@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Write a function in C++ that takes two integers as input and swaps their values using pass-by-reference. Signature: void swapIntegers(int& a, int& b);",
+  "test_cases": [
+    { "input": "10 20", "expected": "Before swap: x = 10, y = 20\nAfter swap: x = 20, y = 10" },
+    { "input": "5 15", "expected": "Before swap: x = 5, y = 15\nAfter swap: x = 15, y = 5" },
+    { "input": "-3 7", "expected": "Before swap: x = -3, y = 7\nAfter swap: x = 7, y = -3" },
+    { "input": "0 100", "expected": "Before swap: x = 0, y = 100\nAfter swap: x = 100, y = 0" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nvoid swapIntegers(int& a, int& b);\n\nint main() {\n    int x, y;\n    cin >> x >> y;\n    cout << \"Before swap: x = \" << x << \", y = \" << y << endl;\n    swapIntegers(x, y);\n    cout << \"After swap: x = \" << x << \", y = \" << y << endl;\n    return 0;\n}",
+  "code_quality": 1,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after 'a = b' statement on line 6"]
+}

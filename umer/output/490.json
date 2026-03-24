@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Write a function in C++ that takes a character and a string as input. The function should count the number of occurrences of the character within the string and return the count using pass-by-reference. Signature: void countCharacterOccurrences(char ch, const std::string& str, int& count);",
+  "test_cases": [
+    { "input": "l hello world", "expected": "Character: l\nString: hello world\nCount: 3" },
+    { "input": "o programming", "expected": "Character: o\nString: programming\nCount: 1" },
+    { "input": "a banana", "expected": "Character: a\nString: banana\nCount: 3" },
+    { "input": "x example", "expected": "Character: x\nString: example\nCount: 1" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid countCharacterOccurrences(char ch, const std::string& str, int& count);\n\nint main() {\n    char character;\n    string text;\n    int occurrences;\n    cin >> character >> text;\n    cout << \"Character: \" << character << endl;\n    cout << \"String: \" << text << endl;\n    countCharacterOccurrences(character, text, occurrences);\n    cout << \"Count: \" << occurrences << endl;\n    return 0;\n}",
+  "code_quality": 7,
+  "correctness": 7,
+  "error_type": "Robustness Issue",
+  "errors": ["No validation for empty strings; hardcoded values instead of user input; no case-sensitivity handling; doesn't handle special characters or Unicode properly"]
+}

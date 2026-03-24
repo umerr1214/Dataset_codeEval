@@ -1,0 +1,16 @@
+{
+  "language": "c++",
+  "question": "Implement a function in C++ that receives an integer and checks if it is a prime number. The function should update a boolean variable passed by reference to indicate the result. Signature: void checkPrime(int num, bool& isPrime);",
+  "test_cases": [
+    { "input": "17", "expected": "Number: 17\nIs Prime: true" },
+    { "input": "4", "expected": "Number: 4\nIs Prime: false" },
+    { "input": "2", "expected": "Number: 2\nIs Prime: true" },
+    { "input": "1", "expected": "Number: 1\nIs Prime: false" },
+    { "input": "29", "expected": "Number: 29\nIs Prime: true" }
+  ],
+  "driver": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nvoid checkPrime(int num, bool& isPrime);\n\nint main() {\n    int number;\n    bool result;\n    cin >> number;\n    cout << \"Number: \" << number << endl;\n    checkPrime(number, result);\n    cout << \"Is Prime: \" << (result ? \"true\" : \"false\") << endl;\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 5,
+  "error_type": "Logical Error",
+  "errors": ["Loop condition uses '<' instead of '<=', missing the case where a divisor equals sqrt(num), causing incorrect results for perfect squares"]
+}

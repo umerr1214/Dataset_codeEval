@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Implement a function in C++ that receives a string and converts all its characters to uppercase using pass-by-reference. Signature: void convertToUppercase(std::string& str);",
+  "test_cases": [
+    { "input": "hello world", "expected": "Original: hello world\nUppercase: HELLO WORLD" },
+    { "input": "programming", "expected": "Original: programming\nUppercase: PROGRAMMING" },
+    { "input": "Test123", "expected": "Original: Test123\nUppercase: TEST123" },
+    { "input": "c++ language", "expected": "Original: c++ language\nUppercase: C++ LANGUAGE" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\n#include <cctype>\nusing namespace std;\n\nvoid convertToUppercase(std::string& str);\n\nint main() {\n    string text;\n    cin >> text;\n    cout << \"Original: \" << text << endl;\n    convertToUppercase(text);\n    cout << \"Uppercase: \" << text << endl;\n    return 0;\n}",
+  "code_quality": 2,
+  "correctness": 0,
+  "error_type": "Syntax Error",
+  "errors": ["Missing semicolon after 'str[i] = toupper(str[i])' statement on line 8"]
+}

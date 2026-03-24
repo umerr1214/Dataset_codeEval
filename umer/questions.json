@@ -1,0 +1,2102 @@
+[
+  {
+    "question": "Design a `Date` class to store day, month, and year as private members. Implement a constructor to initialize these values and a public method `displayDate()` to print the date in `DD-MM-YYYY` format.",
+    "difficulty": "easy",
+    "topic": "Classes_Objects",
+    "id": 1
+  },
+  {
+    "question": "Implement a `Time` class with private members for hours, minutes, and seconds. Provide a default constructor (initializing to 00:00:00), a parameterized constructor, and a copy constructor. Also, include a `displayTime()` method.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 2
+  },
+  {
+    "question": "Create a `ResourceTracker` class that allocates a dynamic integer array in its constructor and deallocates this memory in its destructor. Demonstrate its lifecycle by creating and destroying `ResourceTracker` objects.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 3
+  },
+  {
+    "question": "Enhance a `Student` class with private attributes: `name` (string), `id` (int), and `gpa` (double). Implement public getter and setter methods for all attributes, ensuring that the `gpa` setter validates input to be between 0.0 and 4.0 (inclusive).",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 4
+  },
+  {
+    "question": "Create a class `Person` with a `public` name, a `protected` age, and a `private` social security number. Demonstrate which members are accessible from outside the class and within a derived class (without showing the derived class implementation).",
+    "difficulty": "easy",
+    "topic": "Access_Specifiers",
+    "id": 5
+  },
+  {
+    "question": "Design a base class `Vehicle` with `make` (string) and `year` (int). Derive two classes: `Car` (adding `numDoors` as int) and `Motorcycle` (adding `hasSidecar` as bool). Implement constructors for all classes.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 6
+  },
+  {
+    "question": "Extend the `Vehicle` hierarchy. Add a virtual `displayInfo()` method to the base `Vehicle` class that prints general vehicle info. Override this method in `Car` and `Motorcycle` to include their specific attributes, demonstrating runtime polymorphism.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 7
+  },
+  {
+    "question": "Create a `Calculator` class with overloaded `add` methods. One `add` method should take two integers, another two doubles, and a third `add` method should take three integers.",
+    "difficulty": "easy",
+    "topic": "Function_Overloading",
+    "id": 8
+  },
+  {
+    "question": "Implement a `ComplexNumber` class with private `real` and `imaginary` parts. Overload the binary `+` operator to enable adding two `ComplexNumber` objects, returning a new `ComplexNumber`.",
+    "difficulty": "medium",
+    "topic": "Operator_Overloading",
+    "id": 9
+  },
+  {
+    "question": "Create a `Counter` class with a single private integer member `count`. Overload both the prefix (`++obj`) and postfix (`obj++`) increment operators to modify and return the `Counter` object correctly.",
+    "difficulty": "medium",
+    "topic": "Operator_Overloading",
+    "id": 10
+  },
+  {
+    "question": "Design a `Laptop` class that contains an `SSD` object (composition). The `SSD` class should have `capacity` (int GB) and `type` (string). Implement constructors for both classes.",
+    "difficulty": "medium",
+    "topic": "Class_Relationships",
+    "id": 11
+  },
+  {
+    "question": "Model a `Department` class that contains a collection (e.g., `std::vector`) of `Employee` objects (aggregation). An `Employee` object can exist independently of a `Department`. Implement methods to add an employee to a department and list all employees in a department.",
+    "difficulty": "medium",
+    "topic": "Class_Relationships",
+    "id": 12
+  },
+  {
+    "question": "Demonstrate the use of `protected` members in inheritance. Create a base class `Animal` with a protected `weight` attribute. Derive a `Dog` class and show that `Dog` can access `weight`, but an external non-member function cannot directly access `Animal`'s `weight`.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 13
+  },
+  {
+    "question": "Illustrate the order of constructor calls in a single-level inheritance hierarchy. Create a `Base` class and a `Derived` class, each with a constructor that prints a message indicating its construction.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 14
+  },
+  {
+    "question": "Explain the importance of virtual destructors. Implement a base class `Shape` and a derived class `Circle`, both with destructors that print a message. Demonstrate the issue of memory leaks/partial destruction without a virtual destructor when deleting a derived object via a base pointer, and then fix it with a virtual destructor.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 15
+  },
+  {
+    "question": "Create a `Point` class with private `x` and `y` coordinates. Implement getter methods `getX()` and `getY()` as `const` member functions. Demonstrate declaring a `const` `Point` object and calling its `const` getter methods.",
+    "difficulty": "medium",
+    "topic": "Classes_Objects",
+    "id": 16
+  },
+  {
+    "question": "Design a `BankAccount` class. Include a static member `totalAccountsCreated` to count the number of `BankAccount` objects instantiated. Increment this counter in the constructor.",
+    "difficulty": "medium",
+    "topic": "Classes_Objects",
+    "id": 17
+  },
+  {
+    "question": "Extend the `BankAccount` class by adding a static member function `getTotalAccounts()` that returns the value of `totalAccountsCreated` without needing an object of `BankAccount`.",
+    "difficulty": "easy",
+    "topic": "Classes_Objects",
+    "id": 18
+  },
+  {
+    "question": "Create a `Rectangle` class with private `length` and `width`. Declare a non-member function `calculateArea` as a `friend` of the `Rectangle` class, allowing it to directly access the private `length` and `width` members.",
+    "difficulty": "medium",
+    "topic": "Access_Specifiers",
+    "id": 19
+  },
+  {
+    "question": "Implement two classes, `Wallet` (with a private `balance`) and `Cashier`. Make `Cashier` a `friend` class of `Wallet`, allowing `Cashier` to directly access and modify `Wallet`'s private `balance` through a method like `processPayment`.",
+    "difficulty": "medium",
+    "topic": "Access_Specifiers",
+    "id": 20
+  },
+  {
+    "question": "Overload the `<<` (insertion) operator for a `Book` class (with title, author, and ISBN). This should allow `Book` objects to be printed directly to `std::cout` in a user-friendly format (e.g., 'Title by Author (ISBN)').",
+    "difficulty": "medium",
+    "topic": "Operator_Overloading",
+    "id": 21
+  },
+  {
+    "question": "Define an abstract base class `Appliance` with a pure virtual function `operate()`. Derive concrete classes `Refrigerator` and `WashingMachine` from `Appliance`, each providing its own implementation of the `operate()` method.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 22
+  },
+  {
+    "question": "Design a base class `Flyer` with a virtual `fly()` method that prints a generic message. Create another base class `Swimmer` with a virtual `swim()` method that also prints a generic message. Implement a `Duck` class that inherits from both `Flyer` and `Swimmer` and overrides both `fly()` and `swim()` methods to print specific duck actions.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 23
+  },
+  {
+    "question": "Demonstrate the difference between early binding (static polymorphism) and late binding (dynamic polymorphism). Use function overloading for early binding and virtual functions with base class pointers for late binding in separate, clear examples.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 24
+  },
+  {
+    "question": "Create a `MyString` class that manages a dynamic character array. Implement both a copy constructor and an assignment operator (`operator=`). Explain when each of these is invoked through code examples.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 25
+  },
+  {
+    "question": "Design a C++ class named `Book` with private attributes for `title` (string), `author` (string), and `isbn` (string). Include public methods `setTitle`, `setAuthor`, `setISBN` to set these values, and `displayBookInfo` to print all book details. Create an object of `Book` and demonstrate its usage.",
+    "difficulty": "easy",
+    "topic": "ClassesObjects",
+    "id": 26
+  },
+  {
+    "question": "Enhance the `Book` class by adding a parameterized constructor that takes `title`, `author`, and `isbn` as arguments and initializes the object upon creation. Also, include a default constructor that initializes attributes to empty or default values.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 27
+  },
+  {
+    "question": "Create a class `BankAccount` with private member variables for `accountNumber` (string) and `balance` (double). Implement public methods `deposit(double amount)` and `withdraw(double amount)` that validate the transaction (e.g., negative deposit, insufficient funds for withdrawal) and update the balance. Provide a `getBalance()` method.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 28
+  },
+  {
+    "question": "Implement a `DynamicArray` class that dynamically allocates memory for an array of integers in its constructor and deallocates it in its destructor. Include methods `add(int value)` to add elements (reallocating if needed) and `print()` to display them. Demonstrate its lifecycle.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 29
+  },
+  {
+    "question": "Design a class `Calculator` with overloaded public methods named `add`. One `add` method should take two integers, another should take two doubles, and a third should take three integers, returning their sum.",
+    "difficulty": "easy",
+    "topic": "FuncOverloading",
+    "id": 30
+  },
+  {
+    "question": "Create a `Vector2D` class with private members `x` and `y` (doubles). Overload the `+` operator to enable adding two `Vector2D` objects, returning a new `Vector2D` object that represents their sum.",
+    "difficulty": "medium",
+    "topic": "OperOverloading",
+    "id": 31
+  },
+  {
+    "question": "Create a base class `Shape` with a protected member `color` (string) and a virtual method `calculateArea()` that returns 0. Derive a class `Circle` from `Shape` with an additional private member `radius` (double). Override `calculateArea()` in `Circle` to compute the area of a circle.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 32
+  },
+  {
+    "question": "Using the `Shape` and `Circle` classes from Q7, derive another class `Rectangle` from `Shape` with private members `length` and `width` (doubles). Override `calculateArea()` in `Rectangle`. Write a function that takes a pointer to `Shape` and calls `calculateArea()`, demonstrating runtime polymorphism with objects of `Circle` and `Rectangle`.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 33
+  },
+  {
+    "question": "Define a class `Product` with private `name` (string), `price` (double), and a protected `discountRate` (double). Include public `getName()` and `getPrice()` methods. Create a derived class `SpecialProduct` that can access `discountRate` and apply it when calculating a final price using a public method.",
+    "difficulty": "medium",
+    "topic": "AccessSpecifiers",
+    "id": 34
+  },
+  {
+    "question": "Implement a `Point` class with private `x` and `y` coordinates. Provide a default constructor, a parameterized constructor, and a copy constructor. Demonstrate when the copy constructor is called by passing a `Point` object by value to a function and by initializing a new object with an existing one.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 35
+  },
+  {
+    "question": "Design a `Car` class that has an `Engine` object as a private member (composition). The `Engine` class should have attributes like `horsepower` and `fuelType`. The `Car` class should have `make`, `model`, and a method `startCar()` that internally calls a method `start()` on its `Engine` object.",
+    "difficulty": "medium",
+    "topic": "ClassRelationships",
+    "id": 36
+  },
+  {
+    "question": "Create a `Date` class with private members `day`, `month`, and `year` (integers). Implement public setter methods `setDay`, `setMonth`, `setYear` that perform basic validation (e.g., month between 1-12, day between 1-31, ignoring leap years for simplicity). If validation fails, do not update the member and optionally print an error message.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 37
+  },
+  {
+    "question": "For the `Point` class (from Q10 or similar with `x`, `y` members), overload the `==` operator to compare two `Point` objects. Two points are considered equal if their `x` and `y` coordinates are the same.",
+    "difficulty": "medium",
+    "topic": "OperOverloading",
+    "id": 38
+  },
+  {
+    "question": "Create a base class `Person` with attributes `name` (string) and `age` (int). Implement a parameterized constructor. Derive a class `Student` from `Person` with an additional attribute `studentId` (string). Ensure the `Student` constructor correctly initializes `Person`'s attributes using constructor chaining.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 39
+  },
+  {
+    "question": "Design a `Counter` class that keeps track of how many `Counter` objects have been created using a `static` member variable. Implement a default constructor to increment this count and a destructor to decrement it. Provide a static method `getTotalCount()` to retrieve the current number of active `Counter` objects.",
+    "difficulty": "medium",
+    "topic": "ClassesObjects",
+    "id": 40
+  },
+  {
+    "question": "Define an abstract base class `Printable` with a pure virtual method `print()`. Derive two concrete classes, `Document` and `Image`, from `Printable`. Implement the `print()` method in each derived class to display appropriate information (e.g., 'Printing Document: [title]', 'Printing Image: [filename]').",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 41
+  },
+  {
+    "question": "For the `Date` class (from Q12 or similar with `day`, `month`, `year`), overload the `<<` (stream insertion) operator to allow `Date` objects to be printed directly using `std::cout` in the format `DD/MM/YYYY`.",
+    "difficulty": "medium",
+    "topic": "OperOverloading",
+    "id": 42
+  },
+  {
+    "question": "Create a class `Matrix` with a private 2D array (e.g., `int mat[2][2]` or `int**` for dynamic). Implement overloaded `setElement` methods: one that takes `row`, `col`, and `value` to set a single element, and another that takes a `row` index and an array/`std::vector<int>` to set an entire row.",
+    "difficulty": "medium",
+    "topic": "FuncOverloading",
+    "id": 43
+  },
+  {
+    "question": "Design a `Department` class that maintains a list of `Employee` objects (aggregation). The `Employee` class should have `name` and `id`. The `Department` class should have `name` and methods to `addEmployee` and `listEmployees`. Demonstrate how employees can exist independently of the department (e.g., an employee can be added to multiple departments or removed from one without being destroyed).",
+    "difficulty": "medium",
+    "topic": "ClassRelationships",
+    "id": 44
+  },
+  {
+    "question": "Create a `StringWrapper` class that manages a C-style string (`char*`) allocated on the heap. Implement a constructor that takes a `const char*` and performs a deep copy, and a destructor that releases the dynamically allocated memory. Demonstrate memory leak prevention.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 45
+  },
+  {
+    "question": "Define a base class `Vehicle` with `protected` members `speed` (int) and `fuelLevel` (double). Implement a `protected` method `updateSpeed(int newSpeed)`. Derive a `Car` class from `Vehicle`. In `Car`, create a public method `accelerate()` that internally uses `updateSpeed()` and also adjusts `fuelLevel` based on acceleration.",
+    "difficulty": "medium",
+    "topic": "AccessSpecifiers",
+    "id": 46
+  },
+  {
+    "question": "Implement a C++ class named `Circle` with a private attribute `radius` (double). Provide a constructor to initialize the radius, a public `getRadius()` method to retrieve it, and a `calculateArea()` method to return the circle's area (using `M_PI` or `3.14159`).",
+    "difficulty": "easy",
+    "topic": "ClassesObjects",
+    "id": 47
+  },
+  {
+    "question": "Create a `Counter` class with a private integer `count`. Overload the prefix increment operator `++` (e.g., `++myCounter`) to increase the `count` by one and return the modified `Counter` object. Demonstrate its usage.",
+    "difficulty": "medium",
+    "topic": "OperOverloading",
+    "id": 48
+  },
+  {
+    "question": "Define a base class `MediaItem` with a virtual function `play()`. Derive `AudioFile` and `VideoFile` classes from `MediaItem`. Override `play()` in each derived class to simulate playing an audio or video file (e.g., printing 'Playing audio: [title]' or 'Playing video: [filename]'). Use an array of `MediaItem` pointers to demonstrate playing various media types polymorphically.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 49
+  },
+  {
+    "question": "For the `StringWrapper` class (from Q20, managing dynamic C-style string), implement the copy assignment operator (`operator=`). Ensure it handles self-assignment correctly and performs a deep copy of the managed C-style string to prevent resource leaks and double-free issues.",
+    "difficulty": "medium",
+    "topic": "OperOverloading",
+    "id": 50
+  },
+  {
+    "question": "Design a C++ class named `Book` with private member variables for `title` (string), `author` (string), and `isbn` (string). Provide public getter and setter methods for each attribute.",
+    "difficulty": "easy",
+    "topic": "ClassObject",
+    "id": 51
+  },
+  {
+    "question": "Implement a `Point` class with private integer member variables `x` and `y`. Provide a default constructor that initializes `x` and `y` to (0,0), and a parameterized constructor that takes two integers to set `x` and `y`.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 52
+  },
+  {
+    "question": "Extend the `Book` class by adding a private `price` (double) attribute. Implement a public setter method for `price` that includes validation to ensure the price is never set to a negative value.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 53
+  },
+  {
+    "question": "Create an abstract base class `Shape` with a pure virtual method `calculateArea()`. Derive `Circle` and `Rectangle` classes from `Shape`, and implement `calculateArea()` appropriately for each.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 54
+  },
+  {
+    "question": "Demonstrate polymorphism by creating an array of `Shape` pointers. Populate this array with objects of `Circle` and `Rectangle` (from the previous question) and then iterate through the array to call `calculateArea()` on each object.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 55
+  },
+  {
+    "question": "Write a C++ program that defines a global function `printValue` overloaded for three different data types: `int`, `double`, and `std::string`. Each version should print the value along with its type.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 56
+  },
+  {
+    "question": "Overload the binary `+` operator for the `Point` class. This operator should take two `Point` objects and return a new `Point` object representing their coordinate-wise sum.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 57
+  },
+  {
+    "question": "Define a class `ResourceHandler` that simulates acquiring and releasing a system resource. Implement a destructor for this class that prints a message indicating the resource has been released.",
+    "difficulty": "easy",
+    "topic": "Destructors",
+    "id": 58
+  },
+  {
+    "question": "Create a `Person` class with `name` (public), `age` (protected), and `id` (private). Then, create a `Student` class that publicly inherits from `Person`. Demonstrate which members are accessible from `Student` methods and from outside `Student` objects.",
+    "difficulty": "medium",
+    "topic": "AccessSpecifiers",
+    "id": 59
+  },
+  {
+    "question": "Design a `Counter` class that uses a `static` member variable to keep track of the total number of `Counter` objects currently alive (created minus destroyed). Update this static member in constructors and the destructor.",
+    "difficulty": "medium",
+    "topic": "ClassObject",
+    "id": 60
+  },
+  {
+    "question": "Implement a `StringWrapper` class that dynamically allocates memory for a C-style string. Provide a copy constructor that performs a deep copy to prevent issues with shallow copies.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 61
+  },
+  {
+    "question": "Model a `Car` class that has an `Engine` object (composition). The `Engine` class should have `horsepower` and `fuelType` attributes. Demonstrate how a `Car` object is constructed with an `Engine` and how `Car` methods can access `Engine` properties.",
+    "difficulty": "medium",
+    "topic": "ClassRelationships",
+    "id": 62
+  },
+  {
+    "question": "Create an abstract `Animal` class with a pure virtual `makeSound()` method. Implement `Dog` and `Cat` classes deriving from `Animal`, each providing its own distinct `makeSound()` implementation.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 63
+  },
+  {
+    "question": "Define an `Employee` base class with a `displayInfo()` method. Create a `Manager` class that inherits from `Employee` and overrides `displayInfo()` to include additional manager-specific details.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 64
+  },
+  {
+    "question": "Implement a `Vector2D` class with `x` and `y` coordinates. Create a `getLength()` method that calculates the magnitude of the vector and mark it as a `const` method. Demonstrate calling this method on a `const Vector2D` object.",
+    "difficulty": "medium",
+    "topic": "ClassObject",
+    "id": 65
+  },
+  {
+    "question": "For the `Point` class, overload the prefix increment operator (`++`). This operator should increment both the `x` and `y` coordinates of the `Point` object and return a reference to the modified object.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 66
+  },
+  {
+    "question": "Design a multilevel inheritance hierarchy: `Vehicle` -> `Car` -> `SportsCar`. Each class should have a constructor that prints its name and a method `drive()`. Demonstrate the order of constructor calls and method overriding across the hierarchy.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 67
+  },
+  {
+    "question": "Create a `Calculator` class. Implement overloaded `add` methods within this class that can accept two `int`s, two `double`s, or two `float`s, returning the sum of the corresponding type.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 68
+  },
+  {
+    "question": "Define an `Order` base class with a constructor taking an `orderId`. Create a `SpecialOrder` derived class that adds a `discount` parameter. Demonstrate how `SpecialOrder`'s constructor explicitly calls the `Order` base class constructor.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 69
+  },
+  {
+    "question": "Implement a `Date` class with private `day`, `month`, and `year` attributes. Provide public setter methods for each attribute that include robust validation (e.g., month must be 1-12, day valid for the given month and year).",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 70
+  },
+  {
+    "question": "Overload the global `<<` (output stream) operator for a `Complex` number class (which has `real` and `imaginary` parts). The operator should allow `Complex` objects to be printed in a user-friendly format (e.g., \"3 + 4i\" or \"5 - 2i\").",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 71
+  },
+  {
+    "question": "Implement a `Rectangle` class with `width` and `height` attributes. Create a `setDimensions(double w, double h)` method that returns a reference to the current object (`*this`), allowing for method chaining (e.g., `rect.setDimensions(10,5).calculateArea();`).",
+    "difficulty": "medium",
+    "topic": "ClassObject",
+    "id": 72
+  },
+  {
+    "question": "Model a `Department` class that aggregates `Employee` objects. The `Department` should have a name and a list of employees. Employees can exist independently of departments. Demonstrate adding employees to a department and displaying the department's staff.",
+    "difficulty": "medium",
+    "topic": "ClassRelationships",
+    "id": 73
+  },
+  {
+    "question": "Illustrate the importance of virtual destructors. Create a base class `Base` and a derived class `Derived`, both with print statements in their constructors and destructors. Demonstrate memory leakage when deleting a `Derived` object through a `Base` class pointer without a virtual destructor, and then fix it.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 74
+  },
+  {
+    "question": "Define a `MediaItem` base class with private attributes `title` and `duration`. Derive two classes, `Movie` and `Song`, from `MediaItem`. `Movie` should add a `director` attribute, and `Song` should add an `artist` attribute. Provide appropriate constructors and getters for all classes.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 75
+  },
+  {
+    "question": "Design a `Point` class with private `x` and `y` integer coordinates. Include a default constructor that initializes both to 0, a parameterized constructor, and a public method `displayPoint()` that prints the coordinates.",
+    "difficulty": "easy",
+    "topic": "Classes",
+    "id": 76
+  },
+  {
+    "question": "Create a `BankAccount` class with private members: `accountNumber` (string), `accountHolderName` (string), and `balance` (double). Implement public methods for `deposit(amount)`, `withdraw(amount)`, and `getBalance()`, ensuring `withdraw` prevents overdrafts and `deposit` accepts positive amounts only. Demonstrate encapsulation.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 77
+  },
+  {
+    "question": "Implement a `Book` class with `title` and `author` (both `std::string`). Provide a default constructor, a parameterized constructor, and a copy constructor. Demonstrate their usage by creating objects in different ways.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 78
+  },
+  {
+    "question": "Develop a `DynamicArray` class that manages an array of integers on the heap. Include a constructor that takes size, a destructor that deallocates memory, and a method `setElement(index, value)`.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 79
+  },
+  {
+    "question": "Define a base class `Vehicle` with `make` (string) and `model` (string). Derive a class `Car` that adds `numDoors` (int). Both classes should have a `displayInfo()` method; `Car` should override `displayInfo()` to include its specific attribute.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 80
+  },
+  {
+    "question": "Building on the `Vehicle` and `Car` classes, modify `Vehicle`'s `displayInfo()` method to be `virtual`. Demonstrate polymorphism by creating an array of `Vehicle` pointers, pointing to both `Vehicle` and `Car` objects, and calling `displayInfo()` through the base pointers.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 81
+  },
+  {
+    "question": "Create a `Calculator` class with overloaded `add` methods: one that takes two integers, another that takes two doubles, and a third that takes three integers. Demonstrate calling each version.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 82
+  },
+  {
+    "question": "Design a `ComplexNumber` class with private `real` and `imaginary` parts (doubles). Overload the binary `+` operator to perform addition of two `ComplexNumber` objects.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 83
+  },
+  {
+    "question": "Illustrate access specifiers (`public`, `private`, `protected`). Create a base class `Person` with `public` name, `protected` age, and `private` socialSecurityNumber. Derive a `Student` class and try to access these members, explaining which are accessible and why.",
+    "difficulty": "medium",
+    "topic": "AccessSpecifiers",
+    "id": 84
+  },
+  {
+    "question": "Model a `Car` class using composition. `Car` should contain an `Engine` object as a member. The `Engine` class should have a `start()` method, and `Car` should have a `startCar()` method that calls `Engine::start()`.",
+    "difficulty": "medium",
+    "topic": "Composition",
+    "id": 85
+  },
+  {
+    "question": "Design a `Time` class with private `hour`, `minute`, and `second` integer members. Provide public setter methods (`setHour`, `setMinute`, `setSecond`) that validate the input to ensure it falls within valid ranges (e.g., hour 0-23).",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 86
+  },
+  {
+    "question": "Create an abstract base class `Shape` with a pure virtual function `getArea()` that returns a double. Derive `Rectangle` (with width, height) and `Circle` (with radius) classes, implementing `getArea()` for each.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 87
+  },
+  {
+    "question": "Implement a `Date` class with private `day`, `month`, and `year` integers. Overload the `==` operator to compare if two `Date` objects represent the same date.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 88
+  },
+  {
+    "question": "Develop a `Logger` class that maintains a static integer member `messageCount` to track the total number of log messages generated across all instances. Increment this counter in a `logMessage(std::string message)` method and provide a static `getTotalMessages()` method.",
+    "difficulty": "medium",
+    "topic": "Classes",
+    "id": 89
+  },
+  {
+    "question": "Create a multi-level inheritance hierarchy: `Animal` (with `name`), `Mammal` (derives from `Animal`, adds `furColor`), and `Dog` (derives from `Mammal`, adds `breed`). Each class should have a constructor and a `printDetails()` method.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 90
+  },
+  {
+    "question": "Design a `Product` class with private `productName` (string) and `price` (double). Provide public getter methods (`getProductName`, `getPrice`) and setter methods (`setProductName`, `setPrice`) for both attributes.",
+    "difficulty": "easy",
+    "topic": "Encapsulation",
+    "id": 91
+  },
+  {
+    "question": "Implement a `Counter` class with a private integer `value`. Overload the pre-increment (`++`) operator to increment the `value` and return the incremented object. Also, overload the post-increment (`value++`) operator.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 92
+  },
+  {
+    "question": "Model a `Department` class that aggregates `Employee` objects. `Department` should have a name and a list (e.g., array or vector) of `Employee` pointers. `Employee` objects should be created independently and managed by the `Department` through aggregation.",
+    "difficulty": "medium",
+    "topic": "Aggregation",
+    "id": 93
+  },
+  {
+    "question": "Create a base class `MediaItem` with a `play()` method that prints a generic message. Derive `AudioFile` and `VideoFile` classes, overriding `play()` to print messages specific to playing an audio or video file.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 94
+  },
+  {
+    "question": "Define a base class `Base` and a derived class `Derived`. In their default constructors and destructors, print messages indicating which class's constructor/destructor is being called to observe the order of construction and destruction.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 95
+  },
+  {
+    "question": "Extend the `Date` class (from Q13) to overload the `<<` operator (insertion operator) so that `Date` objects can be easily printed to `std::cout` in a 'DD-MM-YYYY' format.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 96
+  },
+  {
+    "question": "Create a `Temperature` class that stores temperature in Celsius (private double). Provide a constructor and a public method `getFahrenheit()` that converts and returns the temperature in Fahrenheit. Ensure direct access to Celsius is restricted.",
+    "difficulty": "easy",
+    "topic": "Encapsulation",
+    "id": 97
+  },
+  {
+    "question": "Design a `Rectangle` class with private `width` and `height` (doubles). Declare a `friend` function `calculateArea(const Rectangle& rect)` that takes a `Rectangle` object and computes its area directly accessing `width` and `height`.",
+    "difficulty": "medium",
+    "topic": "FriendFunctions",
+    "id": 98
+  },
+  {
+    "question": "Implement a `Fraction` class with private `numerator` and `denominator` (integers). Overload the `*` (multiplication) operator to multiply two `Fraction` objects and return a new `Fraction` object representing the product.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 99
+  },
+  {
+    "question": "Model an `Order` class and a `Customer` class. An `Order` should have an `orderID` and a reference or pointer to the `Customer` who placed it, demonstrating an association relationship where objects can reference each other without strict ownership.",
+    "difficulty": "medium",
+    "topic": "Association",
+    "id": 100
+  },
+  {
+    "question": "Define a `Book` class with private data members `title` (string), `author` (string), and `isbn` (string). Provide public getter methods `getTitle()`, `getAuthor()`, `getIsbn()`, and a `displayBookInfo()` method that prints all book details.",
+    "difficulty": "easy",
+    "topic": "ClassesObjects",
+    "id": 101
+  },
+  {
+    "question": "Extend the `Book` class to include a parameterized constructor that accepts and initializes `title`, `author`, and `isbn` upon object creation. Demonstrate its usage.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 102
+  },
+  {
+    "question": "Add setter methods `setTitle(string)`, `setAuthor(string)`, and `setIsbn(string)` to the `Book` class. For `setTitle()`, ensure that the title cannot be set to an empty string; if an empty string is provided, print an error and do not update.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 103
+  },
+  {
+    "question": "Create a `Logger` class that prints 'Logger initialized.' when its constructor is called and 'Logger destroyed.' when its destructor is called. Demonstrate the lifecycle of a `Logger` object in `main`.",
+    "difficulty": "easy",
+    "topic": "Destructors",
+    "id": 104
+  },
+  {
+    "question": "Design a `Calculator` class with a single `add` method overloaded to perform the following operations: 1. Add two integers. 2. Add two doubles. 3. Add three integers. Demonstrate calling all three overloaded versions.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 105
+  },
+  {
+    "question": "Implement a `Vector2D` class with private `x` and `y` (double) coordinates. Overload the binary `+` operator to perform vector addition, returning a new `Vector2D` object.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 106
+  },
+  {
+    "question": "Create a base class `Shape` with a protected string member `color` and a constructor to initialize it. Derive a `Circle` class from `Shape`, adding a private double member `radius` and its own constructor. Implement a `displayInfo()` method in both classes.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 107
+  },
+  {
+    "question": "Enhance the `Shape` class by adding a pure virtual function `double calculateArea()`. Implement this function in the `Circle` class to return the area of the circle. Demonstrate calling `calculateArea()` through a `Shape` pointer.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 108
+  },
+  {
+    "question": "For the `Vector2D` class, overload the pre-increment `++` operator to increment both `x` and `y` coordinates by 1. The operator should modify the object itself and return a reference to the modified object.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 109
+  },
+  {
+    "question": "Design a `StringWrapper` class that manages a C-style string (`char*`). Implement a deep copy constructor for `StringWrapper` to ensure proper memory management when objects are copied.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 110
+  },
+  {
+    "question": "Create an abstract base class `Animal` with a pure virtual function `void makeSound()`. Derive two concrete classes, `Dog` and `Cat`, from `Animal` and implement their respective `makeSound()` functions.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 111
+  },
+  {
+    "question": "Design an `Engine` class with private members `horsepower` (int) and `fuelType` (string). Then, create a `Car` class that uses composition: it 'has-a' `Engine` object. The `Car` class should have `make` (string) and `model` (string) and methods `start()` and `stop()` that delegate to the `Engine`.",
+    "difficulty": "medium",
+    "topic": "ClassRelationships",
+    "id": 112
+  },
+  {
+    "question": "Modify the `Book` class constructor to use an initializer list to initialize its private members (`title`, `author`, `isbn`). Explain why initializer lists are often preferred.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 113
+  },
+  {
+    "question": "Implement a multilevel inheritance hierarchy: `Vehicle` (base) -> `Car` -> `SportsCar`. Each class should have a simple constructor that prints its name and a unique method (e.g., `startEngine()` in `Vehicle`, `drive()` in `Car`, `activateBoost()` in `SportsCar`).",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 114
+  },
+  {
+    "question": "Create a `Point` class with private `x` and `y` (double) coordinates. Write two overloaded non-member functions: `void print(Point p)` that prints 'Point: (x, y)' and `void print(Point p, string prefix)` that prints 'Prefix: (x, y)'.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 115
+  },
+  {
+    "question": "Design a `Course` class and a `Student` class. `Course` should have a `name` and a private pointer to a `Student` object (`Student* assignedStudent`) to demonstrate aggregation (a student can exist independently of a course). Implement methods to assign and unassign a student to the course.",
+    "difficulty": "medium",
+    "topic": "ClassRelationships",
+    "id": 116
+  },
+  {
+    "question": "Demonstrate polymorphism by creating an array of `Animal*` (from Question 11). Populate the array with `Dog` and `Cat` objects and then iterate through the array, calling `makeSound()` on each animal. Explain the output.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 117
+  },
+  {
+    "question": "For the `Point` class (from Question 15), overload the stream insertion `<<` operator to allow `Point` objects to be printed directly using `std::cout` (e.g., `std::cout << myPoint;` should output '(x, y)').",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 118
+  },
+  {
+    "question": "Create a `BankAccount` class with `accountNumber` (string) and `balance` (double). `accountNumber` should be set only in the constructor and be read-only thereafter. `balance` can be modified using public `deposit(double amount)` and `withdraw(double amount)` methods, with basic validation for withdrawal.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 119
+  },
+  {
+    "question": "Design a `Counter` class that keeps track of the total number of `Counter` objects currently alive in the program using a static member variable. Its constructor should increment the count, and its destructor should decrement it. Provide a static method to get the current count.",
+    "difficulty": "medium",
+    "topic": "ClassesObjects",
+    "id": 120
+  },
+  {
+    "question": "Create a base class `Base` with a public method `void show(int val)`. Derive a `Derived` class from `Base`. In `Derived`, overload `show` with `void show(double val)` and also define `void show(int val)` (non-virtual). Demonstrate calling `show` using `Base` and `Derived` class objects and pointers, highlighting method hiding vs. overloading.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 121
+  },
+  {
+    "question": "Create a `Rectangle` class with a constructor `Rectangle(double length = 1.0, double width = 1.0)`. Demonstrate creating `Rectangle` objects using default arguments, one argument, and both arguments.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 122
+  },
+  {
+    "question": "Design a `Product` class with private members `name` (string), `price` (double), and `quantity` (int). Implement a public method `double getTotalValue()` that calculates and returns `price * quantity`.",
+    "difficulty": "easy",
+    "topic": "ClassesObjects",
+    "id": 123
+  },
+  {
+    "question": "Using the `Vehicle` -> `Car` -> `SportsCar` hierarchy from Question 14, add simple print statements to each class's destructor (e.g., 'Destroying SportsCar'). Demonstrate the order in which these destructors are called when a `SportsCar` object goes out of scope.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 124
+  },
+  {
+    "question": "Explain the difference between `public`, `private`, and `protected` access specifiers in C++ classes. Provide a brief code snippet demonstrating each in a simple class structure.",
+    "difficulty": "easy",
+    "topic": "AccessSpecifiers",
+    "id": 125
+  },
+  {
+    "question": "Design a `Book` class with private members for title (string), author (string), and price (double). Include a parameterized constructor to initialize these members and a public method `displayBookInfo()` to print all details.",
+    "difficulty": "easy",
+    "topic": "ClassObject",
+    "id": 126
+  },
+  {
+    "question": "Create a `Point` class with private integer members `x` and `y`. Provide a constructor to set these coordinates and a public method `getDistanceToOrigin()` that calculates and returns the Euclidean distance from the point to (0,0).",
+    "difficulty": "easy",
+    "topic": "ClassObject",
+    "id": 127
+  },
+  {
+    "question": "Implement a `Student` class with private members for `studentID` (int) and `name` (string). Add a parameterized constructor and a public method `enrollInCourse(string courseName)` that simply prints a message indicating the student has enrolled in the given course.",
+    "difficulty": "easy",
+    "topic": "ClassObject",
+    "id": 128
+  },
+  {
+    "question": "Develop a `Rectangle` class with private double members `width` and `height`. Implement a parameterized constructor that initializes these dimensions and a public method `getArea()` that returns the rectangle's area.",
+    "difficulty": "easy",
+    "topic": "Constructor",
+    "id": 129
+  },
+  {
+    "question": "Design a `Car` class with private string members `make` and `model`. Implement both a default constructor (that initializes with generic values like 'Unknown Make', 'Unknown Model') and a parameterized constructor. Include a `displayCarInfo()` method to show the car's details.",
+    "difficulty": "medium",
+    "topic": "Constructor",
+    "id": 130
+  },
+  {
+    "question": "Create a `ResourceHandler` class that manages a dynamically allocated integer array. Its constructor should allocate an array of a specified size. Implement a destructor that correctly deallocates the dynamically allocated memory to prevent memory leaks.",
+    "difficulty": "medium",
+    "topic": "Destructor",
+    "id": 131
+  },
+  {
+    "question": "Implement a `Vector2D` class with private double members `x` and `y`. Provide a parameterized constructor and a copy constructor that performs a deep copy of the `Vector2D` object.",
+    "difficulty": "medium",
+    "topic": "Constructor",
+    "id": 132
+  },
+  {
+    "question": "Refactor a `BankAccount` class to strictly enforce encapsulation. Make the `balance` (double) private. Provide public methods `deposit(double amount)`, `withdraw(double amount)`, and `getBalance()` to interact with the balance.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 133
+  },
+  {
+    "question": "Design a `TemperatureConverter` class. Store the temperature in Celsius as a private double member. Provide a public method `setCelsius(double c)` and another public method `getFahrenheit()` that converts and returns the temperature in Fahrenheit.",
+    "difficulty": "easy",
+    "topic": "Encapsulation",
+    "id": 134
+  },
+  {
+    "question": "Create a `Date` class with private integer members `day`, `month`, and `year`. Implement a constructor and public methods `isValidDate()` (which returns true if the date is valid, false otherwise) and `displayDate()` in 'DD/MM/YYYY' format.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 135
+  },
+  {
+    "question": "Design a base class `Shape` with a virtual function `calculateArea()` that returns a double. Derive `Circle` (with radius) and `Square` (with side length) classes from `Shape`, and override `calculateArea()` in each derived class.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 136
+  },
+  {
+    "question": "Implement a base class `Employee` with private members `name` (string) and `employeeID` (int). Derive a `Manager` class from `Employee` that adds a private member `department` (string). Include constructors and methods to display details for both classes.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 137
+  },
+  {
+    "question": "Create a base class `Vehicle` with a method `startEngine()`. Derive `Car` and `Motorcycle` classes from `Vehicle`. In `Car`, add a specific `drive()` method, and in `Motorcycle`, add a `ride()` method. Demonstrate calling `startEngine()` from derived objects.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 138
+  },
+  {
+    "question": "Demonstrate multi-level inheritance by creating a hierarchy: `Animal` (base) -> `Mammal` -> `Dog`. Add unique characteristics (members or methods) at each level and show object creation and method calls.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 139
+  },
+  {
+    "question": "Design a `BaseClass` with a `protected` integer member `protectedVar` and a `private` integer member `privateVar`. Create a `DerivedClass` that inherits from `BaseClass`. In `DerivedClass`, demonstrate accessing `protectedVar` and show that `privateVar` is inaccessible.",
+    "difficulty": "medium",
+    "topic": "AccessSpecifiers",
+    "id": 140
+  },
+  {
+    "question": "Using the `Shape` hierarchy from a previous question (base `Shape`, derived `Circle` and `Square`), demonstrate runtime polymorphism. Create a `std::vector` of `Shape*` pointers, populate it with `Circle` and `Square` objects, and iterate through the vector to call `calculateArea()` for each object.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 141
+  },
+  {
+    "question": "Implement a `MediaItem` base class with a virtual `play()` method. Derive `AudioFile` and `VideoFile` classes from `MediaItem`. Override the `play()` method in each derived class to print a specific message for playing audio or video.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 142
+  },
+  {
+    "question": "Design a simple logging system using polymorphism. Create a base `Logger` class with a virtual `log(string message)` method. Derive `ConsoleLogger` and `FileLogger` classes, overriding `log()` to print to console or write to a file, respectively.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 143
+  },
+  {
+    "question": "Create a `Calculator` class. Implement overloaded `add` methods to sum two integers, two doubles, and three integers. Demonstrate calling each overloaded version.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 144
+  },
+  {
+    "question": "Design a `Printer` class with overloaded `print` methods. One method should take an integer, another a string, and a third a character. Each method should display its respective argument.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 145
+  },
+  {
+    "question": "Implement a `ComplexNumber` class with private members for `real` and `imaginary` parts (doubles). Overload the `+` operator to enable addition of two `ComplexNumber` objects, returning a new `ComplexNumber`.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 146
+  },
+  {
+    "question": "Create a `Fraction` class with private integer members `numerator` and `denominator`. Overload the `<<` (insertion) operator to allow `Fraction` objects to be printed directly to an output stream (e.g., `cout << fractionObject;` should output `N/D`).",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 147
+  },
+  {
+    "question": "For the `Point` class (from a previous question with `x`, `y` coordinates), overload the `==` operator to compare if two `Point` objects have the same coordinates. It should return a boolean value.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 148
+  },
+  {
+    "question": "Design a `Department` class that uses composition to manage a collection of `Employee` objects. The `Department` class should have a private member (e.g., `std::vector<Employee>`) to store employees. Include methods to add an employee and list all employees in the department.",
+    "difficulty": "medium",
+    "topic": "ClassRelationship",
+    "id": 149
+  },
+  {
+    "question": "Implement a `StringWrapper` class that manages a C-style string (`char*`) internally. Provide a parameterized constructor, a copy constructor, a copy assignment operator, and a destructor to correctly handle dynamic memory allocation and deallocation for the string data.",
+    "difficulty": "medium",
+    "topic": "ConstructorDestructor",
+    "id": 150
+  },
+  {
+    "question": "Create a `Student` class with private attributes `studentID` (int), `name` (string), and `major` (string). Implement public methods `setDetails(int id, string n, string m)` to initialize these attributes and `displayDetails()` to print them to the console.",
+    "difficulty": "easy",
+    "topic": "Classes_Objects",
+    "id": 151
+  },
+  {
+    "question": "Enhance the `Student` class from the previous question by adding a default constructor that initializes `studentID` to 0, `name` to \"N/A\", and `major` to \"Undecided\". Also, implement a parameterized constructor that takes `studentID`, `name`, and `major` as arguments to initialize the object.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 152
+  },
+  {
+    "question": "Design a `Circle` class with a private attribute `radius` (double). Provide public getter and setter methods for `radius`. The setter should include validation to ensure `radius` cannot be set to a negative value. Also, implement a method `calculateArea()` that returns the circle's area (\u03c0*r\u00b2).",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 153
+  },
+  {
+    "question": "Implement a `Resource` class that simulates acquiring a resource in its constructor (e.g., printing \"Resource acquired\") and releasing it in its destructor (e.g., printing \"Resource released\"). Demonstrate the order of constructor and destructor calls for local objects within a function scope.",
+    "difficulty": "easy",
+    "topic": "Destructors",
+    "id": 154
+  },
+  {
+    "question": "Create a base class `Person` with private attributes `name` (string) and `age` (int). Implement public methods to set and display these details. Derive a class `Employee` from `Person` that adds private attributes `employeeID` (int) and `salary` (double). Implement methods in `Employee` to set and display its specific details, including inherited ones.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 155
+  },
+  {
+    "question": "Design a class `MathOperations` with overloaded public methods named `multiply`. One `multiply` method should take two integers as arguments and return their product. Another `multiply` method should take three double values as arguments and return their product.",
+    "difficulty": "easy",
+    "topic": "Function_Overloading",
+    "id": 156
+  },
+  {
+    "question": "Implement a `Point2D` class with private `x` and `y` coordinates (int). Overload the binary `+` operator to add two `Point2D` objects. The result should be a new `Point2D` object where its `x` is the sum of the input `x`s and its `y` is the sum of the input `y`s.",
+    "difficulty": "medium",
+    "topic": "Operator_Overloading",
+    "id": 157
+  },
+  {
+    "question": "Create a base class `Animal` with a virtual public method `makeSound()` that prints a generic sound. Derive `Dog` and `Cat` classes from `Animal`. Each derived class should override `makeSound()` to print its specific sound (e.g., \"Woof!\", \"Meow!\"). Demonstrate polymorphic behavior by calling `makeSound()` through a pointer to the base class `Animal`.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 158
+  },
+  {
+    "question": "Design a class hierarchy demonstrating multilevel inheritance: `Vehicle` (base class with `maxSpeed`), `Car` (derived from `Vehicle`, adds `numDoors`), `SportsCar` (derived from `Car`, adds `turboBoostEnabled`). Ensure proper constructor chaining to initialize attributes at each level.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 159
+  },
+  {
+    "question": "Create a `StringWrapper` class that manages a dynamically allocated character array to store a string. Implement a copy constructor for `StringWrapper` that performs a deep copy of the character array to ensure independent memory management between copied objects.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 160
+  },
+  {
+    "question": "Define a base class `Shape` with a `protected` member `color` (string) and a public method `displayColor()`. Derive a class `ColoredCircle` from `Shape`. Demonstrate how `ColoredCircle` can directly access and modify the `protected` `color` member, and then use `displayColor()` to confirm the change.",
+    "difficulty": "easy",
+    "topic": "Access_Specifiers",
+    "id": 161
+  },
+  {
+    "question": "Model a `Laptop` class that contains a `CPU` object (composition). The `CPU` class should have private attributes `manufacturer` (string) and `clockSpeed` (double). The `Laptop` class should have a `modelName` (string) and instantiate a `CPU` object as a member, demonstrating their 'has-a' relationship.",
+    "difficulty": "medium",
+    "topic": "Class_Relationships",
+    "id": 162
+  },
+  {
+    "question": "For a `Counter` class with a single private integer member `count`, overload the prefix `++` operator. This operator should increment `count` and then return the modified `Counter` object (by reference).",
+    "difficulty": "medium",
+    "topic": "Operator_Overloading",
+    "id": 163
+  },
+  {
+    "question": "Design an abstract base class `GeometricShape` with a pure virtual function `getArea()` (returning double) and a non-virtual function `getName()` (returning string). Derive `Rectangle` and `Triangle` classes from `GeometricShape`, implementing the `getArea()` function specifically for each shape.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 164
+  },
+  {
+    "question": "Create a `Box` class with private attributes `length`, `width`, and `height` (all doubles). Implement a non-member function `calculateVolume()` that is declared as a `friend` of the `Box` class, allowing it to access the private dimensions of a `Box` object and return its volume.",
+    "difficulty": "medium",
+    "topic": "Access_Specifiers",
+    "id": 165
+  },
+  {
+    "question": "Create a `Date` class with private attributes `day`, `month`, and `year` (all integers). Implement a `const` member function `displayDate()` that prints the date. Demonstrate that this `const` method can be called safely on both `const` and non-`const` `Date` objects.",
+    "difficulty": "medium",
+    "topic": "Classes_Objects",
+    "id": 166
+  },
+  {
+    "question": "Implement a `Time` class with private attributes `hours`, `minutes`, and `seconds` (all integers). Overload the `==` operator to compare two `Time` objects for equality (i.e., they represent the exact same time).",
+    "difficulty": "medium",
+    "topic": "Operator_Overloading",
+    "id": 167
+  },
+  {
+    "question": "Design a base class `Publication` with private attributes `title` (string) and `price` (double). Implement methods to set and display these. From `Publication`, derive `Book` (adds private attribute `author` - string) and `Magazine` (adds private attribute `issueNumber` - int). Demonstrate creating objects of `Book` and `Magazine` and displaying their complete details.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 168
+  },
+  {
+    "question": "Create a `StudentGrade` class with private attributes `studentId` (int) and `score` (double). Use a constructor initialization list to initialize these members. Provide a public method `displayGrade()`.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 169
+  },
+  {
+    "question": "Design a `Logger` class. It should have a `private static int logCount` to track the total number of log messages created across all `Logger` objects. Increment `logCount` in the constructor. Implement a `public static void displayTotalLogs()` method to show the current value of `logCount`.",
+    "difficulty": "medium",
+    "topic": "Classes_Objects",
+    "id": 170
+  },
+  {
+    "question": "For the `Point2D` class (from Q7) with private `x` and `y` coordinates, overload the stream insertion operator `<<` to enable printing `Point2D` objects directly to `std::cout` in the format \"(x, y)\".",
+    "difficulty": "medium",
+    "topic": "Operator_Overloading",
+    "id": 171
+  },
+  {
+    "question": "Model a `Course` class that aggregates `Student` objects. The `Course` class should have a `courseName` (string) and maintain a collection (e.g., `std::vector`) of `Student` objects. Implement methods to add a student to the course and display all enrolled students.",
+    "difficulty": "medium",
+    "topic": "Class_Relationships",
+    "id": 172
+  },
+  {
+    "question": "Create a `Complex` class with private `real` and `imaginary` parts (doubles). Implement multiple overloaded constructors: a default constructor (initializes both to 0), a constructor taking only the `real` part (imaginary is 0), and a constructor taking both `real` and `imaginary` parts.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 173
+  },
+  {
+    "question": "Create a base class `Base` and a derived class `Derived` from `Base`. Implement a destructor for both `Base` and `Derived` that prints a message indicating which destructor is being called. Demonstrate the order of destructor execution when a `Derived` object is created and then destroyed, especially when managed via a `Base` class pointer.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 174
+  },
+  {
+    "question": "Develop a `Temperature` class with a private `double value` and a private `char unit` ('C' for Celsius or 'F' for Fahrenheit). Provide public setter methods `setValue(double val)` and `setUnit(char u)`. The `setValue` method should validate that the temperature is above absolute zero (-273.15 C or -459.67 F), and `setUnit` should only accept 'C' or 'F'.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 175
+  },
+  {
+    "question": "Design a `Book` class with private members `title`, `author`, and `isbn` (all strings). Provide public methods to set and get these values, ensuring basic encapsulation.",
+    "difficulty": "easy",
+    "topic": "Classes",
+    "id": 176
+  },
+  {
+    "question": "Create a `Rectangle` class with `length` and `width` (both double). Implement a default constructor that initializes both to 0.0 and a parameterized constructor that takes two arguments to set `length` and `width`.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 177
+  },
+  {
+    "question": "Enhance the `Rectangle` class. Implement setters for `length` and `width` that validate input: dimensions must be positive. If an invalid value is provided, print an error message and do not update the member.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 178
+  },
+  {
+    "question": "Modify the `Book` class to include a destructor. The destructor should print a message indicating the title of the book object that is being destroyed.",
+    "difficulty": "easy",
+    "topic": "Destructors",
+    "id": 179
+  },
+  {
+    "question": "Define a base class `Shape` with a pure virtual function `double calculateArea()`. Create a derived class `Circle` that has a `radius` member and implements `calculateArea()`.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 180
+  },
+  {
+    "question": "Write a `Calculator` class with overloaded `add` methods: one taking two integers, another taking two doubles, and a third taking three integers. Each method should return the sum.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 181
+  },
+  {
+    "question": "For a `Point` class with `x` and `y` integer coordinates, overload the binary `+` operator to add two `Point` objects. The result should be a new `Point` object with summed coordinates.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 182
+  },
+  {
+    "question": "Explain the purpose and usage of `public`, `private`, and `protected` access specifiers using a simple example with a base class `MyClass` and a derived class `DerivedClass`.",
+    "difficulty": "easy",
+    "topic": "AccessSpecifiers",
+    "id": 183
+  },
+  {
+    "question": "Using the `Shape` base class and `Circle` derived class (from previous questions), demonstrate runtime polymorphism by creating a `Shape*` pointer, assigning a `Circle` object to it, and calling `calculateArea()`.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 184
+  },
+  {
+    "question": "Design a `Student` class with `name` (string), `studentID` (int), and `gpa` (double). Include a static member `totalStudents` to keep track of the total number of `Student` objects created.",
+    "difficulty": "medium",
+    "topic": "Classes",
+    "id": 185
+  },
+  {
+    "question": "Implement a `StringWrapper` class that manages a C-style string (`char*`) dynamically allocated on the heap. Provide a copy constructor that performs a deep copy to prevent dangling pointers.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 186
+  },
+  {
+    "question": "Create an `Engine` class with `horsepower` (int) and `fuelType` (string). Then, design a `Car` class that demonstrates composition by containing an `Engine` object as a member.",
+    "difficulty": "medium",
+    "topic": "ClassRelationships",
+    "id": 187
+  },
+  {
+    "question": "Overload the `==` operator for the `Point` class (from a previous question) to compare two `Point` objects. It should return `true` if both `x` and `y` coordinates are identical, `false` otherwise.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 188
+  },
+  {
+    "question": "Create a base class `Employee` with `name` (string) and `salary` (double). Derive two classes: `Manager` (adds `department` string) and `Engineer` (adds `specialization` string). Implement constructors for all classes.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 189
+  },
+  {
+    "question": "Develop a `BankAccount` class where `balance` (double) is private. Provide public methods `deposit(double amount)`, `withdraw(double amount)`, and `getBalance()`. Ensure `withdraw` checks for sufficient funds.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 190
+  },
+  {
+    "question": "In a class `Printer`, overload a `print` member function to output different data types: `print(int)`, `print(double)`, and `print(const char*)`. Each should print the value with a descriptive label.",
+    "difficulty": "medium",
+    "topic": "FunctionOverloading",
+    "id": 191
+  },
+  {
+    "question": "Design a `ComplexNumber` class with `real` and `imaginary` parts (both double). Implement a constructor that takes two arguments for `real` and `imaginary`, and a default constructor that initializes both to 0.0.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 192
+  },
+  {
+    "question": "Describe and demonstrate the order in which constructors and destructors are called when an object of a derived class is created and then goes out of scope, given a base class `Base` and a derived class `Derived`.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 193
+  },
+  {
+    "question": "Define an abstract base class `Animal` with a pure virtual method `void makeSound()`. Implement two derived classes, `Dog` and `Cat`, each overriding `makeSound()` to print their respective sounds.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 194
+  },
+  {
+    "question": "Model a `Library` class that manages a collection of `Book` objects (from Q1) using a simple array or vector (without using STL directly for management, just as storage). Implement methods to add a book and display all books.",
+    "difficulty": "medium",
+    "topic": "ClassRelationships",
+    "id": 195
+  },
+  {
+    "question": "For the `ComplexNumber` class, overload the `<<` (insertion) operator to enable printing `ComplexNumber` objects to an output stream in the format `real + imaginaryi` (e.g., `3.0 + 4.5i`).",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 196
+  },
+  {
+    "question": "Implement a `Vehicle` base class with `speed` (int) and `color` (string). Derive a `Car` class (adds `numDoors` int) and a `Motorcycle` class (adds `hasSidecar` bool). Demonstrate methods specific to each derived class.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 197
+  },
+  {
+    "question": "Create a simple `Timer` class with private integer members `hours`, `minutes`, and `seconds`. Provide a public method `displayTime()` that prints the current time in `HH:MM:SS` format.",
+    "difficulty": "easy",
+    "topic": "Classes",
+    "id": 198
+  },
+  {
+    "question": "Design a `Date` class with private integer members `day`, `month`, and `year`. Implement a parameterized constructor to set these values and provide public getter methods for each. No setters are required.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 199
+  },
+  {
+    "question": "In an inheritance scenario, where `Base` has `privateData`, `protectedData`, and `publicData`, demonstrate how these members can (or cannot) be accessed by a `Derived` class and by a non-member function.",
+    "difficulty": "medium",
+    "topic": "AccessSpecifiers",
+    "id": 200
+  },
+  {
+    "question": "Design a `Book` class with private members for `title`, `author`, and `isbn` (string types). Provide public methods to set and retrieve these details, and a method `displayBookDetails()` to print all information.",
+    "difficulty": "easy",
+    "topic": "classes_objects",
+    "id": 201
+  },
+  {
+    "question": "Create a `Student` class with private members `name` (string), `studentId` (int), and `gpa` (double). Implement a public default constructor and a parameterized constructor. Include a public method `isEligibleForScholarship()` that returns true if `gpa` is 3.5 or higher.",
+    "difficulty": "medium",
+    "topic": "encapsulation",
+    "id": 202
+  },
+  {
+    "question": "Implement a `Car` class. Provide a default constructor, a parameterized constructor (taking `make`, `model`, `year`), and a copy constructor. Demonstrate the usage of all three constructors in `main`.",
+    "difficulty": "medium",
+    "topic": "constructors",
+    "id": 203
+  },
+  {
+    "question": "Develop a `ResourceLogger` class that dynamically allocates a C-style string in its constructor to store a log message. Implement a destructor that deallocates this memory and prints a message indicating the resource is freed. Demonstrate its usage by creating an object and letting it go out of scope.",
+    "difficulty": "medium",
+    "topic": "destructors",
+    "id": 204
+  },
+  {
+    "question": "Design a `BankAccount` class. It should have a private `balance` (double). Implement public methods `deposit(double amount)` and `withdraw(double amount)`. Ensure `withdraw` prevents the balance from going negative and `deposit` prevents negative amounts.",
+    "difficulty": "medium",
+    "topic": "encapsulation",
+    "id": 205
+  },
+  {
+    "question": "Create a base class `Shape` with a virtual method `calculateArea()` that returns 0. Derive two classes, `Rectangle` (with `width`, `height`) and `Circle` (with `radius`), from `Shape`. Each derived class should override `calculateArea()` to return its specific area.",
+    "difficulty": "medium",
+    "topic": "inheritance",
+    "id": 206
+  },
+  {
+    "question": "Define a base class `Employee` with private members `name` and `employeeId`. Derive two classes, `Manager` and `Engineer`. `Manager` should add a `department` member, and `Engineer` should add a `specialization` member. Implement a `displayInfo()` method in each class.",
+    "difficulty": "medium",
+    "topic": "inheritance",
+    "id": 207
+  },
+  {
+    "question": "Using the `Shape` hierarchy from a previous problem, demonstrate runtime polymorphism. Create an array of `Shape` pointers, store instances of `Rectangle` and `Circle` in it, and then iterate through the array to call `calculateArea()` on each object.",
+    "difficulty": "medium",
+    "topic": "polymorphism",
+    "id": 208
+  },
+  {
+    "question": "Implement a base class `Vehicle` with a virtual method `startEngine()` that prints a generic message. Derive `Car` and `Motorcycle` classes, each overriding `startEngine()` to print a specific message for their vehicle type.",
+    "difficulty": "medium",
+    "topic": "polymorphism",
+    "id": 209
+  },
+  {
+    "question": "Create a `MathOperations` class with three overloaded `add` methods: one that takes two integers, one that takes two doubles, and one that takes three integers. Demonstrate calling each version of the `add` method.",
+    "difficulty": "easy",
+    "topic": "func_overloading",
+    "id": 210
+  },
+  {
+    "question": "Design a `Logger` class with an overloaded `log` method. One `log` method should take a `const char*` message, another should take an `int` error code, and a third should take a `bool` status. Each should print an appropriate formatted message.",
+    "difficulty": "easy",
+    "topic": "func_overloading",
+    "id": 211
+  },
+  {
+    "question": "Implement a `Point` class with private integer members `x` and `y`. Overload the binary `+` operator to add two `Point` objects, returning a new `Point` object whose coordinates are the sum of the corresponding coordinates.",
+    "difficulty": "medium",
+    "topic": "op_overloading",
+    "id": 212
+  },
+  {
+    "question": "Create a `Fraction` class with private integer members `numerator` and `denominator`. Overload the binary `*` operator to multiply two `Fraction` objects, returning a new `Fraction` object. Simplify the resulting fraction if possible (e.g., 2/4 becomes 1/2).",
+    "difficulty": "medium",
+    "topic": "op_overloading",
+    "id": 213
+  },
+  {
+    "question": "For the `Point` class (from a previous problem), overload the prefix increment `++` operator. It should increment both the `x` and `y` coordinates of the `Point` object and return a reference to the modified object.",
+    "difficulty": "medium",
+    "topic": "op_overloading",
+    "id": 214
+  },
+  {
+    "question": "Develop a `Person` class with `name` (public), `address` (protected), and `phone` (private). Create a derived class `Student` that tries to access all three members. Demonstrate which members are accessible from `Student` and from a non-member function.",
+    "difficulty": "medium",
+    "topic": "access_specifiers",
+    "id": 215
+  },
+  {
+    "question": "Design a `Course` class (with `name`, `code`). Then, create a `Department` class that uses aggregation to manage a collection of `Course` objects (e.g., using `std::vector`). Implement methods to add a course and list all courses in the department.",
+    "difficulty": "medium",
+    "topic": "class_relationships",
+    "id": 216
+  },
+  {
+    "question": "Create an `Engine` class with a simple constructor and `start()` method. Implement a `Car` class that uses composition: a `Car` object should contain an `Engine` object as a member. Ensure the `Engine` is properly constructed and its `start()` method can be called through the `Car` object.",
+    "difficulty": "medium",
+    "topic": "class_relationships",
+    "id": 217
+  },
+  {
+    "question": "Implement a custom `MyString` class that dynamically allocates memory for a C-style string. Provide a deep copy constructor and a deep copy assignment operator (`operator=`). Demonstrate how these are crucial to avoid shallow copies and dangling pointers when copying `MyString` objects.",
+    "difficulty": "medium",
+    "topic": "copy_control",
+    "id": 218
+  },
+  {
+    "question": "Create two classes, `Box` (with private `length`) and `Container` (with private `volume`). Declare a non-member function `compareSizes(Box b, Container c)` as a friend to both classes, allowing it to access their private members and print a comparison.",
+    "difficulty": "medium",
+    "topic": "friend_functions",
+    "id": 219
+  },
+  {
+    "question": "Design a `Circle` class with a private `radius`. Implement `getRadius()` as a `const` member function and `setRadius()` as a non-`const` member function. In `main`, create a `const Circle` object and demonstrate which methods it can call.",
+    "difficulty": "easy",
+    "topic": "const_correctness",
+    "id": 220
+  },
+  {
+    "question": "Implement a `Counter` class with a static integer member `count` initialized to 0. Increment `count` in the constructor and decrement it in the destructor. Provide a static method `getTotalCount()` that returns the current value of `count`. Demonstrate how `count` tracks the number of `Counter` objects.",
+    "difficulty": "medium",
+    "topic": "static_members",
+    "id": 221
+  },
+  {
+    "question": "Create a base class `Parent` and a derived class `Child`. Add a constructor and a destructor to both classes, each printing a message indicating its creation or destruction. Demonstrate the order in which these constructors and destructors are called when a `Child` object is created and destroyed.",
+    "difficulty": "easy",
+    "topic": "inheritance",
+    "id": 222
+  },
+  {
+    "question": "For the `Book` class (from a previous problem), overload the equality operator `==`. Two books should be considered equal if their `isbn` values are identical. Demonstrate comparing two `Book` objects.",
+    "difficulty": "medium",
+    "topic": "op_overloading",
+    "id": 223
+  },
+  {
+    "question": "For the `Book` class (from a previous problem), overload the output stream operator `<<` to allow printing `Book` objects directly to `std::cout` in a formatted way (e.g., \"Title: [title], Author: [author], ISBN: [isbn]\").",
+    "difficulty": "medium",
+    "topic": "op_overloading",
+    "id": 224
+  },
+  {
+    "question": "Define an abstract base class `Animal` with a pure virtual function `makeSound()`. Create two concrete derived classes, `Dog` and `Cat`, each implementing `makeSound()` to print their specific sound. Demonstrate that you cannot instantiate `Animal` directly, but can use `Animal` pointers to refer to `Dog` and `Cat` objects.",
+    "difficulty": "medium",
+    "topic": "polymorphism",
+    "id": 225
+  },
+  {
+    "question": "Define a `Book` class with private members `title`, `author`, and `isbn` (string types). Implement a constructor to initialize these members and public getter methods for each. Include a `displayBookInfo` method that prints all book details.",
+    "difficulty": "easy",
+    "topic": "ClassObject",
+    "id": 226
+  },
+  {
+    "question": "Create a `Student` class with private `name` (string) and `id` (int). Implement both a default constructor (initializing `name` to 'Unknown' and `id` to 0) and a parameterized constructor (taking `name` and `id`).",
+    "difficulty": "easy",
+    "topic": "Constructor",
+    "id": 227
+  },
+  {
+    "question": "Design a `BankAccount` class with `accountNumber` (string, read-only after creation) and `balance` (double, private). Implement public methods `deposit(amount)` and `withdraw(amount)` with appropriate validation (e.g., non-negative amounts, sufficient balance for withdrawal).",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 228
+  },
+  {
+    "question": "Define a `Shape` base class with a `color` (string) attribute. Create a `Circle` derived class that adds a `radius` (double). Implement a constructor for `Circle` that initializes both `color` and `radius` by calling the base class constructor.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 229
+  },
+  {
+    "question": "Extend the `Shape` and `Circle` example from Q4. Add a virtual `calculateArea()` method to `Shape` (returning 0 by default). Override `calculateArea()` in `Circle` to compute the circle's area. Demonstrate calling `calculateArea()` through a `Shape` pointer pointing to a `Circle` object.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 230
+  },
+  {
+    "question": "Create a `Calculator` class. Implement three overloaded `add` member functions: one that takes two integers, one that takes two doubles, and one that takes three integers.",
+    "difficulty": "easy",
+    "topic": "FunctionOverload",
+    "id": 231
+  },
+  {
+    "question": "For a `Point` class with private `x` and `y` integer coordinates, overload the binary `+` operator to enable adding two `Point` objects (component-wise addition, returning a new `Point` object).",
+    "difficulty": "medium",
+    "topic": "OperatorOverload",
+    "id": 232
+  },
+  {
+    "question": "Implement a `ResourceHandler` class that allocates dynamic memory for an integer array of a given size in its constructor. Implement a destructor to correctly deallocate this memory and print a message indicating destruction.",
+    "difficulty": "medium",
+    "topic": "Destructor",
+    "id": 233
+  },
+  {
+    "question": "Design a `Player` class with `name` (public string), `health` (protected int), and `score` (private int). Create a `Wizard` class inheriting from `Player`. In `Wizard`, demonstrate accessing `name` directly and modifying `health` through a member function.",
+    "difficulty": "easy",
+    "topic": "AccessSpecifier",
+    "id": 234
+  },
+  {
+    "question": "Design a `Car` class that uses composition to include an `Engine` object as a private member. The `Engine` class should have `horsepower` (int) and `fuelType` (string). Implement a `Car` constructor that initializes its `Engine` and a method `Car::start()` that calls an `Engine::start()` method.",
+    "difficulty": "medium",
+    "topic": "Composition",
+    "id": 235
+  },
+  {
+    "question": "Create a `Counter` class that keeps track of the total number of `Counter` objects currently alive. Use a static member variable for the count, incremented in constructors and decremented in the destructor. Implement a static method to retrieve the current count.",
+    "difficulty": "medium",
+    "topic": "StaticMember",
+    "id": 236
+  },
+  {
+    "question": "For a `Rectangle` class with `width` and `height` (double), implement a `getArea()` method that is declared as `const`. Demonstrate that this method can be called on a `const` `Rectangle` object and does not modify object state.",
+    "difficulty": "easy",
+    "topic": "ConstMethod",
+    "id": 237
+  },
+  {
+    "question": "Implement a `StringWrapper` class that manages a dynamically allocated C-style character array (char*). Write a copy constructor that performs a deep copy of the string data, ensuring independent memory management for copied objects.",
+    "difficulty": "medium",
+    "topic": "CopyConstructor",
+    "id": 238
+  },
+  {
+    "question": "For the `Point` class (from Q7), overload the stream insertion operator `<<` to enable printing `Point` objects directly to `std::cout` in the format `(x, y)`. Make this an external friend function.",
+    "difficulty": "medium",
+    "topic": "OperatorOverload",
+    "id": 239
+  },
+  {
+    "question": "Design an abstract base class `Animal` with a pure virtual method `makeSound()` (returning void). Create two concrete derived classes, `Dog` and `Cat`, that implement `makeSound()` to print their respective sounds ('Woof!' and 'Meow!').",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 240
+  },
+  {
+    "question": "For a `Product` class with `id` (int), `name` (string), and `price` (double), implement three constructors: one that takes only `id`, one that takes `id` and `name`, and one that takes `id`, `name`, and `price`. Use constructor chaining where appropriate.",
+    "difficulty": "easy",
+    "topic": "Constructor",
+    "id": 241
+  },
+  {
+    "question": "Create a `PrivateData` class that has a private integer member `value`. Declare an external `friend` function `displayPrivateValue(const PrivateData& obj)` that can access and print `obj.value`.",
+    "difficulty": "easy",
+    "topic": "AccessSpecifier",
+    "id": 242
+  },
+  {
+    "question": "Create a `Person` base class with `name` (string) and `age` (int). Derive a `Teacher` class that adds `subject` (string) and `salary` (double). Demonstrate how the `Teacher` constructor should call the `Person` base class constructor to initialize inherited members.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 243
+  },
+  {
+    "question": "Explain the necessity of a virtual destructor in a polymorphic base class. Provide a simple C++ code structure with a `Base` class and a `Derived` class, illustrating a scenario where a non-virtual destructor leads to a memory leak and how a virtual destructor solves it.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 244
+  },
+  {
+    "question": "For the `Book` class (from Q1), overload the binary `==` operator to compare two `Book` objects. Two books should be considered equal if their `isbn` values are identical.",
+    "difficulty": "medium",
+    "topic": "OperatorOverload",
+    "id": 245
+  },
+  {
+    "question": "Design a `Library` class that uses aggregation to manage a collection of `Book` objects (from Q1). The `Library` class should store pointers (or references) to `Book` objects that are created and owned externally. Implement methods to `addBook(Book* book)` and `displayAllBooks()`.",
+    "difficulty": "medium",
+    "topic": "Aggregation",
+    "id": 246
+  },
+  {
+    "question": "Create a `Date` class with private `day`, `month`, `year` (integers). Implement public setter methods for each (`setDay`, `setMonth`, `setYear`) that perform basic validation (e.g., month between 1-12, day valid for the given month, year positive). If validation fails, do not update the member and print an error.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 247
+  },
+  {
+    "question": "Create a `Vehicle` base class with a public method `startEngine()` that prints 'Vehicle engine started.' Derive a `Car` class and implement its own `startEngine()` method that prints 'Car engine started with a roar!'. Demonstrate calling `startEngine()` using both a `Vehicle` object and a `Car` object, showing method hiding (non-virtual overriding).",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 248
+  },
+  {
+    "question": "Design a `ShoppingCart` class that uses composition to manage a collection of `Item` objects. The `Item` class (separate class) should have `name` (string), `price` (double), and `quantity` (int). `ShoppingCart` should have methods to `addItem(Item item)` and `calculateTotal()`.",
+    "difficulty": "medium",
+    "topic": "Composition",
+    "id": 249
+  },
+  {
+    "question": "Create a `Movie` class with `title` (string), `director` (string), and `releaseYear` (int). Implement a constructor where `director` and `releaseYear` have default values (e.g., 'Unknown' and 2000), allowing movies to be created with just a title.",
+    "difficulty": "easy",
+    "topic": "Constructor",
+    "id": 250
+  },
+  {
+    "question": "Design a `Book` class with private attributes for `title`, `author`, and `isbn`. Implement a public constructor to initialize these attributes and a `displayDetails()` method to print all book information.",
+    "difficulty": "easy",
+    "topic": "Class",
+    "id": 251
+  },
+  {
+    "question": "Create a `Point` class with private integer attributes `x` and `y`. Provide public methods `setCoordinates(int, int)` to modify them and `getDistanceToOrigin()` to calculate the Euclidean distance from (0,0).",
+    "difficulty": "easy",
+    "topic": "Class",
+    "id": 252
+  },
+  {
+    "question": "Implement a `Student` class with private members `studentID`, `name`, and `major`. Provide a constructor to set these values and public `getStudentID()`, `getName()`, `getMajor()` methods, but no direct setters for `studentID` or `name`.",
+    "difficulty": "easy",
+    "topic": "Encapsulation",
+    "id": 253
+  },
+  {
+    "question": "Develop a `Logger` class that prints 'Logger created.' when an object is constructed and 'Logger destroyed.' when it is destructed. Demonstrate its usage in `main`.",
+    "difficulty": "easy",
+    "topic": "ConstructorDestructor",
+    "id": 254
+  },
+  {
+    "question": "Define a `Circle` class with a `radius` attribute. Implement a default constructor setting radius to 0, a parameterized constructor setting radius to a given value, and a copy constructor.",
+    "difficulty": "medium",
+    "topic": "Constructor",
+    "id": 255
+  },
+  {
+    "question": "Create a `ResourceHandler` class that simulates acquiring a resource in its constructor (e.g., printing 'Resource acquired.') and releasing it in its destructor (e.g., printing 'Resource released.').",
+    "difficulty": "medium",
+    "topic": "ConstructorDestructor",
+    "id": 256
+  },
+  {
+    "question": "Refine a `BankAccount` class. Ensure the `balance` is private. Provide public methods `deposit(double amount)` and `withdraw(double amount)` that safely modify the balance, and a `getBalance()` method.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 257
+  },
+  {
+    "question": "Implement a `Temperature` class with a private `celsiusValue`. Provide public methods `setCelsius(double c)` and `getFahrenheit()` (which converts Celsius to Fahrenheit).",
+    "difficulty": "easy",
+    "topic": "Encapsulation",
+    "id": 258
+  },
+  {
+    "question": "Create a base class `Shape` with a public method `calculateArea()` that returns 0. Derive `Rectangle` and `Circle` classes, overriding `calculateArea()` to return their specific areas.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 259
+  },
+  {
+    "question": "Design a `Vehicle` base class with protected attributes `speed` and `fuelType`. Derive `Car` and `Motorcycle` classes, adding specific attributes like `numDoors` for `Car` and `hasSidecar` for `Motorcycle`.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 260
+  },
+  {
+    "question": "Implement a multi-level inheritance hierarchy: `Person` (base) -> `Employee` (derived from Person) -> `Manager` (derived from Employee). Add relevant attributes and methods at each level.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 261
+  },
+  {
+    "question": "Extend the `Shape` hierarchy (from a previous question) by making `calculateArea()` a virtual function in the base class. Demonstrate dynamic polymorphism by storing derived class objects in a `Shape*` array and calling `calculateArea()`.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 262
+  },
+  {
+    "question": "Create an abstract base class `Animal` with a pure virtual method `makeSound()`. Derive `Dog` and `Cat` classes, each implementing `makeSound()` to print their respective sounds.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 263
+  },
+  {
+    "question": "Develop a `MathOperations` class with overloaded `add` methods: one taking two integers, another taking two doubles, and a third taking three integers.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 264
+  },
+  {
+    "question": "Implement a `Printer` class with overloaded `print` methods that can display a `string`, an `int`, a `double`, and a `bool` value to the console.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 265
+  },
+  {
+    "question": "Define a `Vector2D` class with `x` and `y` components. Overload the `+` operator to perform vector addition of two `Vector2D` objects.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 266
+  },
+  {
+    "question": "Create a `ComplexNumber` class with `real` and `imaginary` parts. Overload the `+` operator for complex number addition and the `<<` operator to enable easy printing of `ComplexNumber` objects.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 267
+  },
+  {
+    "question": "Implement a `Fraction` class with `numerator` and `denominator`. Overload the `*` operator to multiply two `Fraction` objects and return a new `Fraction` object.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 268
+  },
+  {
+    "question": "Illustrate the use of `private`, `protected`, and `public` access specifiers by creating a `BaseClass` with members of each type and a `DerivedClass` that attempts to access them. Explain which accesses are permitted.",
+    "difficulty": "medium",
+    "topic": "AccessSpecifiers",
+    "id": 269
+  },
+  {
+    "question": "Design a `SecretAgent` class where the agent's `codename` is public, `trueIdentity` is private, and `missionBriefing` is protected. Show how these access levels restrict or permit access from outside and from a derived class `Handler`.",
+    "difficulty": "medium",
+    "topic": "AccessSpecifiers",
+    "id": 270
+  },
+  {
+    "question": "Model a `Library` class that maintains a collection of `Book` objects (from a previous question) using aggregation. Implement methods to `addBook()`, `removeBook()`, and `listAllBooks()`.",
+    "difficulty": "medium",
+    "topic": "Aggregation",
+    "id": 271
+  },
+  {
+    "question": "Implement a `Car` class that exhibits composition with an `Engine` class. The `Engine` should be created and destroyed along with the `Car` object. Demonstrate this lifetime management.",
+    "difficulty": "medium",
+    "topic": "Composition",
+    "id": 272
+  },
+  {
+    "question": "Design a `Department` class that holds a collection of `Professor` objects (aggregation). Implement methods to `hireProfessor()`, `fireProfessor()`, and `displayProfessors()`.",
+    "difficulty": "medium",
+    "topic": "Aggregation",
+    "id": 273
+  },
+  {
+    "question": "Create a `Product` class with `productID`, `name`, and `price`. Overload the `==` operator to compare two `Product` objects based solely on their `productID`.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 274
+  },
+  {
+    "question": "Implement a `User` class with private `username` and `password`. The `userID` should be a unique integer automatically assigned using a static member counter in the constructor. Provide public getters for `username` and `userID`.",
+    "difficulty": "medium",
+    "topic": "Class",
+    "id": 275
+  },
+  {
+    "question": "Design a `Book` class with private attributes for `title`, `author`, and `isbn` (International Standard Book Number). Implement a parameterized constructor to initialize these attributes and a public method `displayDetails()` that prints all book information. Ensure data encapsulation.",
+    "difficulty": "easy",
+    "topic": "Class",
+    "id": 276
+  },
+  {
+    "question": "Create a `Student` class with `name` (string) and `studentID` (int) as private members. Implement a default constructor that initializes `name` to \"Unknown\" and `studentID` to 0, and a parameterized constructor that takes both `name` and `studentID`. Also, implement a destructor that prints a message indicating when a `Student` object is being destroyed, e.g., 'Student [name] with ID [id] destroyed.'",
+    "difficulty": "easy",
+    "topic": "Constructor",
+    "id": 277
+  },
+  {
+    "question": "Develop a `BankAccount` class with a private `balance` (double) attribute. Provide public methods `deposit(double amount)`, `withdraw(double amount)`, and `getBalance()`. Ensure `deposit` only accepts positive amounts, and `withdraw` only proceeds if sufficient funds are available and the withdrawal amount is positive. Both `deposit` and `withdraw` methods should return a boolean indicating success or failure.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 278
+  },
+  {
+    "question": "Define a class `Vehicle` with `public` member `brand` (string), `protected` member `model` (string), and `private` member `year` (int). Demonstrate how to access and modify these members: directly for `brand`, through a derived class method for `model`, and through a public getter/setter for `year` within the `Vehicle` class itself.",
+    "difficulty": "easy",
+    "topic": "AccessSpecifiers",
+    "id": 279
+  },
+  {
+    "question": "Create a base class `Shape` with a public method `calculateArea()` that returns 0. Derive two classes, `Circle` and `Rectangle`, from `Shape`. `Circle` should have a `radius` and `Rectangle` should have `width` and `height`. Override the `calculateArea()` method in both derived classes to compute their respective areas.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 280
+  },
+  {
+    "question": "Building upon the `Shape` hierarchy (with `Circle` and `Rectangle`), make `calculateArea()` a virtual function in the `Shape` base class. Demonstrate runtime polymorphism by creating an array or vector of `Shape` pointers, populating it with `Circle` and `Rectangle` objects, and then iterating through it to call `calculateArea()` on each object.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 281
+  },
+  {
+    "question": "Implement a `MathOperations` class with three overloaded `add` methods: one that takes two integers, another that takes three integers, and a third that takes two double-precision floating-point numbers. Each method should return the sum of its arguments.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 282
+  },
+  {
+    "question": "Design a `ComplexNumber` class with private `real` and `imaginary` (double) parts. Overload the binary `+` operator to enable addition of two `ComplexNumber` objects, returning a new `ComplexNumber` object representing their sum.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 283
+  },
+  {
+    "question": "For the `ComplexNumber` class, overload the unary `-` operator. This operator should return a new `ComplexNumber` object where both the real and imaginary parts are negated.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 284
+  },
+  {
+    "question": "Create an `Employee` class with `name` and `employeeID`. Then create a `Department` class that uses aggregation to manage a collection of `Employee` objects (e.g., using a `std::vector`). Implement methods in `Department` to add an employee and to list all employees within that department.",
+    "difficulty": "medium",
+    "topic": "ClassRelationship",
+    "id": 285
+  },
+  {
+    "question": "Design a `Car` class that demonstrates composition by containing an `Engine` object. The `Engine` class should have attributes like `horsepower` and `fuelType`. Ensure that when a `Car` object is created, its `Engine` is also created, and when the `Car` object is destroyed, its `Engine` object is automatically destroyed with it.",
+    "difficulty": "medium",
+    "topic": "ClassRelationship",
+    "id": 286
+  },
+  {
+    "question": "Implement a `MyString` class that dynamically allocates memory for a character array (C-style string). Provide a constructor that takes a `const char*` to initialize the string. Crucially, implement a copy constructor to perform a deep copy, preventing issues like double-freeing or shared pointers when `MyString` objects are copied.",
+    "difficulty": "medium",
+    "topic": "Constructor",
+    "id": 287
+  },
+  {
+    "question": "Create a `Product` class with private members `id` (int), `name` (string), and `price` (double). Implement a single constructor that uses default arguments to allow creating `Product` objects either with all attributes provided, or with only `id` and `name` (default `price` to 0.0), or with no arguments (default `id` to 0, `name` to \"Unnamed\", `price` to 0.0).",
+    "difficulty": "easy",
+    "topic": "Constructor",
+    "id": 288
+  },
+  {
+    "question": "Establish a multilevel inheritance hierarchy: `Electronics` (base class) -> `Smartphone` (derived from `Electronics`) -> `PremiumSmartphone` (derived from `Smartphone`). Each class should add at least one unique attribute (e.g., `Electronics` has `powerConsumption`, `Smartphone` adds `operatingSystem`, `PremiumSmartphone` adds `cameraMP`) and a method to display its specific details.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 289
+  },
+  {
+    "question": "Define a base class `Person` with `protected` members `firstName` and `lastName` (both strings). Create a derived class `Teacher` that has an additional `subject` (string) member. The `Teacher` constructor should correctly initialize `firstName` and `lastName` by calling the `Person` base class constructor, and then initialize its own `subject` member. Implement a method in `Teacher` to display the teacher's full name and subject.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 290
+  },
+  {
+    "question": "Modify the `Shape` hierarchy (from previous questions) to make `Shape` an abstract base class. This means `Shape` should have a pure virtual function `calculateArea()`. Demonstrate that `Shape` objects cannot be instantiated directly and that any derived concrete class (`Circle`, `Rectangle`) must provide an implementation for `calculateArea()`.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 291
+  },
+  {
+    "question": "Design a `Point` class with private integer members `x` and `y`. Provide public getter methods (`getX()`, `getY()`) to retrieve the coordinate values and public setter methods (`setX(int val)`, `setY(int val)`) to modify them. The setters should include basic validation, ensuring coordinates cannot be set to negative values.",
+    "difficulty": "easy",
+    "topic": "Encapsulation",
+    "id": 292
+  },
+  {
+    "question": "Create a `Time` class with private integer members `hours`, `minutes`, and `seconds`. Overload the constructor to allow creating `Time` objects in three ways: 1) no arguments (default to 00:00:00), 2) with only `hours` (minutes and seconds default to 0), and 3) with `hours`, `minutes`, and `seconds`. Ensure values are within valid ranges (e.g., minutes 0-59).",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 293
+  },
+  {
+    "question": "For the `ComplexNumber` class, overload the stream insertion operator (`<<`) as a non-member friend function. This should allow you to print `ComplexNumber` objects directly using `std::cout`, in a user-friendly format like \"(3 + 4i)\" or \"(5 - 2i)\".",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 294
+  },
+  {
+    "question": "Implement a `DynamicIntegerArray` class that manages a dynamically allocated array of integers. Its constructor should take an integer `size` and allocate memory for an array of that size. Implement a destructor that correctly deallocates the dynamically allocated memory to prevent memory leaks.",
+    "difficulty": "medium",
+    "topic": "Destructor",
+    "id": 295
+  },
+  {
+    "question": "Define a base class `Animal` with a private `species` attribute and a parameterized constructor that initializes it. Create a derived class `Dog` with an additional private `name` attribute. The `Dog` constructor must correctly call the `Animal` base class constructor to initialize the `species` and then initialize its own `name`. Include a `makeSound()` method in both classes.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 296
+  },
+  {
+    "question": "Design a `Logger` class. It should have a static member `logCount` (int) that keeps track of the total number of `Logger` objects ever created, and a static method `getTotalLogs()` to retrieve this count. Increment `logCount` in the constructor and decrement it (if applicable) in the destructor.",
+    "difficulty": "medium",
+    "topic": "Class",
+    "id": 297
+  },
+  {
+    "question": "For the `ComplexNumber` class, overload the equality operator (`==`) as a non-member function. This operator should return `true` if two `ComplexNumber` objects have identical real and imaginary parts, and `false` otherwise.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 298
+  },
+  {
+    "question": "Create two classes, `DataHolder` and `Processor`. `DataHolder` has a private integer member `value`. Implement a function `processData(DataHolder& dh)` which needs to access and modify `DataHolder`'s private `value`. Declare `processData` as a `friend` function of the `DataHolder` class to enable this access.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 299
+  },
+  {
+    "question": "Revisit the `Shape` hierarchy (with `Shape` as an abstract base class, and derived `Circle`/`Rectangle`). Demonstrate the importance of a virtual destructor in the `Shape` base class. Create a `Shape` pointer that points to a dynamically allocated `Circle` or `Rectangle` object, and then `delete` it through the `Shape` pointer. Explain the consequences if the base class destructor were not virtual.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 300
+  },
+  {
+    "question": "Define a C++ class named `Book` with private member variables for `title` (string), `author` (string), and `isbn` (string). Implement public methods to `setTitle`, `setAuthor`, `setISBN` and `displayBookInfo` which prints all details.",
+    "difficulty": "easy",
+    "topic": "Classes_Objects",
+    "id": 301
+  },
+  {
+    "question": "Create a `Point2D` class with private integer member variables `x` and `y`. Include a parameterized constructor to initialize `x` and `y`. Add a public method `getDistanceToOrigin()` that calculates and returns the Euclidean distance from the point to (0,0).",
+    "difficulty": "medium",
+    "topic": "Classes_Objects",
+    "id": 302
+  },
+  {
+    "question": "Design a `Student` class with private members `studentName` (string), `studentID` (int), and `grade` (char). Implement a default constructor, a parameterized constructor, and public `get` methods for all members. Also, add a `printStudentDetails()` method.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 303
+  },
+  {
+    "question": "Implement a `Rectangle` class with private `width` and `height` (double). Provide a parameterized constructor to set initial dimensions, ensuring both are positive. If invalid, default to 1.0. Also, add a `calculateArea()` and `calculatePerimeter()` method.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 304
+  },
+  {
+    "question": "Enhance the `Rectangle` class by adding a destructor that prints a message like 'Rectangle object destroyed.' whenever an object goes out of scope.",
+    "difficulty": "easy",
+    "topic": "Destructors",
+    "id": 305
+  },
+  {
+    "question": "Create a simple `MyString` class that dynamically allocates a character array for its string data. Implement a copy constructor for `MyString` to perform a deep copy, preventing shallow copy issues.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 306
+  },
+  {
+    "question": "Design a `BankAccount` class with private members `accountNumber` (int) and `balance` (double). Implement a constructor that initializes these members, ensuring the initial `balance` cannot be negative. Provide public `deposit` and `withdraw` methods, with `withdraw` checking for sufficient funds.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 307
+  },
+  {
+    "question": "Modify the `BankAccount` class to enforce strict encapsulation for `balance`. Add public `getBalance()` and `setBalance()` methods, but make `setBalance()` private or `protected` if it's only intended for internal class use, otherwise add input validation.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 308
+  },
+  {
+    "question": "Create a `Temperature` class with a private `celsius` (double) member. Provide a public `setCelsius()` method that validates input (e.g., must be >= absolute zero). Implement public `getFahrenheit()` and `getKelvin()` methods to convert and return the temperature.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 309
+  },
+  {
+    "question": "Implement a `Circle` class with a private `radius` (double). The constructor should initialize the radius. Provide a public method `setRadius()` that only accepts positive values. Include public methods `getArea()` and `getCircumference()`.",
+    "difficulty": "easy",
+    "topic": "Encapsulation",
+    "id": 310
+  },
+  {
+    "question": "Define a base class `Shape` with a public virtual method `calculateArea()` that returns 0. Derive two classes, `Square` and `Circle`, from `Shape`. Override `calculateArea()` in each derived class to return the correct area.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 311
+  },
+  {
+    "question": "Implement a base class `Employee` with `name` (string) and `id` (int). Derive a `Manager` class and a `Worker` class. `Manager` should have an additional `department` (string) and `Worker` an `hourlyRate` (double). Each class should have a method to print its specific details.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 312
+  },
+  {
+    "question": "Demonstrate multilevel inheritance by creating a `Vehicle` class, then derive `Car` from `Vehicle`, and finally `SportsCar` from `Car`. Add unique attributes and a simple `displayInfo` method at each level.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 313
+  },
+  {
+    "question": "Illustrate hierarchical inheritance: Create a base class `Animal` with a `sound()` method. Derive `Dog` and `Cat` from `Animal`. Each derived class should override the `sound()` method to print its specific sound.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 314
+  },
+  {
+    "question": "Create a `Person` class with `protected` members `name` (string) and `age` (int). Derive a `Student` class from `Person`. The `Student` class should have an additional private member `studentId` and be able to access `name` and `age` to print its full details.",
+    "difficulty": "medium",
+    "topic": "Access_Specifiers",
+    "id": 315
+  },
+  {
+    "question": "Using the `Shape` hierarchy (from Q11), demonstrate runtime polymorphism. Create an array of `Shape` pointers, store instances of `Square` and `Circle` in it, and then iterate through the array to call `calculateArea()` for each object.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 316
+  },
+  {
+    "question": "Extend the `Animal` hierarchy (from Q14) to use virtual functions for the `sound()` method. Create a `Zoo` class that takes a `Animal*` and calls its `sound()` method, showcasing polymorphic behavior.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 317
+  },
+  {
+    "question": "Design a base class `Payment` with a pure virtual method `processPayment(double amount)`. Derive `CreditCardPayment` and `PayPalPayment` classes, each implementing `processPayment` differently (e.g., printing specific messages).",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 318
+  },
+  {
+    "question": "Implement a `Calculator` class with overloaded `add` methods: one that takes two integers, one that takes three integers, and one that takes two doubles. Each method should return the sum.",
+    "difficulty": "easy",
+    "topic": "Function_Overloading",
+    "id": 319
+  },
+  {
+    "question": "Create a `Logger` class with overloaded `log` methods. One `log` method should take a `std::string` message, another an `int` error code, and a third a `char` severity level. Each should print an appropriate formatted message.",
+    "difficulty": "easy",
+    "topic": "Function_Overloading",
+    "id": 320
+  },
+  {
+    "question": "Define a `Vector2D` class with `x` and `y` components (double). Overload the binary `+` operator to allow adding two `Vector2D` objects, returning a new `Vector2D` object that represents their sum.",
+    "difficulty": "medium",
+    "topic": "Operator_Overloading",
+    "id": 321
+  },
+  {
+    "question": "Implement a `Counter` class with an integer `count` member. Overload the prefix increment (`++prefix`) and postfix decrement (`postfix--`) operators. The prefix increment should return a reference to the modified object, while postfix decrement should return a temporary object before decrementing.",
+    "difficulty": "medium",
+    "topic": "Operator_Overloading",
+    "id": 322
+  },
+  {
+    "question": "For the `Book` class (from Q1), overload the stream insertion operator (`<<`) to enable printing `Book` objects directly to `std::cout` in a formatted way (e.g., 'Title: ... Author: ... ISBN: ...').",
+    "difficulty": "medium",
+    "topic": "Operator_Overloading",
+    "id": 323
+  },
+  {
+    "question": "Create a `Fraction` class with `numerator` and `denominator` (int). Overload the `==` operator to compare two `Fraction` objects for equality (e.g., 1/2 == 2/4). Consider simplifying fractions before comparison or handle it appropriately.",
+    "difficulty": "medium",
+    "topic": "Operator_Overloading",
+    "id": 324
+  },
+  {
+    "question": "Design a `Car` class that uses composition to include an `Engine` object. The `Engine` class should have `power` (int) and `type` (string). The `Car` class should have `make` (string) and `model` (string), and a `start()` method that internally calls a `startEngine()` method of its `Engine` object.",
+    "difficulty": "medium",
+    "topic": "Class_Relationships",
+    "id": 325
+  },
+  {
+    "question": "Design a `Book` class that encapsulates attributes like `title`, `author`, and `isbn` (all strings). Include a constructor to initialize these attributes and a `displayInfo()` method to print all book details.",
+    "difficulty": "easy",
+    "topic": "Classes and Objects",
+    "id": 326
+  },
+  {
+    "question": "Implement a `Circle` class. Provide overloaded constructors: a default constructor setting radius to 1.0, and another constructor that takes a `double` argument for the radius. Also, include a method `calculateArea()`.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 327
+  },
+  {
+    "question": "Create a `Logger` class. Its constructor should open a specified log file, and its destructor should close the file, ensuring proper resource management. Add a `logMessage(const std::string& message)` method.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 328
+  },
+  {
+    "question": "Develop a `BankAccount` class. It must have private data members for `accountNumber` (string) and `balance` (double). Provide public methods `deposit(double amount)`, `withdraw(double amount)`, and `getBalance()` to manage and access the balance safely.",
+    "difficulty": "easy",
+    "topic": "Encapsulation",
+    "id": 329
+  },
+  {
+    "question": "Define a base class `Shape` with a `virtual double calculateArea() = 0;` pure virtual function. Derive a `Rectangle` class from `Shape`, adding `length` and `width` attributes, and implement the `calculateArea()` method for a rectangle.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 330
+  },
+  {
+    "question": "Building on the `Shape` and `Rectangle` example, add a `virtual void display()` method to the `Shape` base class that prints generic shape information. Override this method in the `Rectangle` class to display its specific dimensions and area.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 331
+  },
+  {
+    "question": "Create a `Vehicle` base class with a virtual `void startEngine()` method. Derive `Car` and `Motorcycle` classes, each providing its own implementation for `startEngine()`. Demonstrate polymorphic behavior by calling `startEngine()` using `Vehicle` pointers.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 332
+  },
+  {
+    "question": "Implement a `Calculator` class with overloaded `add` methods. One `add` method should take two `int` arguments, another should take two `double` arguments, and a third should concatenate two `std::string` arguments.",
+    "difficulty": "easy",
+    "topic": "Function Overloading",
+    "id": 333
+  },
+  {
+    "question": "Design a `Complex` number class (with private `real` and `imaginary` double parts). Overload the binary `+` operator to enable addition of two `Complex` objects, returning a new `Complex` object.",
+    "difficulty": "medium",
+    "topic": "Operator Overloading",
+    "id": 334
+  },
+  {
+    "question": "For the `Complex` number class, overload the stream insertion operator `operator<<` to allow `Complex` objects to be printed directly to `std::cout` in the format `(real + imaginaryi)`.",
+    "difficulty": "medium",
+    "topic": "Operator Overloading",
+    "id": 335
+  },
+  {
+    "question": "Create a `Point` class with private `x` and `y` coordinates. Then, define a `DistanceCalculator` class. Make `DistanceCalculator` a friend of `Point` so that a `calculateDistance` method in `DistanceCalculator` can directly access the private coordinates of two `Point` objects.",
+    "difficulty": "medium",
+    "topic": "Access Specifiers",
+    "id": 336
+  },
+  {
+    "question": "Implement a `StringWrapper` class that dynamically allocates memory for a `char*` to store a string. Provide a constructor, a destructor, and a proper copy constructor to ensure deep copying of the string data.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 337
+  },
+  {
+    "question": "Design a `Timer` class with methods `start()`, `stop()`, and `reset()`. Each of these methods should return a reference to the `Timer` object itself (using `*this`), allowing for method chaining (e.g., `timer.start().reset().stop();`).",
+    "difficulty": "medium",
+    "topic": "Classes and Objects",
+    "id": 338
+  },
+  {
+    "question": "Create an `Engine` class with attributes like `horsepower` and `fuelType`. Then, design a `Car` class that *contains* an `Engine` object as a member, demonstrating composition. The `Car` constructor should initialize its `Engine` member.",
+    "difficulty": "medium",
+    "topic": "Simple Class Relationships",
+    "id": 339
+  },
+  {
+    "question": "Develop an `Employee` class (with `name`, `id`). Then, create a `Department` class that *aggregates* multiple `Employee` objects using a `std::vector` of pointers to `Employee`. Demonstrate that `Employee` objects can exist independently of the `Department`.",
+    "difficulty": "medium",
+    "topic": "Simple Class Relationships",
+    "id": 340
+  },
+  {
+    "question": "Define an abstract base class `Animal` with a pure virtual `void makeSound()` method. Derive concrete classes `Dog` and `Cat` from `Animal`, and each should provide its specific implementation for the `makeSound()` method.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 341
+  },
+  {
+    "question": "Implement a `Counter` class that keeps track of the total number of `Counter` objects currently alive. Use a static member variable for the count and a static member function to retrieve this count.",
+    "difficulty": "medium",
+    "topic": "Classes and Objects",
+    "id": 342
+  },
+  {
+    "question": "Create a base class `Person` with `protected` data members `name` (string) and `age` (int). Derive a `Student` class from `Person`. Implement a method in `Student` to display both its own specific details and the inherited `name` and `age`.",
+    "difficulty": "easy",
+    "topic": "Access Specifiers",
+    "id": 343
+  },
+  {
+    "question": "For the `StringWrapper` class from Q12, implement a proper copy assignment operator (`operator=`) to handle deep copying when assigning one `StringWrapper` object to another, including self-assignment protection.",
+    "difficulty": "medium",
+    "topic": "Operator Overloading",
+    "id": 344
+  },
+  {
+    "question": "Design a `NotificationSystem` class. Overload its constructor to accept different notification types (e.g., `enum NotificationType { SMS, EMAIL, PUSH }`). Also, overload a `send` method to handle sending messages of different content types (e.g., `std::string`, `int`).",
+    "difficulty": "medium",
+    "topic": "Function Overloading",
+    "id": 345
+  },
+  {
+    "question": "Implement a `BooleanFlag` class that encapsulates a single `bool` value. Overload the unary logical NOT operator (`operator!`) to invert the encapsulated boolean value and return the new value.",
+    "difficulty": "easy",
+    "topic": "Operator Overloading",
+    "id": 346
+  },
+  {
+    "question": "Create a `Coordinate` class with `x` and `y` integer members. Implement `getX()` and `getY()` as `const` member functions. Demonstrate how a `const` object of `Coordinate` can only call its `const` member functions.",
+    "difficulty": "medium",
+    "topic": "Classes and Objects",
+    "id": 347
+  },
+  {
+    "question": "Implement a `Box` class with a constructor that takes `length` and `width` as arguments. Provide a default argument for `width` so that if only `length` is provided, `width` defaults to the same value as `length` (creating a square base).",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 348
+  },
+  {
+    "question": "Design two classes: `Building` and `Tenant`. `Building` needs to store a `Tenant` object as its owner. `Tenant` does not need to know about `Building`. Demonstrate how to use a forward declaration for `Tenant` within `Building`.",
+    "difficulty": "medium",
+    "topic": "Simple Class Relationships",
+    "id": 349
+  },
+  {
+    "question": "Create a base class `Document` with a virtual destructor. Derive a class `PdfDocument` from `Document`. Demonstrate the importance of the virtual destructor in `Document` when deleting a `PdfDocument` object via a `Document` pointer to prevent memory leaks or undefined behavior.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 350
+  }
+]

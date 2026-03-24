@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Overloaded function: Create another version of calculateArea that calculates and returns the area of a rectangle given its length and width. Signature: double calculateArea(double length, double width);",
+  "test_cases": [
+    { "input": "6.0 4.0", "expected": "Length: 6, Width: 4\nRectangle Area: 24" },
+    { "input": "5.5 3.2", "expected": "Length: 5.5, Width: 3.2\nRectangle Area: 17.6" },
+    { "input": "10.0 2.5", "expected": "Length: 10, Width: 2.5\nRectangle Area: 25" },
+    { "input": "7.8 6.1", "expected": "Length: 7.8, Width: 6.1\nRectangle Area: 47.58" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\ndouble calculateArea(double sideLength);\ndouble calculateArea(double length, double width);\n\nint main() {\n    double len, wid;\n    double area;\n    cin >> len >> wid;\n    cout << \"Length: \" << len << \", Width: \" << wid << endl;\n    area = calculateArea(len, wid);\n    cout << \"Rectangle Area: \" << area << endl;\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": ["Uses addition (length + width) instead of multiplication (length * width) to calculate rectangle area"]
+}

@@ -1,0 +1,42 @@
+{
+  "question": "Overloaded function: Create another version of findMax that finds and returns the maximum value among three integers. Signature: int findMax(int num1, int num2, int num3);",
+  "test_cases": [
+    {
+      "input": "findMax(5, 3, 8)",
+      "expected_output": "8",
+      "description": "Third number is largest"
+    },
+    {
+      "input": "findMax(10, 2, 5)",
+      "expected_output": "10",
+      "description": "First number is largest"
+    },
+    {
+      "input": "findMax(4, 9, 1)",
+      "expected_output": "9",
+      "description": "Second number is largest"
+    },
+    {
+      "input": "findMax(-5, -2, -8)",
+      "expected_output": "-2",
+      "description": "Negative numbers"
+    },
+    {
+      "input": "findMax(7, 7, 7)",
+      "expected_output": "7",
+      "description": "All numbers equal"
+    }
+  ],
+  "driver_code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Test 1: \" << findMax(5, 3, 8) << endl;\n    cout << \"Test 2: \" << findMax(10, 2, 5) << endl;\n    cout << \"Test 3: \" << findMax(4, 9, 1) << endl;\n    cout << \"Test 4: \" << findMax(-5, -2, -8) << endl;\n    cout << \"Test 5: \" << findMax(7, 7, 7) << endl;\n    return 0;\n}",
+  "error_type": "Semantic Error",
+  "error_description": "Incorrect return type (double) specified in function definition vs int in signature",
+  "error_line": 13,
+  "scoring": {
+    "correctness": 3,
+    "efficiency": 8,
+    "readability": 7,
+    "best_practices": 4,
+    "error_handling": 5,
+    "total": 27
+  }
+}

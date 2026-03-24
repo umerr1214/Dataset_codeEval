@@ -1,0 +1,42 @@
+{
+  "question": "Overloaded function: Create another version of calculateVolume that calculates and returns the volume of a rectangular prism given its length, width, and height. Signature: double calculateVolume(double length, double width, double height);",
+  "test_cases": [
+    {
+      "input": "calculateVolume(2.0, 3.0, 4.0)",
+      "expected_output": "24.0",
+      "description": "Calculate volume of rectangular prism"
+    },
+    {
+      "input": "calculateVolume(5.0, 5.0, 5.0)",
+      "expected_output": "125.0",
+      "description": "Calculate volume of prism (cube case)"
+    },
+    {
+      "input": "calculateVolume(0.0, 5.0, 2.0)",
+      "expected_output": "0.0",
+      "description": "Calculate volume with zero dimension"
+    },
+    {
+      "input": "calculateVolume(1.5, 2.0, 3.0)",
+      "expected_output": "9.0",
+      "description": "Calculate volume with fractional dimensions"
+    },
+    {
+      "input": "calculateVolume(10.0, 10.0, 2.0)",
+      "expected_output": "200.0",
+      "description": "Calculate volume of large prism"
+    }
+  ],
+  "driver_code": "#include <iostream>\nusing namespace std;\n\ndouble calculateVolume(double sideLength);\ndouble calculateVolume(double length, double width, double height);\n\nint main() {\n    cout << calculateVolume(2.0, 3.0, 4.0) << endl;\n    cout << calculateVolume(5.0, 5.0, 5.0) << endl;\n    cout << calculateVolume(0.0, 5.0, 2.0) << endl;\n    cout << calculateVolume(1.5, 2.0, 3.0) << endl;\n    cout << calculateVolume(10.0, 10.0, 2.0) << endl;\n    return 0;\n}",
+  "error_type": "Syntax Error",
+  "error_description": "Missing semicolon after return statement in overloaded function",
+  "error_line": 10,
+  "scoring": {
+    "correctness": 0,
+    "efficiency": 8,
+    "readability": 7,
+    "best_practices": 3,
+    "error_handling": 5,
+    "total": 23
+  }
+}

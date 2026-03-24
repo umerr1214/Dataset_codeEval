@@ -1,0 +1,42 @@
+{
+  "question": "Create a function called printMessage that prints a given message to the console. Signature: void printMessage(const std::string& message);",
+  "test_cases": [
+    {
+      "input": "printMessage(\"Hello\")",
+      "expected_output": "Hello",
+      "description": "Prints simple greeting"
+    },
+    {
+      "input": "printMessage(\"Testing 123\")",
+      "expected_output": "Testing 123",
+      "description": "Prints alphanumeric message"
+    },
+    {
+      "input": "printMessage(\"\")",
+      "expected_output": "",
+      "description": "Prints empty string"
+    },
+    {
+      "input": "printMessage(\"Special chars: !@#\")",
+      "expected_output": "Special chars: !@#",
+      "description": "Prints special characters"
+    },
+    {
+      "input": "printMessage(\"   Spaces   \")",
+      "expected_output": "   Spaces   ",
+      "description": "Prints message with spaces"
+    }
+  ],
+  "driver_code": "#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid printMessage(const string& message);\n\nint main() {\n    printMessage(\"Hello\");\n    printMessage(\"Testing 123\");\n    printMessage(\"\");\n    printMessage(\"Special chars: !@#\");\n    printMessage(\"   Spaces   \");\n    return 0;\n}",
+  "error_type": "Robustness Issue",
+  "error_description": "Silently fails for inputs longer than 1000 characters without any warning",
+  "error_line": 5,
+  "scoring": {
+    "correctness": 9,
+    "efficiency": 10,
+    "readability": 10,
+    "best_practices": 7,
+    "error_handling": 2,
+    "total": 38
+  }
+}

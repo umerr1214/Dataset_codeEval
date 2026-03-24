@@ -1,0 +1,42 @@
+{
+  "question": "int Find2Largest(int arr[])- The function returns the second largest element of an array.",
+  "test_cases": [
+    {
+      "input": "{12, 35, 1, 10, 34, 1}",
+      "expected_output": "34",
+      "description": "Normal array with multiple elements"
+    },
+    {
+      "input": "{10, 5, 10}",
+      "expected_output": "5",
+      "description": "Array with duplicate largest elements"
+    },
+    {
+      "input": "{10, 10, 10}",
+      "expected_output": "-2147483648",
+      "description": "All elements equal (returns INT_MIN)"
+    },
+    {
+      "input": "{5}",
+      "expected_output": "-2147483648",
+      "description": "Array with only one element"
+    },
+    {
+      "input": "{-1, -10, -5, -2}",
+      "expected_output": "-2",
+      "description": "Array with negative numbers"
+    }
+  ],
+  "driver_code": "#include <iostream>\n#include <climits>\nusing namespace std;\n\ndouble Find2Largest(int arr[], int size);\n\nint main() {\n    int arr1[] = {12, 35, 1, 10, 34, 1};\n    cout << Find2Largest(arr1, 6) << endl;\n    int arr2[] = {10, 5, 10};\n    cout << Find2Largest(arr2, 3) << endl;\n    int arr3[] = {10, 10, 10};\n    cout << Find2Largest(arr3, 3) << endl;\n    int arr4[] = {5};\n    cout << Find2Largest(arr4, 1) << endl;\n    int arr5[] = {-1, -10, -5, -2};\n    cout << Find2Largest(arr5, 4) << endl;\n    return 0;\n}",
+  "error_type": "Semantic Error",
+  "error_description": "Function returns double instead of int as specified in requirements",
+  "error_line": 5,
+  "scoring": {
+    "correctness": 3,
+    "efficiency": 8,
+    "readability": 7,
+    "best_practices": 4,
+    "error_handling": 5,
+    "total": 27
+  }
+}

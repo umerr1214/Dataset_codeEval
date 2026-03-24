@@ -1,0 +1,42 @@
+{
+  "question": "void initalArry(int arr[]) This function takes an int array parameter. The function will be used to populate the array by taking input from user.",
+  "test_cases": [
+    {
+      "input": "1 2 3 4 5",
+      "expected_output": "Array populated with 1 2 3 4 5",
+      "description": "Populate array with positive integers"
+    },
+    {
+      "input": "0 0 0 0 0",
+      "expected_output": "Array populated with 0 0 0 0 0",
+      "description": "Populate array with zeros"
+    },
+    {
+      "input": "-1 -2 -3 -4 -5",
+      "expected_output": "Array populated with -1 -2 -3 -4 -5",
+      "description": "Populate array with negative integers"
+    },
+    {
+      "input": "100 200 300 400 500",
+      "expected_output": "Array populated with 100 200 300 400 500",
+      "description": "Populate array with large numbers"
+    },
+    {
+      "input": "1 0 -1 2 -2",
+      "expected_output": "Array populated with 1 0 -1 2 -2",
+      "description": "Populate array with mixed values"
+    }
+  ],
+  "driver_code": "#include <iostream>\nusing namespace std;\n\nvoid initalArry(int arr[], int size);\n\nint main() {\n    int arr[5];\n    // Simulated input for testing would be needed here or redirection\n    initalArry(arr, 5);\n    cout << \"Array populated with \";\n    for(int i=0; i<5; i++) cout << arr[i] << \" \";\n    cout << endl;\n    return 0;\n}",
+  "error_type": "Syntax Error",
+  "error_description": "Missing semicolon after cin statement",
+  "error_line": 6,
+  "scoring": {
+    "correctness": 0,
+    "efficiency": 8,
+    "readability": 7,
+    "best_practices": 3,
+    "error_handling": 5,
+    "total": 23
+  }
+}

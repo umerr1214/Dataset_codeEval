@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Write a function in C++ that takes two integers and calculates their quotient and remainder using pass-by-reference. Signature: void calculateQuotientAndRemainder(int dividend, int divisor, int& quotient, int& remainder);",
+  "test_cases": [
+    { "input": "17 5", "expected": "Dividend: 17, Divisor: 5\nQuotient: 3, Remainder: 2" },
+    { "input": "20 4", "expected": "Dividend: 20, Divisor: 4\nQuotient: 5, Remainder: 0" },
+    { "input": "15 7", "expected": "Dividend: 15, Divisor: 7\nQuotient: 2, Remainder: 1" },
+    { "input": "10 3", "expected": "Dividend: 10, Divisor: 3\nQuotient: 3, Remainder: 1" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nvoid calculateQuotientAndRemainder(int dividend, int divisor, int& quotient, int& remainder);\n\nint main() {\n    int num1, num2;\n    int q, r;\n    cin >> num1 >> num2;\n    cout << \"Dividend: \" << num1 << \", Divisor: \" << num2 << endl;\n    calculateQuotientAndRemainder(num1, num2, q, r);\n    cout << \"Quotient: \" << q << \", Remainder: \" << r << endl;\n    return 0;\n}",
+  "code_quality": 7,
+  "correctness": 8,
+  "error_type": "Robustness Issue",
+  "errors": ["No validation for division by zero; hardcoded test values instead of user input; no handling of negative numbers or edge cases"]
+}

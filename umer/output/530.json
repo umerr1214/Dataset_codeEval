@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Create a function called calculateArea that calculates and returns the area of a square given the length of its side. Signature: double calculateArea(double sideLength);",
+  "test_cases": [
+    { "input": "5.0", "expected": "Side length: 5\nArea: 25" },
+    { "input": "3.5", "expected": "Side length: 3.5\nArea: 12.25" },
+    { "input": "10.0", "expected": "Side length: 10\nArea: 100" },
+    { "input": "2.5", "expected": "Side length: 2.5\nArea: 6.25" }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\ndouble calculateArea(double sideLength);\n\nint main() {\n    double side;\n    double area;\n    cin >> side;\n    cout << \"Side length: \" << side << endl;\n    area = calculateArea(side);\n    cout << \"Area: \" << area << endl;\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": ["Uses addition (sideLength + sideLength) instead of multiplication (sideLength * sideLength) to calculate area"]
+}

@@ -1,0 +1,42 @@
+{
+  "question": "Overloaded function: Create another version of printMessage that prints a given message a specified number of times. Signature: void printMessage(const std::string& message, int numTimes);",
+  "test_cases": [
+    {
+      "input": "printMessage(\"Hello\", 3)",
+      "expected_output": "Hello\nHello\nHello",
+      "description": "Prints message 3 times"
+    },
+    {
+      "input": "printMessage(\"Test\", 1)",
+      "expected_output": "Test",
+      "description": "Prints message once"
+    },
+    {
+      "input": "printMessage(\"Hi\", 0)",
+      "expected_output": "",
+      "description": "Prints nothing for 0 times"
+    },
+    {
+      "input": "printMessage(\"A\", 5)",
+      "expected_output": "A\nA\nA\nA\nA",
+      "description": "Prints single char 5 times"
+    },
+    {
+      "input": "printMessage(\"\", 2)",
+      "expected_output": "\n",
+      "description": "Prints empty string 2 times"
+    }
+  ],
+  "driver_code": "#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid printMessage(const string& message);\nvoid printMessage(const string& message, int numTimes);\n\nint main() {\n    printMessage(\"Hello\", 3);\n    printMessage(\"Test\", 1);\n    printMessage(\"Hi\", 0);\n    printMessage(\"A\", 5);\n    printMessage(\"\", 2);\n    return 0;\n}",
+  "error_type": "Correct Version",
+  "error_description": "No errors",
+  "error_line": 0,
+  "scoring": {
+    "correctness": 10,
+    "efficiency": 10,
+    "readability": 10,
+    "best_practices": 10,
+    "error_handling": 10,
+    "total": 50
+  }
+}

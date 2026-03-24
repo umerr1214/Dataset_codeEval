@@ -1,0 +1,42 @@
+{
+  "question": "Implement a function called sumNumbers that calculates and returns the sum of two integers. Signature: int sumNumbers(int num1, int num2);",
+  "test_cases": [
+    {
+      "input": "sumNumbers(5, 3)",
+      "expected_output": "8",
+      "description": "Basic addition of positive numbers"
+    },
+    {
+      "input": "sumNumbers(-2, 7)",
+      "expected_output": "5",
+      "description": "Addition with negative number"
+    },
+    {
+      "input": "sumNumbers(0, 0)",
+      "expected_output": "0",
+      "description": "Addition of zeros"
+    },
+    {
+      "input": "sumNumbers(-5, -3)",
+      "expected_output": "-8",
+      "description": "Addition of negative numbers"
+    },
+    {
+      "input": "sumNumbers(100, 200)",
+      "expected_output": "300",
+      "description": "Addition of larger numbers"
+    }
+  ],
+  "driver_code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Test 1: \" << sumNumbers(5, 3) << endl;\n    cout << \"Test 2: \" << sumNumbers(-2, 7) << endl;\n    cout << \"Test 3: \" << sumNumbers(0, 0) << endl;\n    cout << \"Test 4: \" << sumNumbers(-5, -3) << endl;\n    cout << \"Test 5: \" << sumNumbers(100, 200) << endl;\n    return 0;\n}",
+  "error_type": "Correct Version",
+  "error_description": "No errors - correct implementation",
+  "error_line": 0,
+  "scoring": {
+    "correctness": 10,
+    "efficiency": 10,
+    "readability": 10,
+    "best_practices": 10,
+    "error_handling": 8,
+    "total": 48
+  }
+}

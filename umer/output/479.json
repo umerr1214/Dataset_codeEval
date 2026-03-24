@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Implement a function in C++ that receives a string and modifies it by reversing its contents using pass-by-reference. Signature: void reverseString(std::string& str);",
+  "test_cases": [
+    { "input": "hello", "expected": "Original: hello\nReversed: olleh" },
+    { "input": "world", "expected": "Original: world\nReversed: dlrow" },
+    { "input": "abc", "expected": "Original: abc\nReversed: cba" },
+    { "input": "test", "expected": "Original: test\nReversed: tset" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid reverseString(std::string& str);\n\nint main() {\n    string text;\n    cin >> text;\n    cout << \"Original: \" << text << endl;\n    reverseString(text);\n    cout << \"Reversed: \" << text << endl;\n    return 0;\n}",
+  "code_quality": 4,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": ["Inefficient O(n²) string concatenation approach instead of O(n) in-place swapping; creates unnecessary temporary string"]
+}

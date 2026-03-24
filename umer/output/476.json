@@ -1,0 +1,15 @@
+{
+  "language": "c++",
+  "question": "Implement a function in C++ that receives a string and modifies it by reversing its contents using pass-by-reference. Signature: void reverseString(std::string& str);",
+  "test_cases": [
+    { "input": "hello", "expected": "Original: hello\nReversed: olleh" },
+    { "input": "world", "expected": "Original: world\nReversed: dlrow" },
+    { "input": "abc", "expected": "Original: abc\nReversed: cba" },
+    { "input": "test", "expected": "Original: test\nReversed: tset" }
+  ],
+  "driver": "#include <iostream>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nvoid reverseString(std::string& str);\n\nint main() {\n    string text;\n    cin >> text;\n    cout << \"Original: \" << text << endl;\n    reverseString(text);\n    cout << \"Reversed: \" << text << endl;\n    return 0;\n}",
+  "code_quality": 5,
+  "correctness": 4,
+  "error_type": "Logical Error",
+  "errors": ["Loop condition uses '<=' instead of '<', causing middle character to be swapped with itself in odd-length strings, potentially causing issues with certain string types"]
+}
