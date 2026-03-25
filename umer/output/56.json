@@ -1,0 +1,25 @@
+{
+  "language": "c++",
+  "question": "Write a program with functions to: 1) AllocateMemory for int matrix with reference parameters, 2) InitializeMatrix to set all elements to 0 with const parameters, 3) DisplayMatrix to show matrix, 4) Inline DeallocateMemory function, 5) sumCol function to return sum of each column, 6) diag function to return diagonal elements. Example: 4x3 matrix initialized to 0 should display all zeros and return column sums and diagonal elements.",
+  "test_cases": [
+    { "input": "4\n3\n", "expected": "Enter total rows: Enter total columns: The array is:\n0 0 0 \n0 0 0 \n0 0 0 \n0 0 0 \nColumn sums: 0 0 0 \nDiagonal elements: 0 0 0 \n" }
+  ],
+  "driver": "#include <iostream>\n#include <fstream>\n#include <sstream>\n#include <vector>\n#include <string>\n#include <cstdlib>\nusing namespace std;\nint main(){vector<pair<string,string>> tests={{\"4\\n3\\n\",\"Enter total rows: Enter total columns: The array is:\\n0 0 0 \\n0 0 0 \\n0 0 0 \\n0 0 0 \\nColumn sums: 0 0 0 \\nDiagonal elements: 0 0 0 \\n\"}};int compile_status=system(\"g++ student.cpp -o student.out 2> compile_log.txt\");if(compile_status!=0){cout<<\"Compilation failed!\";return 0;}int passed=0;for(auto &t:tests){ofstream fin(\"input.txt\");fin<<t.first;fin.close();system(\"./student.out < input.txt > output.txt 2>> runtime_log.txt\");ifstream fout(\"output.txt\");stringstream buffer;buffer<<fout.rdbuf();string out=buffer.str();fout.close();if(out==t.second)passed++;}cout<<passed<<\"/\"<<tests.size();return 0;}",
+  "code_quality": 4,
+  "correctness": 3,
+  "error_type": "Logical Error",
+  "errors": [
+    {
+      "line": 23,
+      "description": "Incorrect initialization value: Using 1 instead of 0 to initialize matrix elements, violating the requirement to initialize to 0."
+    },
+    {
+      "line": 46,
+      "description": "Wrong loop logic in sumCol: Iterating over rows in outer loop and using wrong indices, should iterate over columns to calculate column sums."
+    },
+    {
+      "line": 58,
+      "description": "Incorrect diagonal indexing: Using anti-diagonal formula 'matrix[i][minDim-1-i]' instead of main diagonal 'matrix[i][i]'."
+    }
+  ]
+}

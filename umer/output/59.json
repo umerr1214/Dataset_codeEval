@@ -1,0 +1,24 @@
+{
+  "language": "c++",
+  "question": "Write C++ functions for matrix operations including AllocateMemory, InitializeMatrix, DisplayMatrix, DeallocateMemory, sumCol (column sums), and diag (diagonal elements). Use dynamic memory allocation with new/delete operators.",
+  "test_cases": [
+    { "input": "2\n3", "expected": "The array is:\n0 0 0 \n0 0 0 \nColumn sums: 0 0 0 \nDiagonal elements: 0 0 " },
+    { "input": "3\n3", "expected": "The array is:\n0 0 0 \n0 0 0 \n0 0 0 \nColumn sums: 0 0 0 \nDiagonal elements: 0 0 0 " },
+    { "input": "1\n4", "expected": "The array is:\n0 0 0 0 \nColumn sums: 0 0 0 0 \nDiagonal elements: 0 " }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int r, c;\n    int** m = f1(r, c);\n    f2(m, r, c);\n    f3(m, r, c);\n    \n    int* s = f5(m, r, c);\n    cout << \"Column sums: \";\n    for (int j = 0; j < c; j++) {\n        cout << s[j] << \" \";\n    }\n    cout << endl;\n    \n    int x = (r < c) ? r : c;\n    int* d = f6(m, r, c);\n    cout << \"Diagonal elements: \";\n    for (int i = 0; i < x; i++) {\n        cout << d[i] << \" \";\n    }\n    cout << endl;\n    \n    delete[] s; delete[] d; f4(m, r);\n    \n    return 0;\n}",
+  "code_quality": 3,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": [
+    "Poor function names (f1, f2, f3, f4, f5, f6) instead of descriptive names",
+    "Single letter variable names (r, c, m, s, d, x) reducing readability",
+    "Poor code formatting and inconsistent indentation",
+    "No comments explaining function purposes or complex logic",
+    "Inefficient use of endl instead of \\n for better performance",
+    "Poor cache locality in column sum calculation",
+    "Redundant calculations and inefficient nested loops",
+    "Multiple statements on single line reducing readability",
+    "Missing proper code organization and structure"
+  ]
+}

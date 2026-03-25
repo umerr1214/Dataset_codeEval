@@ -1,0 +1,13 @@
+{
+  "language": "c++",
+  "question": "Create a class Student with data members (size, an integer variable and marks, a pointer to integer and it should be used to declare an array inside the constructor). Create a Default constructor that should initialize the pointer with NULL and size with 0, and a parameterized constructors that should receive an integer array and size as parameter. Note : Parameterized constructors should receive an array from main function and declare and initialize the array 'marks' with the received array i.e., (implement deep copy). Now Create a function \"scale up\". This function should increase the marks of each student by 5. Note: make sure that by adding the value 5 the updated value should not exceed 100 and similarly don't apply this scale up factor on the marks less than 45. Create a function \"printInfo\" to print the data. Create a static array Inside main function and initialize with hard coded values. You can also initialize with user input. Now create the object of class and pass the local array, and its size into the parameters. Call printInfo function and then Call the function \"scale up\". Call the printInfo function again after calling the scale up function and check whether the data is updated or not and whether it is in the valid range or not. Create a destructor inside the class that should de-allocate the dynamically allocated memory and initialize the pointer with nullptr to handle dangling pointer.",
+  "test_cases": [
+    { "input": "", "expected": "Before scale up:\nStudent marks: 78 85 42 67 91 55 \nAfter scale up:\nStudent marks: 83 90 42 72 96 60 \n\nTesting empty student:\nNo marks to display.\nNo marks to scale up." },
+    { "input": "", "expected": "Before scale up:\nStudent marks: 78 85 42 67 91 55 \nAfter scale up:\nStudent marks: 83 90 42 72 96 60 \n\nTesting empty student:\nNo marks to display.\nNo marks to scale up." }
+  ],
+  "driver": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int studentMarks[] = {78, 85, 42, 67, 91, 55};\n    int arraySize = 6;\n    \n    Student student(studentMarks, arraySize);\n    \n    cout << \"Before scale up:\" << endl;\n    student.printInfo();\n    \n    student.scaleUp();\n    \n    cout << \"After scale up:\" << endl;\n    student.printInfo();\n    \n    Student emptyStudent;\n    cout << \"\\nTesting empty student:\" << endl;\n    emptyStudent.printInfo();\n    emptyStudent.scaleUp();\n    \n    return 0;\n}",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
+}

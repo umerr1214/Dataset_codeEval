@@ -1,0 +1,302 @@
+[
+  {
+    "question": "Write a program that prompts the user to enter the length and width of a rectangle, then calculates and displays its area and perimeter.",
+    "difficulty": "easy",
+    "topic": "VariablesDataTypes",
+    "id": 1
+  },
+  {
+    "question": "Develop a program that takes a year as input from the user and determines whether it is a leap year or not. (A year is a leap year if it is divisible by 4, but not by 100, unless it is also divisible by 400).",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 2
+  },
+  {
+    "question": "Implement a program that calculates the factorial of a non-negative integer entered by the user. Use a `for` loop for the calculation.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 3
+  },
+  {
+    "question": "Create a function named `celsiusToFahrenheit` that takes a temperature in Celsius (double) as input and returns its equivalent in Fahrenheit. Then, use this function to convert and display a user-provided Celsius temperature.",
+    "difficulty": "easy",
+    "topic": "Functions",
+    "id": 4
+  },
+  {
+    "question": "Write a program that declares an integer array of size 10, allows the user to populate it with values, and then finds and prints the largest element in the array.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 5
+  },
+  {
+    "question": "Given a string entered by the user, count and display the total number of vowels (a, e, i, o, u, case-insensitive) present in the string.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 6
+  },
+  {
+    "question": "Write a C++ program that defines a function `swapIntegers` which takes two integer pointers as arguments and swaps the values they point to. Demonstrate its usage with two integer variables.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 7
+  },
+  {
+    "question": "Define a `struct` called `Product` with members for `id` (int), `name` (std::string), and `price` (double). Create an instance of this struct, populate its details, and then print all its members.",
+    "difficulty": "easy",
+    "topic": "Structs",
+    "id": 8
+  },
+  {
+    "question": "Implement a function template named `findMin` that takes two arguments of any compatible data type and returns the smaller of the two values. Test it with at least two different data types (e.g., int and double).",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 9
+  },
+  {
+    "question": "Create a simple number guessing game. Generate a random number between 1 and 100 (you can pre-define it for simplicity). The user gets 7 attempts to guess the number, receiving 'too high' or 'too low' hints after each incorrect guess.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 10
+  },
+  {
+    "question": "Write a function `reverseArray` that takes an integer array and its size as arguments, and modifies the array in-place to reverse the order of its elements. Display the array before and after reversal.",
+    "difficulty": "medium",
+    "topic": "ArraysFunctions",
+    "id": 11
+  },
+  {
+    "question": "Design a menu-driven program for a basic calculator. The user can choose to add, subtract, multiply, or divide two numbers. After each operation, ask if they want to perform another calculation until they choose to exit.",
+    "difficulty": "medium",
+    "topic": "ControlLoops",
+    "id": 12
+  },
+  {
+    "question": "Implement a C-style string function `myStrcat` that takes two character arrays (source and destination) and appends the source string to the destination string. Assume destination has enough space. Do not use built-in `strcat`.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 13
+  },
+  {
+    "question": "Write a function `calculateSumPtr` that accepts a pointer to the first element of an integer array and the array's size. The function should use pointer arithmetic to traverse the array and return the sum of its elements.",
+    "difficulty": "medium",
+    "topic": "PointersArrays",
+    "id": 14
+  },
+  {
+    "question": "Develop a program to perform matrix addition for two 3x3 integer matrices. Allow the user to input the elements for both matrices and then display the resultant sum matrix.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 15
+  },
+  {
+    "question": "Create a function `transformNumbers` that takes two integer arguments by reference. Inside the function, change the first argument to their sum and the second argument to their absolute difference. Demonstrate its use in `main`.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 16
+  },
+  {
+    "question": "Prompt the user for a positive integer `n`. Then, use nested loops to print a right-aligned triangle of asterisks with `n` rows. Example for `n=4`:\n   *\n  **\n ***\n****",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 17
+  },
+  {
+    "question": "Define a `struct` called `Student` with members `id` (int), `name` (std::string), and `score` (double). Create an array of 3 `Student` structs. Allow the user to input data for each student, then write a function to find and display the name of the student with the highest score.",
+    "difficulty": "medium",
+    "topic": "StructsArraysFunctions",
+    "id": 18
+  },
+  {
+    "question": "Write a program that uses a `do-while` loop to repeatedly prompt the user to enter a positive integer. The loop should continue until a valid positive integer (greater than 0) is entered.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 19
+  },
+  {
+    "question": "Accept an integer representing a total number of seconds from the user. Convert this total into hours, minutes, and remaining seconds, then display the result in the format HH:MM:SS.",
+    "difficulty": "easy",
+    "topic": "VariablesDataTypes",
+    "id": 20
+  },
+  {
+    "question": "Check if a given string, entered by the user, is a palindrome (reads the same forwards and backwards). Ignore case and non-alphanumeric characters for simplicity if you wish, or keep it strict.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 21
+  },
+  {
+    "question": "Implement a function `linearSearch` that takes an integer array, its size, and a target value. The function should return the index of the target if found, otherwise return -1. Demonstrate its usage.",
+    "difficulty": "easy",
+    "topic": "ArraysFunctions",
+    "id": 22
+  },
+  {
+    "question": "Write a recursive function `fibonacci` that calculates the nth Fibonacci number. Prompt the user for a positive integer `n` and display the nth Fibonacci number.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 23
+  },
+  {
+    "question": "Create a function `calculateAverage` that accepts a constant pointer to the first element of an integer array and the array's size. The function should compute and return the average of all elements in the array.",
+    "difficulty": "medium",
+    "topic": "PointersFunctions",
+    "id": 24
+  },
+  {
+    "question": "Declare a 4x4 integer matrix. Allow the user to input values for all its elements. After population, calculate and display the sum of all elements in the entire matrix.",
+    "difficulty": "easy",
+    "topic": "Arrays",
+    "id": 25
+  },
+  {
+    "question": "Read the radius of a sphere from the user. Calculate and display its volume (4/3 * pi * r^3) and surface area (4 * pi * r^2). Use `M_PI` for pi if available, or a constant like `3.14159`.",
+    "difficulty": "easy",
+    "topic": "Variables_IO",
+    "id": 26
+  },
+  {
+    "question": "Write a C++ program that takes a year as input from the user and determines if it is a leap year. A leap year is divisible by 4, but not by 100, unless it is also divisible by 400.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 27
+  },
+  {
+    "question": "Implement a simple calculator. The program should ask the user for two numbers and an operator (+, -, *, /). Use a `switch` statement to perform the corresponding arithmetic operation and display the result. Handle division by zero.",
+    "difficulty": "medium",
+    "topic": "ControlStructures",
+    "id": 28
+  },
+  {
+    "question": "Ask the user for two integers, `start` and `end`. Calculate and display the sum of all even numbers within that inclusive range using a `for` loop.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 29
+  },
+  {
+    "question": "Generate and print the first `N` terms of the Fibonacci series, where `N` is a positive integer provided by the user. (The series starts 0, 1, 1, 2, 3, ...).",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 30
+  },
+  {
+    "question": "Prompt the user to enter a positive integer. Use a `do-while` loop to continuously ask for input until a valid positive integer (greater than 0) is provided.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 31
+  },
+  {
+    "question": "Write a function `calculateFactorial` that takes an integer `n` as input (pass by value) and returns its factorial. In `main`, prompt the user for a number, call this function, and print the result.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 32
+  },
+  {
+    "question": "Create a function `swapNumbers` that takes two integer variables by reference and swaps their values. Demonstrate its usage in `main` by taking two numbers from the user, swapping them, and printing the values before and after the swap.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 33
+  },
+  {
+    "question": "Declare a 1D array of 5 integers. Populate it with user input. Write a function `calculateArrayStats` that takes the array and its size, calculates the sum of its elements, and returns it. Also, pass a `double` variable by reference to the function to store the calculated average.",
+    "difficulty": "medium",
+    "topic": "Arrays_Functions",
+    "id": 34
+  },
+  {
+    "question": "Write a function `findMinMax` that takes an integer array and its size, then finds and prints both the largest and smallest elements within the array.",
+    "difficulty": "medium",
+    "topic": "Arrays_Functions",
+    "id": 35
+  },
+  {
+    "question": "Declare two 2x2 integer matrices. Populate them with user input. Perform matrix addition (element-wise sum) and store the result in a third 2x2 matrix, then print all three matrices.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 36
+  },
+  {
+    "question": "Declare an integer variable `value`, initialize it to 10. Declare an integer pointer `ptr`, and assign the address of `value` to `ptr`. Print the value of `value` directly, then print the value of `value` using the pointer `ptr` (dereferencing).",
+    "difficulty": "easy",
+    "topic": "Pointers",
+    "id": 37
+  },
+  {
+    "question": "Dynamically allocate memory for a single `double` variable using the `new` operator. Prompt the user to enter a floating-point number and store it in this dynamically allocated memory. Print the stored value, then deallocate the memory using `delete`.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 38
+  },
+  {
+    "question": "Write a C++ program that reads a C-style string (character array) from the user and calculates its length *without* using `strlen()` or `std::string::length()`. Iterate through the characters until the null terminator is found.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 39
+  },
+  {
+    "question": "Read a line of text (as `std::string`) from the user. Write a function `countVowels` that takes the string and returns the total number of vowels (a, e, i, o, u, case-insensitive) in it.",
+    "difficulty": "medium",
+    "topic": "Strings_Functions",
+    "id": 40
+  },
+  {
+    "question": "Write a function `reverseString` that takes a `std::string` by reference and reverses its content. Demonstrate its usage by reading a string from the user, reversing it, and printing the reversed string.",
+    "difficulty": "medium",
+    "topic": "Strings_Functions",
+    "id": 41
+  },
+  {
+    "question": "Define a struct named `Book` with members `title` (std::string), `author` (std::string), and `publicationYear` (int). Create an instance of `Book`, populate its fields with user input, and then display all its details.",
+    "difficulty": "easy",
+    "topic": "Structs",
+    "id": 42
+  },
+  {
+    "question": "Extend the `Book` struct. Create an array of 3 `Book` structs. Populate the array with data for 3 books (user input). Then, iterate through the array and print the titles and authors of all books published after the year 2000.",
+    "difficulty": "medium",
+    "topic": "Structs_Arrays",
+    "id": 43
+  },
+  {
+    "question": "Implement a function template `template<typename T> void genericSwap(T& a, T& b)` that can swap the values of two variables of any data type. Demonstrate its usage with `int` and `double` variables in `main`.",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 44
+  },
+  {
+    "question": "Implement a function template `template<typename T> T findMax(T val1, T val2)` that returns the larger of two values of any comparable data type. Demonstrate with different data types (e.g., int, double, char).",
+    "difficulty": "easy",
+    "topic": "Templates",
+    "id": 45
+  },
+  {
+    "question": "Write a boolean function `isPrime(int n)` that returns `true` if `n` is a prime number, and `false` otherwise. Use this function in `main` to print all prime numbers between 1 and 50 (inclusive).",
+    "difficulty": "medium",
+    "topic": "Functions_Loops",
+    "id": 46
+  },
+  {
+    "question": "Write a program that takes an integer as input from the user and counts the number of digits in it. For example, if the input is 12345, the output should be 5.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 47
+  },
+  {
+    "question": "Read a single character from the user. Determine and print whether it is an uppercase letter, a lowercase letter, a digit, or a special character (using `if-else if-else` conditions).",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 48
+  },
+  {
+    "question": "Write a function `reverseArray(int arr[], int size)` that takes an integer array and its size, and reverses the order of its elements *in place*. Demonstrate by initializing an array, calling the function, and printing the array before and after reversal.",
+    "difficulty": "medium",
+    "topic": "Arrays_Functions",
+    "id": 49
+  },
+  {
+    "question": "Prompt the user to enter numbers repeatedly until they enter -1. Calculate and display the average of all the numbers entered (excluding -1). Use a `while` loop to handle the input.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 50
+  }
+]
