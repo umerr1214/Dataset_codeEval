@@ -1,39 +1,54 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
-class Book {
+class Point {
 public:
-    std::string title;
-    std::string author;
-    std::string isbn;
+    int x, y;
 
-    Book(const std::string& title, const std::string& author, const std::string& isbn)
-        : title(title), author(author), isbn(isbn) {}
-
-    // Friend declaration for operator<<
-    // The definition below uses incorrect parameter and return types for std::ostream
-    friend std::ostream& operator<<(std::ostream& os, const Book& book);
+    Point(int x_coord = 0, int y_coord = 0) : x(x_coord), y(y_coord) {}
 };
 
-// SEMANTIC ERROR: operator<< takes and returns std::ostream by value instead of by reference.
-// This compiles but is semantically incorrect for stream operators, leading to inefficient copies
-// and breaking the ability to chain operations properly.
-std::ostream operator<<(std::ostream os, const Book& book) {
-    os << book.title << " by " << book.author << " (" << book.isbn << ")";
-    return os;
+// Correct Version: Overload the == operator as a non-member, non-friend function
+// for symmetry and idiomatic C++.
+bool operator==(const Point& p1, const Point& p2) {
+    return (p1.x == p2.x && p1.y == p2.y);
+}
+
+// Helper function to print bool as "true" or "false"
+std::string bool_to_string(bool b) {
+    return b ? "true" : "false";
 }
 
 int main() {
-    Book book1("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "978-0345391803");
-    Book book2("1984", "George Orwell", "978-0451524935");
-    Book book3("Pride and Prejudice", "Jane Austen", "978-0141439518");
+    // Test cases for Correct Version
+    Point p1(1, 1);
+    Point p2(1, 1);
+    Point p3(1, 2);
+    Point p4(2, 1);
+    Point p5(0, 0);
+    Point p6(-5, -10);
+    Point p7(-5, -10);
+    Point p8(100, 200);
+    Point p9(200, 100);
 
-    std::cout << "Test Case 1: " << book1 << std::endl;
-    // Chaining might not work as expected due to semantic error
-    // std::cout << "Test Case 2: " << book2 << " - Chained\n"; // This line would fail to compile or behave unexpectedly
-    std::cout << "Test Case 2: " << book2 << std::endl;
-    std::cout << "Test Case 3: " << book3 << std::endl;
+    // Expected: true
+    std::cout << bool_to_string(p1 == p2) << std::endl;
+    // Expected: false
+    std::cout << bool_to_string(p1 == p3) << std::endl;
+    // Expected: false
+    std::cout << bool_to_string(p1 == p4) << std::endl;
+    // Expected: true
+    std::cout << bool_to_string(p5 == p5) << std::endl;
+    // Expected: true
+    std::cout << bool_to_string(p6 == p7) << std::endl;
+    // Expected: false
+    std::cout << bool_to_string(p6 == p3) << std::endl;
+    // Expected: true
+    std::cout << bool_to_string(p8 == p8) << std::endl;
+    // Expected: false
+    std::cout << bool_to_string(p8 == p9) << std::endl;
+    // Expected: true (Symmetry check)
+    std::cout << bool_to_string(p2 == p1) << std::endl;
 
     return 0;
 }

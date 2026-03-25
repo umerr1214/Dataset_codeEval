@@ -1,64 +1,31 @@
 #include <iostream>
 
-class Counter {
+class Rectangle {
 private:
-    int count;
+    double length;
+    double width;
 
 public:
-    Counter(int initial_count = 0) : count(initial_count) {}
+    Rectangle(double l, double w) : length(l), width(w) {}
 
-    int getCount() const {
-        return count;
-    }
-
-    // Prefix increment: ++obj
-    Counter& operator++() {
-        ++count;
-        return *this;
-    }
-
-    // Postfix increment: obj++ - LOGICAL ERROR
-    // Should return the object's state *before* incrementing.
-    // This implementation returns the object's state *after* incrementing.
-    Counter operator++(int) {
-        ++count;             // Increment actual object
-        return *this;        // LOGICAL ERROR: Should return a copy of the object *before* incrementing
-    }
-
-    // For printing
-    friend std::ostream& operator<<(std::ostream& os, const Counter& c) {
-        os << c.count;
-        return os;
-    }
+    // Friend declaration
+    friend double calculateArea(const Rectangle& r);
 };
 
+// The definition of the friend function
+double calculateArea(const Rectangle& r) {
+    // Logical Error: Calculates perimeter instead of area
+    return 2 * (r.length + r.width);
+}
+
 int main() {
-    std::cout << "--- Testing Counter class ---" << std::endl;
+    // Test case 1
+    Rectangle rect1(5.0, 4.0);
+    std::cout << "Rectangle 1 (5.0x4.0) Area: " << calculateArea(rect1) << std::endl;
 
-    Counter c1(0);
-    std::cout << "Initial c1: " << c1.getCount() << std::endl;
-
-    // Test Prefix Increment (should work correctly)
-    Counter& c1_ref = ++c1;
-    std::cout << "After ++c1: c1 = " << c1.getCount() << ", c1_ref = " << c1_ref.getCount() << std::endl; // Expected: 1, 1
-
-    // Test Postfix Increment (will show logical error)
-    Counter c2(5);
-    std::cout << "Initial c2: " << c2.getCount() << std::endl;
-    Counter c2_old_value = c2++;
-    std::cout << "After c2++: c2 = " << c2.getCount() << ", c2_old_value = " << c2_old_value.getCount() << std::endl; // Expected: 6, 5 (Actual: 6, 6)
-
-    // Test Chaining Prefix Increment (should work correctly)
-    Counter c3(10);
-    std::cout << "Initial c3: " << c3.getCount() << std::endl;
-    Counter& c3_ref2 = ++(++c3);
-    std::cout << "After ++(++c3): c3 = " << c3.getCount() << ", c3_ref2 = " << c3_ref2.getCount() << std::endl; // Expected: 12, 12
-
-    // Test Postfix Increment again for clarity
-    Counter c4(15);
-    std::cout << "Initial c4: " << c4.getCount() << std::endl;
-    Counter c4_val = c4++;
-    std::cout << "After c4++: c4 = " << c4.getCount() << ", c4_val = " << c4_val.getCount() << std::endl; // Expected: 16, 15 (Actual: 16, 16)
+    // Test case 2
+    Rectangle rect2(10.5, 2.0);
+    std::cout << "Rectangle 2 (10.5x2.0) Area: " << calculateArea(rect2) << std::endl;
 
     return 0;
 }

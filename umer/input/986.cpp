@@ -1,75 +1,54 @@
 #include <iostream>
+#include <string>
 
-class ResourceTracker {
+class Person {
 public:
-    int* data;
-    int size;
+    std::string name;
+    // LOGICAL ERROR: 'age' should be protected, but declared public according to the question.
+    // The comments and output below will treat it as if it were protected, creating a logical inconsistency.
+    int age;
+private:
+    std::string ssn;
 
-    ResourceTracker(int s) : size(s), data(nullptr) {
-        if (size > 0) {
-            data = new int[size];
-            std::cout << "ResourceTracker(size=" << size << ") constructed, memory allocated at " << data << std::endl;
-            for (int i = 0; i < size; ++i) {
-                data[i] = i * 10 + 1;
-            }
-        } else {
-            std::cout << "ResourceTracker(size=0) constructed, no memory allocated." << std::endl;
-        }
+public:
+    Person(std::string n, int a, std::string s) : name(n), age(a), ssn(s) {}
+
+    // Method to allow derived classes to access protected members (if it were protected).
+    // For this logical error, it's public, so no special access is strictly needed.
+    int getAgeAccess() { return age; }
+};
+
+// A derived class to demonstrate access within a derived class
+class Student : public Person {
+public:
+    Student(std::string n, int a, std::string s, std::string major) : Person(n, a, s) {
+        // In a correctly implemented scenario, 'age' (protected) would be accessible here.
+        // With the logical error, 'age' is public, so it's directly accessible, but the intent was protected.
     }
 
-    // Logical Error: No custom copy constructor or copy assignment operator is provided.
-    // The default compiler-generated versions perform shallow copies, leading to
-    // multiple ResourceTracker objects owning the same dynamic memory.
-
-    ~ResourceTracker() {
-        if (data != nullptr) {
-            std::cout << "ResourceTracker(size=" << size << ") destructed, memory at " << data << " deallocated" << std::endl;
-            delete[] data;
-            data = nullptr; // Good practice after deallocation
-        } else {
-            std::cout << "ResourceTracker(size=" << size << ") destructed, no memory to deallocate (or already deallocated)." << std::endl;
-        }
-    }
-
-    void printData() const {
-        if (data == nullptr || size == 0) {
-            std::cout << "Data: (empty or invalid)" << std::endl;
-            return;
-        }
-        std::cout << "Data: [";
-        for (int i = 0; i < size; ++i) {
-            std::cout << data[i] << (i == size - 1 ? "" : ", ");
-        }
-        std::cout << "]" << std::endl;
+    void demonstrateDerivedAccess() {
+        std::cout << "--- Inside Derived Class (Student) ---" << std::endl;
+        std::cout << "Accessible: Public member 'name': " << name << std::endl;
+        // This output implies 'age' is protected, but in the code it's public, demonstrating the logical error.
+        std::cout << "Accessible: Protected member 'age' (via inheritance, though incorrectly public): " << age << std::endl;
+        // std::cout << "Inaccessible: Private member 'ssn': " << ssn << std::endl; // Would be a compile error
+        std::cout << "Note: Private member 'ssn' is not accessible from a derived class." << std::endl;
     }
 };
 
-void demonstrateCopyIssue() {
-    std::cout << "\n--- Creating originalTracker ---" << std::endl;
-    ResourceTracker originalTracker(3);
-    originalTracker.printData();
-
-    std::cout << "\n--- Creating copiedTracker (shallow copy) ---" << std::endl;
-    ResourceTracker copiedTracker = originalTracker; // Calls default copy constructor
-    copiedTracker.printData();
-
-    // Modify originalTracker's data to show they point to the same memory
-    if (originalTracker.data != nullptr) {
-        originalTracker.data[0] = 999;
-        std::cout << "\n--- Modified originalTracker's data[0] ---" << std::endl;
-        originalTracker.printData();
-        copiedTracker.printData(); // Will show the modification because of shallow copy
-    }
-
-    std::cout << "\n--- copiedTracker scope ending ---" << std::endl;
-    // copiedTracker's destructor will be called here, freeing the memory.
-    // originalTracker's data pointer will become dangling.
-} // copiedTracker destructs here
-
 int main() {
-    std::cout << "Program start" << std::endl;
-    demonstrateCopyIssue(); // This function will cause a double-free when originalTracker destructs
-    std::cout << "Program end" << std::endl;
-    // originalTracker destructs here, attempting to deallocate memory already freed by copiedTracker.
+    Person p("Alice", 30, "123-45-6789");
+
+    std::cout << "--- Outside the Class (main function) ---" << std::endl;
+    std::cout << "Accessible: Public member 'name': " << p.name << std::endl;
+    // LOGICAL ERROR: 'age' is public, so this access works,
+    // but the question requires it to be protected. The output description is misleading.
+    std::cout << "Accessible: Protected member 'age' (but incorrectly declared public): " << p.age << std::endl;
+    // std::cout << "Inaccessible: Private member 'ssn': " << p.ssn << std::endl; // This would be a compile error
+    std::cout << "Note: Private member 'ssn' is not accessible from outside the class." << std::endl;
+
+    Student s("Bob", 22, "987-65-4321", "Computer Science");
+    s.demonstrateDerivedAccess();
+
     return 0;
 }

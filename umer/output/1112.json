@@ -1,12 +1,40 @@
 {
   "language": "c++",
-  "question": "Demonstrate the difference between early binding (static polymorphism) and late binding (dynamic polymorphism). Use function overloading for early binding and virtual functions with base class pointers for late binding in separate, clear examples.",
+  "question": "Define an abstract base class `Printable` with a pure virtual method `print()`. Derive two concrete classes, `Document` and `Image`, from `Printable`. Implement the `print()` method in each derived class to display appropriate information (e.g., 'Printing Document: [title]', 'Printing Image: [filename]').",
   "test_cases": [
-    { "input": "", "expected": "--- Early Binding (Function Overloading) ---\nSum of integers: 15\nSum of doubles: 16\nConcatenated strings: Hello World\n\n--- Late Binding (Virtual Functions) ---\nDog barks: Woof!\nCat barks: Woof!\nAnimal makes a generic sound." }
+    {
+      "input": "Print Document with title 'Report_Q1'",
+      "expected": "Printing Document: Report_Q1\n"
+    },
+    {
+      "input": "Print Image with filename 'sunset.jpg'",
+      "expected": "Printing Image: sunset.jpg\n"
+    },
+    {
+      "input": "Print Document with empty title ''",
+      "expected": "Printing Document: \n"
+    },
+    {
+      "input": "Print Image with long filename",
+      "expected": "Printing Image: very_long_and_descriptive_image_filename_from_camera_2023_10_27_15_30_00.png\n"
+    },
+    {
+      "input": "Polymorphic print and delete of Document ('Memo_to_staff')",
+      "expected": "Printing Document: Memo_to_staff\n"
+    },
+    {
+      "input": "Polymorphic print and delete of Image ('logo.svg')",
+      "expected": "Printing Image: logo.svg\n"
+    }
   ],
-  "driver": "#include <iostream>\n#include <string>\n\n// Early Binding (Static Polymorphism) using Function Overloading\nclass Calculator {\npublic:\n    int add(int a, int b) {\n        return a + b;\n    }\n\n    double add(double a, double b) {\n        return a + b;\n    }\n\n    std::string add(const std::string& s1, const std::string& s2) {\n        return s1 + s2;\n    }\n};\n\n// Late Binding (Dynamic Polymorphism) using Virtual Functions\nclass Animal {\npublic:\n    virtual void makeSound() const {\n        std::cout << \"Animal makes a generic sound.\" << std::endl;\n    }\n    virtual ~Animal() {}\n};\n\nclass Dog : public Animal {\npublic:\n    void makeSound() const override {\n        std::cout << \"Dog barks: Woof!\" << std::endl;\n    }\n};\n\nclass Cat : public Animal {\npublic:\n    // Logical Error: Cat's makeSound incorrectly prints Dog's sound\n    void makeSound() const override {\n        std::cout << \"Cat barks: Woof!\" << std::endl; // Should be \"Cat meows: Meow!\"\n    }\n};\n\nint main() {\n    // Early Binding Example\n    std::cout << \"--- Early Binding (Function Overloading) ---\" << std::endl;\n    Calculator calc;\n    std::cout << \"Sum of integers: \" << calc.add(5, 10) << std::endl;\n    std::cout << \"Sum of doubles: \" << calc.add(5.5, 10.5) << std::endl;\n    std::cout << \"Concatenated strings: \" << calc.add(\"Hello\", \" World\") << std::endl;\n\n    std::cout << \"\\n--- Late Binding (Virtual Functions) ---\" << std::endl;\n    // Base class pointers pointing to derived objects\n    Animal* myAnimal1 = new Dog();\n    Animal* myAnimal2 = new Cat(); // This Cat object will exhibit the logical error\n    Animal* myAnimal3 = new Animal();\n\n    myAnimal1->makeSound();\n    myAnimal2->makeSound();\n    myAnimal3->makeSound();\n\n    delete myAnimal1;\n    delete myAnimal2;\n    delete myAnimal3;\n\n    return 0;\n}",
-  "code_quality": 4,
-  "correctness": 3,
-  "error_type": "Logical Error",
-  "errors": ["In the late binding example, the 'Cat::makeSound' method incorrectly prints 'Woof!' instead of 'Meow!', leading to incorrect output for a Cat object."]
+  "driver": "std::string run_test_cases() {\n    std::stringstream s_s;\n    std::streambuf* old_buf = std::cout.rdbuf();\n    std::cout.rdbuf(s_s.rdbuf());\n\n    Document d_obj(\"Report_Q1\");\n    d_obj.print();\n\n    Image i_obj(\"sunset.jpg\");\n    i_obj.print();\n\n    Document d_obj_empty(\"\");\n    d_obj_empty.print();\n\n    Image i_obj_long(\"very_long_and_descriptive_image_filename_from_camera_2023_10_27_15_30_00.png\");\n    i_obj_long.print();\n\n    Printable* p_doc_ptr = new Document(\"Memo_to_staff\");\n    p_doc_ptr->print();\n    delete p_doc_ptr;\n\n    Printable* p_img_ptr = new Image(\"logo.svg\");\n    p_img_ptr->print();\n    delete p_img_ptr;\n\n    std::cout.rdbuf(old_buf);\n    return s_s.str();\n}",
+  "code_quality": 3,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
+  "errors": [
+    "Poorly chosen and non-descriptive variable names (e.g., `doc_title`, `img_file`, `d_obj`, `i_obj`, `s_s`, `old_buf`).",
+    "Constructors for `Document` and `Image` take `std::string` by value instead of `const std::string&`, leading to unnecessary string copies.",
+    "Inconsistent use of `std::endl` and `\\n` for newlines; `std::endl` forces a flush, which can be less efficient if not explicitly required.",
+    "Inconsistent indentation and formatting, particularly in class definitions and method implementations."
+  ]
 }

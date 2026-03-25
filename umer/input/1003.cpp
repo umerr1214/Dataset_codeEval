@@ -1,58 +1,53 @@
 #include <iostream>
 #include <string>
+#include <utility> // For std::move
 
-// Base class
-class Vehicle {
-protected:
-    std::string make;
-    int year;
-
-public:
-    Vehicle(std::string make, int year) : make(make), year(year) {}
-
-    void display() const {
-        std::cout << "Make: " << make << ", Year: " << year;
-    }
-} // SYNTAX ERROR: Missing semicolon here
-
-// Derived class Car
-class Car : public Vehicle {
+class SSD {
 private:
-    int numDoors;
+    int capacity; // in GB
+    std::string type;
 
 public:
-    Car(std::string make, int year, int numDoors)
-        : Vehicle(make, year), numDoors(numDoors) {}
+    // Constructor
+    SSD(int cap, std::string t) : capacity(cap), type(std::move(t)) {}
 
-    void display() const {
-        Vehicle::display();
-        std::cout << ", Doors: " << numDoors << std::endl;
+    // Getters for demonstration/testing
+    int getCapacity() const { return capacity; }
+    const std::string& getType() const { return type; }
+
+    // For printing
+    void printSSD() const {
+        std::cout << "SSD: " << type << " " << capacity << "GB\n";
     }
-};
+} // SYNTAX ERROR: Missing semicolon after class definition
 
-// Derived class Motorcycle
-class Motorcycle : public Vehicle {
+class Laptop {
 private:
-    bool hasSidecar;
+    std::string brand;
+    SSD internalSSD; // Composition
 
 public:
-    Motorcycle(std::string make, int year, bool hasSidecar)
-        : Vehicle(make, year), hasSidecar(hasSidecar) {}
+    // Constructor for Laptop
+    Laptop(std::string b, int ssd_capacity, std::string ssd_type)
+        : brand(std::move(b)), internalSSD(ssd_capacity, std::move(ssd_type)) {}
 
-    void display() const {
-        Vehicle::display();
-        std::cout << ", Sidecar: " << (hasSidecar ? "Yes" : "No") << std::endl;
+    // Getters for demonstration/testing
+    const std::string& getBrand() const { return brand; }
+    const SSD& getSSD() const { return internalSSD; }
+
+    // For printing
+    void printLaptop() const {
+        std::cout << "Laptop Brand: " << brand << "\n";
+        internalSSD.printSSD();
     }
 };
 
 int main() {
-    // This program will fail to compile due to the syntax error.
-    // The following lines are for demonstrating the intended use if compiled.
-    Car myCar("Toyota", 2020, 4);
-    Motorcycle myBike("Harley", 2018, true);
+    Laptop myLaptop("Dell", 512, "NVMe");
+    myLaptop.printLaptop();
 
-    myCar.display();
-    myBike.display();
+    Laptop gamingLaptop("Alienware", 1024, "PCIe Gen4");
+    gamingLaptop.printLaptop();
 
     return 0;
 }

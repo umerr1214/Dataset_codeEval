@@ -1,51 +1,42 @@
 #include <iostream>
-#include <iomanip> // For std::setw and std::setfill
 
-class Time {
-private:
-    int hours;
-    int minutes;
-    int seconds;
-
+class ResourceTracker {
 public:
-    // Default constructor
-    Time() : hours(0), minutes(0), seconds(0) {}
+    int* data;
+    int size // Missing semicolon here
 
-    // Parameterized constructor
-    Time(int h, int m, int s) : hours(h), minutes(m), seconds(s) {}
-
-    // Copy constructor
-    Time(const Time& other) : hours(other.hours), minutes(other.minutes), seconds(other.seconds) {}
-
-    // Display method
-    void displayTime() {
-        std::cout << std::setw(2) << std::setfill('0') << hours << ":"
-                  << std::setw(2) << std::setfill('0') << minutes << ":"
-                  << std::setw(2) << std::setfill('0') << seconds << std::endl;
+    ResourceTracker(int s) : size(s) {
+        data = new int[size];
+        std::cout << "ResourceTracker(size=" << size << ") constructed, memory allocated at " << data << std::endl;
+        for (int i = 0; i < size; ++i) {
+            data[i] = i * 10;
+        }
     }
-}; // Missing semicolon here, causing a syntax error
+
+    ~ResourceTracker() {
+        std::cout << "ResourceTracker(size=" << size << ") destructed, memory at " << data << " deallocated" << std::endl;
+        delete[] data;
+    }
+
+    void printData() const {
+        std::cout << "Data: [";
+        for (int i = 0; i < size; ++i) {
+            std::cout << data[i] << (i == size - 1 ? "" : ", ");
+        }
+        std::cout << "]" << std::endl;
+    }
+};
+
+void demonstrateLifecycle() {
+    std::cout << "\n--- Creating tracker1 ---" << std::endl;
+    ResourceTracker tracker1(5);
+    tracker1.printData();
+    std::cout << "--- tracker1 scope ending ---" << std::endl;
+}
 
 int main() {
-    std::cout << "Testing Time class:" << std::endl;
-
-    // Test default constructor
-    Time t1;
-    std::cout << "Default time: ";
-    t1.displayTime(); // Expected: 00:00:00
-
-    // Test parameterized constructor
-    Time t2(10, 20, 30);
-    std::cout << "Parameterized time (10:20:30): ";
-    t2.displayTime(); // Expected: 10:20:30
-
-    // Test copy constructor
-    Time t3 = t2;
-    std::cout << "Copied time (from 10:20:30): ";
-    t3.displayTime(); // Expected: 10:20:30
-
-    Time t4(23, 59, 59);
-    std::cout << "Parameterized time (23:59:59): ";
-    t4.displayTime(); // Expected: 23:59:59
-
+    std::cout << "Program start" << std::endl;
+    demonstrateLifecycle();
+    std::cout << "Program end" << std::endl;
     return 0;
 }

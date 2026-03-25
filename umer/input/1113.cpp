@@ -1,69 +1,74 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <sstream> // Required for the driver function
 
-// Early Binding (Static Polymorphism) using Function Overloading
-class Calculator {
+// Abstract base class
+class Printable {
 public:
-    int add(int a, int b) {
-        return a + b;
-    }
+    virtual void print() = 0;
+    virtual ~Printable() = default; // Correct: virtual destructor ensures proper cleanup
+};
 
-    double add(double a, double b) {
-        return a + b;
-    }
-
-    std::string add(const std::string& s1, const std::string& s2) {
-        return s1 + s2;
+class Document : public Printable {
+private:
+    std::string title;
+public:
+    // Correct: Constructor takes const std::string& for efficiency and to prevent unnecessary copies
+    Document(const std::string& title) : title(title) {}
+    void print() override { // Correct: using 'override' keyword for clarity and compile-time checks
+        std::cout << "Printing Document: " << title << '\n'; // Efficient: using '\n' instead of std::endl
     }
 };
 
-// Late Binding (Dynamic Polymorphism) using Virtual Functions
-class Animal {
+class Image : public Printable {
+private:
+    std::string filename;
 public:
-    // Semantic Error: makeSound is not virtual, preventing late binding for this function
-    void makeSound() const { // Should be 'virtual void makeSound() const'
-        std::cout << "Animal makes a generic sound." << std::endl;
-    }
-    virtual ~Animal() {} // Destructor is virtual, but makeSound is the issue
-};
-
-class Dog : public Animal {
-public:
-    // This 'makeSound' now hides Animal::makeSound, doesn't override it polymorphically
-    void makeSound() const { // No 'override' keyword used, so it compiles and hides the base method
-        std::cout << "Dog barks: Woof!" << std::endl;
+    // Correct: Constructor takes const std::string& for efficiency and to prevent unnecessary copies
+    Image(const std::string& filename) : filename(filename) {}
+    void print() override { // Correct: using 'override' keyword
+        std::cout << "Printing Image: " << filename << '\n'; // Efficient: using '\n'
     }
 };
 
-class Cat : public Animal {
-public:
-    // This 'makeSound' now hides Animal::makeSound, doesn't override it polymorphically
-    void makeSound() const { // No 'override' keyword used, so it compiles and hides the base method
-        std::cout << "Cat meows: Meow!" << std::endl;
-    }
-};
+// Driver code to run test cases and capture output
+std::string run_test_cases() {
+    std::stringstream ss;
+    std::streambuf* old_cout_buf = std::cout.rdbuf(); // Save original cout buffer
+    std::cout.rdbuf(ss.rdbuf()); // Redirect cout to stringstream
+
+    // Test case 1: Document object on stack
+    Document doc1("Report_Q1");
+    doc1.print();
+
+    // Test case 2: Image object on stack
+    Image img1("sunset.jpg");
+    img1.print();
+
+    // Test case 3: Document with empty title
+    Document doc2("");
+    doc2.print();
+
+    // Test case 4: Image with long filename
+    Image img2("very_long_and_descriptive_image_filename_from_camera_2023_10_27_15_30_00.png");
+    img2.print();
+
+    // Test case 5 & 6: Polymorphic calls with heap allocation and proper cleanup
+    Printable* doc_ptr = new Document("Memo_to_staff");
+    doc_ptr->print();
+    delete doc_ptr; // Correctly calls ~Document() then ~Printable() due to virtual destructor
+
+    Printable* img_ptr = new Image("logo.svg");
+    img_ptr->print();
+    delete img_ptr; // Correctly calls ~Image() then ~Printable() due to virtual destructor
+
+    std::cout.rdbuf(old_cout_buf); // Restore original cout buffer
+    return ss.str(); // Return captured output
+}
 
 int main() {
-    // Early Binding Example
-    std::cout << "--- Early Binding (Function Overloading) ---" << std::endl;
-    Calculator calc;
-    std::cout << "Sum of integers: " << calc.add(5, 10) << std::endl;
-    std::cout << "Sum of doubles: " << calc.add(5.5, 10.5) << std::endl;
-    std::cout << "Concatenated strings: " << calc.add("Hello", " World") << std::endl;
-
-    std::cout << "\n--- Late Binding (Virtual Functions) ---" << std::endl;
-    // Base class pointers pointing to derived objects
-    Animal* myAnimal1 = new Dog();
-    Animal* myAnimal2 = new Cat();
-    Animal* myAnimal3 = new Animal();
-
-    myAnimal1->makeSound(); // Calls Animal::makeSound() due to semantic error (missing virtual)
-    myAnimal2->makeSound(); // Calls Animal::makeSound() due to semantic error (missing virtual)
-    myAnimal3->makeSound(); // Calls Animal::makeSound() - Correct (base type)
-
-    delete myAnimal1;
-    delete myAnimal2;
-    delete myAnimal3;
-
+    // The main function simply calls the driver and prints its captured output.
+    std::cout << run_test_cases();
     return 0;
 }

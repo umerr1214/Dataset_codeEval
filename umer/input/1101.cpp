@@ -1,45 +1,75 @@
 #include <iostream>
 #include <string>
 
-// Abstract base class
-class Appliance {
-public:
-    virtual void operate() = 0; // Pure virtual function
-    virtual ~Appliance() {}
-};
+// Correct Version:
+// - Encapsulation maintained with private attributes and public getters.
+// - Efficient parameter passing using const references for strings in constructors.
+// - Clear and concise naming conventions.
+// - Correct constructor chaining.
+// - Uses '\n' for efficient output.
 
-// Concrete derived class 1
-class Refrigerator : public Appliance {
+class Person {
+private:
+    std::string name;
+    int age;
+
 public:
-    void operate() override {
-        std::cout << "Refrigerator is cooling food." << std::endl;
+    // Parameterized constructor for Person, using const std::string& for efficiency
+    Person(const std::string& pName, int pAge) : name(pName), age(pAge) {}
+
+    // Getter methods for attributes
+    std::string getName() const {
+        return name;
+    }
+
+    int getAge() const {
+        return age;
+    }
+
+    // Method to display Person's information
+    void displayPersonInfo() const {
+        std::cout << "Name: " << name << ", Age: " << age << '\n';
     }
 };
 
-// Concrete derived class 2
-// SEMANTIC ERROR: WashingMachine fails to implement the pure virtual function operate(),
-// making it an abstract class itself.
-class WashingMachine : public Appliance {
+class Student : public Person {
+private:
+    std::string studentId;
+
 public:
-    // Missing: void operate() override { ... }
+    // Student constructor chaining to Person's constructor, using const std::string& for efficiency
+    Student(const std::string& pName, int pAge, const std::string& sId)
+        : Person(pName, pAge), studentId(sId) {}
+
+    // Getter method for studentId
+    std::string getStudentId() const {
+        return studentId;
+    }
+
+    // Method to display Student's full information
+    void displayStudentInfo() const {
+        displayPersonInfo(); // Call base class display
+        std::cout << "Student ID: " << studentId << '\n';
+    }
 };
 
 int main() {
-    Refrigerator myFridge;
-    // SEMANTIC ERROR: Cannot instantiate abstract class 'WashingMachine'
-    // because it does not override the pure virtual function 'operate()'.
-    WashingMachine myWasher; // This line will cause a compile-time error.
+    // Test Case 1
+    Student student1("Alice Wonderland", 21, "S2023-001");
+    std::cout << "--- Student 1 Details ---\n";
+    student1.displayStudentInfo();
+    std::cout << '\n'; // Use '\n' for new line
 
-    std::cout << "--- Direct calls ---" << std::endl;
-    myFridge.operate();
-    // myWasher.operate(); // Would also be an error if myWasher could be created.
+    // Test Case 2
+    Student student2("Bob The Builder", 19, "S2023-002");
+    std::cout << "--- Student 2 Details ---\n";
+    student2.displayStudentInfo();
+    std::cout << '\n';
 
-    std::cout << "--- Polymorphic calls ---" << std::endl;
-    Appliance* appliance1 = &myFridge;
-    // Appliance* appliance2 = &myWasher; // Would be fine if myWasher was concrete.
-
-    appliance1->operate();
-    // appliance2->operate();
+    // Test Case 3
+    Student student3("Charlie Chaplin", 25, "S2023-003");
+    std::cout << "--- Student 3 Details ---\n";
+    student3.displayStudentInfo();
 
     return 0;
 }

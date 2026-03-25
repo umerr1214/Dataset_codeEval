@@ -1,52 +1,69 @@
 #include <iostream>
-#include <string>
+#include <vector>
+#include <memory> // For std::unique_ptr demonstration, though not strictly required by question
 
-class Flyer {
+class Counter {
+private:
+    // Static member variable to keep track of active Counter objects
+    static int s_count;
+
 public:
-    // Semantic Error: 'fly()' is not declared virtual, violating the design intent
-    // for polymorphism, even though the question explicitly asks for a virtual method.
-    void fly() {
-        std::cout << "Generic flyer action." << std::endl;
+    // Default constructor: increments the count when a new object is created
+    Counter() {
+        s_count++;
+        // std::cout << "Counter object created. Active count: " << s_count << std::endl;
+    }
+
+    // Destructor: decrements the count when an object is destroyed
+    ~Counter() {
+        s_count--;
+        // std::cout << "Counter object destroyed. Active count: " << s_count << std::endl;
+    }
+
+    // Static method to retrieve the current number of active Counter objects
+    static int getTotalCount() {
+        return s_count;
     }
 };
 
-class Swimmer {
-public:
-    // Semantic Error: 'swim()' is not declared virtual, violating the design intent
-    // for polymorphism.
-    void swim() {
-        std::cout << "Generic swimmer action." << std::endl;
-    }
-};
-
-class Duck : public Flyer, public Swimmer
-{
-public:
-    // These methods effectively 'hide' the base methods rather than 'override' them
-    // polymorphically, because the base methods are not virtual.
-    void fly() {
-        std::cout << "Duck flaps its wings gracefully." << std::endl;
-    }
-
-    void swim() {
-        std::cout << "Duck paddles its feet in the water." << std::endl;
-    }
-};
+// Definition and initialization of the static member variable outside the class
+int Counter::s_count = 0;
 
 int main() {
-    Duck myDuck;
-    std::cout << "Calling methods on Duck object directly:" << std::endl;
-    myDuck.fly();
-    myDuck.swim();
+    std::cout << "Initial active counters: " << Counter::getTotalCount() << std::endl; // Expected: 0
 
-    // Due to the base methods not being virtual, calling through base pointers
-    // will invoke the base class methods, not the Duck's specific methods.
-    Flyer* flyerPtr = &myDuck;
-    Swimmer* swimmerPtr = &myDuck;
+    // Test case 1: Objects in local scope
+    {
+        Counter c1;
+        std::cout << "After creating c1: " << Counter::getTotalCount() << std::endl; // Expected: 1
 
-    std::cout << "\nCalling methods via base class pointers (demonstrating semantic error):" << std::endl;
-    flyerPtr->fly(); // This will call Flyer::fly(), not Duck::fly()
-    swimmerPtr->swim(); // This will call Swimmer::swim(), not Duck::swim()
+        Counter c2;
+        std::cout << "After creating c2: " << Counter::getTotalCount() << std::endl; // Expected: 2
+    } // c1 and c2 are destroyed here
+    std::cout << "After c1 and c2 go out of scope: " << Counter::getTotalCount() << std::endl; // Expected: 0
+
+    // Test case 2: Objects in a vector
+    std::vector<Counter> counterVector;
+    counterVector.reserve(3); // Pre-allocate memory to avoid reallocations
+    counterVector.emplace_back(); // Creates 1 object
+    counterVector.emplace_back(); // Creates 1 object
+    std::cout << "After adding 2 objects to vector: " << Counter::getTotalCount() << std::endl; // Expected: 2
+
+    counterVector.clear(); // Destroys all objects in the vector
+    std::cout << "After clearing vector: " << Counter::getTotalCount() << std::endl; // Expected: 0
+
+    // Test case 3: Dynamically allocated objects
+    Counter* c3 = new Counter();
+    std::cout << "After dynamically allocating c3: " << Counter::getTotalCount() << std::endl; // Expected: 1
+
+    std::unique_ptr<Counter> c4 = std::make_unique<Counter>();
+    std::cout << "After creating c4 with unique_ptr: " << Counter::getTotalCount() << std::endl; // Expected: 2
+
+    delete c3; // Explicitly delete c3
+    std::cout << "After deleting c3: " << Counter::getTotalCount() << std::endl; // Expected: 1
+
+    // c4 will be automatically destroyed when it goes out of scope (end of main)
+    std::cout << "Final active counters before main exits: " << Counter::getTotalCount() << std::endl; // Expected: 1
 
     return 0;
-}
+} // c4 is destroyed here

@@ -1,45 +1,58 @@
 #include <iostream>
 #include <string>
 
-// Abstract base class
-class Appliance {
-public:
-    virtual void operate() = 0; // Pure virtual function
-    virtual ~Appliance() {}
-} // SYNTAX ERROR: Missing semicolon here
+// Robustness Issue: Attributes are public, violating encapsulation.
+// This makes the class less robust against misuse, as external code can
+// directly modify attributes to invalid states (e.g., negative age)
+// without any validation or control.
 
-// Concrete derived class 1
-class Refrigerator : public Appliance {
-public:
-    void operate() override {
-        std::cout << "Refrigerator is cooling food." << std::endl;
+class Person {
+public: // Robustness Issue: Public attributes
+    std::string name;
+    int age;
+
+    // Parameterized constructor for Person
+    Person(std::string pName, int pAge) : name(pName), age(pAge) {
+        // No validation for age, allows negative values (robustness issue)
+    }
+
+    void displayPersonInfo() const {
+        std::cout << "Name: " << name << ", Age: " << age << std::endl;
     }
 };
 
-// Concrete derived class 2
-class WashingMachine : public Appliance {
-public:
-    void operate() override {
-        std::cout << "Washing machine is washing clothes." << std::endl;
+class Student : public Person {
+public: // Robustness Issue: Public attributes
+    std::string studentId;
+
+    // Student constructor chaining to Person's constructor
+    Student(std::string pName, int pAge, std::string sId)
+        : Person(pName, pAge), studentId(sId) {
+        // No specific validation for studentId
+    }
+
+    void displayStudentInfo() const {
+        displayPersonInfo(); // Call base class display
+        std::cout << "Student ID: " << studentId << std::endl;
     }
 };
 
 int main() {
-    // This code contains a syntax error and will not compile.
-    // If it were fixed, it would demonstrate object creation and method calls.
-    Refrigerator myFridge;
-    WashingMachine myWasher;
+    // Test Case 1
+    Student student1("Alice Smith", 20, "S1001");
+    std::cout << "--- Student 1 ---" << std::endl;
+    student1.displayStudentInfo();
 
-    std::cout << "--- Direct calls ---" << std::endl;
-    myFridge.operate();
-    myWasher.operate();
+    // Demonstrate robustness issue: direct modification
+    student1.age = -5; // Directly setting an invalid age
+    student1.studentId = ""; // Directly setting an empty ID
+    std::cout << "\n--- Student 1 (After direct modification) ---" << std::endl;
+    student1.displayStudentInfo();
 
-    std::cout << "--- Polymorphic calls ---" << std::endl;
-    Appliance* appliance1 = &myFridge;
-    Appliance* appliance2 = &myWasher;
-
-    appliance1->operate();
-    appliance2->operate();
+    // Test Case 2
+    Student student2("Bob Johnson", 22, "S1002");
+    std::cout << "\n--- Student 2 ---" << std::endl;
+    student2.displayStudentInfo();
 
     return 0;
 }

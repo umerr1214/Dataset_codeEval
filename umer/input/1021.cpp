@@ -1,36 +1,25 @@
 #include <iostream>
-#include <sstream> // Missing semicolon after class definition
 
-class ComplexNumber {
-private:
-    double real;
-    double imaginary;
-
+class BankAccount {
 public:
-    ComplexNumber(double r = 0.0, double i = 0.0) : real(r), imaginary(i) {}
-
-    double getReal() const { return real; }
-    double getImaginary() const { return imaginary; }
-
-    // Overload + operator - Missing opening brace
-    ComplexNumber operator+(const ComplexNumber& other) const
-        return ComplexNumber(real + other.real, imaginary + other.imaginary);
+    BankAccount() {
+        totalAccountsCreated++;
     }
-};
 
-void run_test(double r1, double i1, double r2, double i2) {
-    ComplexNumber c1(r1, i1);
-    ComplexNumber c2(r2, i2);
-    ComplexNumber c3 = c1 + c2;
+    static int getTotalAccountsCreated() {
+        return totalAccountsCreated;
+    }
 
-    std::ostringstream oss;
-    oss << c3.getReal() << " " << c3.getImaginary();
-    std::cout << oss.str() << std::endl;
-}
+private:
+    static int totalAccountsCreated;
+} // Syntax Error: Missing semicolon after class definition
+
+int BankAccount::totalAccountsCreated = 0;
 
 int main() {
-    run_test(1.0, 2.0, 3.0, 4.0);
-    run_test(5.0, -1.0, 2.5, 3.0);
-    run_test(-10.0, 0.0, 5.0, -5.0);
+    BankAccount acc1;
+    BankAccount acc2;
+    BankAccount acc3;
+    std::cout << "Total accounts created: " << BankAccount::getTotalAccountsCreated() << std::endl;
     return 0;
 }

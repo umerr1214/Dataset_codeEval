@@ -1,17 +1,20 @@
 {
   "language": "c++",
-  "question": "Design a base class `Flyer` with a virtual `fly()` method that prints a generic message. Create another base class `Swimmer` with a virtual `swim()` method that also prints a generic message. Implement a `Duck` class that inherits from both `Flyer` and `Swimmer` and overrides both `fly()` and `swim()` methods to print specific duck actions.",
+  "question": "Design a `Counter` class that keeps track of how many `Counter` objects have been created using a `static` member variable. Implement a default constructor to increment this count and a destructor to decrement it. Provide a static method `getTotalCount()` to retrieve the current number of active `Counter` objects.",
   "test_cases": [
     {
-      "input": "",
-      "expected": "Calling methods on Duck object directly:\nDuck flaps its wings gracefully.\nDuck paddles its feet in the water.\n\nCalling methods via base class pointers:\nDuck flaps its wings gracefully.\nDuck paddles its feet in the water.\n"
+      "input": "Program execution demonstrating counter creation and destruction.",
+      "expected": "Beginning of program execution.\nActive counter count at start: 0\nCount with 4 objects: 4\nCount after scope exit (1 object): 1\nCount with dynamically allocated object (2 objects): 2\nCount after deleting dynamically allocated object (1 object): 1\nEnd of program execution.\n"
     }
   ],
-  "driver": "#include <iostream>\n#include <string>\n\nclass Flyer {\npublic:\n    virtual void fly() {\n        std::cout << \"Generic flyer action.\" << std::endl;\n    }\n};\n\nclass Swimmer {\npublic:\n    virtual void swim() {\n        std::cout << \"Generic swimmer action.\" << std::endl;\n    }\n};\n\nclass Duck : public Flyer, public Swimmer\n{\npublic:\n    void fly() override {\n        std::cout << \"Duck flaps its wings gracefully.\" << std::endl;\n    }\n\n    void swim() override {\n        std::cout << \"Duck paddles its feet in the water.\" << std::endl;\n    }\n};\n\nint main() {\n    Duck myDuck;\n    std::cout << \"Calling methods on Duck object directly:\" << std::endl;\n    myDuck.fly();\n    myDuck.swim();\n\n    Flyer* flyerPtr = &myDuck;\n    Swimmer* swimmerPtr = &myDuck;\n\n    std::cout << \"\\nCalling methods via base class pointers:\" << std::endl;\n    flyerPtr->fly();\n    swimmerPtr->swim();\n\n    return 0;\n}",
-  "code_quality": 4,
-  "correctness": 3,
-  "error_type": "Logical Error",
+  "driver": "#include <iostream>\n#include <vector>\n#include <atomic>\n\nclass Counter {\nprivate:\n    static std::atomic<int> g_total_instances;\n\npublic:\n    Counter() { g_total_instances.operator++(); }\n    ~Counter() { g_total_instances.operator--(); }\n\n    static int get_total_num_active_counters() { return g_total_instances.load(); }\n};\n\nstd::atomic<int> Counter::g_total_instances(0);\n\nint main() {\n    std::cout << \"Beginning of program execution.\" << std::endl;\n    std::cout << \"Active counter count at start: \" << Counter::get_total_num_active_counters() << std::endl;\n\n    Counter first_counter_obj;\n    {\n        Counter second_counter_obj;\n        std::vector<Counter> some_vector_of_counters(2);\n        std::cout << \"Count with 4 objects: \" << Counter::get_total_num_active_counters() << std::endl;\n    }\n    std::cout << \"Count after scope exit (1 object): \" << Counter::get_total_num_active_counters() << std::endl;\n\n    Counter* dynamically_allocated_counter = new Counter();\n    std::cout << \"Count with dynamically allocated object (2 objects): \" << Counter::get_total_num_active_counters() << std::endl;\n\n    delete dynamically_allocated_counter;\n    std::cout << \"Count after deleting dynamically allocated object (1 object): \" << Counter::get_total_num_active_counters() << std::endl;\n\n    std::cout << \"End of program execution.\" << std::endl;\n    return 0;\n}",
+  "code_quality": 3,
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
   "errors": [
-    "The `Duck` class overrides its `fly()` and `swim()` methods but logically fails to provide specific duck actions. Instead, it calls the generic base class implementations, violating the problem's requirement for specific overrides."
+    "Uses `std::atomic<int>` for the counter, which is unnecessary overhead for a single-threaded context and less efficient than a plain `int`.",
+    "Employs verbose and less idiomatic `operator++()` and `operator--()` for increment/decrement instead of `++` and `--`.",
+    "Uses an overly long and slightly redundant static method name `get_total_num_active_counters()`.",
+    "Poor code formatting with inconsistent spacing and line breaks reduces readability."
   ]
 }

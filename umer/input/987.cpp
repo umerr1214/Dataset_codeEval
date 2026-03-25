@@ -1,77 +1,47 @@
 #include <iostream>
+#include <string>
 
-class ResourceTracker {
+class Person {
 public:
-    int* data;
-    int size;
+    std::string name;
+protected:
+    int age;
+private:
+    std::string ssn;
 
-    ResourceTracker(int s) : size(s), data(nullptr) {
-        if (s > 0) {
-            data = new int[s];
-            std::cout << "ResourceTracker(size=" << size << ") constructed, memory allocated at " << data << std::endl;
-            for (int i = 0; i < size; ++i) {
-                data[i] = i * 10 + 2;
-            }
-        } else {
-            std::cout << "ResourceTracker(size=0) constructed, no memory allocated." << std::endl;
-        }
-    }
+public:
+    Person(std::string n, int a, std::string s) : name(n), age(a), ssn(s) {}
 
-    ~ResourceTracker() {
-        if (data != nullptr) {
-            std::cout << "ResourceTracker(size=" << size << ") destructed, memory at " << data << " deallocated" << std::endl;
-            delete[] data;
-            // The pointer 'data' is not set to nullptr after deletion in destructor.
-            // This is generally fine if the object is truly being destroyed,
-            // but combined with the 'reset_and_leak_dangling' method, it leads to a double-free.
-        } else {
-            std::cout << "ResourceTracker(size=" << size << ") destructed, no memory to deallocate (or already deallocated)." << std::endl;
-        }
-    }
+    // Method to allow derived classes to access protected members (if needed for complex logic)
+    int getAgeProtected() { return age; }
+};
 
-    // Semantic Error: This method deallocates memory but leaves the 'data' pointer dangling
-    // and modifies 'size' without setting 'data' to nullptr, setting up a double-free.
-    void reset_and_leak_dangling() {
-        if (data != nullptr) {
-            std::cout << "Resetting ResourceTracker, deallocating memory at " << data << " (leaving dangling pointer)" << std::endl;
-            delete[] data;
-            // 'data' is now a dangling pointer. It is NOT set to nullptr.
-            // This is the core semantic error that leads to a double-free when the destructor runs.
-        }
-        size = 0; // Setting size to 0 makes subsequent printData calls safe,
-                  // but 'data' itself is still a dangling pointer.
-    }
+// A derived class to demonstrate access within a derived class
+class Student : public Person {
+public:
+    Student(std::string n, int a, std::string s, std::string major) : Person(n, a, s) {}
 
-    void printData() const {
-        if (data == nullptr || size == 0) {
-            std::cout << "Data: (empty or invalid)" << std::endl;
-            return;
-        }
-        std::cout << "Data: [";
-        for (int i = 0; i < size; ++i) {
-            std::cout << data[i] << (i == size - 1 ? "" : ", ");
-        }
-        std::cout << "]" << std::endl;
+    void demonstrateDerivedAccess() {
+        std::cout << "--- Inside Derived Class (Student) ---" << std::endl;
+        std::cout << "Accessible: Public member 'name': " << name << std::endl;
+        std::cout << "Accessible: Protected member 'age': " << age << std::endl;
+        // std::cout << "Inaccessible: Private member 'ssn': " << ssn << std::endl; // Would be a compile error
+        std::cout << "Note: Private member 'ssn' is not accessible from a derived class." << std::endl;
     }
 };
 
-void demonstrateSemanticIssue() {
-    std::cout << "\n--- Creating tracker_sem ---" << std::endl;
-    ResourceTracker tracker_sem(4);
-    tracker_sem.printData();
-
-    std::cout << "\n--- Calling reset_and_leak_dangling() ---" << std::endl;
-    tracker_sem.reset_and_leak_dangling(); // Frees memory, leaves 'data' dangling, sets size to 0.
-
-    std::cout << "Attempting to print data after reset (should be empty/invalid):" << std::endl;
-    tracker_sem.printData(); // This is safe because size is 0.
-
-    std::cout << "\n--- tracker_sem scope ending (destructor will cause double-free) ---" << std::endl;
-} // tracker_sem destructs here, attempting to delete the dangling pointer 'data' again.
-
 int main() {
-    std::cout << "Program start" << std::endl;
-    demonstrateSemanticIssue();
-    std::cout << "Program end" << std::endl;
+    Person p("Alice", 30, "123-45-6789");
+
+    std::cout << "--- Outside the Class (main function) ---" << std::endl;
+    std::cout << "Accessible: Public member 'name': " << p.name << std::endl;
+    // SEMANTIC ERROR: Attempting to access a protected member 'age' directly from outside the class.
+    std::cout << "Attempting to access Protected member 'age': " << p.age << std::endl; // This line causes the semantic error.
+    // std::cout << "Inaccessible: Private member 'ssn': " << p.ssn << std::endl; // Also a semantic error if uncommented
+    std::cout << "Note: Private member 'ssn' is not accessible from outside the class." << std::endl;
+
+    Student s("Bob", 22, "987-65-4321", "Computer Science");
+    s.demonstrateDerivedAccess();
+
     return 0;
 }

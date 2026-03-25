@@ -1,36 +1,26 @@
 #include <iostream>
-#include <sstream>
 
-class ComplexNumber {
-private:
-    double real;
-    double imaginary;
-
+class BankAccount {
 public:
-    ComplexNumber(double r = 0.0, double i = 0.0) : real(r), imaginary(i) {}
-
-    double getReal() const { return real; }
-    double getImaginary() const { return imaginary; }
-
-    // Overload + operator incorrectly performs subtraction
-    ComplexNumber operator+(const ComplexNumber& other) const {
-        return ComplexNumber(real - other.real, imaginary - other.imaginary); // Logical error: should be '+'
+    BankAccount() {
+        // Logical Error: totalAccountsCreated is not incremented in the constructor
+        // totalAccountsCreated++; // This line is intentionally omitted
     }
+
+    static int getTotalAccountsCreated() {
+        return totalAccountsCreated;
+    }
+
+private:
+    static int totalAccountsCreated;
 };
 
-void run_test(double r1, double i1, double r2, double i2) {
-    ComplexNumber c1(r1, i1);
-    ComplexNumber c2(r2, i2);
-    ComplexNumber c3 = c1 + c2;
-
-    std::ostringstream oss;
-    oss << c3.getReal() << " " << c3.getImaginary();
-    std::cout << oss.str() << std::endl;
-}
+int BankAccount::totalAccountsCreated = 0;
 
 int main() {
-    run_test(1.0, 2.0, 3.0, 4.0);
-    run_test(5.0, -1.0, 2.5, 3.0);
-    run_test(-10.0, 0.0, 5.0, -5.0);
+    BankAccount acc1;
+    BankAccount acc2;
+    BankAccount acc3;
+    std::cout << "Total accounts created: " << BankAccount::getTotalAccountsCreated() << std::endl;
     return 0;
 }

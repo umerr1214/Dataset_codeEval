@@ -1,29 +1,41 @@
 #include <iostream>
 
-class Point {
+class Vector2D {
 private:
-    int x;
-    int y;
+    double x;
+    double y;
 
 public:
-    Point(int _x, int _y) : x(_x), y(_y) {}
+    Vector2D(double x_val, double y_val) : x(x_val), y(y_val) {}
 
-    // Logical error: getX returns y, getY returns x
-    int getX() const {
-        return y; // Should return x
+    // Overload the + operator - Logical Error: performs subtraction
+    Vector2D operator+(const Vector2D& other) const {
+        return Vector2D(x - other.x, y - other.y); // Should be x + other.x, y + other.y
     }
 
-    int getY() const {
-        return x; // Should return y
+    void display() const {
+        std::cout << "(" << x << ", " << y << ")" << std::endl;
     }
 };
 
 int main() {
-    const Point p(10, 20); // Declaring a const Point object
+    Vector2D v1(1.0, 2.0);
+    Vector2D v2(3.0, 4.0);
 
-    std::cout << "Point coordinates (const object):" << std::endl;
-    std::cout << "x: " << p.getX() << std::endl; // This will output 20 instead of 10
-    std::cout << "y: " << p.getY() << std::endl; // This will output 10 instead of 20
+    std::cout << "Vector v1: ";
+    v1.display();
+    std::cout << "Vector v2: ";
+    v2.display();
+
+    Vector2D v_sum = v1 + v2;
+    std::cout << "Sum (v1 + v2): ";
+    v_sum.display();
+
+    Vector2D v3(-1.5, 0.5);
+    Vector2D v4(1.5, -0.5);
+    Vector2D v_sum2 = v3 + v4;
+    std::cout << "Sum (v3 + v4): ";
+    v_sum2.display();
 
     return 0;
 }

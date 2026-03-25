@@ -1,58 +1,111 @@
 #include <iostream>
-#include <string>
+#include <cstring> // For strlen, strcpy
 
-class Animal {
-protected:
-    int weight;
+class MyString {
+private:
+    char* str;
+
 public:
-    Animal(int w = 0) : weight(w) {
-        std::cout << "Animal created with weight: " << weight << " kg." << std::endl;
-    }
-    void showAnimalWeight() {
-        std::cout << "Animal's current weight: " << weight << " kg." << std::endl;
-    }
-}; // Missing semicolon here intentionally for syntax error
-
-class Dog : public Animal {
-public:
-    Dog(int w) : Animal(w) {
-        std::cout << "Dog created with initial weight: " << weight << " kg." << std::endl;
+    // Default constructor
+    MyString(const char* s = nullptr) {
+        if (s == nullptr) {
+            str = new char[1];
+            str[0] = '\0';
+        } else {
+            str = new char[strlen(s) + 1];
+            strcpy(str, s);
+        }
+        std::cout << "Constructor invoked for: " << str << std::endl;
     }
 
-    void bark() {
-        std::cout << "Woof! My weight is " << weight << " kg." << std::endl;
+    // Destructor
+    ~MyString() {
+        std::cout << "Destructor invoked for: " << str << std::endl;
+        delete[] str;
     }
 
-    void setDogWeight(int newWeight) {
-        weight = newWeight; // Dog can access protected member
-        std::cout << "Dog's weight updated to: " << weight << " kg." << std::endl;
+    // Copy Constructor
+    MyString(const MyString& other) {
+        str = new char[strlen(other.str) + 1];
+        strcpy(str, other.str);
+        std::cout << "Copy Constructor invoked for: " << str << " (from " << other.str << ")" << std::endl;
     }
-};
 
-// External non-member function - cannot access protected members directly
-void demonstrateExternalAccess(Animal& animal) {
-    // This line would cause a semantic error (access violation) if uncommented:
-    // std::cout << "Attempting to access Animal's weight from external function: " << animal.weight << std::endl;
-    std::cout << "\n--- External Access Demonstration ---" << std::endl;
-    std::cout << "External function cannot directly access Animal's protected 'weight'." << std::endl;
-    animal.showAnimalWeight(); // Can access public methods
-    std::cout << "-----------------------------------" << std::endl;
+    // Assignment Operator
+    MyString& operator=(const MyString& other) {
+        if (this == &other) {
+            return *this; // Handle self-assignment
+        }
+        delete[] str; // Deallocate old memory
+        str = new char[strlen(other.str) + 1];
+        strcpy(str, other.str);
+        std::cout << "Assignment Operator invoked for: " << str << " (from " << other.str << ")" << std::endl;
+        return *this;
+    }
+
+    // Getter for the string
+    const char* c_str() const {
+        return str;
+    }
+
+    // Function to modify the string (for demonstration)
+    void append(const char* suffix) {
+        char* temp = new char[strlen(str) + strlen(suffix) + 1];
+        strcpy(temp, str);
+        strcat(temp, suffix);
+        delete[] str;
+        str = temp;
+    }
+} // Missing semicolon here, causing a syntax error.
+
+// Function that takes MyString by value (invokes copy constructor)
+void demonstrateCopy(MyString s) {
+    std::cout << "Inside demonstrateCopy function. Value: " << s.c_str() << std::endl;
 }
 
 int main() {
-    // This part will not compile due to the syntax error above
-    Animal genericAnimal(50);
-    Dog myDog(20);
+    std::cout << "--- Demonstrating MyString Class ---" << std::endl;
 
-    myDog.bark();
-    myDog.setDogWeight(25);
-    myDog.bark();
+    // 1. Constructor invocation
+    MyString s1("Hello");
+    std::cout << "s1: " << s1.c_str() << std::endl;
 
-    // Attempting to access protected member from main (non-derived, non-friend)
-    // This would be a semantic error if the syntax error didn't prevent compilation
-    // std::cout << "Attempting to access genericAnimal.weight from main: " << genericAnimal.weight << std::endl;
+    // 2. Copy Constructor invocation
+    // Case A: Initialization using another object
+    MyString s2 = s1; // Invokes copy constructor
+    std::cout << "s2 (copy of s1): " << s2.c_str() << std::endl;
 
-    demonstrateExternalAccess(genericAnimal);
+    // Case B: Passing by value to a function
+    std::cout << "\nCalling demonstrateCopy(s1)..." << std::endl;
+    demonstrateCopy(s1); // Invokes copy constructor
+    std::cout << "Back in main after demonstrateCopy(s1)." << std::endl;
 
+    // 3. Assignment Operator invocation
+    MyString s3("World");
+    std::cout << "s3: " << s3.c_str() << std::endl;
+
+    std::cout << "\nAssigning s1 to s3 (s3 = s1)..." << std::endl;
+    s3 = s1; // Invokes assignment operator
+    std::cout << "s3 (after assignment from s1): " << s3.c_str() << std::endl;
+
+    MyString s4; // Default constructor
+    std::cout << "s4 (default): " << s4.c_str() << std::endl;
+    std::cout << "\nAssigning s3 to s4 (s4 = s3)..." << std::endl;
+    s4 = s3; // Invokes assignment operator
+    std::cout << "s4 (after assignment from s3): " << s4.c_str() << std::endl;
+
+    // Demonstrating self-assignment (should be handled without issues)
+    std::cout << "\nDemonstrating self-assignment (s1 = s1)..." << std::endl;
+    s1 = s1; // Invokes assignment operator, should do nothing
+    std::cout << "s1 (after self-assignment): " << s1.c_str() << std::endl;
+
+    std::cout << "\nModifying s1 to see independence of copies/assignments." << std::endl;
+    s1.append(" C++");
+    std::cout << "s1 (modified): " << s1.c_str() << std::endl;
+    std::cout << "s2 (original copy): " << s2.c_str() << std::endl;
+    std::cout << "s3 (original assignment): " << s3.c_str() << std::endl;
+    std::cout << "s4 (original assignment): " << s4.c_str() << std::endl;
+
+    std::cout << "\n--- End of main ---" << std::endl;
     return 0;
 }

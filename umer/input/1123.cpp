@@ -1,100 +1,82 @@
 #include <iostream>
-#include <cstring> // For strlen, strcpy
+#include <vector>
+#include <stdexcept> // Not actually used for robustness issue, but good practice
 
-class MyString {
+class Matrix {
 private:
-    char* data;
-    size_t length;
+    int mat[2][2]; // Fixed size 2x2 matrix
 
 public:
-    // Default constructor
-    MyString(const char* str = nullptr) : data(nullptr), length(0) {
-        if (str) {
-            length = strlen(str);
-            data = new char[length + 1];
-            strcpy(data, str);
+    // Constructor to initialize all elements to 0
+    Matrix() {
+        for (int i = 0; i < 2; ++i) {
+            for (int j = 0; j < 2; ++j) {
+                mat[i][j] = 0;
+            }
         }
     }
 
-    // Destructor
-    ~MyString() {
-        std::cout << "  [MyString] Destructor invoked for \"" << c_str() << "\"" << std::endl;
-        delete[] data;
+    // Overloaded setElement method: sets a single element
+    // Lacks bounds checking, leading to robustness issues
+    void setElement(int row, int col, int value) {
+        // No bounds checking for row or col
+        mat[row][col] = value;
     }
 
-    // Copy constructor
-    MyString(const MyString& other) : data(nullptr), length(0) {
-        std::cout << "  [MyString] Copy constructor invoked for \"" << other.c_str() << "\"" << std::endl;
-        length = other.length;
-        data = new char[length + 1];
-        strcpy(data, other.data);
+    // Overloaded setElement method: sets an entire row
+    // Lacks bounds checking for row and assumes row_values.size() matches column count
+    // If row_values.size() is different, it will cause out-of-bounds access or partial updates.
+    void setElement(int row, const std::vector<int>& row_values) {
+        for (int j = 0; j < row_values.size(); ++j) {
+            // No bounds checking for row or j (column)
+            // If row_values.size() > 2, it will write out of bounds for columns.
+            // If row is out of bounds, it will crash.
+            mat[row][j] = row_values[j];
+        }
     }
 
-    // Assignment operator - ROBUSTNESS ISSUE: No self-assignment check
-    MyString& operator=(const MyString& other) {
-        std::cout << "  [MyString] Assignment operator invoked from \"" << other.c_str() << "\" to \"" << c_str() << "\"" << std::endl;
-        // PROBLEM: If this == &other, delete[] data; will free 'other.data'
-        // Then strcpy will try to read from freed memory, leading to crash/UB.
-        // Also, if new char[] fails, 'data' is null and original content is lost (memory leak/resource leak).
-        delete[] data; // Frees current object's memory
-
-        length = other.length;
-        data = new char[length + 1]; // Potentially throws std::bad_alloc
-        strcpy(data, other.data); // 'other.data' might be invalid if self-assignment occurred
-
-        return *this;
-    }
-
-    // Getter for C-style string
-    const char* c_str() const {
-        return data ? data : "";
-    }
-
-    size_t size() const {
-        return length;
-    }
-
-    void print(const char* label) const {
-        std::cout << label << ": \"" << c_str() << "\" (length " << size() << ")" << std::endl;
+    // Method to print the matrix for verification
+    void print() const {
+        for (int i = 0; i < 2; ++i) {
+            for (int j = 0; j < 2; ++j) {
+                std::cout << mat[i][j] << (j == 1 ? "" : " ");
+            }
+            std::cout << std::endl;
+        }
     }
 };
 
-// Example usage function to demonstrate copy constructor
-void func_by_value(MyString s) {
-    std::cout << "  Inside func_by_value: ";
-    s.print("Parameter s");
-}
-
 int main() {
-    std::cout << "--- Demonstrating MyString Class ---" << std::endl;
+    Matrix m;
+    std::cout << "Initial Matrix:" << std::endl;
+    m.print(); // Expected: 0 0\n0 0
 
-    MyString s1("Hello");
-    s1.print("s1 initialized");
+    std::cout << "\nSetting element (0,0) to 5:" << std::endl;
+    m.setElement(0, 0, 5);
+    m.print(); // Expected: 5 0\n0 0
 
-    std::cout << "\n--- Invoking Copy Constructor (initialization) ---" << std::endl;
-    MyString s2 = s1; // Copy constructor
-    s2.print("s2 initialized from s1");
+    std::cout << "\nSetting row 1 to {10, 20}:" << std::endl;
+    m.setElement(1, {10, 20});
+    m.print(); // Expected: 5 0\n10 20
 
-    std::cout << "\n--- Invoking Copy Constructor (pass by value) ---" << std::endl;
-    std::cout << "  Calling func_by_value with s1..." << std::endl;
-    func_by_value(s1); // Copy constructor
-    std::cout << "  Back in main after func_by_value." << std::endl;
-    s1.print("s1 (after func_by_value)");
+    std::cout << "\nAttempting to set element (0,1) to 9:" << std::endl;
+    m.setElement(0, 1, 9);
+    m.print(); // Expected: 5 9\n10 20
 
-    std::cout << "\n--- Invoking Assignment Operator ---" << std::endl;
-    MyString s3("World");
-    s3.print("s3 initialized");
-    s1 = s3; // Assignment operator
-    s1.print("s1 assigned from s3");
-    s3.print("s3 (after assignment)");
+    // Robustness Issue demonstration: Out-of-bounds access
+    std::cout << "\n--- Demonstrating Robustness Issues ---" << std::endl;
 
-    std::cout << "\n--- Invoking Assignment Operator (Self-assignment - ROBUSTNESS ISSUE) ---" << std::endl;
-    MyString s4("SelfTest");
-    s4.print("s4 initialized");
-    std::cout << "  Attempting self-assignment: s4 = s4;" << std::endl;
-    s4 = s4; // This will likely crash due to the robustness issue
-    s4.print("s4 (after self-assignment)"); // This line might not be reached
+    std::cout << "\nAttempting to set element (2,0) to 99 (out of bounds row):" << std::endl;
+    // This will likely cause a segmentation fault or undefined behavior
+    m.setElement(2, 0, 99); // CRASH/UNDEFINED BEHAVIOR EXPECTED HERE
 
-    std::cout << "\n--- End of demonstration ---" << std::endl;
+    std::cout << "\nAttempting to set row 0 with {100, 200, 300} (too many columns):" << std::endl;
+    // This will likely cause a segmentation fault or write to adjacent memory
+    m.setElement(0, {100, 200, 300}); // CRASH/UNDEFINED BEHAVIOR EXPECTED HERE
+
+    std::cout << "\nMatrix state after potential crashes (if program continued):" << std::endl;
+    m.print(); // State is undefined if crashes occurred.
+               // If it somehow continued, it would show corrupted data.
+
     return 0;
 }

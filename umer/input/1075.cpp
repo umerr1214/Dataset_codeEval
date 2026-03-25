@@ -1,46 +1,67 @@
 #include <iostream>
 
-class BankAccount {
+class Point {
 private:
-    static int totalAccountsCreated;
-    int accountNumber;
-    double balance;
+    int x;
+    int y;
 
 public:
-    BankAccount(int accNum, double initialBalance) : accountNumber(accNum), balance(initialBalance) {
-        totalAccountsCreated++;
+    // Default constructor
+    Point() : x(0), y(0) {
+        std::cout << "Default constructor called. Point(" << x << ", " << y << ")" << std::endl;
     }
 
-    // Syntax Error: Missing return type for static function
-    static getTotalAccounts() { // Should be 'static int getTotalAccounts()'
-        return totalAccountsCreated;
+    // Parameterized constructor
+    Point(int x_val, int y_val) : x(x_val), y(y_val) {
+        std::cout << "Parameterized constructor called. Point(" << x << ", " << y << ")" << std::endl;
     }
 
-    void deposit(double amount) {
-        balance += amount;
+    // Copy constructor
+    Point(const Point& other) : x(other.x), y(other.y) {
+        std::cout << "Copy constructor called. Point(" << x << ", " << y << ") copied from (" << other.x << ", " << other.y << ")" << std::endl;
     }
 
-    void withdraw(double amount) {
-        if (balance >= amount) {
-            balance -= amount;
-        } else {
-            std::cout << "Insufficient balance." << std::endl;
-        }
-    }
+    // Getter methods
+    int getX() const { return x; }
+    int getY() const { return y; }
 
-    double getBalance() const {
-        return balance;
+    void display() const {
+        std::cout << "Point coordinates: (" << x << ", " << y << ")" << std::endl;
     }
-};
+} // SYNTAX ERROR: Missing semicolon here
 
-int BankAccount::totalAccountsCreated = 0;
+// Function to demonstrate pass-by-value
+void processPoint(Point p) { // Copy constructor called here
+    std::cout << "Inside processPoint function." << std::endl;
+    p.display();
+}
 
 int main() {
-    BankAccount acc1(101, 1000.0);
-    BankAccount acc2(102, 500.0);
+    std::cout << "--- Main Start ---" << std::endl;
 
-    // This line will cause a compilation error due to the syntax error in getTotalAccounts() definition
-    std::cout << "Total accounts created: " << BankAccount::getTotalAccounts() << std::endl;
+    // 1. Default constructor
+    Point p1;
+    p1.display();
 
+    std::cout << std::endl;
+
+    // 2. Parameterized constructor
+    Point p2(10, 20);
+    p2.display();
+
+    std::cout << std::endl;
+
+    // 3. Demonstrate copy constructor: Initialization
+    Point p3 = p2; // Copy constructor called here
+    p3.display();
+
+    std::cout << std::endl;
+
+    // 4. Demonstrate copy constructor: Pass by value
+    std::cout << "Calling processPoint with p2 by value..." << std::endl;
+    processPoint(p2); // Copy constructor called here
+    std::cout << "Returned from processPoint." << std::endl;
+
+    std::cout << "--- Main End ---" << std::endl;
     return 0;
 }

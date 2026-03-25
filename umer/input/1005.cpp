@@ -1,67 +1,56 @@
 #include <iostream>
 #include <string>
+#include <utility> // For std::move
 
-// Base class
-class Vehicle {
-private: // Changed to private to highlight the semantic error more clearly
-    std::string make;
-    int year;
+class SSD {
+private: // These members are private
+    int capacity; // in GB
+    std::string type;
 
 public:
-    Vehicle(std::string make_val, int year_val) : make(make_val), year(year_val) {}
+    // Constructor
+    SSD(int cap, std::string t) : capacity(cap), type(std::move(t)) {}
 
-    void display() const {
-        std::cout << "Make: " << make << ", Year: " << year;
+    // Only exposing type, not capacity, to set up the semantic error
+    const std::string& getType() const { return type; }
+
+    // For printing
+    void printSSD() const {
+        std::cout << "SSD: " << type << " " << capacity << "GB\n";
     }
 };
 
-// Derived class Car
-class Car : public Vehicle {
+class Laptop {
 private:
-    int numDoors;
+    std::string brand;
+    SSD internalSSD; // Composition
 
 public:
-    // SEMANTIC ERROR: Fails to call the base Vehicle constructor in the initializer list.
-    // This will cause a compilation error as there is no default constructor for Vehicle.
-    Car(std::string make_val, int year_val, int numDoors_val)
-        : numDoors(numDoors_val) { // Missing Vehicle(make_val, year_val) here
-        // If Vehicle had a default constructor, 'make' and 'year' would be default-initialized
-        // and then this body would execute. However, Vehicle only has a parameterized constructor.
-        // Attempting to access base class private members directly here would also be a semantic error.
-        // this->make = make_val; // Would be an error even if Vehicle had a default constructor
-        // this->year = year_val; // Would be an error
-    }
+    // Constructor for Laptop
+    Laptop(std::string b, int ssd_capacity, std::string ssd_type)
+        : brand(std::move(b)), internalSSD(ssd_capacity, std::move(ssd_type)) {}
 
-    void display() const {
-        Vehicle::display();
-        std::cout << ", Doors: " << numDoors << std::endl;
-    }
-};
+    // Getters for demonstration/testing
+    const std::string& getBrand() const { return brand; }
+    const SSD& getSSD() const { return internalSSD; }
 
-// Derived class Motorcycle (correctly implemented)
-class Motorcycle : public Vehicle {
-private:
-    bool hasSidecar;
-
-public:
-    Motorcycle(std::string make, int year, bool hasSidecar)
-        : Vehicle(make, year), hasSidecar(hasSidecar) {}
-
-    void display() const {
-        Vehicle::display();
-        std::cout << ", Sidecar: " << (hasSidecar ? "Yes" : "No") << std::endl;
+    // For printing
+    void printLaptop() const {
+        std::cout << "Laptop Brand: " << brand << "\n";
+        internalSSD.printSSD();
     }
 };
 
 int main() {
-    // This line will cause a compilation error due to Car's constructor not calling the base constructor.
-    Car myCar("Nissan", 2019, 4);
+    Laptop myLaptop("Dell", 512, "NVMe");
+    myLaptop.printLaptop();
 
-    // These lines would compile and run correctly if Car didn't have the error.
-    Motorcycle myBike("Ducati", 2023, false);
+    // SEMANTIC ERROR: Attempting to access private member 'capacity' of 'SSD'
+    // directly from main without a public getter. This violates encapsulation.
+    std::cout << "Laptop 1 SSD Capacity (direct access attempt): " << myLaptop.getSSD().capacity << "GB\n";
 
-    myCar.display(); // This line will not be reached due to compilation error
-    myBike.display();
+    Laptop gamingLaptop("Alienware", 1024, "PCIe Gen4");
+    gamingLaptop.printLaptop();
 
     return 0;
 }

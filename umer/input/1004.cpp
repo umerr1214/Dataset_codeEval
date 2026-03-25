@@ -1,72 +1,57 @@
 #include <iostream>
 #include <string>
+#include <utility> // For std::move
 
-// Base class
-class Vehicle {
-protected:
-    std::string make;
-    int year;
+class SSD {
+private:
+    int capacity; // in GB
+    std::string type;
 
 public:
-    Vehicle(std::string make, int year) : make(make), year(year) {}
+    // Constructor - LOGICAL ERROR: capacity is always initialized to 0
+    SSD(int cap, std::string t) : capacity(0), type(std::move(t)) {} // Should be capacity(cap)
 
-    void display() const {
-        std::cout << "Make: " << make << ", Year: " << year;
+    // Getters for demonstration/testing
+    int getCapacity() const { return capacity; }
+    const std::string& getType() const { return type; }
+
+    // For printing
+    void printSSD() const {
+        std::cout << "SSD: " << type << " " << capacity << "GB\n";
     }
 };
 
-// Derived class Car
-class Car : public Vehicle {
+class Laptop {
 private:
-    int numDoors;
+    std::string brand;
+    SSD internalSSD; // Composition
 
 public:
-    Car(std::string make, int year, int numDoors)
-        : Vehicle(make, year), numDoors(numDoors) {}
+    // Constructor for Laptop
+    Laptop(std::string b, int ssd_capacity, std::string ssd_type)
+        : brand(std::move(b)), internalSSD(ssd_capacity, std::move(ssd_type)) {}
 
-    void display() const {
-        Vehicle::display();
-        std::cout << ", Doors: " << numDoors << std::endl;
-    }
-};
+    // Getters for demonstration/testing
+    const std::string& getBrand() const { return brand; }
+    const SSD& getSSD() const { return internalSSD; }
 
-// Derived class Motorcycle
-class Motorcycle : public Vehicle {
-private:
-    bool hasSidecar;
-
-public:
-    // LOGICAL ERROR: hasSidecar is always set to true, ignoring the input parameter 'inputHasSidecar'
-    Motorcycle(std::string make, int year, bool inputHasSidecar)
-        : Vehicle(make, year), hasSidecar(true) {} // Should be hasSidecar(inputHasSidecar)
-
-    void display() const {
-        Vehicle::display();
-        std::cout << ", Sidecar: " << (hasSidecar ? "Yes" : "No") << std::endl;
-    }
-
-    // Getter to allow checking the logical error from outside
-    bool getHasSidecar() const {
-        return hasSidecar;
+    // For printing
+    void printLaptop() const {
+        std::cout << "Laptop Brand: " << brand << "\n";
+        internalSSD.printSSD();
     }
 };
 
 int main() {
-    Car myCar("Honda", 2022, 2);
-    myCar.display(); // Expected: Make: Honda, Year: 2022, Doors: 2
+    // Test Case 1
+    Laptop myLaptop("Dell", 512, "NVMe");
+    std::cout << "--- Laptop 1 ---\n";
+    myLaptop.printLaptop(); // Expected: 512GB, Actual: 0GB
 
-    // Test case for logical error:
-    // We create a motorcycle *without* a sidecar (input false)
-    Motorcycle myBikeWithoutSidecar("Yamaha", 2023, false);
-    myBikeWithoutSidecar.display(); // Expected: Sidecar: No. Actual (due to error): Sidecar: Yes.
-
-    // We create a motorcycle *with* a sidecar (input true)
-    Motorcycle myBikeWithSidecar("BMW", 2020, true);
-    myBikeWithSidecar.display(); // Expected: Sidecar: Yes. Actual: Sidecar: Yes. (Coincidentally correct)
-
-    // Output for JSON driver to parse
-    std::cout << "Yamaha_Sidecar:" << (myBikeWithoutSidecar.getHasSidecar() ? "true" : "false") << std::endl;
-    std::cout << "BMW_Sidecar:" << (myBikeWithSidecar.getHasSidecar() ? "true" : "false") << std::endl;
+    // Test Case 2
+    Laptop gamingLaptop("Alienware", 1024, "PCIe Gen4");
+    std::cout << "--- Laptop 2 ---\n";
+    gamingLaptop.printLaptop(); // Expected: 1024GB, Actual: 0GB
 
     return 0;
 }

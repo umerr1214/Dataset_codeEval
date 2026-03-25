@@ -2098,5 +2098,2255 @@
     "difficulty": "medium",
     "topic": "Destructors",
     "id": 350
-  }
+  },
+  {
+    "question": "Design a `Book` class with private members for `title` (string), `author` (string), and `isbn` (string). Implement a public parameterized constructor to initialize these members and a public method `displayBookInfo()` to print all book details.",
+    "difficulty": "easy",
+    "topic": "ClassObject",
+    "id": 351
+  },
+  {
+    "question": "Create a `Circle` class with a private member `radius` (double). Include a public constructor, a public method `calculateArea()` that returns the area, and another public method `calculateCircumference()` that returns the circumference. Demonstrate creating a `Circle` object and calling its methods.",
+    "difficulty": "easy",
+    "topic": "ClassObject",
+    "id": 352
+  },
+  {
+    "question": "Implement a `Counter` class with a private integer `count`. Provide public methods `increment()`, `decrement()`, and `getCount()`. Ensure that `count` cannot go below zero. Demonstrate its usage.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 353
+  },
+  {
+    "question": "Design a `Date` class with private members `day`, `month`, and `year` (all integers). Implement a parameterized constructor. Add a public method `isValidDate()` that returns `true` if the date is valid (e.g., month between 1-12, day within month's range, considering leap years for February), otherwise `false`.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 354
+  },
+  {
+    "question": "Create a `Student` class with private members `name` (string) and `id` (integer). Implement a parameterized constructor. Include a static member `totalStudents` to keep track of the total number of `Student` objects created. Increment this counter in the constructor and provide a static method `getTotalStudents()`.",
+    "difficulty": "medium",
+    "topic": "StaticMembers",
+    "id": 355
+  },
+  {
+    "question": "Modify the `Book` class (from Q1) to include a default constructor (initializes with empty strings), a parameterized constructor, and a copy constructor. Demonstrate creating objects using all three types of constructors.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 356
+  },
+  {
+    "question": "Design a `Resource` class that simulates managing a dynamic integer array. The constructor should allocate memory for a specified size, and the destructor should deallocate it. Include methods to `fillArray()` and `displayArray()`. Demonstrate its lifecycle to ensure proper memory management.",
+    "difficulty": "medium",
+    "topic": "ConstructorsDestructors",
+    "id": 357
+  },
+  {
+    "question": "Implement a `Logger` class. Its constructor should print 'Logger initialized' and its destructor should print 'Logger destroyed'. Demonstrate how the constructor and destructor are automatically called when a `Logger` object enters and exits scope.",
+    "difficulty": "easy",
+    "topic": "ConstructorsDestructors",
+    "id": 358
+  },
+  {
+    "question": "Create a `BankAccount` class with private members `accountNumber` (string), `ownerName` (string), and `balance` (double). Provide public methods `deposit(double amount)` and `withdraw(double amount)` to modify the balance, ensuring withdrawals do not result in a negative balance. Include a `getBalance()` method.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 359
+  },
+  {
+    "question": "Design a `Temperature` class that stores temperature in Celsius (private double member). Provide public methods `setCelsius(double c)`, `getCelsius()`, `setFahrenheit(double f)`, and `getFahrenheit()`. Implement the conversions between Celsius and Fahrenheit within the setter/getter methods.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 360
+  },
+  {
+    "question": "Design a base class `Shape` with a pure virtual method `calculateArea()` that returns a double. Create two derived classes, `Rectangle` (with `length` and `width`) and `Circle` (with `radius`). Implement the `calculateArea()` method in each derived class. Demonstrate creating objects of derived classes and calling their `calculateArea()` method.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 361
+  },
+  {
+    "question": "Create a base class `Vehicle` with private members `brand` (string) and `year` (int). Implement a constructor and a public method `displayInfo()`. Derive a `Car` class and a `Motorcycle` class from `Vehicle`. Each derived class should add one specific private attribute (e.g., `numDoors` for `Car`, `hasSidecar` for `Motorcycle`) and override `displayInfo()` to include its specific attribute.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 362
+  },
+  {
+    "question": "Implement a multi-level inheritance hierarchy: `Person` -> `Employee` -> `Manager`. Each class should have a parameterized constructor. `Person` should have `name`, `Employee` should add `employeeId` and `salary`, and `Manager` should add `department`. Demonstrate the constructor chain by creating a `Manager` object.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 363
+  },
+  {
+    "question": "Design a `Base` class with a `protected` integer member `data`. Create a `Derived` class that inherits from `Base`. Demonstrate how the `Derived` class can directly access and modify the `data` member, and explain why `data` cannot be accessed from a non-member function.",
+    "difficulty": "medium",
+    "topic": "AccessSpecifiers",
+    "id": 364
+  },
+  {
+    "question": "Extend the `Shape` hierarchy (from Q11). Add a `virtual` destructor to the `Shape` base class. Demonstrate polymorphic behavior by storing `Rectangle` and `Circle` objects in a `std::vector` of `Shape*` pointers and then deleting them to ensure correct destructors are called.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 365
+  },
+  {
+    "question": "Create a base class `Animal` with a virtual public method `makeSound()` that prints a generic sound. Derive `Dog` and `Cat` classes from `Animal`, each overriding `makeSound()` to print their specific sound. Demonstrate calling `makeSound()` using a pointer to the `Animal` base class that points to objects of `Dog` and `Cat`.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 366
+  },
+  {
+    "question": "Implement a `Calculator` class with an overloaded public method `add`. It should be able to: 1) add two integers, 2) add three integers, and 3) add two double-precision numbers. Demonstrate calling each version of the `add` method.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 367
+  },
+  {
+    "question": "Design a `Printer` class with an overloaded public method `print`. This method should be able to print: 1) an integer, 2) a double, and 3) a C-style string (`const char*`). Demonstrate printing different data types using the same method name.",
+    "difficulty": "easy",
+    "topic": "FunctionOverloading",
+    "id": 368
+  },
+  {
+    "question": "Create a `Point` class with private members `x` and `y` (integers). Overload the binary `+` operator as a member function to add two `Point` objects, returning a new `Point` object representing the sum of their coordinates.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 369
+  },
+  {
+    "question": "Modify the `Point` class (from Q19) to overload the binary `==` operator as a member function. This operator should return `true` if two `Point` objects have identical `x` and `y` coordinates, otherwise `false`.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 370
+  },
+  {
+    "question": "Design a `Fraction` class with private members `numerator` and `denominator` (integers). Overload the binary `*` operator as a non-member (friend) function to multiply two `Fraction` objects, returning a new `Fraction` object. Simplify the resulting fraction if possible.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 371
+  },
+  {
+    "question": "Create a `Vector2D` class with private members `x` and `y` (doubles). Overload the insertion operator `<<` (output stream operator) as a non-member (friend) function to allow printing a `Vector2D` object directly to `std::cout` in the format `(x, y)`.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 372
+  },
+  {
+    "question": "Design a `Circle` class with a private `radius` member. Implement a `getArea()` method that is `const` (cannot modify object state) and another method `resize(double newRadius)` that modifies the radius. Demonstrate calling these methods on both `const Circle` objects and non-`const Circle` objects to illustrate const-correctness.",
+    "difficulty": "medium",
+    "topic": "ConstCorrectness",
+    "id": 373
+  },
+  {
+    "question": "Create a `DataStore` class with a private integer member `secretValue`. Provide a public `getSecretValue()` method to access it and a public `setSecretValue(int value)` method to modify it. Demonstrate that `secretValue` cannot be accessed directly from outside the class, enforcing encapsulation.",
+    "difficulty": "easy",
+    "topic": "AccessSpecifiers",
+    "id": 374
+  },
+  {
+    "question": "Design an `Employee` class with `name` and `id`. Create a `Department` class which `contains` a collection of `Employee` objects (using aggregation, e.g., a `std::vector<Employee>`). Implement methods in `Department` to `addEmployee(Employee emp)` and `displayAllEmployees()`. Demonstrate adding multiple employees to a department and displaying their details.",
+    "difficulty": "medium",
+    "topic": "ClassRelationships",
+    "id": 375
+  },
+  {
+    "question": "Design a `Student` class with private member variables for `name`, `id`, and `grade`. Implement public `getter` and `setter` methods for all members.",
+    "difficulty": "easy",
+    "topic": "Encapsulation",
+    "id": 376
+  },
+  {
+    "question": "Extend the `Student` class to include a default constructor that initializes members to default values and a parameterized constructor that accepts `name`, `id`, and `grade`.",
+    "difficulty": "easy",
+    "topic": "Constructors",
+    "id": 377
+  },
+  {
+    "question": "Enhance the `setter` methods of the `Student` class. The `setGrade` method should validate that the grade is between 0 and 100, otherwise print an error and keep the old value.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 378
+  },
+  {
+    "question": "Create a `FileManager` class that dynamically allocates a character array (e.g., for a file path) in its constructor. Implement a destructor to properly deallocate this memory.",
+    "difficulty": "medium",
+    "topic": "Destructors",
+    "id": 379
+  },
+  {
+    "question": "Implement a `Calculator` class with three overloaded `add` methods: one that adds two integers, one that adds two doubles, and one that adds three integers.",
+    "difficulty": "easy",
+    "topic": "Overloading",
+    "id": 380
+  },
+  {
+    "question": "Design a `ComplexNumber` class with `real` and `imaginary` parts. Overload the binary `+` operator to enable addition of two `ComplexNumber` objects.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 381
+  },
+  {
+    "question": "For the `ComplexNumber` class, overload the unary `-` operator to return a new `ComplexNumber` with both `real` and `imaginary` parts negated.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 382
+  },
+  {
+    "question": "Create a base class `Animal` with a `string name` and a `void makeSound()` method. Derive a `Dog` class that inherits from `Animal` and overrides `makeSound()` to print 'Woof!' without using virtual functions.",
+    "difficulty": "easy",
+    "topic": "Inheritance",
+    "id": 383
+  },
+  {
+    "question": "Extend the `Animal` and `Dog` classes. Make the `name` member in `Animal` `protected`. Demonstrate how `Dog` can access and modify `name` directly, while an outside function cannot.",
+    "difficulty": "medium",
+    "topic": "AccessSpecifiers",
+    "id": 384
+  },
+  {
+    "question": "Design a `Shape` base class with a `virtual void draw()` method. Derive `Circle` and `Rectangle` classes, each providing their own implementation of `draw()`. Demonstrate polymorphism by calling `draw()` on an array of `Shape*`.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 385
+  },
+  {
+    "question": "Refactor the `Shape` class to be an abstract base class with a pure virtual `double calculateArea()` method. Ensure `Circle` and `Rectangle` properly implement this method and create instances of them.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 386
+  },
+  {
+    "question": "Implement a `MyString` class that mimics `std::string` by managing a dynamically allocated C-style character array. Provide a deep copy constructor for `MyString`.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 387
+  },
+  {
+    "question": "For the `MyString` class, implement the copy assignment operator (`=`) to ensure proper deep copying and handle self-assignment.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 388
+  },
+  {
+    "question": "Design an `Engine` class with a `string type` and `int horsepower`. Then create a `Car` class that uses an `Engine` object as a private member, demonstrating composition.",
+    "difficulty": "medium",
+    "topic": "Composition",
+    "id": 389
+  },
+  {
+    "question": "Create an `Employee` class with `name` and `id`. Design a `Team` class that manages an array of `Employee` pointers to represent team members. Demonstrate adding employees to the team without the team owning their memory.",
+    "difficulty": "medium",
+    "topic": "Aggregation",
+    "id": 390
+  },
+  {
+    "question": "Create three classes: `Base`, `Derived` (inheriting `Base`), and `External`. In `Base`, declare `public`, `protected`, and `private` members. Demonstrate the accessibility of these members from `Derived` and `External` classes respectively.",
+    "difficulty": "medium",
+    "topic": "AccessSpecifiers",
+    "id": 391
+  },
+  {
+    "question": "Design a `Vehicle` base class and a `Car` derived class. Include simple print statements in the constructors of both classes to illustrate the order of constructor execution when a `Car` object is created.",
+    "difficulty": "medium",
+    "topic": "Constructors",
+    "id": 392
+  },
+  {
+    "question": "Implement a `Point` class with `x` and `y` coordinates. Provide two overloaded `getX()` methods: one `const` version and one non-`const` version. Explain when each would be called.",
+    "difficulty": "medium",
+    "topic": "Overloading",
+    "id": 393
+  },
+  {
+    "question": "For a `Book` class with `title` and `author`, overload the `<<` (insertion) operator to allow direct printing of `Book` objects to `std::cout` in a readable format.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 394
+  },
+  {
+    "question": "Define a `Product` class with `id`, `name`, and `price`. Create an array of `Product` objects, populate it with data, and then iterate through the array to display details of each product.",
+    "difficulty": "easy",
+    "topic": "Classes",
+    "id": 395
+  },
+  {
+    "question": "Design a `Wallet` class with a private `balance`. Implement `deposit(amount)` and `withdraw(amount)` public methods. Ensure `deposit` only accepts positive amounts and `withdraw` only proceeds if sufficient funds are available.",
+    "difficulty": "medium",
+    "topic": "Encapsulation",
+    "id": 396
+  },
+  {
+    "question": "Create a base class `Logger` with a `void logMessage(string msg)` method. Create a `ConsoleLogger` derived class that provides its own `void logMessage(string msg)` method. Demonstrate that calling `logMessage` on a `ConsoleLogger` object hides the base class method without `virtual`.",
+    "difficulty": "medium",
+    "topic": "Inheritance",
+    "id": 397
+  },
+  {
+    "question": "Design a `Playlist` class that contains a dynamically allocated array of `Song` objects. The `Song` class has `title` and `artist`. `Playlist` should manage adding and removing songs (demonstrating composition with dynamic memory).",
+    "difficulty": "medium",
+    "topic": "Composition",
+    "id": 398
+  },
+  {
+    "question": "Using the `Shape`, `Circle`, and `Rectangle` classes (with `calculateArea` from previous questions), create a collection (e.g., a simple array) of `Shape*`. Populate it with a mix of `Circle` and `Rectangle` objects, then iterate and call `calculateArea()` on each using base class pointers.",
+    "difficulty": "medium",
+    "topic": "Polymorphism",
+    "id": 399
+  },
+  {
+    "question": "Implement a `Counter` class with an integer count. Overload both the prefix `++` and postfix `++` operators for this class to increment the counter value.",
+    "difficulty": "medium",
+    "topic": "OperatorOverloading",
+    "id": 400
+  },
+  {
+    "question": "Write a program that prompts the user to enter their first name, last name, and age. Then, print a greeting message displaying all the entered information in a formatted way.",
+    "difficulty": "easy",
+    "topic": "input_output",
+    "id": 401
+  },
+  {
+    "question": "Calculate the Body Mass Index (BMI) given user input for weight in kilograms and height in meters. The formula for BMI is weight / (height * height). Display the result to two decimal places.",
+    "difficulty": "medium",
+    "topic": "variables",
+    "id": 402
+  },
+  {
+    "question": "Determine if a given character entered by the user is an uppercase letter, a lowercase letter, a digit, or a special character. Print the category.",
+    "difficulty": "medium",
+    "topic": "control_structures",
+    "id": 403
+  },
+  {
+    "question": "Create a simple menu-driven program that allows the user to choose between calculating the area of a circle, square, or triangle. Use a `switch` statement to handle the user's choice and prompt for necessary dimensions.",
+    "difficulty": "medium",
+    "topic": "switch",
+    "id": 404
+  },
+  {
+    "question": "Check if three given side lengths `a`, `b`, and `c` can form a valid triangle. A triangle is valid if the sum of any two sides is greater than the third side.",
+    "difficulty": "easy",
+    "topic": "if_else",
+    "id": 405
+  },
+  {
+    "question": "Calculate and print the sum of all even numbers between 1 and a user-defined positive integer `N` (inclusive).",
+    "difficulty": "easy",
+    "topic": "loops",
+    "id": 406
+  },
+  {
+    "question": "Print the multiplication table for a user-specified number `X` up to `10` (e.g., X * 1, X * 2, ..., X * 10).",
+    "difficulty": "easy",
+    "topic": "loops",
+    "id": 407
+  },
+  {
+    "question": "Reverse a given integer number and print the reversed number. For example, if the input is 12345, the output should be 54321.",
+    "difficulty": "medium",
+    "topic": "loops",
+    "id": 408
+  },
+  {
+    "question": "Generate and print the first 'n' terms of the Fibonacci sequence, where 'n' is a positive integer provided by the user.",
+    "difficulty": "medium",
+    "topic": "loops",
+    "id": 409
+  },
+  {
+    "question": "Implement a program that continuously asks the user to enter positive integers until they enter '0'. After '0' is entered, print the sum of all the non-zero numbers entered.",
+    "difficulty": "medium",
+    "topic": "do_while",
+    "id": 410
+  },
+  {
+    "question": "Write a function `bool is_palindrome(int num)` that takes an integer and returns `true` if it's a palindrome (reads the same forwards and backwards), and `false` otherwise.",
+    "difficulty": "medium",
+    "topic": "functions",
+    "id": 411
+  },
+  {
+    "question": "Create a function `void increment_by_ten(int& value)` that takes an integer by reference and increments its value by 10. Demonstrate its usage by calling it with a variable and printing the variable's value before and after the call.",
+    "difficulty": "easy",
+    "topic": "functions",
+    "id": 412
+  },
+  {
+    "question": "Write a function `double calculate_average(const int arr[], int size)` that takes a 1D integer array and its size, then calculates and returns the average of its elements.",
+    "difficulty": "medium",
+    "topic": "functions",
+    "id": 413
+  },
+  {
+    "question": "Implement a recursive function to calculate the `n`-th power of a number `base` (i.e., `base^n`), where `n` is a non-negative integer.",
+    "difficulty": "medium",
+    "topic": "functions",
+    "id": 414
+  },
+  {
+    "question": "Find the maximum and minimum elements in a 1D integer array without using any standard library functions like `std::min_element` or `std::max_element`.",
+    "difficulty": "medium",
+    "topic": "arrays",
+    "id": 415
+  },
+  {
+    "question": "Given a 1D array of integers, count how many times a specific target number (provided by the user) appears in the array.",
+    "difficulty": "easy",
+    "topic": "arrays",
+    "id": 416
+  },
+  {
+    "question": "Perform a left rotation on a 1D array by `k` positions. For example, if the array is `[1, 2, 3, 4, 5]` and `k=2`, the output should be `[3, 4, 5, 1, 2]`. Print the modified array.",
+    "difficulty": "medium",
+    "topic": "arrays",
+    "id": 417
+  },
+  {
+    "question": "Given two 3x3 matrices, `A` and `B`, read their elements from the user, compute their sum, and store the result in a third matrix `C`. Print all three matrices in a clear format.",
+    "difficulty": "medium",
+    "topic": "arrays",
+    "id": 418
+  },
+  {
+    "question": "Declare an integer variable, a float variable, and a char variable. Declare and initialize a pointer for each variable, then use the pointers to print the values and memory addresses of the original variables.",
+    "difficulty": "easy",
+    "topic": "pointers",
+    "id": 419
+  },
+  {
+    "question": "Write a function `void find_max_min(const int* arr, int size, int* max_val, int* min_val)` that finds the maximum and minimum values in an array and returns them through pointer parameters.",
+    "difficulty": "medium",
+    "topic": "pointers",
+    "id": 420
+  },
+  {
+    "question": "Implement a function `char* reverse_cstring(char* str)` that takes a C-style string (character array) as input and reverses it in-place. The function should return a pointer to the modified string.",
+    "difficulty": "medium",
+    "topic": "pointers",
+    "id": 421
+  },
+  {
+    "question": "Count the number of words in a sentence entered by the user. Assume words are separated by single spaces and there are no leading or trailing spaces.",
+    "difficulty": "medium",
+    "topic": "strings",
+    "id": 422
+  },
+  {
+    "question": "Check if a given `std::string` is a palindrome, ignoring case and spaces. For example, 'Race car' should be considered a palindrome.",
+    "difficulty": "medium",
+    "topic": "strings",
+    "id": 423
+  },
+  {
+    "question": "Define a `struct Point` with `x` and `y` integer coordinates. Create an array of `Point` objects and find the point closest to the origin (0,0). Print its coordinates.",
+    "difficulty": "medium",
+    "topic": "structs",
+    "id": 424
+  },
+  {
+    "question": "Write a function template `T get_absolute_value(T val)` that takes a value of any numeric type (e.g., `int`, `float`, `double`) and returns its absolute value. Demonstrate with at least two different data types.",
+    "difficulty": "easy",
+    "topic": "templates",
+    "id": 425
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter the radius of a circle (as a floating-point number), then calculates and prints its area and circumference. Use `M_PI` for pi if available, or define it as `3.14159`.",
+    "difficulty": "easy",
+    "topic": "Variables_IO",
+    "id": 426
+  },
+  {
+    "question": "Develop a C++ program that takes an integer year as input from the user and determines if it is a leap year. Print an appropriate message. (A leap year is divisible by 4, but not by 100 unless it is also divisible by 400).",
+    "difficulty": "easy",
+    "topic": "Control_Structures",
+    "id": 427
+  },
+  {
+    "question": "Implement a C++ program that calculates the factorial of a non-negative integer entered by the user. Use a `for` loop for the calculation.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 428
+  },
+  {
+    "question": "Create a C++ function `power(int base, int exp)` that calculates `base` raised to the power of `exp` (e.g., 2^3 = 8) using a loop. The function should return an integer, and parameters should be passed by value. Integrate this function into a program that takes base and exponent from the user and prints the result.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 429
+  },
+  {
+    "question": "Write a C++ program that initializes a 1D integer array of size 5 with user-defined values. Then, find and print the largest element in the array.",
+    "difficulty": "easy",
+    "topic": "Arrays",
+    "id": 430
+  },
+  {
+    "question": "Develop a C++ function `swapNumbers(int* ptr1, int* ptr2)` that takes two integer pointers as arguments and swaps the values they point to. Demonstrate its usage in `main` with two integer variables.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 431
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter a word (using `std::string`), then reverses the string and prints the reversed word.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 432
+  },
+  {
+    "question": "Define a C++ `struct Student` with members `std::string name`, `int id`, and `float score`. In `main`, declare a `Student` variable, prompt the user to input data for it, and then print the student's details.",
+    "difficulty": "easy",
+    "topic": "Structs",
+    "id": 433
+  },
+  {
+    "question": "Create a C++ function template `T findMax(T val1, T val2)` that returns the larger of two values of any data type `T`. Test it with at least two different data types (e.g., `int` and `double`).",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 434
+  },
+  {
+    "question": "Write a C++ program that reads a positive integer from the user and calculates the sum of its digits (e.g., for 123, the sum is 1+2+3=6). Use a `while` loop for the calculation.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 435
+  },
+  {
+    "question": "Implement a C++ function `calculateAverage(float arr[], int size)` that takes a 1D float array and its size, then returns the average of its elements. In `main`, create a float array, pass it to the function, and print the calculated average.",
+    "difficulty": "easy",
+    "topic": "Arrays",
+    "id": 436
+  },
+  {
+    "question": "Develop a simple command-line calculator program in C++ that takes two numbers and an operator (+, -, *, /) as input from the user. Use a `switch` statement to perform the corresponding arithmetic operation and print the result. Handle division by zero.",
+    "difficulty": "medium",
+    "topic": "Control_Structures",
+    "id": 437
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter a C-style string (character array). Then, count and print the total number of vowels (a, e, i, o, u, case-insensitive) present in the string.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 438
+  },
+  {
+    "question": "Create a C++ function `doubleValue(int& num)` that takes an integer by reference and doubles its value. Demonstrate this function in `main` by passing an integer variable and observing its change.",
+    "difficulty": "easy",
+    "topic": "Functions",
+    "id": 439
+  },
+  {
+    "question": "Write a C++ program that declares and initializes a 3x3 integer matrix (2D array) with any values. Then, print the matrix in a formatted way (e.g., each row on a new line).",
+    "difficulty": "easy",
+    "topic": "Arrays",
+    "id": 440
+  },
+  {
+    "question": "Develop a C++ program that declares a 1D integer array and initializes it. Then, calculate and print the sum of all elements in the array using pointer arithmetic instead of array indexing.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 441
+  },
+  {
+    "question": "Define a C++ `struct Book` with members `std::string title`, `std::string author`, and `int publicationYear`. In `main`, create an array of 3 `Book` structs, populate their details, and then iterate through the array to print the details of each book.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 442
+  },
+  {
+    "question": "Write a C++ program that uses a `do-while` loop to repeatedly prompt the user to enter a positive integer. The loop should continue until a valid positive integer (greater than 0) is entered. Finally, print the valid number.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 443
+  },
+  {
+    "question": "Create a C++ program that reads a temperature in Celsius (as a `float`) from the user. Convert this temperature to Fahrenheit using the formula `F = C * 9/5 + 32` and print the result. Pay attention to integer division.",
+    "difficulty": "easy",
+    "topic": "Variables_IO",
+    "id": 444
+  },
+  {
+    "question": "Implement a recursive C++ function `int fibonacci(int n)` that calculates the Nth Fibonacci number (where F(0)=0, F(1)=1, F(n)=F(n-1)+F(n-2)). In `main`, ask the user for an integer `N` and print the `N`th Fibonacci number.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 445
+  },
+  {
+    "question": "Write a C++ function `int linearSearch(int arr[], int size, int target)` that performs a linear search on a 1D integer array. It should return the index of the `target` element if found, or -1 if not found. Test this function in `main` with a sample array and target values.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 446
+  },
+  {
+    "question": "Develop a C++ program that takes a `std::string` as input from the user and checks if it is a palindrome (reads the same forwards and backwards, ignoring case and spaces is NOT required for this problem, exact match). Print 'Palindrome' or 'Not a palindrome'.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 447
+  },
+  {
+    "question": "Create a C++ function `int incrementPointerValue(int* ptr)` that takes an integer pointer, increments the value it points to by 5, and then returns the new value. Demonstrate its usage in `main`.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 448
+  },
+  {
+    "question": "Write a C++ function `void transposeMatrix(int matrix[3][3], int result[3][3])` that takes a 3x3 integer matrix and stores its transpose in another 3x3 matrix. In `main`, initialize a matrix, call the function, and print both the original and transposed matrices.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 449
+  },
+  {
+    "question": "Implement a C++ function template `void printArray(const T arr[], int size)` that can print all elements of a 1D array of any data type `T`. Demonstrate its usage with an `int` array and a `char` array.",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 450
+  },
+  {
+    "question": "Calculate the area and perimeter of a circle given its radius, which is entered by the user. Use `const` for PI.",
+    "difficulty": "easy",
+    "topic": "Variables_IO",
+    "id": 451
+  },
+  {
+    "question": "Accept three integer numbers from the user and determine which one is the largest. Print the largest number.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 452
+  },
+  {
+    "question": "Implement a program that checks if a user-entered integer is positive, negative, or zero using if-else if-else statements.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 453
+  },
+  {
+    "question": "Write a program that takes a day number (1-7) as input and prints the corresponding day name (e.g., 1 for Monday, 2 for Tuesday) using a switch statement.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 454
+  },
+  {
+    "question": "Print a multiplication table for a user-specified number (e.g., if user enters 5, print 5x1 to 5x10) using a `for` loop.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 455
+  },
+  {
+    "question": "Calculate the sum of all natural numbers up to a given positive integer `N` entered by the user. Use a `while` loop.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 456
+  },
+  {
+    "question": "Create a simple menu-driven program (e.g., 'A' for Add, 'S' for Subtract, 'Q' for Quit) that continuously prompts the user for choices until 'Q' is entered. Use a `do-while` loop and a `switch` statement.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 457
+  },
+  {
+    "question": "Write a function `bool isPrime(int num)` that returns `true` if `num` is prime and `false` otherwise. Use this function to print all prime numbers up to a user-specified limit.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 458
+  },
+  {
+    "question": "Implement a function `void swap(int& a, int& b)` that swaps the values of two integer variables passed by reference. Demonstrate its usage in `main`.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 459
+  },
+  {
+    "question": "Write a recursive function `int fibonacci(int n)` that calculates the Nth Fibonacci number (where F(0)=0, F(1)=1).",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 460
+  },
+  {
+    "question": "Find the minimum and maximum values in a 1D array of 10 integers. Initialize the array with some values.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 461
+  },
+  {
+    "question": "Calculate the average of elements in a 1D array of 5 floating-point numbers. Get the array elements from the user.",
+    "difficulty": "easy",
+    "topic": "Arrays",
+    "id": 462
+  },
+  {
+    "question": "Search for a specific integer value in a 1D array of 8 integers. If found, report its first index; otherwise, indicate it's not present.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 463
+  },
+  {
+    "question": "Implement matrix addition for two 3x3 integer matrices. Populate the matrices with example data and print the resulting sum matrix.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 464
+  },
+  {
+    "question": "Given a 2D integer array (matrix) of size 4x3, find the sum of all elements in a specified row (e.g., the second row).",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 465
+  },
+  {
+    "question": "Declare an integer variable, initialize it, then declare a pointer to that variable. Print both the value of the variable and the value accessed through the pointer, as well as the address of the variable and the pointer.",
+    "difficulty": "easy",
+    "topic": "Pointers",
+    "id": 466
+  },
+  {
+    "question": "Write a function `void incrementValue(int* ptr)` that takes an integer pointer as an argument and increments the value it points to by one. Demonstrate its use with an integer variable from `main`.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 467
+  },
+  {
+    "question": "Accept a sentence from the user using `std::getline` and count the total number of words in it (assume words are separated by single spaces).",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 468
+  },
+  {
+    "question": "Write a program that checks if a given `std::string` entered by the user is a palindrome (e.g., \"madam\", \"racecar\").",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 469
+  },
+  {
+    "question": "Concatenate two C-style strings (character arrays) into a third C-style string without using any standard library string functions like `strcat`.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 470
+  },
+  {
+    "question": "Define a `struct Point` with `x` and `y` (double) coordinates. Create two `Point` objects, read their coordinates from the user, and calculate the Euclidean distance between them.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 471
+  },
+  {
+    "question": "Define a `struct Student` with members `name` (std::string), `id` (int), and `grade` (float). Create an array of 3 `Student` objects, populate it with data, and then print the details (name, id, grade) of the student with the highest grade.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 472
+  },
+  {
+    "question": "Write a function template `T findMax(T a, T b)` that takes two arguments of any type `T` and returns the larger of the two. Demonstrate its use with `int`, `double`, and `char` data types.",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 473
+  },
+  {
+    "question": "Generate and print all prime numbers within a specified range (e.g., from `start` to `end` provided by the user). Reuse the `isPrime` logic if you created it earlier.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 474
+  },
+  {
+    "question": "Calculate the power of a number (base raised to exponent) without using the `pow()` function. Both base and exponent are positive integers entered by the user.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 475
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter the length and width of a rectangle (as floating-point numbers), then calculates and displays its area and perimeter with appropriate labels.",
+    "difficulty": "easy",
+    "topic": "Variables",
+    "id": 476
+  },
+  {
+    "question": "Develop a C++ program that takes a temperature in Celsius as input from the user and converts it to Fahrenheit, displaying the result. Use the formula: F = C * 9/5 + 32. Ensure the calculation handles decimal values correctly.",
+    "difficulty": "easy",
+    "topic": "Variables",
+    "id": 477
+  },
+  {
+    "question": "Create a C++ program that asks the user to input an integer and then determines whether the number is positive, negative, or zero, printing an appropriate message.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 478
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter three distinct integers and then identifies and prints the largest among them using if-else if-else statements.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 479
+  },
+  {
+    "question": "Implement a C++ program that calculates the factorial of a non-negative integer entered by the user using a `for` loop. If the user enters a negative number, display an error message.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 480
+  },
+  {
+    "question": "Develop a C++ program that takes a positive integer 'N' as input from the user and calculates the sum of all odd numbers from 1 to N using a `while` loop.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 481
+  },
+  {
+    "question": "Create a C++ program that acts as a simple calculator. It should take two numbers (doubles) and an operator (+, -, *, /) as input from the user, then perform the operation using a `switch` statement and display the result. Handle division by zero.",
+    "difficulty": "medium",
+    "topic": "ControlStructures",
+    "id": 482
+  },
+  {
+    "question": "Write a C++ function `swapNumbers` that takes two integer arguments by reference and swaps their values. Demonstrate its usage in `main` by taking two numbers from the user, swapping them, and printing their new values.",
+    "difficulty": "easy",
+    "topic": "Functions",
+    "id": 483
+  },
+  {
+    "question": "Implement a C++ function `calculatePower` that takes two integers, `base` and `exponent`, as arguments (pass by value) and returns `base` raised to the power of `exponent` using a loop. Assume `exponent` is non-negative.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 484
+  },
+  {
+    "question": "Write a C++ program that initializes an array of 5 integers (e.g., {10, 20, 30, 40, 50}), then reverses the order of its elements *in-place* (without using a second array) and prints the modified array.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 485
+  },
+  {
+    "question": "Develop a C++ program that takes 8 integer inputs from the user, stores them in an array, and then calculates and prints the average of all values in that array.",
+    "difficulty": "easy",
+    "topic": "Arrays",
+    "id": 486
+  },
+  {
+    "question": "Create a C++ program that reads a single word (as `std::string`) from the user and checks if it is a palindrome (reads the same forwards and backwards). The check should be case-sensitive.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 487
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter a sentence (as `std::string`) and then counts and displays the number of occurrences of a specific character (also input by the user) within that sentence.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 488
+  },
+  {
+    "question": "Implement a C++ function `linearSearch` that takes an integer array, its size, and a target value as input. The function should return the index of the target if found, otherwise return -1. Demonstrate its usage by searching for multiple values.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 489
+  },
+  {
+    "question": "Write a C++ program that initializes a 3x3 integer matrix with hardcoded values, then calculates and prints the sum of elements for each row and each column separately.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 490
+  },
+  {
+    "question": "Develop a C++ program that takes a 2x3 integer matrix as input from the user, transposes it (swaps rows and columns to make it 3x2), and then prints the original and transposed matrices in a clear format.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 491
+  },
+  {
+    "question": "Write a C++ program that declares a `double` variable, initializes it with a decimal value, and then declares a pointer to that variable. Print the value of the variable using dereferencing the pointer, and print the memory address of the variable using both the address-of operator and the pointer itself.",
+    "difficulty": "easy",
+    "topic": "Pointers",
+    "id": 492
+  },
+  {
+    "question": "Implement a C++ program that dynamically allocates memory for an array of 5 integers using `new`, prompts the user to enter values for these integers, prints the values, and then deallocates the memory using `delete[]`.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 493
+  },
+  {
+    "question": "Create a C++ function `modifyValue` that takes an integer pointer as an argument and doubles the value pointed to by the pointer. Demonstrate its usage in `main` by creating an integer, passing its address, and printing the modified value.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 494
+  },
+  {
+    "question": "Define a C++ `struct` named `Book` with members `title` (std::string), `author` (std::string), and `yearPublished` (int). Write a function `printBookDetails` that takes a `Book` struct (by value) and prints all its details. Demonstrate by creating a `Book` instance and calling the function.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 495
+  },
+  {
+    "question": "Define a C++ `struct` called `Product` with members `id` (int), `name` (std::string), and `price` (double). Write a program that creates an array of 2 `Product` structs, prompts the user to input data for each product, and then prints details for the product with the highest price.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 496
+  },
+  {
+    "question": "Write a C++ program that repeatedly prompts the user to enter an integer between 1 and 10 (inclusive) until a valid input is provided. Use a `do-while` loop for input validation.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 497
+  },
+  {
+    "question": "Implement a C++ function template `compareAndPrint` that takes two arguments of any same type and prints which one is greater, or if they are equal. Demonstrate its usage with `int`, `double`, and `char` data types.",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 498
+  },
+  {
+    "question": "Develop a C++ program that allows the user to enter a series of non-zero integers. The program should stop taking input when the user enters 0 (sentinel value). After stopping, it should calculate and display the product of all entered non-zero numbers.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 499
+  },
+  {
+    "question": "Write a C++ function `copyCString` that takes two C-style character arrays (pointers to char), `source` and `destination`, and copies the content of `source` to `destination`. Assume `destination` has sufficient capacity. Do not use `std::string` or library functions like `strcpy`. Demonstrate with example strings.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 500
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter the length and width of a rectangle, then calculates and displays its area and perimeter.",
+    "difficulty": "easy",
+    "topic": "Variables_IO",
+    "id": 501
+  },
+  {
+    "question": "Create a C++ program that takes a temperature in Celsius from the user and converts it to Fahrenheit, displaying the result. (Formula: F = C * 9/5 + 32)",
+    "difficulty": "easy",
+    "topic": "Variables_IO",
+    "id": 502
+  },
+  {
+    "question": "Implement a C++ program that asks the user for a year and determines whether it is a leap year or not. (Leap year rules: divisible by 4, but not by 100 unless also divisible by 400).",
+    "difficulty": "medium",
+    "topic": "IfElse",
+    "id": 503
+  },
+  {
+    "question": "Develop a program that takes three side lengths from the user and determines if they form an equilateral, isosceles, or scalene triangle. Also, check for invalid triangle conditions (sum of any two sides must be greater than the third).",
+    "difficulty": "medium",
+    "topic": "IfElse",
+    "id": 504
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter a single character and determines if it is a vowel (a, e, i, o, u, case-insensitive) or a consonant. If it's not an alphabet, display an appropriate message.",
+    "difficulty": "easy",
+    "topic": "IfElse",
+    "id": 505
+  },
+  {
+    "question": "Create a simple calculator program that takes two numbers and an operator (+, -, *, /) as input from the user. Use a switch statement to perform the chosen operation and display the result. Handle division by zero.",
+    "difficulty": "medium",
+    "topic": "Switch",
+    "id": 506
+  },
+  {
+    "question": "Write a C++ program that asks the user to enter an integer between 1 and 7, and then uses a switch statement to print the corresponding day of the week (e.g., 1 for Monday, 2 for Tuesday, etc.). Handle invalid input.",
+    "difficulty": "easy",
+    "topic": "Switch",
+    "id": 507
+  },
+  {
+    "question": "Implement a C++ function `calculateFactorial` that takes an integer `n` as input and returns its factorial. The main program should prompt the user for a number and display its factorial using this function. Handle negative inputs appropriately.",
+    "difficulty": "medium",
+    "topic": "ForLoop",
+    "id": 508
+  },
+  {
+    "question": "Write a C++ program that generates and prints the first `n` terms of the Fibonacci sequence, where `n` is an integer provided by the user. (The sequence starts 0, 1, 1, 2, 3, ...)",
+    "difficulty": "medium",
+    "topic": "ForLoop",
+    "id": 509
+  },
+  {
+    "question": "Create a C++ program that prompts the user to enter a string and a character, then counts and displays how many times that character appears in the given string (case-sensitive).",
+    "difficulty": "medium",
+    "topic": "ForLoop_String",
+    "id": 510
+  },
+  {
+    "question": "Develop a C++ program that takes an integer from the user and reverses the digits of that number. For example, if the input is 12345, the output should be 54321.",
+    "difficulty": "medium",
+    "topic": "WhileLoop",
+    "id": 511
+  },
+  {
+    "question": "Write a C++ program that continuously prompts the user to enter a positive integer until valid input is received. Use a `do-while` loop for input validation.",
+    "difficulty": "medium",
+    "topic": "DoWhileLoop",
+    "id": 512
+  },
+  {
+    "question": "Implement a simple number guessing game. The program should generate a random number between 1 and 100, and the user has to guess it. Provide hints (higher/lower) after each incorrect guess and count the number of attempts.",
+    "difficulty": "medium",
+    "topic": "WhileLoop",
+    "id": 513
+  },
+  {
+    "question": "Write a C++ function `isPrime` that takes an integer as input and returns `true` if the number is prime, otherwise `false`. Use this function in the main program to check if a user-provided number is prime.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 514
+  },
+  {
+    "question": "Develop a C++ function `findGCD` that calculates the Greatest Common Divisor (GCD) of two positive integers using the Euclidean algorithm (pass by value). The main program should take two numbers from the user and display their GCD.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 515
+  },
+  {
+    "question": "Create a C++ function `swapValues` that takes two integer variables by reference and swaps their values. Demonstrate its usage in the `main` function with user-provided integers.",
+    "difficulty": "easy",
+    "topic": "PassByReference",
+    "id": 516
+  },
+  {
+    "question": "Write a C++ function `analyzeArray` that takes an integer array and its size as input. The function should also take two reference parameters, `minVal` and `maxVal`. It should find the minimum and maximum elements in the array and store them in `minVal` and `maxVal` respectively. Demonstrate with an example array.",
+    "difficulty": "medium",
+    "topic": "PassByReference_Array",
+    "id": 517
+  },
+  {
+    "question": "Implement a C++ program that initializes a 1D integer array with 10 elements. Then, calculate and display the sum of all even numbers and the product of all odd numbers in that array.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 518
+  },
+  {
+    "question": "Develop a C++ function `rotateArrayRight` that takes a 1D integer array and its size. The function should shift all elements one position to the right, moving the last element to the first position. Demonstrate with an example.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 519
+  },
+  {
+    "question": "Write a C++ program to create a 3x4 integer matrix (2D array). Initialize it with some values, then calculate and print the sum of elements for each individual row.",
+    "difficulty": "medium",
+    "topic": "2DArrays",
+    "id": 520
+  },
+  {
+    "question": "Create a C++ function `isSymmetric` that takes a square 2D integer array (matrix) and its dimension as input. It should return `true` if the matrix is symmetric (i.e., `matrix[i][j] == matrix[j][i]`), otherwise `false`.",
+    "difficulty": "medium",
+    "topic": "2DArrays",
+    "id": 521
+  },
+  {
+    "question": "Implement a C++ function `findMaxPointer` that takes a pointer to the first element of an integer array and the array's size as arguments. The function should use pointer arithmetic to find and return a pointer to the maximum element in the array.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 522
+  },
+  {
+    "question": "Write a C++ function `concatenateStrings` that takes two constant C-style string pointers (`char*`) and a third `char*` pointer to a destination buffer, along with the buffer's maximum size. It should concatenate the first two strings into the destination buffer. Ensure null termination and prevent buffer overflow.",
+    "difficulty": "medium",
+    "topic": "Pointers_Strings",
+    "id": 523
+  },
+  {
+    "question": "Define a `struct Point` with two integer members, `x` and `y`. Write a C++ function `calculateDistance` that takes two `Point` objects as input and returns the Euclidean distance between them. The main program should create two `Point` objects and display the distance.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 524
+  },
+  {
+    "question": "Create a C++ function template `findMax` that takes two arguments of any comparable data type (e.g., `int`, `double`, `char`) and returns the larger of the two values. Demonstrate its usage with at least two different data types in the `main` function.",
+    "difficulty": "easy",
+    "topic": "Templates",
+    "id": 525
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter the length and width of a rectangle (as floating-point numbers). Calculate and display both the area and the perimeter of the rectangle, formatted to two decimal places.",
+    "difficulty": "easy",
+    "topic": "Variables",
+    "id": 526
+  },
+  {
+    "question": "Develop a program that takes an integer from the user and determines if it is positive, negative, or zero. Print an appropriate message for each case.",
+    "difficulty": "easy",
+    "topic": "Control",
+    "id": 527
+  },
+  {
+    "question": "Create a program that prompts the user to enter three distinct integer numbers. Sort these three numbers in ascending order and print them. You must achieve this using only `if-else` statements, without using arrays or any sorting algorithms.",
+    "difficulty": "medium",
+    "topic": "Control",
+    "id": 528
+  },
+  {
+    "question": "Write a program that takes a character input from the user. Check if the character is an uppercase vowel (A, E, I, O, U) using a `switch` statement, and print whether it is or not.",
+    "difficulty": "easy",
+    "topic": "Control",
+    "id": 529
+  },
+  {
+    "question": "Implement a simple calculator. The program should ask the user for two floating-point numbers and an operator (+, -, *, /). Using a `switch` statement, perform the corresponding operation and display the result. Handle division by zero.",
+    "difficulty": "medium",
+    "topic": "Control",
+    "id": 530
+  },
+  {
+    "question": "Generate and print the multiplication table for a number entered by the user. The table should go from 1 to 10. For example, if the user enters 5, it should print '5 x 1 = 5', '5 x 2 = 10', and so on.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 531
+  },
+  {
+    "question": "Write a C++ program that calculates the factorial of a non-negative integer entered by the user. Use a `for` loop to perform the calculation. Handle invalid input (negative numbers) by printing an error message.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 532
+  },
+  {
+    "question": "Create a program that reads an integer from the user and calculates the sum of its digits. For example, if the input is 123, the output should be 6 (1+2+3). Use a `while` loop.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 533
+  },
+  {
+    "question": "Develop a program that takes an integer from the user and prints its reverse. For example, if the input is 12345, the output should be 54321. Use a `while` loop.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 534
+  },
+  {
+    "question": "Print a right-angled triangle pattern of asterisks (*) with a height specified by the user. For example, if the height is 4:\n*\n**\n***\n****",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 535
+  },
+  {
+    "question": "Write a function `isPalindrome(int num)` that takes an integer as input and returns `true` if the number is a palindrome (reads the same forwards and backwards), and `false` otherwise. Demonstrate its usage by asking the user for a number and printing the result.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 536
+  },
+  {
+    "question": "Implement a function `power(double base, int exponent)` that calculates `base` raised to the power of `exponent` (assume `exponent` is non-negative) without using built-in power functions. Use a loop. The function should return a `double`.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 537
+  },
+  {
+    "question": "Define a function `swapValues(int* ptr1, int* ptr2)` that takes two integer pointers as arguments and swaps the values they point to. Demonstrate this function by swapping two variables in your `main` function.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 538
+  },
+  {
+    "question": "Write a C++ program that declares a 1D integer array of size 5. Allow the user to input values into the array. After input, iterate through the array to find and print the largest and smallest elements.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 539
+  },
+  {
+    "question": "Create a function `calculateAverage(int arr[], int size)` that takes a 1D integer array and its size as input. The function should calculate and return the average of all elements in the array. In `main`, prompt the user for 10 integers, store them in an array, and then call this function to display their average.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 540
+  },
+  {
+    "question": "Implement a function `reverseArray(int arr[], int size)` that reverses the order of elements in a 1D integer array in-place. Demonstrate by initializing an array, printing it, calling the function, and printing the reversed array.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 541
+  },
+  {
+    "question": "Write a program to perform matrix addition for two 2x2 integer matrices. Prompt the user to enter elements for both matrices. Store the result in a third 2x2 matrix and then print all three matrices in a clear format.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 542
+  },
+  {
+    "question": "Declare an `int` variable, a `float` variable, and a `char` variable. Then declare a pointer for each of these data types. Assign the address of each variable to its corresponding pointer. Print the memory address stored in each pointer and the value pointed to by each pointer using the dereference operator.",
+    "difficulty": "easy",
+    "topic": "Pointers",
+    "id": 543
+  },
+  {
+    "question": "Write a function `findMinPointer(const int* arr, int size)` that takes a constant pointer to the beginning of an integer array and its size. The function should return a pointer to the element with the minimum value in the array. Demonstrate by finding and printing the minimum value of a user-defined array.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 544
+  },
+  {
+    "question": "Ask the user to enter their full name (which may include spaces). Read the entire line into an `std::string`. Then, print the full name back to the user and also display the total number of characters in the name.",
+    "difficulty": "easy",
+    "topic": "Strings",
+    "id": 545
+  },
+  {
+    "question": "Develop a program that prompts the user to enter a sentence using `std::string`. Count the total number of words in the sentence. Assume words are separated by single spaces and there are no leading/trailing spaces.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 546
+  },
+  {
+    "question": "Write a C-style string function `strToUpper(char* str)` that converts all lowercase letters in a null-terminated C-style string to uppercase in-place. Demonstrate with an example string.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 547
+  },
+  {
+    "question": "Define a `struct Student` that contains `char name[50]`, `int studentID`, and `float GPA`. Create an array of 2 `Student` objects. Allow the user to input data for each student. Finally, print the details of both students.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 548
+  },
+  {
+    "question": "Create a function template `printArray(const T arr[], int size)` that can print the elements of any 1D array, regardless of its data type (`int`, `double`, `char`, etc.). Demonstrate its use with an array of integers and an array of doubles.",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 549
+  },
+  {
+    "question": "Write a function template `getLarger(T val1, T val2)` that accepts two arguments of the same comparable type `T` and returns the larger of the two. Demonstrate this template function with at least two different data types (e.g., `int` and `double`).",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 550
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter their name (as a string), age (as an integer), and height (in meters as a double). Store these values in appropriate variables and then print them back to the console in a formatted sentence.",
+    "difficulty": "easy",
+    "topic": "io",
+    "id": 551
+  },
+  {
+    "question": "Implement a C++ program that calculates the roots of a quadratic equation (ax^2 + bx + c = 0). The program should prompt the user to enter the coefficients a, b, and c, and then print the real or complex roots based on the discriminant.",
+    "difficulty": "medium",
+    "topic": "control_structures",
+    "id": 552
+  },
+  {
+    "question": "Develop a C++ program that takes 10 integer values from the user and stores them in a one-dimensional array. After reading all inputs, find and print the largest and smallest elements present in the array.",
+    "difficulty": "easy",
+    "topic": "arrays",
+    "id": 553
+  },
+  {
+    "question": "Create a C++ function named `is_prime` that accepts an integer as input and returns `true` if the number is prime, and `false` otherwise. Use this function in your `main` program to print all prime numbers between 1 and 100.",
+    "difficulty": "medium",
+    "topic": "functions",
+    "id": 554
+  },
+  {
+    "question": "Write a C++ program that prompts the user for a positive integer `n` (representing the height). Using nested loops, print a solid pyramid pattern of asterisks `*` with `n` rows.",
+    "difficulty": "medium",
+    "topic": "loops",
+    "id": 555
+  },
+  {
+    "question": "Implement a C++ function `count_vowels` that takes a C-style string (char array) as input and returns the total number of vowels (a, e, i, o, u, case-insensitive) present in the string.",
+    "difficulty": "medium",
+    "topic": "strings",
+    "id": 556
+  },
+  {
+    "question": "Write a C++ function `swap_integers` that takes two integer pointers as arguments and swaps the values pointed to by these pointers. Demonstrate its usage in `main` by swapping two integer variables.",
+    "difficulty": "easy",
+    "topic": "pointers",
+    "id": 557
+  },
+  {
+    "question": "Create a C++ program that performs matrix addition for two 3x3 integer matrices. The program should prompt the user to enter elements for both matrices and then display the resultant sum matrix.",
+    "difficulty": "medium",
+    "topic": "arrays",
+    "id": 558
+  },
+  {
+    "question": "Design a simple calculator program in C++ that takes two numbers and an operator (+, -, *, /) from the user. Use a `switch` statement to perform the chosen operation and display the result. Handle division by zero.",
+    "difficulty": "easy",
+    "topic": "control_structures",
+    "id": 559
+  },
+  {
+    "question": "Write a C++ function `calculate_circle_properties` that takes a `double` radius as input and, using pass-by-reference parameters, updates two `double` variables with the calculated area and circumference of the circle.",
+    "difficulty": "medium",
+    "topic": "functions",
+    "id": 560
+  },
+  {
+    "question": "Develop a C++ program that uses a `do-while` loop to continuously prompt the user to enter a positive integer. The loop should only terminate when a valid positive integer (greater than 0) is provided.",
+    "difficulty": "easy",
+    "topic": "loops",
+    "id": 561
+  },
+  {
+    "question": "Define a C++ struct named `Book` with members `title` (std::string), `author` (std::string), and `publication_year` (int). Create an array of three `Book` objects, prompt the user to enter details for each, and then print the details of all books.",
+    "difficulty": "medium",
+    "topic": "structs",
+    "id": 562
+  },
+  {
+    "question": "Implement a C++ function template `find_maximum` that takes two arguments of any comparable data type and returns the larger of the two. Test it with at least two different data types (e.g., int and double).",
+    "difficulty": "medium",
+    "topic": "templates",
+    "id": 563
+  },
+  {
+    "question": "Write a C++ function `linear_search` that takes an integer array, its size, and a target integer as input. The function should return the index of the first occurrence of the target in the array, or -1 if the target is not found.",
+    "difficulty": "easy",
+    "topic": "arrays",
+    "id": 564
+  },
+  {
+    "question": "Create a C++ program that prompts the user to enter a `std::string`. Then, print the entered string to the console in reverse order.",
+    "difficulty": "easy",
+    "topic": "strings",
+    "id": 565
+  },
+  {
+    "question": "Write a C++ program that dynamically allocates memory for an integer array of size N (where N is provided by the user). Populate this array with values from 1 to N, print its contents, and then deallocate the dynamically allocated memory.",
+    "difficulty": "medium",
+    "topic": "pointers",
+    "id": 566
+  },
+  {
+    "question": "Develop a C++ program that calculates the factorial of a non-negative integer entered by the user. Use a `while` loop for the calculation. Ensure to handle input validation for non-negative numbers.",
+    "difficulty": "easy",
+    "topic": "loops",
+    "id": 567
+  },
+  {
+    "question": "Implement a recursive C++ function `fibonacci` that takes an integer `n` as input and returns the `n`-th Fibonacci number. The Fibonacci sequence starts with F(0)=0, F(1)=1. Demonstrate with an example.",
+    "difficulty": "medium",
+    "topic": "functions",
+    "id": 568
+  },
+  {
+    "question": "Write a C++ program that reads a floating-point number from the user. Cast this floating-point number to an integer using explicit type casting and then print both the original number and the integer-converted number. Finally, calculate and print the difference between them.",
+    "difficulty": "easy",
+    "topic": "data_types",
+    "id": 569
+  },
+  {
+    "question": "Create a C++ function `sum_rows` that takes a 2D integer array (matrix), its number of rows, and number of columns as input. The function should calculate and print the sum of elements for each individual row.",
+    "difficulty": "medium",
+    "topic": "arrays",
+    "id": 570
+  },
+  {
+    "question": "Define a C++ struct named `Point` with two integer members, `x` and `y`, representing coordinates. Write a function `get_distance` that takes two `Point` structs as input and returns the Euclidean distance between them as a `double`.",
+    "difficulty": "medium",
+    "topic": "structs",
+    "id": 571
+  },
+  {
+    "question": "Implement a C++ function `is_palindrome` that takes a `std::string` as input and returns `true` if the string is a palindrome (reads the same forwards and backward, case-sensitive), and `false` otherwise. Test it with several example strings.",
+    "difficulty": "medium",
+    "topic": "strings",
+    "id": 572
+  },
+  {
+    "question": "Create a C++ function template `calculate_average` that accepts an array of any numeric type (e.g., `int`, `double`) and its size, then returns the average of all elements in the array. Ensure it works for different numeric types.",
+    "difficulty": "medium",
+    "topic": "templates",
+    "id": 573
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter an integer `num`. Using nested `for` loops, generate and print the multiplication table (from 1 to 10) for the given number `num`.",
+    "difficulty": "easy",
+    "topic": "loops",
+    "id": 574
+  },
+  {
+    "question": "Develop a C++ function `fill_array_sequential` that takes an integer pointer `arr` and an integer `size` as arguments. The function should fill the array pointed to by `arr` with sequential values starting from 1 up to `size`.",
+    "difficulty": "medium",
+    "topic": "pointers",
+    "id": 575
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter their name (as a single word) and their age. Then, print a greeting message displaying both pieces of information.",
+    "difficulty": "easy",
+    "topic": "InputOutput",
+    "id": 576
+  },
+  {
+    "question": "Implement a program that reads an integer score (0-100) from the user and prints 'Pass' if the score is 60 or above, otherwise prints 'Fail'.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 577
+  },
+  {
+    "question": "Calculate the sum of all integers from 1 to a user-specified positive integer 'n' using a 'for' loop.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 578
+  },
+  {
+    "question": "Create a function `isEven` that takes an integer as an argument (pass by value) and returns a boolean `true` if the number is even, `false` otherwise.",
+    "difficulty": "easy",
+    "topic": "Functions",
+    "id": 579
+  },
+  {
+    "question": "Write a program that declares an array of 5 integers, prompts the user to enter values for each element, and then prints all elements of the array in reverse order.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 580
+  },
+  {
+    "question": "Using a 'do-while' loop, repeatedly ask the user to enter a number between 1 and 10 (inclusive) until valid input is received.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 581
+  },
+  {
+    "question": "Declare a `std::string` variable. Ask the user to input a sentence. Then, count and print the total number of characters in the sentence (including spaces).",
+    "difficulty": "easy",
+    "topic": "Strings",
+    "id": 582
+  },
+  {
+    "question": "Write a function `multiplyByTwo` that takes an integer pointer as an argument, dereferences it, and doubles the value at that memory address.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 583
+  },
+  {
+    "question": "Define a `struct Product` with members `id` (integer), `name` (std::string), and `price` (double). Create an instance of `Product`, initialize its members, and print its details.",
+    "difficulty": "easy",
+    "topic": "Structs",
+    "id": 584
+  },
+  {
+    "question": "Create a function `findMin` that takes a 1D integer array and its size, then returns the smallest value found within that array.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 585
+  },
+  {
+    "question": "Implement a program that asks the user to choose an option (1 for 'Square', 2 for 'Circle', 3 for 'Triangle'). Use a 'switch' statement to print the chosen shape's name.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 586
+  },
+  {
+    "question": "Print the following pattern using nested 'for' loops, where 'N' is a user-specified number of rows:\n*\n**\n***\n****\n(For N=4)",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 587
+  },
+  {
+    "question": "Write a function `resetToZero` that takes an integer by reference and sets its value to 0.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 588
+  },
+  {
+    "question": "Declare an array of 4 integers. Initialize it with some values. Then, use a pointer to the first element to iterate through the array and print each element using pointer arithmetic.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 589
+  },
+  {
+    "question": "Write a function `concatenateStrings` that takes two C-style strings (char arrays) as input and prints their combined string. (Assume the destination array has enough space).",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 590
+  },
+  {
+    "question": "Declare and initialize a 3x3 integer 2D array (matrix). Calculate and print the sum of all elements in the entire matrix.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 591
+  },
+  {
+    "question": "Create a function template `printValue` that takes an argument of any type and simply prints its value to the console. Demonstrate its use with an `int` and a `char`.",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 592
+  },
+  {
+    "question": "Define a `struct Book` with `title` (std::string) and `pages` (int). Create an array of 2 `Book` structs, populate their data, and print the title of the book with more pages.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 593
+  },
+  {
+    "question": "Write a program that takes a positive integer from the user and determines if it is a prime number (divisible only by 1 and itself).",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 594
+  },
+  {
+    "question": "Implement a recursive function `calculatePower` that takes a base (integer) and an exponent (non-negative integer) and returns the result of base raised to the power of exponent.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 595
+  },
+  {
+    "question": "Implement a simple linear search function that takes an integer array, its size, and a target value. It should return the index of the target if found, otherwise -1.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 596
+  },
+  {
+    "question": "Create a function `countWords` that takes an `std::string` sentence as input and returns the number of words in it (assuming words are separated by single spaces).",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 597
+  },
+  {
+    "question": "Write a function `initializeWithDefaults` that takes an integer array and its size via a pointer and sets all elements of the array to a default value of -1.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 598
+  },
+  {
+    "question": "Prompt the user to enter a monetary value (e.g., 123.456). Print this value formatted to two decimal places, prefixed with a dollar sign (e.g., $123.46).",
+    "difficulty": "medium",
+    "topic": "InputOutput",
+    "id": 599
+  },
+  {
+    "question": "Given three distinct integer numbers, determine and print which of them is the middle value (neither the smallest nor the largest).",
+    "difficulty": "medium",
+    "topic": "ControlStructures",
+    "id": 600
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter the radius of a circle, then calculates and prints its area. Use a constant for Pi (e.g., 3.14159).",
+    "difficulty": "easy",
+    "topic": "Variables_IO",
+    "id": 601
+  },
+  {
+    "question": "Develop a C++ program that converts a temperature from Celsius to Fahrenheit. The program should ask the user for the temperature in Celsius and display the equivalent in Fahrenheit. (Formula: F = C * 9/5 + 32)",
+    "difficulty": "easy",
+    "topic": "Variables_IO_Arithmetic",
+    "id": 602
+  },
+  {
+    "question": "Implement a C++ program to calculate the simple interest given the principal amount, rate of interest, and time period from user input. Display the calculated interest.",
+    "difficulty": "easy",
+    "topic": "Variables_IO_Arithmetic",
+    "id": 603
+  },
+  {
+    "question": "Create a C++ program that takes a single character as input from the user and determines if it is a vowel (a, e, i, o, u, case-insensitive) or a consonant.",
+    "difficulty": "easy",
+    "topic": "ControlStructures_if_else",
+    "id": 604
+  },
+  {
+    "question": "Write a C++ program that reads an integer from the user and checks whether it is positive, negative, or zero.",
+    "difficulty": "easy",
+    "topic": "ControlStructures_if_else",
+    "id": 605
+  },
+  {
+    "question": "Design a basic ATM menu-driven program using a `switch` statement. The program should offer options for 'Deposit', 'Withdraw', and 'Check Balance'. For 'Deposit' and 'Withdraw', prompt for an amount and update a balance variable. For 'Check Balance', display the current balance. Include an 'Exit' option.",
+    "difficulty": "medium",
+    "topic": "ControlStructures_switch",
+    "id": 606
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter an integer and then prints its multiplication table up to 10 (e.g., for 5, print 5x1=5, 5x2=10, ..., 5x10=50).",
+    "difficulty": "easy",
+    "topic": "Loops_for",
+    "id": 607
+  },
+  {
+    "question": "Implement a C++ program that calculates the sum of the digits of a given integer. For example, if the input is 123, the output should be 6 (1+2+3).",
+    "difficulty": "medium",
+    "topic": "Loops_while",
+    "id": 608
+  },
+  {
+    "question": "Develop a C++ program to generate and print the Nth term of the Fibonacci sequence. The program should take N as input from the user. (e.g., N=7 should output 8, for 1, 1, 2, 3, 5, 8, 13, ...)",
+    "difficulty": "medium",
+    "topic": "Loops_for",
+    "id": 609
+  },
+  {
+    "question": "Write a C++ program to check if a given integer is a palindrome. A number is a palindrome if it reads the same forwards and backwards (e.g., 121, 12321).",
+    "difficulty": "medium",
+    "topic": "Loops_while",
+    "id": 610
+  },
+  {
+    "question": "Create a C++ program that asks the user for a positive integer N and then prints all prime numbers up to N.",
+    "difficulty": "medium",
+    "topic": "Loops_nested",
+    "id": 611
+  },
+  {
+    "question": "Implement a simple number guessing game. The program should choose a random number between 1 and 100, then prompt the user to guess it. Provide hints (too high/too low) and continue until the correct number is guessed. Use a `do-while` loop for the game logic.",
+    "difficulty": "medium",
+    "topic": "Loops_do_while",
+    "id": 612
+  },
+  {
+    "question": "Write a C++ function `int calculateGCD(int a, int b)` that takes two integers as input and returns their greatest common divisor (GCD) using the Euclidean algorithm. Demonstrate its usage in `main`.",
+    "difficulty": "medium",
+    "topic": "Functions_passByValue",
+    "id": 613
+  },
+  {
+    "question": "Develop a C++ function `void reverseArray(int arr[], int size)` that takes an integer array and its size, and reverses the array in-place. Use pass-by-reference semantics for the array. Demonstrate with an example array in `main`.",
+    "difficulty": "medium",
+    "topic": "Functions_passByReference",
+    "id": 614
+  },
+  {
+    "question": "Create a C++ function `long long factorial(int n)` that calculates the factorial of a non-negative integer `n` iteratively (using a loop). Demonstrate calling this function from `main`.",
+    "difficulty": "medium",
+    "topic": "Functions_passByValue",
+    "id": 615
+  },
+  {
+    "question": "Write a C++ program that initializes a 1D array of integers, then finds and prints the second largest element in that array.",
+    "difficulty": "medium",
+    "topic": "Arrays_1D",
+    "id": 616
+  },
+  {
+    "question": "Implement a C++ program to count the frequency of each distinct element in a 1D array of integers. Print each element and its count.",
+    "difficulty": "medium",
+    "topic": "Arrays_1D",
+    "id": 617
+  },
+  {
+    "question": "Develop a C++ program that declares a 2D matrix (e.g., 3x3), prompts the user for a scalar value, and then performs scalar multiplication on the matrix, printing the resulting matrix.",
+    "difficulty": "medium",
+    "topic": "Arrays_2D",
+    "id": 618
+  },
+  {
+    "question": "Write a C++ function `bool areMatricesEqual(int mat1[ROWS][COLS], int mat2[ROWS][COLS], int rows, int cols)` that checks if two 2D integer matrices are identical. Demonstrate with example matrices in `main`.",
+    "difficulty": "medium",
+    "topic": "Arrays_2D",
+    "id": 619
+  },
+  {
+    "question": "Create a C++ function `void addNumbers(int* ptr1, int* ptr2, int* sumPtr)` that takes pointers to two integers and a pointer to a third integer, then calculates the sum of the first two and stores it at the location pointed to by `sumPtr`. Demonstrate its usage in `main`.",
+    "difficulty": "easy",
+    "topic": "Pointers_basic",
+    "id": 620
+  },
+  {
+    "question": "Write a C++ program that dynamically allocates a 1D array of integers of a size specified by the user. Fill the array with user-provided values, print all elements, and then deallocate the memory.",
+    "difficulty": "medium",
+    "topic": "Pointers_dynamicMemory",
+    "id": 621
+  },
+  {
+    "question": "Implement a C++ program to concatenate two C-style strings (character arrays) into a third C-style string without using standard library functions like `strcat`.",
+    "difficulty": "medium",
+    "topic": "Strings_Cstyle",
+    "id": 622
+  },
+  {
+    "question": "Develop a C++ program that reads an `std::string` from the user and checks if it is a palindrome (reads the same forwards and backwards), ignoring case and non-alphanumeric characters. Print whether it is a palindrome or not.",
+    "difficulty": "medium",
+    "topic": "Strings_stdString",
+    "id": 623
+  },
+  {
+    "question": "Define a C++ struct `Point` with two integer members, `x` and `y`. Write a function `double calculateDistance(Point p1, Point p2)` that takes two `Point` objects and returns the Euclidean distance between them. Demonstrate creating `Point` objects and calculating their distance in `main`.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 624
+  },
+  {
+    "question": "Write a C++ function template `T findMin(T val1, T val2)` that accepts two values of any data type and returns the smaller of the two. Demonstrate its usage with at least two different data types (e.g., `int` and `double`) in `main`.",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 625
+  },
+  {
+    "question": "Implement a function `isLeapYear` that takes an integer representing a year and returns true if it's a leap year, false otherwise. A leap year is divisible by 4, but not by 100 unless it is also divisible by 400.",
+    "difficulty": "medium",
+    "topic": "ControlStructures",
+    "id": 626
+  },
+  {
+    "question": "Write a program that takes a positive integer 'n' from the user and calculates the sum of all natural numbers from 1 to 'n' using a `for` loop.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 627
+  },
+  {
+    "question": "Create a C++ function `calculateFactorial` that takes an integer `num` as input (pass by value) and returns its factorial. Handle the case for 0! and negative numbers.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 628
+  },
+  {
+    "question": "Given a 1D integer array, write a program to find and print the largest element in the array.",
+    "difficulty": "easy",
+    "topic": "Arrays",
+    "id": 629
+  },
+  {
+    "question": "Write a function `swapNumbers` that takes two integer pointers as arguments and swaps the values they point to.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 630
+  },
+  {
+    "question": "Implement a C++ program that reads a string from the user and prints its reverse. Use `std::string` for string manipulation.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 631
+  },
+  {
+    "question": "Define a struct named `Point` with two integer members, `x` and `y`. Write a function `distance` that takes two `Point` structs as input and returns the Euclidean distance between them.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 632
+  },
+  {
+    "question": "Develop a simple console-based calculator program that takes two numbers and an operator (+, -, *, /) from the user and performs the corresponding operation using a `switch` statement.",
+    "difficulty": "medium",
+    "topic": "ControlStructures",
+    "id": 633
+  },
+  {
+    "question": "Write a program that prompts the user for a non-negative integer and uses a `while` loop to count the number of digits in that integer.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 634
+  },
+  {
+    "question": "Create a function `doubleValue` that takes an integer by reference and modifies its value by multiplying it by 2.",
+    "difficulty": "easy",
+    "topic": "Functions",
+    "id": 635
+  },
+  {
+    "question": "Given a 2D integer array (matrix), write a program to calculate and print the sum of all its elements.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 636
+  },
+  {
+    "question": "Design a function template `findMax` that can compare and return the larger of two values of any data type (e.g., int, double, char).",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 637
+  },
+  {
+    "question": "Write a C-style string function `strConcatenate` that takes two character arrays (C-strings) as input and appends the second string to the first. Assume the first array has enough space.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 638
+  },
+  {
+    "question": "Implement a simple menu-driven program for a basic task list (e.g., Add Task, View Tasks, Exit). Use a `do-while` loop to keep displaying the menu until the user chooses to exit.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 639
+  },
+  {
+    "question": "Write a program that asks the user to input a temperature in Celsius and converts it to Fahrenheit, then prints the result. The formula is F = C * 9/5 + 32.",
+    "difficulty": "easy",
+    "topic": "VariablesAndIO",
+    "id": 640
+  },
+  {
+    "question": "Given a 1D integer array, write a function `isSorted` that returns `true` if the array is sorted in ascending order, and `false` otherwise.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 641
+  },
+  {
+    "question": "Calculate the sum of all elements in an integer array using pointer arithmetic instead of array indexing.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 642
+  },
+  {
+    "question": "Create a function `isPrime` that takes an integer as input and returns `true` if it's a prime number, `false` otherwise.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 643
+  },
+  {
+    "question": "Define a struct `Student` with members `id` (int), `name` (std::string), and `grade` (double). Create an array of 3 `Student` structs, populate their data, and then print the details of each student.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 644
+  },
+  {
+    "question": "Write a program that takes a sentence (std::string) and a character from the user, then counts and displays how many times that character appears in the sentence.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 645
+  },
+  {
+    "question": "Develop a program that reads a student's numerical score (0-100) and assigns a letter grade (A: 90-100, B: 80-89, C: 70-79, D: 60-69, F: 0-59) using `if-else if` statements.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 646
+  },
+  {
+    "question": "Given a square 2D integer array (matrix), write a program to compute and print its transpose.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 647
+  },
+  {
+    "question": "Implement a function `printFibonacci` that takes an integer 'n' and prints the first 'n' numbers of the Fibonacci sequence using an iterative approach (loops, not recursion).",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 648
+  },
+  {
+    "question": "Write a program that dynamically allocates a 1D array of integers of a size specified by the user. Fill the array with user input, print its contents, and then deallocate the memory.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 649
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter their first name, last name, and age. Then, display a greeting message including all this information on the console. Ensure appropriate data types are used for each input.",
+    "difficulty": "easy",
+    "topic": "InputOutput",
+    "id": 650
+  },
+  {
+    "question": "Create a C++ program that takes three integer numbers as input from the user. Determine and print the largest among the three numbers using `if-else if-else` statements.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 651
+  },
+  {
+    "question": "Develop a C++ program that calculates the sum of all odd numbers between 1 and a user-specified positive integer 'N' (inclusive). Use a `for` loop for iteration.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 652
+  },
+  {
+    "question": "Implement a C++ function `calculatePower(base, exponent)` that takes two integers (base and exponent) and returns `base` raised to the power of `exponent`. The program should then use this function to calculate and display the result for user-provided inputs. Assume `exponent` is non-negative.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 653
+  },
+  {
+    "question": "Write a C++ program that declares an array of 10 integers. Populate the array with values entered by the user. Then, calculate and print the average of all elements in the array.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 654
+  },
+  {
+    "question": "Create a C++ program that takes a C-style string (character array) as input. Implement a function to count the number of vowels (a, e, i, o, u, case-insensitive) present in the string and display the count.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 655
+  },
+  {
+    "question": "Write a C++ program that defines two integer variables. Using pointers, modify the values of these two variables by incrementing each by 10. Print the original and modified values.",
+    "difficulty": "easy",
+    "topic": "Pointers",
+    "id": 656
+  },
+  {
+    "question": "Develop a C++ program that asks the user to input a number representing a day of the week (1 for Monday, 2 for Tuesday, etc.). Use a `switch` statement to print the corresponding day name.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 657
+  },
+  {
+    "question": "Implement a C++ program that prompts the user to enter positive integers repeatedly until they enter a zero (0). After a zero is entered, calculate and display the sum of all the positive integers entered. Use a `while` loop for input.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 658
+  },
+  {
+    "question": "Write a C++ function `swapValues(int& a, int& b)` that takes two integer references and swaps their values. Demonstrate its usage in a `main` function by swapping two user-defined integers.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 659
+  },
+  {
+    "question": "Create a C++ program that initializes a 3x3 integer matrix (2D array) with values. Then, calculate and print the sum of elements in each row separately.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 660
+  },
+  {
+    "question": "Define a `struct Student` with members `studentID` (int), `name` (`std::string`), and `gpa` (double). Write a program that creates an instance of `Student`, prompts the user to enter its details, and then prints all the student's information.",
+    "difficulty": "easy",
+    "topic": "Structs",
+    "id": 661
+  },
+  {
+    "question": "Implement a C++ function template `findMin(T val1, T val2)` that accepts two arguments of any type `T` and returns the smaller of the two. Demonstrate its usage with both integer and double types in the `main` function.",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 662
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter a sentence (`std::string`). Then, count and display the total number of words in the sentence. Assume words are separated by a single space.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 663
+  },
+  {
+    "question": "Develop a C++ program that presents a simple menu to the user (e.g., '1. Say Hello', '2. Say Goodbye', '3. Exit'). The program should continuously display the menu and process user choices until the user selects the 'Exit' option. Use a `do-while` loop for the menu.",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 664
+  },
+  {
+    "question": "Write a C++ program that declares an array of 5 integers and initializes it. Then, ask the user to enter a number to search for. If the number is found in the array, print its index (position); otherwise, print a 'not found' message.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 665
+  },
+  {
+    "question": "Implement a recursive C++ function `fibonacci(n)` that calculates the n-th Fibonacci number. The program should ask the user for a non-negative integer 'n' and then print the result of `fibonacci(n)`.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 666
+  },
+  {
+    "question": "Create a C++ function `printArrayElements(int* arr, int size)` that takes a pointer to an integer array and its size, then prints all elements of the array. Demonstrate its use by passing an array from `main`.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 667
+  },
+  {
+    "question": "Write a C++ program that converts a given temperature from Celsius to Fahrenheit and vice versa. Ask the user to choose the conversion type and then input the temperature. Use appropriate data types for temperatures (which can be decimal).",
+    "difficulty": "easy",
+    "topic": "VariablesDataTypes",
+    "id": 668
+  },
+  {
+    "question": "Develop a C++ program that prompts the user for a numeric score (0-100). Assign and print a letter grade based on the following scale: 90-100 A, 80-89 B, 70-79 C, 60-69 D, below 60 F. Use `if-else if-else` statements.",
+    "difficulty": "easy",
+    "topic": "ControlStructures",
+    "id": 669
+  },
+  {
+    "question": "Write a C++ program that initializes a 4x4 integer matrix (2D array). Then, calculate and print the sum of the elements along its main diagonal (top-left to bottom-right).",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 670
+  },
+  {
+    "question": "Implement a C++ function `isPalindrome(const std::string& str)` that takes a `std::string` and returns `true` if it's a palindrome (reads the same forwards and backwards, ignoring case and spaces), and `false` otherwise. Demonstrate with user input.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 671
+  },
+  {
+    "question": "Create a C++ program with two overloaded functions named `calculateArea`. One function should take a single double argument (radius) and calculate the area of a circle. The second should take two double arguments (length, width) and calculate the area of a rectangle. Prompt the user to choose which area to calculate and provide inputs.",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 672
+  },
+  {
+    "question": "Define a `struct Book` with members `title` (`std::string`), `author` (`std::string`), and `publicationYear` (int). Write a program that declares an array of three `Book` structs, prompts the user to enter details for each book, and then prints the details of all books.",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 673
+  },
+  {
+    "question": "Write a C++ program that uses nested `for` loops to print the following pattern of asterisks to the console, for a user-specified number of rows 'N':\n*\n**\n***\n****\n(For N=4)",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 674
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter the radius of a sphere, then calculates and displays its volume. Use the formula V = (4/3) * PI * r^3. Assume PI = 3.14159.",
+    "difficulty": "easy",
+    "topic": "Variables",
+    "id": 675
+  },
+  {
+    "question": "Create a C++ program that takes a total number of seconds as input from the user and converts it into equivalent hours, minutes, and remaining seconds, then prints the result.",
+    "difficulty": "medium",
+    "topic": "Arithmetic",
+    "id": 676
+  },
+  {
+    "question": "Develop a C++ program that reads an integer from the user and determines whether it is positive, negative, or zero using if-else statements.",
+    "difficulty": "easy",
+    "topic": "ControlFlow",
+    "id": 677
+  },
+  {
+    "question": "Write a C++ program that takes three integer side lengths of a triangle as input and determines if it is an equilateral, isosceles, or scalene triangle. Assume valid triangle inequalities are met.",
+    "difficulty": "medium",
+    "topic": "ControlFlow",
+    "id": 678
+  },
+  {
+    "question": "Implement a simple menu-driven calculator in C++ that allows the user to choose between addition, subtraction, multiplication, and division for two numbers. Use a switch statement to handle the operations.",
+    "difficulty": "medium",
+    "topic": "ControlFlow",
+    "id": 679
+  },
+  {
+    "question": "Write a C++ program that prompts the user for a positive integer limit and then uses a for loop to calculate and display the sum of all even numbers from 1 up to that limit (inclusive).",
+    "difficulty": "easy",
+    "topic": "Loops",
+    "id": 680
+  },
+  {
+    "question": "Create a C++ program for a simple number guessing game. Generate a random secret number between 1 and 100. The user gets 5 attempts to guess the number. Use a while loop for the guessing process and provide hints (higher/lower).",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 681
+  },
+  {
+    "question": "Develop a C++ program that continuously prompts the user to enter integers until a negative number is entered. After a negative number is input, display the sum of all the positive numbers that were entered. Use a do-while loop.",
+    "difficulty": "medium",
+    "topic": "Loops",
+    "id": 682
+  },
+  {
+    "question": "Write a C++ function `isPerfect` that takes an integer as input and returns `true` if the number is a perfect number (a positive integer that is equal to the sum of its proper positive divisors, excluding the number itself), and `false` otherwise. (e.g., 6 = 1+2+3).",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 683
+  },
+  {
+    "question": "Implement a C++ function `normalizeAngle` that takes an angle in degrees (as a `double` passed by reference) and modifies it so that its value is within the range [0, 360).",
+    "difficulty": "medium",
+    "topic": "Functions",
+    "id": 684
+  },
+  {
+    "question": "Create a C++ function `countDigits` that accepts an integer as input (pass by value) and returns the total number of digits in that integer. For example, `countDigits(12345)` should return 5.",
+    "difficulty": "easy",
+    "topic": "Functions",
+    "id": 685
+  },
+  {
+    "question": "Write a C++ program that reads 5 integer values into a one-dimensional array. After reading, find and display the second largest element present in the array.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 686
+  },
+  {
+    "question": "Implement a C++ function `reverseArray` that takes a one-dimensional integer array and its size as arguments, and reverses the order of its elements in-place (without using a second array).",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 687
+  },
+  {
+    "question": "Write a C++ program to concatenate two one-dimensional integer arrays into a third array. The program should take the sizes and elements of the first two arrays from the user, then populate and print the concatenated array.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 688
+  },
+  {
+    "question": "Develop a C++ program that reads integer elements into a 3x3 two-dimensional array (matrix) from the user. After input, print the sum of elements for each individual row of the matrix.",
+    "difficulty": "easy",
+    "topic": "Arrays",
+    "id": 689
+  },
+  {
+    "question": "Create a C++ function `searchMatrix` that takes a 2D integer array (e.g., a 3x4 matrix), its dimensions, and an integer `target` value as input. The function should return `true` if `target` is found in the matrix, `false` otherwise.",
+    "difficulty": "medium",
+    "topic": "Arrays",
+    "id": 690
+  },
+  {
+    "question": "Write a C++ function `findMinMax` that takes a 1D integer array, its size, and two integer pointers (for min and max) as arguments. The function should use these pointers to store the minimum and maximum values found in the array.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 691
+  },
+  {
+    "question": "Implement a C-style string copy function, `myStrcpy`, in C++. This function should take two character pointers: one for the destination array and one for the source array. It should copy the content of the source string to the destination using pointer arithmetic, without using `strcpy` or `std::string`.",
+    "difficulty": "medium",
+    "topic": "Pointers",
+    "id": 692
+  },
+  {
+    "question": "Write a C++ function `countWords` that takes a C-style string (character array) as input and returns the number of words in it. Assume words are separated by single spaces and there are no leading or trailing spaces.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 693
+  },
+  {
+    "question": "Create a C++ program that reads a `std::string` from the user and checks if it is a palindrome (reads the same forwards and backwards, ignoring case and spaces is optional but for this problem, consider exact match).",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 694
+  },
+  {
+    "question": "Implement a C++ function `replaceChar` that takes a `std::string` by reference, an `oldChar`, and a `newChar`. The function should modify the string in-place by replacing all occurrences of `oldChar` with `newChar`.",
+    "difficulty": "medium",
+    "topic": "Strings",
+    "id": 695
+  },
+  {
+    "question": "Define a `struct Student` with members: an integer `id`, a `std::string name`, and a `double gpa`. Write a C++ program that declares a `Student` variable, prompts the user to enter its details, and then displays them.",
+    "difficulty": "easy",
+    "topic": "Structs",
+    "id": 696
+  },
+  {
+    "question": "Define a `struct Time` with members `hours` (int), `minutes` (int), and `seconds` (int). Write a C++ function `addTimes` that takes two `Time` structs as input and returns a new `Time` struct representing their sum. Handle rollovers (e.g., 60 seconds becomes 1 minute).",
+    "difficulty": "medium",
+    "topic": "Structs",
+    "id": 697
+  },
+  {
+    "question": "Write a C++ function template named `getAbsoluteValue` that can compute and return the absolute value of any numeric data type (e.g., `int`, `float`, `double`).",
+    "difficulty": "easy",
+    "topic": "Templates",
+    "id": 698
+  },
+  {
+    "question": "Create a C++ function template named `arraySum` that takes an array of any numeric type and its size as input. The function should return the sum of all elements in that array.",
+    "difficulty": "medium",
+    "topic": "Templates",
+    "id": 699
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter the length and width of a rectangle. Calculate and print both the area and the perimeter of the rectangle, ensuring to use appropriate data types for real-world measurements.",
+    "difficulty": "easy",
+    "topic": "variables",
+    "id": 700
+  },
+  {
+    "question": "Develop a C++ program that reads a student's numerical score (an integer between 0 and 100). Based on the score, assign and print a letter grade using `if-else if-else` statements: A (90-100), B (80-89), C (70-79), D (60-69), F (0-59).",
+    "difficulty": "easy",
+    "topic": "if_else",
+    "id": 701
+  },
+  {
+    "question": "Implement a C++ program that takes a positive integer `N` from the user. Using a `for` loop, calculate and display the sum of all even numbers between 1 and `N` (inclusive).",
+    "difficulty": "easy",
+    "topic": "loops",
+    "id": 702
+  },
+  {
+    "question": "Create a C++ function `bool isPalindrome(int num)` that accepts an integer and returns `true` if it's a palindrome (reads the same forwards and backwards, e.g., 121) and `false` otherwise. In `main`, prompt the user for an integer and use this function to check and print the result.",
+    "difficulty": "medium",
+    "topic": "functions",
+    "id": 703
+  },
+  {
+    "question": "Write a C++ program that declares an integer array of size 10. Prompt the user to enter 10 integer values to populate the array. After reading all inputs, find and print the largest element present in the array.",
+    "difficulty": "easy",
+    "topic": "arrays",
+    "id": 704
+  },
+  {
+    "question": "In a C++ program, declare an integer variable and initialize it. Then, declare a pointer and make it point to this integer variable. Using only the pointer, modify the value of the integer variable. Finally, print both the new value of the integer variable and its memory address.",
+    "difficulty": "medium",
+    "topic": "pointers",
+    "id": 705
+  },
+  {
+    "question": "Develop a C++ program that prompts the user to enter their first name (as a string), age (as an integer), and height in meters (as a double). After receiving all inputs, print a formatted sentence summarizing this information (e.g., 'Hello [Name], you are [Age] years old and [Height] meters tall.').",
+    "difficulty": "easy",
+    "topic": "input_output",
+    "id": 706
+  },
+  {
+    "question": "Write a simple C++ calculator program. It should ask the user for two numbers and an arithmetic operator (+, -, *, /). Use a `switch` statement to perform the chosen operation and display the result. Handle division by zero appropriately.",
+    "difficulty": "medium",
+    "topic": "switch",
+    "id": 707
+  },
+  {
+    "question": "Implement a C++ program that uses a `do-while` loop to repeatedly ask the user to enter a positive integer. The loop should continue prompting until a positive integer (greater than 0) is entered. Once valid input is received, print the number.",
+    "difficulty": "easy",
+    "topic": "do_while_loop",
+    "id": 708
+  },
+  {
+    "question": "Create a C++ function `void swap(int& a, int& b)` that takes two integer variables by reference and exchanges their values. In `main`, declare two integers, initialize them, call `swap` with them, and then print their values before and after the swap to demonstrate its effect.",
+    "difficulty": "medium",
+    "topic": "functions",
+    "id": 709
+  },
+  {
+    "question": "Write a C++ program that declares a 3x3 integer matrix. Prompt the user to enter values for each element of the matrix. After filling the matrix, calculate and print the sum of all elements in the matrix.",
+    "difficulty": "medium",
+    "topic": "arrays",
+    "id": 710
+  },
+  {
+    "question": "Develop a C++ program that reads a sentence (using `std::string`) from the user. Count how many vowels (a, e, i, o, u, case-insensitive) are present in the sentence and print the total count.",
+    "difficulty": "medium",
+    "topic": "strings",
+    "id": 711
+  },
+  {
+    "question": "Define a C++ `struct Book` with members `std::string title` and `double price`. Create an array of 3 `Book` structs. Prompt the user to enter the title and price for each book. After input, iterate through the array to find and print the details (title and price) of the book with the highest price.",
+    "difficulty": "medium",
+    "topic": "structs",
+    "id": 712
+  },
+  {
+    "question": "Write a C++ program that asks the user for the desired size of an integer array. Dynamically allocate an array of that size using `new`. Populate the array with sequential numbers starting from 0 (e.g., if size is 5, elements are 0, 1, 2, 3, 4). Print the array elements, then deallocate the memory using `delete[]`.",
+    "difficulty": "medium",
+    "topic": "pointers",
+    "id": 713
+  },
+  {
+    "question": "Implement a recursive C++ function `int fibonacci(int n)` that calculates the Nth Fibonacci number. The Fibonacci sequence starts with F(0)=0, F(1)=1. In `main`, ask the user for a non-negative integer N and print the Nth Fibonacci number using your function.",
+    "difficulty": "medium",
+    "topic": "functions",
+    "id": 714
+  },
+  {
+    "question": "In a C++ program, prompt the user to enter two integers. Using the ternary operator, determine and print which of the two integers is larger.",
+    "difficulty": "easy",
+    "topic": "control_structures",
+    "id": 715
+  },
+  {
+    "question": "Write a C++ program using nested `for` loops to print a right-angled triangle pattern of asterisks (`*`). The height of the triangle should be specified by the user.",
+    "difficulty": "medium",
+    "topic": "loops",
+    "id": 716
+  },
+  {
+    "question": "Create a C++ function `int linearSearch(const int arr[], int size, int target)` that performs a linear search on an integer array. It should return the index of the `target` element if found, or -1 if not found. Test this function in `main` with a sample array and user-provided target.",
+    "difficulty": "medium",
+    "topic": "arrays",
+    "id": 717
+  },
+  {
+    "question": "Write a C++ function `int customStrlen(const char* str)` that takes a C-style string (character array) as input and returns its length (number of characters excluding the null terminator) without using the built-in `strlen()` function.",
+    "difficulty": "medium",
+    "topic": "strings",
+    "id": 718
+  },
+  {
+    "question": "Develop a C++ function template `T findMax(T val1, T val2)` that accepts two values of any data type (`T`) and returns the larger of the two. Demonstrate its usage in `main` by finding the maximum of two integers and two floating-point numbers.",
+    "difficulty": "medium",
+    "topic": "templates",
+    "id": 719
+  },
+  {
+    "question": "Write a C++ program that prompts the user to enter two floating-point numbers. Calculate their sum and store it as a `float`. Calculate their product and explicitly cast it to an `int` before storing. Print both the float sum and the integer product.",
+    "difficulty": "easy",
+    "topic": "type_casting",
+    "id": 720
+  },
+  {
+    "question": "Implement a C++ program that includes an overloaded function `void printArea(double radius)` to calculate and print the area of a circle, and another `void printArea(double length, double width)` to calculate and print the area of a rectangle. Test both versions in `main`.",
+    "difficulty": "medium",
+    "topic": "functions",
+    "id": 721
+  },
+  {
+    "question": "Write a C++ function `void transposeMatrix(int original[3][3], int transposed[3][3])` that takes a 3x3 integer matrix and stores its transpose in another 3x3 matrix. In `main`, populate an original matrix from user input, call the function, and then print both the original and transposed matrices.",
+    "difficulty": "medium",
+    "topic": "arrays",
+    "id": 722
+  },
+  {
+    "question": "Create a C++ program that continuously reads positive integers from the user using a `while` loop. The loop should terminate when the user enters -1 (a sentinel value). After termination, calculate and print the average of all positive integers entered (excluding the -1).",
+    "difficulty": "medium",
+    "topic": "while_loop",
+    "id": 723
+  },
+  {
+    "question": "Write a C++ function `void doubleArrayElements(int* arr, int size)` that takes a pointer to the first element of an integer array and its size. The function should iterate through the array using pointer arithmetic and double the value of each element. Test it with a sample array in `main`.",
+    "difficulty": "medium",
+    "topic": "pointers",
+    "id": 724
+  },
+  {
+  "question": "Write a C++ program that defines a class `Matrix` to represent a 2D matrix. Implement a constructor to initialize the matrix, a method to input values, and a method to add two matrices. Overload the `+` operator to perform matrix addition. Demonstrate the functionality in `main` by adding two matrices and displaying the result.",
+  "difficulty": "medium",
+  "topic": "operator_overloading",
+  "id": 725
+}
 ]

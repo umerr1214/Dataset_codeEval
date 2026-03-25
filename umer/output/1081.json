@@ -1,15 +1,17 @@
 {
   "language": "c++",
-  "question": "Create a `Rectangle` class with private `length` and `width`. Declare a non-member function `calculateArea` as a `friend` of the `Rectangle` class, allowing it to directly access the private `length` and `width` members.",
+  "question": "Design a `Car` class that has an `Engine` object as a private member (composition). The `Engine` class should have attributes like `horsepower` and `fuelType`. The `Car` class should have `make`, `model`, and a method `startCar()` that internally calls a method `start()` on its `Engine` object.",
   "test_cases": [
-    { "input": "Rectangle rect1(5.0, 4.0);", "expected": "Rectangle 1 (5.0x4.0) Area: 20.0" },
-    { "input": "Rectangle rect2(10.5, 2.0);", "expected": "Rectangle 2 (10.5x2.0) Area: 21.0" }
+    { "input": "", "expected": "Attempting to start Car: Toyota Camry\nEngine started! Fuel: Gasoline, HP: 200\n\nAttempting to start Car: Ford Pinto\nEngine started! Fuel: Gasoline, HP: -50\n\nAttempting to start Car: Honda Civic\nEngine started! Fuel: Petrol, HP: 150\nEngine started! Fuel: Petrol, HP: 150\n\n" }
   ],
-  "driver": "#include <iostream>\n\nclass Rectangle {\nprivate:\n    double length;\n    double width;\n\npublic:\n    Rectangle(double l, double w) : length(l), width(w) {}\n\n    // Friend declaration\n    friend double calculateArea(const Rectangle& r);\n};\n\n// The definition of the friend function\ndouble calculateArea(const Rectangle& r) {\n    return r.length * r.width;\n}\n\nint main() {\n    // Test case 1\n    Rectangle rect1(5.0, 4.0);\n    std::cout << \"Rectangle 1 (5.0x4.0) Area: \" << calculateArea(rect1) << std::endl;\n\n    // Test case 2\n    Rectangle rect2(10.5, 2.0);\n    std::cout << \"Rectangle 2 (10.5x2.0) Area: \" << calculateArea(rect2) << std::endl;\n\n    return 0;\n}",
-  "code_quality": 1,
-  "correctness": 0,
-  "error_type": "Syntax Error",
+  "driver": "See main function in .cpp file",
+  "code_quality": 6,
+  "correctness": 7,
+  "error_type": "Robustness Issue",
   "errors": [
-    "Typo in the 'friend' keyword when declaring the non-member function 'calculateArea' inside the Rectangle class. It is spelled 'frind' instead of 'friend'."
+    "Engine constructor allows negative horsepower without validation, which could lead to unexpected behavior or misrepresentation of engine power.",
+    "Engine::start() method lacks internal state management; it prints 'Engine started!' regardless of whether the engine is already running, making it not robust to multiple start calls.",
+    "Car::startCar() directly calls Engine::start() without any pre-checks or error handling, making it susceptible to issues if the engine state is invalid or already running.",
+    "Getter methods in both Car and Engine classes are not declared `const`, reducing robustness and preventing their use on constant objects."
   ]
 }

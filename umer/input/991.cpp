@@ -1,62 +1,66 @@
 #include <iostream>
 #include <string>
-#include <iomanip> // For std::fixed and std::setprecision
+#include <vector>
+#include <sstream>
 
-class Student {
-private:
-    std::string name;
-    int id;
-    double gpa;
-
+class Vehicle {
+protected:
+    std::string brand;
+    int year;
 public:
-    // Constructor
-    Student(std::string name, int id, double gpa) : name(name), id(id) {
-        setGpa(gpa); // Use setter for validation
+    Vehicle(std::string brand, int year) : brand(brand), year(year) {}
+    virtual void displayInfo() const {
+        std::cout << "Brand: " << brand << ", Year: " << year;
     }
+    virtual ~Vehicle() {}
+} // Syntax Error: Missing semicolon here
 
-    // Getters
-    std::string getName() const {
-        return name;
+class Car : public Vehicle {
+private:
+    int numDoors;
+public:
+    Car(std::string brand, int year, int numDoors) : Vehicle(brand, year), numDoors(numDoors) {}
+    void displayInfo() const override {
+        Vehicle::displayInfo();
+        std::cout << ", Doors: " << numDoors;
     }
+};
 
-    int getId() const {
-        return id;
+class Motorcycle : public Vehicle {
+private:
+    bool hasSidecar;
+public:
+    Motorcycle(std::string brand, int year, bool hasSidecar) : Vehicle(brand, year), hasSidecar(hasSidecar) {}
+    void displayInfo() const override {
+        Vehicle::displayInfo();
+        std::cout << ", Sidecar: " << (hasSidecar ? "Yes" : "No");
     }
-
-    double getGpa() const {
-        return gpa;
-    }
-
-    // Setters
-    void setName(std::string newName) {
-        name = newName;
-    }
-
-    void setId(int newId) {
-        id = newId;
-    }
-
-    bool setGpa(double newGpa) {
-        if (newGpa >= 0.0 && newGpa <= 4.0) {
-            gpa = newGpa;
-            return true;
-        }
-        return false;
-    }
-}; // SYNTAX ERROR: Missing semicolon after class definition
+};
 
 int main() {
-    Student s("Alice", 101, 3.5);
-    std::cout << "Student: " << s.getName() << ", ID: " << s.getId() << ", GPA: " << std::fixed << std::setprecision(1) << s.getGpa() << std::endl;
+    // Redirect cout to a stringstream to capture output
+    std::stringstream ss;
+    std::streambuf* oldCout = std::cout.rdbuf();
+    std::cout.rdbuf(ss.rdbuf());
 
-    s.setGpa(3.8);
-    std::cout << "Updated GPA: " << std::fixed << std::setprecision(1) << s.getGpa() << std::endl;
+    Vehicle* v1 = new Car("Toyota", 2020, 4);
+    Vehicle* v2 = new Motorcycle("Harley-Davidson", 2022, false);
+    Vehicle* v3 = new Car("Honda", 2018, 2);
 
-    s.setGpa(4.5); // Should fail
-    std::cout << "Attempted GPA 4.5. Current GPA: " << std::fixed << std::setprecision(1) << s.getGpa() << std::endl;
+    v1->displayInfo();
+    std::cout << std::endl;
+    v2->displayInfo();
+    std::endl; // Another potential syntax error if this was meant to be std::cout << std::endl;
+    v3->displayInfo();
+    std::cout << std::endl;
 
-    s.setGpa(-0.5); // Should fail
-    std::cout << "Attempted GPA -0.5. Current GPA: " << std::fixed << std::setprecision(1) << s.getGpa() << std::endl;
+    delete v1;
+    delete v2;
+    delete v3;
+
+    // Restore cout
+    std::cout.rdbuf(oldCout);
+    std::cout << ss.str(); // Print captured output to actual stdout
 
     return 0;
 }

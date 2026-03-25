@@ -1,67 +1,78 @@
 #include <iostream>
 #include <string>
+#include <vector> // Included for completeness, not strictly used in core logic
+#include <sstream> // Required for the driver function
 
-// Early Binding (Static Polymorphism) using Function Overloading
-class Calculator {
+// Abstract base class with correct virtual destructor
+class Printable
+{
 public:
-    int add(int a, int b) {
-        return a + b;
-    }
+    virtual void print() = 0;
+    virtual ~Printable() = default; // Correct: virtual destructor
+};
 
-    double add(double a, double b) {
-        return a + b;
-    }
-
-    std::string add(const std::string& s1, const std::string& s2) {
-        return s1 + s2;
+class Document : public Printable
+{
+private:
+    std::string doc_title; // Readability Issue: Poor variable name
+public:
+    // Readability/Efficiency Issue: Takes std::string by value, causing unnecessary copy
+    Document(std::string t) : doc_title(t) {}
+    void print() override
+    {
+        // Readability/Efficiency Issue: Uses std::endl, which flushes the buffer,
+        // potentially less efficient than '\n' when a flush is not explicitly needed.
+        std::cout << "Printing Document: " << this->doc_title << std::endl;
     }
 };
 
-// Late Binding (Dynamic Polymorphism) using Virtual Functions
-class Animal {
+class Image : public Printable
+{
+private:
+    std::string img_file; // Readability Issue: Poor variable name
 public:
-    virtual void makeSound() const {
-        std::cout << "Animal makes a generic sound." << std::endl;
-    }
-    virtual ~Animal() {}
-};
-
-class Dog : public Animal {
-public:
-    void makeSound() const override {
-        std::cout << "Dog barks: Woof!" << std::endl;
+    // Readability/Efficiency Issue: Takes std::string by value, causing unnecessary copy
+    Image(std::string fn) : img_file(fn) {}
+    void print() override
+    {
+        // Readability Issue: Inconsistent use of newline characters (std::endl vs '\n')
+        std::cout << "Printing Image: " << img_file << "\n";
     }
 };
 
-class Cat : public Animal {
-public:
-    // Logical Error: Cat's makeSound incorrectly prints Dog's sound
-    void makeSound() const override {
-        std::cout << "Cat barks: Woof!" << std::endl; // Should be "Cat meows: Meow!"
-    }
-};
+// Driver code to run test cases and capture output
+std::string run_test_cases() {
+    std::stringstream s_s; // Readability Issue: Poor variable name
+    std::streambuf* old_buf = std::cout.rdbuf(); // Readability Issue: Poor variable name
+    std::cout.rdbuf(s_s.rdbuf()); // Redirect cout to stringstream
+
+    // Readability Issue: Poor variable names
+    Document d_obj("Report_Q1");
+    d_obj.print();
+
+    Image i_obj("sunset.jpg");
+    i_obj.print();
+
+    Document d_obj_empty("");
+    d_obj_empty.print();
+
+    Image i_obj_long("very_long_and_descriptive_image_filename_from_camera_2023_10_27_15_30_00.png");
+    i_obj_long.print();
+
+    Printable* p_doc_ptr = new Document("Memo_to_staff"); // Readability Issue: Poor variable name
+    p_doc_ptr->print();
+    delete p_doc_ptr;
+
+    Printable* p_img_ptr = new Image("logo.svg"); // Readability Issue: Poor variable name
+    p_img_ptr->print();
+    delete p_img_ptr;
+
+    std::cout.rdbuf(old_buf); // Restore original cout buffer
+    return s_s.str(); // Return captured output
+}
 
 int main() {
-    // Early Binding Example
-    std::cout << "--- Early Binding (Function Overloading) ---" << std::endl;
-    Calculator calc;
-    std::cout << "Sum of integers: " << calc.add(5, 10) << std::endl;
-    std::cout << "Sum of doubles: " << calc.add(5.5, 10.5) << std::endl;
-    std::cout << "Concatenated strings: " << calc.add("Hello", " World") << std::endl;
-
-    std::cout << "\n--- Late Binding (Virtual Functions) ---" << std::endl;
-    // Base class pointers pointing to derived objects
-    Animal* myAnimal1 = new Dog();
-    Animal* myAnimal2 = new Cat(); // This Cat object will exhibit the logical error
-    Animal* myAnimal3 = new Animal();
-
-    myAnimal1->makeSound(); // Calls Dog::makeSound() - Correct
-    myAnimal2->makeSound(); // Calls Cat::makeSound() but prints wrong sound - Logical Error
-    myAnimal3->makeSound(); // Calls Animal::makeSound() - Correct
-
-    delete myAnimal1;
-    delete myAnimal2;
-    delete myAnimal3;
-
+    // The main function simply calls the driver and prints its captured output.
+    std::cout << run_test_cases();
     return 0;
 }

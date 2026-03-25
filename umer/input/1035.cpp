@@ -1,56 +1,39 @@
 #include <iostream>
 #include <string>
-#include <utility> // For std::move
+#include <vector>
 
-class SSD {
-private: // These members are private
-    int capacity; // in GB
-    std::string type;
-
+class Book {
 public:
-    // Constructor
-    SSD(int cap, std::string t) : capacity(cap), type(std::move(t)) {}
+    std::string title;
+    std::string author;
+    std::string isbn;
 
-    // Only exposing type, not capacity, to set up the semantic error
-    const std::string& getType() const { return type; }
+    Book(const std::string& title, const std::string& author, const std::string& isbn)
+        : title(title), author(author), isbn(isbn) {}
 
-    // For printing
-    void printSSD() const {
-        std::cout << "SSD: " << type << " " << capacity << "GB\n";
-    }
+    // Friend declaration for operator<<
+    // The definition below uses incorrect parameter and return types for std::ostream
+    friend std::ostream& operator<<(std::ostream& os, const Book& book);
 };
 
-class Laptop {
-private:
-    std::string brand;
-    SSD internalSSD; // Composition
-
-public:
-    // Constructor for Laptop
-    Laptop(std::string b, int ssd_capacity, std::string ssd_type)
-        : brand(std::move(b)), internalSSD(ssd_capacity, std::move(ssd_type)) {}
-
-    // Getters for demonstration/testing
-    const std::string& getBrand() const { return brand; }
-    const SSD& getSSD() const { return internalSSD; }
-
-    // For printing
-    void printLaptop() const {
-        std::cout << "Laptop Brand: " << brand << "\n";
-        internalSSD.printSSD();
-    }
-};
+// SEMANTIC ERROR: operator<< takes and returns std::ostream by value instead of by reference.
+// This compiles but is semantically incorrect for stream operators, leading to inefficient copies
+// and breaking the ability to chain operations properly.
+std::ostream operator<<(std::ostream os, const Book& book) {
+    os << book.title << " by " << book.author << " (" << book.isbn << ")";
+    return os;
+}
 
 int main() {
-    Laptop myLaptop("Dell", 512, "NVMe");
-    myLaptop.printLaptop();
+    Book book1("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "978-0345391803");
+    Book book2("1984", "George Orwell", "978-0451524935");
+    Book book3("Pride and Prejudice", "Jane Austen", "978-0141439518");
 
-    // SEMANTIC ERROR: Attempting to access private member 'capacity' of 'SSD'
-    // directly from main without a public getter. This violates encapsulation.
-    std::cout << "Laptop 1 SSD Capacity (direct access attempt): " << myLaptop.getSSD().capacity << "GB\n";
-
-    Laptop gamingLaptop("Alienware", 1024, "PCIe Gen4");
-    gamingLaptop.printLaptop();
+    std::cout << "Test Case 1: " << book1 << std::endl;
+    // Chaining might not work as expected due to semantic error
+    // std::cout << "Test Case 2: " << book2 << " - Chained\n"; // This line would fail to compile or behave unexpectedly
+    std::cout << "Test Case 2: " << book2 << std::endl;
+    std::cout << "Test Case 3: " << book3 << std::endl;
 
     return 0;
 }

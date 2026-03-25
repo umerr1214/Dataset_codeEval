@@ -1,68 +1,67 @@
 #include <iostream>
 #include <string>
-#include <vector>
-#include <sstream>
 
-class Vehicle {
+class Animal {
 protected:
-    std::string brand;
-    int year;
+    int weight;
 public:
-    Vehicle(std::string brand, int year) : brand(brand), year(year) {}
-    virtual void displayInfo() const {
-        std::cout << "Brand: " << brand << ", Year: " << year;
+    Animal(int w = 0) : weight(w) {
+        std::cout << "Animal created with weight: " << weight << " kg." << std::endl;
     }
-    virtual ~Vehicle() {}
-};
-
-class Car : public Vehicle {
-private:
-    int numDoors;
-public:
-    Car(std::string brand, int year, int numDoors) : Vehicle(brand, year), numDoors(numDoors) {}
-    void displayInfo() const override {
-        // Logical Error: Forgetting to call Vehicle::displayInfo()
-        // This means the general vehicle info (brand, year) will not be printed.
-        std::cout << "Doors: " << numDoors;
+    void showAnimalWeight() {
+        std::cout << "Animal's current weight (from public method): " << weight << " kg." << std::endl;
     }
 };
 
-class Motorcycle : public Vehicle {
-private:
-    bool hasSidecar;
+class Dog : public Animal {
 public:
-    Motorcycle(std::string brand, int year, bool hasSidecar) : Vehicle(brand, year), hasSidecar(hasSidecar) {}
-    void displayInfo() const override {
-        // Logical Error: Forgetting to call Vehicle::displayInfo()
-        // This means the general vehicle info (brand, year) will not be printed.
-        std::cout << "Sidecar: " << (hasSidecar ? "Yes" : "No");
+    Dog(int w) : Animal(w) {
+        std::cout << "Dog created with initial weight: " << weight << " kg." << std::endl;
+    }
+
+    void bark() {
+        // LOGICAL ERROR: This method should print the actual 'weight' inherited from Animal,
+        // but it prints a hardcoded value, failing to demonstrate access correctly.
+        std::cout << "Woof! My weight is 10 kg (this is a fixed value, not the actual inherited weight)." << std::endl;
+    }
+
+    void setDogWeight(int newWeight) {
+        weight = newWeight; // Dog can access protected member and set it
+        std::cout << "Dog's weight updated to: " << weight << " kg." << std::endl;
+    }
+
+    void displayActualDogWeight() {
+        std::cout << "Dog's actual inherited weight: " << weight << " kg." << std::endl;
     }
 };
+
+// External non-member function - correctly shows it cannot access protected members directly
+void demonstrateExternalAccess(Animal& animal) {
+    // This line would cause a semantic error (access violation) if uncommented:
+    // std::cout << "Attempting to access Animal's weight from external function: " << animal.weight << std::endl;
+    std::cout << "\n--- External Access Demonstration ---" << std::endl;
+    std::cout << "External function cannot directly access Animal's protected 'weight'." << std::endl;
+    animal.showAnimalWeight(); // Can only access public methods
+    std::cout << "-----------------------------------" << std::endl;
+}
 
 int main() {
-    // Redirect cout to a stringstream to capture output
-    std::stringstream ss;
-    std::streambuf* oldCout = std::cout.rdbuf();
-    std::cout.rdbuf(ss.rdbuf());
+    Animal genericAnimal(50);
+    Dog myDog(20);
 
-    Vehicle* v1 = new Car("Toyota", 2020, 4);
-    Vehicle* v2 = new Motorcycle("Harley-Davidson", 2022, false);
-    Vehicle* v3 = new Car("Honda", 2018, 2);
+    myDog.bark(); // Will print the hardcoded value, demonstrating the logical error
+    myDog.displayActualDogWeight(); // This method correctly shows the weight
 
-    v1->displayInfo();
-    std::cout << std::endl;
-    v2->displayInfo();
-    std::cout << std::endl;
-    v3->displayInfo();
-    std::cout << std::endl;
+    myDog.setDogWeight(25);
+    myDog.bark(); // Still prints hardcoded value
+    myDog.displayActualDogWeight(); // This method correctly shows the updated weight
 
-    delete v1;
-    delete v2;
-    delete v3;
+    // Attempting to access protected member from main (non-derived, non-friend)
+    // This would cause a semantic error (compile error) if uncommented:
+    // std::cout << "Attempting to access genericAnimal.weight from main: " << genericAnimal.weight << std::endl;
+    std::cout << "\nMain function cannot directly access Animal's protected 'weight'." << std::endl;
 
-    // Restore cout
-    std::cout.rdbuf(oldCout);
-    std::cout << ss.str(); // Print captured output to actual stdout
+    demonstrateExternalAccess(genericAnimal);
 
     return 0;
 }

@@ -1,67 +1,36 @@
 #include <iostream>
 
-class Counter {
+class Rectangle {
 private:
-    int count;
+    double length;
+    double width;
 
 public:
-    Counter(int initial_count = 0) : count(initial_count) {}
+    Rectangle(double l, double w) : length(l), width(w) {}
 
-    int getCount() const {
-        return count;
-    }
+    // Public getters added
+    double getLength() const { return length; }
+    double getWidth() const { return width; }
 
-    // Prefix increment: ++obj - SEMANTIC ERROR
-    // Should return Counter& to allow chaining and modification of the original object.
-    // This returns Counter by value, which means chained operations operate on temporaries.
-    Counter operator++() { // SEMANTIC ERROR: Should be 'Counter& operator++()'
-        ++count;
-        return *this; // Returns a copy, not a reference to *this
-    }
-
-    // Postfix increment: obj++ (correctly implemented here)
-    Counter operator++(int) {
-        Counter temp = *this; // Save current state
-        ++count;             // Increment actual object
-        return temp;         // Return saved state
-    }
-
-    // For printing
-    friend std::ostream& operator<<(std::ostream& os, const Counter& c) {
-        os << c.count;
-        return os;
-    }
+    // Friend declaration is present
+    friend double calculateArea(const Rectangle& r);
 };
 
+// The definition of the friend function
+double calculateArea(const Rectangle& r) {
+    // Semantic Error: The friend function accesses private members indirectly via public getters,
+    // instead of directly using 'r.length' and 'r.width', which bypasses the explicit purpose of 'friend' in this context.
+    return r.getLength() * r.getWidth();
+}
+
 int main() {
-    std::cout << "--- Testing Counter class ---" << std::endl;
+    // Test case 1
+    Rectangle rect1(5.0, 4.0);
+    std::cout << "Rectangle 1 (5.0x4.0) Area: " << calculateArea(rect1) << std::endl;
 
-    Counter c1(0);
-    std::cout << "Initial c1: " << c1.getCount() << std::endl;
-
-    // Test Prefix Increment (simple use works, but chaining is affected)
-    Counter simple_prefix_result = ++c1;
-    std::cout << "After ++c1 (assigned to simple_prefix_result): c1 = " << c1.getCount() << ", simple_prefix_result = " << simple_prefix_result.getCount() << std::endl; // Expected: 1, 1
-
-    // Test Postfix Increment (should work correctly)
-    Counter c2(5);
-    std::cout << "Initial c2: " << c2.getCount() << std::endl;
-    Counter c2_old_value = c2++;
-    std::cout << "After c2++: c2 = " << c2.getCount() << ", c2_old_value = " << c2_old_value.getCount() << std::endl; // Expected: 6, 5
-
-    // Test Chaining Prefix Increment (will show semantic error effect)
-    Counter c3(10);
-    std::cout << "Initial c3: " << c3.getCount() << std::endl;
-    // The inner ++c3 increments c3 to 11 and returns a *copy* of Counter(11).
-    // The outer ++ operates on this *copy*, incrementing it to 12, and returns another *copy* of Counter(12).
-    // The original c3 remains 11.
-    Counter chained_prefix_result = ++(++c3);
-    std::cout << "After ++(++c3): c3 = " << c3.getCount() << ", chained_prefix_result = " << chained_prefix_result.getCount() << std::endl; // Expected (correct behavior): 12, 12 (Actual: 11, 12)
-
-    // Attempting to bind a reference to the result of prefix increment (will not compile as expected for semantic error)
-    // Counter& c_ref_error = ++c1; // This line would cause a compiler error if enabled: "non-const lvalue reference to type 'Counter' cannot bind to a temporary of type 'Counter'"
-    // This demonstrates the semantic problem, but we need compilable code for this category.
-    // The chaining test above effectively shows the issue without compilation error.
+    // Test case 2
+    Rectangle rect2(10.5, 2.0);
+    std::cout << "Rectangle 2 (10.5x2.0) Area: " << calculateArea(rect2) << std::endl;
 
     return 0;
 }

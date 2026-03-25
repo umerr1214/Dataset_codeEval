@@ -1,16 +1,17 @@
 {
   "language": "c++",
-  "question": "Create a `Calculator` class with overloaded `add` methods. One `add` method should take two integers, another two doubles, and a third `add` method should take three integers.",
+  "question": "Explain the importance of virtual destructors. Implement a base class `Shape` and a derived class `Circle`, both with destructors that print a message. Demonstrate the issue of memory leaks/partial destruction without a virtual destructor when deleting a derived object via a base pointer, and then fix it with a virtual destructor.",
   "test_cases": [
-    { "input": "calc.add(5, 3)", "expected": "8" },
-    { "input": "calc.add(5.5, 3.2)", "expected": "8.7" },
-    { "input": "calc.add(1, 2, 3)", "expected": "6" }
+    {
+      "input": "",
+      "expected": "--- Demonstrating problem (non-virtual destructor) ---\nNonVirtualShape constructor called.\nNonVirtualCircle constructor called (Partial Destruction Example).\nDrawing a non-virtual circle named Partial Destruction Example.\nNonVirtualShape destructor called.\n--- End of problem demonstration ---\n\n--- Demonstrating fix (virtual destructor) ---\nShape constructor called.\nCircle constructor called (Correctly Deleted Circle).\nDrawing a circle named Correctly Deleted Circle with description: It's a sphere on a 2D plane..\nCircle destructor called (Correctly Deleted Circle) - Description: It's a sphere on a 2D plane..\nShape destructor called.\n--- End of fix demonstration (with semantic error) ---\n\n--- Demonstrating fix (virtual destructor) without semantic error (for comparison) ---\nShape constructor called.\nFixedCircle constructor called (Truly Fixed Example).\nDrawing a fixed circle named Truly Fixed Example with description: No leaks here!.\nFixedCircle destructor called (Truly Fixed Example) - Description: No leaks here!.\nShape destructor called.\n--- End of truly fixed demonstration ---\n"
+    }
   ],
-  "driver": "#include <iostream>\n#include <sstream>\n#include <iomanip>\n\nint main() {\n    Calculator calc;\n    std::stringstream ss;\n    ss << calc.add(5, 3) << \"\\n\";\n    // Note: the driver expects 8.7, but the semantic error will cause 8 to be printed.\n    // We'll cast the result to double for comparison in the driver, but the underlying issue is the method's return type.\n    ss << static_cast<double>(calc.add(5.5, 3.2)) << \"\\n\"; \n    ss << calc.add(1, 2, 3) << \"\\n\";\n    std::cout << ss.str();\n    return 0;\n}",
+  "driver": "",
   "code_quality": 5,
-  "correctness": 4,
+  "correctness": 5,
   "error_type": "Semantic Error",
   "errors": [
-    "The `add(double, double)` method returns an `int`, causing truncation and loss of precision for the sum of two double values. Semantically, adding two doubles should yield a double result."
+    "The `Circle` class's destructor fails to deallocate the dynamically allocated `description` member (`char* description`). Even though the base `Shape` class has a virtual destructor, ensuring polymorphic destruction of the `Circle` object itself, the internal resource `description` is not freed, leading to a memory leak specific to the `Circle` class's implementation."
   ]
 }

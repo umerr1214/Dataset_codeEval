@@ -1,15 +1,19 @@
 {
   "language": "c++",
-  "question": "Create a `Rectangle` class with private `length` and `width`. Declare a non-member function `calculateArea` as a `friend` of the `Rectangle` class, allowing it to directly access the private `length` and `width` members.",
+  "question": "Design a `Car` class that has an `Engine` object as a private member (composition). The `Engine` class should have attributes like `horsepower` and `fuelType`. The `Car` class should have `make`, `model`, and a method `startCar()` that internally calls a method `start()` on its `Engine` object.",
   "test_cases": [
-    { "input": "Rectangle rect1(5.0, 4.0);", "expected": "Rectangle 1 (5.0x4.0) Area: 20.0" },
-    { "input": "Rectangle rect2(10.5, 2.0);", "expected": "Rectangle 2 (10.5x2.0) Area: 21.0" }
+    { "input": "", "expected": "Executing startup sequence for vehicle model: Volkswagen Golf\nEngine component has initiated operation! Fuel source: Diesel, Power rating: 180\n\nExecuting startup sequence for vehicle model: Audi A4\nEngine component has initiated operation! Fuel source: Gasoline, Power rating: 220\n\n" }
   ],
-  "driver": "#include <iostream>\n\nclass Rectangle {\nprivate:\n    double length;\n    double width;\n\npublic:\n    Rectangle(double l, double w) : length(l), width(w) {}\n\n    // Friend declaration\n    friend double calculateArea(const Rectangle& r);\n};\n\n// The definition of the friend function\ndouble calculateArea(const Rectangle& r) {\n    return r.length * r.width;\n}\n\nint main() {\n    // Test case 1\n    Rectangle rect1(5.0, 4.0);\n    std::cout << \"Rectangle 1 (5.0x4.0) Area: \" << calculateArea(rect1) << std::endl;\n\n    // Test case 2\n    Rectangle rect2(10.5, 2.0);\n    std::cout << \"Rectangle 2 (10.5x2.0) Area: \" << calculateArea(rect2) << std::endl;\n\n    return 0;\n}",
+  "driver": "See main function in .cpp file",
   "code_quality": 4,
-  "correctness": 3,
-  "error_type": "Logical Error",
+  "correctness": 9,
+  "error_type": "Readability / Efficiency Issue",
   "errors": [
-    "The `calculateArea` friend function incorrectly calculates the perimeter of the rectangle (2 * (length + width)) instead of its area (length * width)."
+    "Verbose and inconsistent naming conventions (e.g., 'engine_horsepower_value', 'start_the_engine_component') reduce readability.",
+    "Car constructor does not use initializer lists for its string members (`car_manufacturer_name`, `car_model_designation`), leading to less efficient default construction followed by assignment.",
+    "Engine constructor also assigns members in the body rather than using an initializer list, which is less efficient for string members and less idiomatic C++.",
+    "Excessive use of `this->` keyword, especially for local member access, can clutter the code and reduce readability.",
+    "Unnecessary intermediate `std::string` concatenation in `Engine::start_the_engine_component()` could be more efficiently done with direct `std::cout` streaming.",
+    "Lack of `const` correctness for getter methods (`retrieve_current_horsepower_setting`, etc.) prevents them from being called on `const` objects and doesn't clearly convey that they don't modify the object's state."
   ]
 }

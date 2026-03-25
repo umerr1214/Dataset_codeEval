@@ -1,33 +1,69 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
-class Book {
+class Point {
 public:
-    std::string title;
-    std::string author;
-    std::string isbn;
+    int x, y;
 
-    Book(const std::string& title, const std::string& author, const std::string& isbn)
-        : title(title), author(author), isbn(isbn) {}
+    Point(int x_coord = 0, int y_coord = 0) : x(x_coord), y(y_coord) {}
 
-    friend std::ostream& operator<<(std::ostream& os, const Book& book);
+    // Readability / Efficiency issue: Overly verbose and less concise implementation.
+    // Uses unnecessary temporary boolean variables and multiple if-else statements
+    // instead of a direct logical expression.
+    bool operator==(const Point& other) const {
+        bool x_are_equal;
+        bool y_are_equal;
+
+        // Check x-coordinates
+        if (this->x == other.x) {
+            x_are_equal = true;
+        } else {
+            x_are_equal = false;
+        }
+
+        // Check y-coordinates
+        if (this->y == other.y) {
+            y_are_equal = true;
+        } else {
+            y_are_equal = false;
+        }
+
+        // Combine results
+        if (x_are_equal && y_are_equal) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 };
 
-std::ostream& operator<<(std::ostream& os, const Book& book) {
-    // LOGICAL ERROR: Prints title for both title and author fields
-    os << book.title << " by " << book.title << " (" << book.isbn << ")";
-    return os;
+// Helper function to print bool as "true" or "false"
+std::string bool_to_string(bool b) {
+    return b ? "true" : "false";
 }
 
 int main() {
-    Book book1("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "978-0345391803");
-    Book book2("1984", "George Orwell", "978-0451524935");
-    Book book3("Pride and Prejudice", "Jane Austen", "978-0141439518");
+    // Test cases for Readability / Efficiency Issue
+    Point p1(1, 1);
+    Point p2(1, 1);
+    Point p3(1, 2);
+    Point p4(2, 1);
+    Point p5(0, 0);
+    Point p6(-5, -10);
+    Point p7(-5, 0);
 
-    std::cout << "Test Case 1: " << book1 << std::endl;
-    std::cout << "Test Case 2: " << book2 << std::endl;
-    std::cout << "Test Case 3: " << book3 << std::endl;
+    // Expected: true
+    std::cout << bool_to_string(p1 == p2) << std::endl;
+    // Expected: false
+    std::cout << bool_to_string(p1 == p3) << std::endl;
+    // Expected: false
+    std::cout << bool_to_string(p1 == p4) << std::endl;
+    // Expected: true
+    std::cout << bool_to_string(p5 == p5) << std::endl;
+    // Expected: true
+    std::cout << bool_to_string(p6 == p6) << std::endl;
+    // Expected: false
+    std::cout << bool_to_string(p6 == p7) << std::endl;
 
     return 0;
 }

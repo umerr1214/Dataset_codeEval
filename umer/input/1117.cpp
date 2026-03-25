@@ -1,111 +1,32 @@
 #include <iostream>
-#include <cstring> // For strlen, strcpy
 
-class MyString {
-private:
-    char* str;
-
+class Date {
 public:
-    // Default constructor
-    MyString(const char* s = nullptr) {
-        if (s == nullptr) {
-            str = new char[1];
-            str[0] = '\0';
-        } else {
-            str = new char[strlen(s) + 1];
-            strcpy(str, s);
-        }
-        std::cout << "Constructor invoked for: " << str << std::endl;
-    }
+    int day;
+    int month;
+    int year;
 
-    // Destructor
-    ~MyString() {
-        std::cout << "Destructor invoked for: " << str << std::endl;
-        delete[] str;
-    }
+    Date(int d, int m, int y) : day(d), month(m), year(y) {}
+};
 
-    // Copy Constructor
-    MyString(const MyString& other) {
-        str = new char[strlen(other.str) + 1];
-        strcpy(str, other.str);
-        std::cout << "Copy Constructor invoked for: " << str << " (from " << other.str << ")" << std::endl;
-    }
-
-    // Assignment Operator
-    MyString& operator=(const MyString& other) {
-        if (this == &other) {
-            return *this; // Handle self-assignment
-        }
-        delete[] str; // Deallocate old memory
-        str = new char[strlen(other.str) + 1];
-        strcpy(str, other.str);
-        std::cout << "Assignment Operator invoked for: " << str << " (from " << other.str << ")" << std::endl;
-        return *this;
-    }
-
-    // Getter for the string
-    const char* c_str() const {
-        return str;
-    }
-
-    // Function to modify the string (for demonstration)
-    void append(const char* suffix) {
-        char* temp = new char[strlen(str) + strlen(suffix) + 1];
-        strcpy(temp, str);
-        strcat(temp, suffix);
-        delete[] str;
-        str = temp;
-    }
-} // Missing semicolon here, causing a syntax error.
-
-// Function that takes MyString by value (invokes copy constructor)
-void demonstrateCopy(MyString s) {
-    std::cout << "Inside demonstrateCopy function. Value: " << s.c_str() << std::endl;
+// Overload the << operator with a robustness issue:
+// It does not ensure leading zeros for single-digit day/month,
+// violating the DD/MM/YYYY format specification.
+std::ostream& operator<<(std::ostream& os, const Date& date) {
+    os << date.day << "/" << date.month << "/" << date.year;
+    return os;
 }
 
 int main() {
-    std::cout << "--- Demonstrating MyString Class ---" << std::endl;
+    Date d1(1, 1, 2023);
+    Date d2(15, 7, 2024);
+    Date d3(5, 12, 2020);
+    Date d4(10, 10, 2025);
 
-    // 1. Constructor invocation
-    MyString s1("Hello");
-    std::cout << "s1: " << s1.c_str() << std::endl;
+    std::cout << "Date 1: " << d1 << std::endl; // Expected: 01/01/2023, Actual: 1/1/2023
+    std::cout << "Date 2: " << d2 << std::endl; // Expected: 15/07/2024, Actual: 15/7/2024
+    std::cout << "Date 3: " << d3 << std::endl; // Expected: 05/12/2020, Actual: 5/12/2020
+    std::cout << "Date 4: " << d4 << std::endl; // Expected: 10/10/2025, Actual: 10/10/2025
 
-    // 2. Copy Constructor invocation
-    // Case A: Initialization using another object
-    MyString s2 = s1; // Invokes copy constructor
-    std::cout << "s2 (copy of s1): " << s2.c_str() << std::endl;
-
-    // Case B: Passing by value to a function
-    std::cout << "\nCalling demonstrateCopy(s1)..." << std::endl;
-    demonstrateCopy(s1); // Invokes copy constructor
-    std::cout << "Back in main after demonstrateCopy(s1)." << std::endl;
-
-    // 3. Assignment Operator invocation
-    MyString s3("World");
-    std::cout << "s3: " << s3.c_str() << std::endl;
-
-    std::cout << "\nAssigning s1 to s3 (s3 = s1)..." << std::endl;
-    s3 = s1; // Invokes assignment operator
-    std::cout << "s3 (after assignment from s1): " << s3.c_str() << std::endl;
-
-    MyString s4; // Default constructor
-    std::cout << "s4 (default): " << s4.c_str() << std::endl;
-    std::cout << "\nAssigning s3 to s4 (s4 = s3)..." << std::endl;
-    s4 = s3; // Invokes assignment operator
-    std::cout << "s4 (after assignment from s3): " << s4.c_str() << std::endl;
-
-    // Demonstrating self-assignment (should be handled without issues)
-    std::cout << "\nDemonstrating self-assignment (s1 = s1)..." << std::endl;
-    s1 = s1; // Invokes assignment operator, should do nothing
-    std::cout << "s1 (after self-assignment): " << s1.c_str() << std::endl;
-
-    std::cout << "\nModifying s1 to see independence of copies/assignments." << std::endl;
-    s1.append(" C++");
-    std::cout << "s1 (modified): " << s1.c_str() << std::endl;
-    std::cout << "s2 (original copy): " << s2.c_str() << std::endl;
-    std::cout << "s3 (original assignment): " << s3.c_str() << std::endl;
-    std::cout << "s4 (original assignment): " << s4.c_str() << std::endl;
-
-    std::cout << "\n--- End of main ---" << std::endl;
     return 0;
 }

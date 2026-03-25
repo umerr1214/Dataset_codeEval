@@ -1,112 +1,52 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <algorithm> // For std::find_if
 
-class Employee {
-private:
-    std::string name;
-    int id;
-
+class Flyer {
 public:
-    Employee(std::string name, int id) : name(std::move(name)), id(id) {}
-
-    const std::string& getName() const {
-        return name;
-    }
-
-    int getId() const {
-        return id;
-    }
-
-    void display() const {
-        std::cout << "  - Employee ID: " << id << ", Name: " << name << std::endl;
+    // Semantic Error: 'fly()' is not declared virtual, violating the design intent
+    // for polymorphism, even though the question explicitly asks for a virtual method.
+    void fly() {
+        std::cout << "Generic flyer action." << std::endl;
     }
 };
 
-class Department {
-private:
-    std::string name;
-    std::vector<Employee> employees; // Semantic Error: Stores Employee objects by value (composition/ownership)
-                                     // instead of by pointer/reference (aggregation).
-                                     // This means Department owns copies, violating "Employee can exist independently"
-                                     // in the context of the department's collection.
-
+class Swimmer {
 public:
-    Department(std::string name) : name(std::move(name)) {}
+    // Semantic Error: 'swim()' is not declared virtual, violating the design intent
+    // for polymorphism.
+    void swim() {
+        std::cout << "Generic swimmer action." << std::endl;
+    }
+};
 
-    // No explicit destructor needed for std::vector<Employee> as it manages its own memory.
-    // However, conceptually, the Department now owns these Employee objects,
-    // rather than merely aggregating references to externally managed ones.
-
-    void addEmployee(const Employee& emp) { // Takes by const reference, but stores a copy
-        // Check if employee already exists by ID to prevent duplicates
-        auto it = std::find_if(employees.begin(), employees.end(),
-                               [&emp](const Employee& existing_emp) {
-                                   return existing_emp.getId() == emp.getId();
-                               });
-        if (it == employees.end()) {
-            employees.push_back(emp); // A copy of the Employee object is made and stored.
-            std::cout << "Added employee " << emp.getName() << " to " << name << std::endl;
-        } else {
-            std::cout << "Employee " << emp.getName() << " (ID: " << emp.getId() << ") already in " << name << std::endl;
-        }
+class Duck : public Flyer, public Swimmer
+{
+public:
+    // These methods effectively 'hide' the base methods rather than 'override' them
+    // polymorphically, because the base methods are not virtual.
+    void fly() {
+        std::cout << "Duck flaps its wings gracefully." << std::endl;
     }
 
-    void listEmployees() const {
-        std::cout << "Employees in Department " << name << ":" << std::endl;
-        if (employees.empty()) {
-            std::cout << "  (No employees in this department)" << std::endl;
-        } else {
-            for (const auto& emp : employees) {
-                emp.display();
-            }
-        }
+    void swim() {
+        std::cout << "Duck paddles its feet in the water." << std::endl;
     }
 };
 
 int main() {
-    // Create Employee objects independently
-    Employee emp1("Alice", 101);
-    Employee emp2("Bob", 102);
-    Employee emp3("Charlie", 103);
+    Duck myDuck;
+    std::cout << "Calling methods on Duck object directly:" << std::endl;
+    myDuck.fly();
+    myDuck.swim();
 
-    // Create a Department
-    Department hrDept("Human Resources");
+    // Due to the base methods not being virtual, calling through base pointers
+    // will invoke the base class methods, not the Duck's specific methods.
+    Flyer* flyerPtr = &myDuck;
+    Swimmer* swimmerPtr = &myDuck;
 
-    // Add employees to the department
-    hrDept.addEmployee(emp1); // A copy of emp1 is made
-    hrDept.addEmployee(emp2); // A copy of emp2 is made
-    hrDept.addEmployee(emp1); // A copy of emp1 (again) is attempted, but blocked by ID check
-
-    // List employees in the department
-    hrDept.listEmployees();
-
-    std::cout << "\n--- Another Department ---" << std::endl;
-    Department devDept("Development");
-    devDept.addEmployee(emp3); // A copy of emp3 is made
-    devDept.addEmployee(emp2); // A copy of emp2 is made
-
-    devDept.listEmployees();
-
-    std::cout << "\n--- Verifying independent existence ---" << std::endl;
-    // Original employee objects still exist, but they are distinct from the copies in departments.
-    emp1.display();
-    emp2.display();
-    emp3.display();
-
-    // To further illustrate the semantic issue: if emp1's name was changed *after* adding to department,
-    // the department's copy would not reflect the change, which is characteristic of composition/value semantics,
-    // not typical aggregation (where changes to the original aggregated object would be visible).
-    std::cout << "\n--- Illustrating semantic difference ---" << std::endl;
-    Employee original_emp_test("Test Employee", 999);
-    Department testDept("Test Department");
-    testDept.addEmployee(original_emp_test); // Department gets a copy
-    original_emp_test = Employee("Changed Test Employee", 999); // Original object changes
-    std::cout << "Original employee after change:" << std::endl;
-    original_emp_test.display();
-    std::cout << "Department's employee (should not change):" << std::endl;
-    testDept.listEmployees(); // Department's copy remains unchanged
+    std::cout << "\nCalling methods via base class pointers (demonstrating semantic error):" << std::endl;
+    flyerPtr->fly(); // This will call Flyer::fly(), not Duck::fly()
+    swimmerPtr->swim(); // This will call Swimmer::swim(), not Duck::swim()
 
     return 0;
 }

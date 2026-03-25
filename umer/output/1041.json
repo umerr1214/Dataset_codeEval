@@ -1,21 +1,17 @@
 {
   "language": "c++",
-  "question": "Model a `Department` class that contains a collection (e.g., `std::vector`) of `Employee` objects (aggregation). An `Employee` object can exist independently of a `Department`. Implement methods to add an employee to a department and list all employees in a department.",
+  "question": "Design a base class `Flyer` with a virtual `fly()` method that prints a generic message. Create another base class `Swimmer` with a virtual `swim()` method that also prints a generic message. Implement a `Duck` class that inherits from both `Flyer` and `Swimmer` and overrides both `fly()` and `swim()` methods to print specific duck actions.",
   "test_cases": [
     {
-      "input": "No direct input, execution demonstrates functionality.",
-      "expected": "Added employee Alice to Human Resources\nAdded employee Bob to Human Resources\nEmployee Alice (ID: 101) already in Human Resources\nEmployees in Department Human Resources:\n  - Employee ID: 101, Name: Alice\n  - Employee ID: 102, Name: Bob\n\n--- Another Department ---\nAdded employee Charlie to Development\nAdded employee Bob to Development\nEmployees in Department Development:\n  - Employee ID: 103, Name: Charlie\n  - Employee ID: 102, Name: Bob\n\n--- Verifying independent existence ---\n  - Employee ID: 101, Name: Alice\n  - Employee ID: 102, Name: Bob\n  - Employee ID: 103, Name: Charlie\n\n--- Illustrating semantic difference ---\nAdded employee Test Employee to Test Department\nOriginal employee after change:\n  - Employee ID: 999, Name: Changed Test Employee\nDepartment's employee (should not change):\nEmployees in Department Test Department:\n  - Employee ID: 999, Name: Test Employee\n"
+      "input": "",
+      "expected": "Calling methods on Duck object directly:\nDuck flaps its wings gracefully.\nDuck paddles its feet in the water.\n\nCalling methods via base class pointers:\nDuck flaps its wings gracefully.\nDuck paddles its feet in the water.\n"
     }
   ],
-  "driver": "int main() {\n    Employee emp1(\"Alice\", 101);\n    Employee emp2(\"Bob\", 102);\n    Employee emp3(\"Charlie\", 103);\n\n    Department hrDept(\"Human Resources\");\n    hrDept.addEmployee(emp1);\n    hrDept.addEmployee(emp2);\n    hrDept.addEmployee(emp1);\n    hrDept.listEmployees();\n\n    Department devDept(\"Development\");\n    devDept.addEmployee(emp3);\n    devDept.addEmployee(emp2);\n    devDept.listEmployees();\n\n    emp1.display();\n    emp2.display();\n    emp3.display();\n\n    Employee original_emp_test(\"Test Employee\", 999);\n    Department testDept(\"Test Department\");\n    testDept.addEmployee(original_emp_test);\n    original_emp_test = Employee(\"Changed Test Employee\", 999);\n    std::cout << \"Original employee after change:\" << std::endl;\n    original_emp_test.display();\n    std::cout << \"Department's employee (should not change):\" << std::endl;\n    testDept.listEmployees();\n\n    return 0;\n}",
+  "driver": "#include <iostream>\n#include <string>\n\nclass Flyer {\npublic:\n    virtual void fly() {\n        std::cout << \"Generic flyer action.\" << std::endl;\n    }\n};\n\nclass Swimmer {\npublic:\n    virtual void swim() {\n        std::cout << \"Generic swimmer action.\" << std::endl;\n    }\n};\n\nclass Duck : public Flyer, public Swimmer\n{\npublic:\n    void fly() override {\n        std::cout << \"Duck flaps its wings gracefully.\" << std::endl;\n    }\n\n    void swim() override {\n        std::cout << \"Duck paddles its feet in the water.\" << std::endl;\n    }\n};\n\nint main() {\n    Duck myDuck;\n    std::cout << \"Calling methods on Duck object directly:\" << std::endl;\n    myDuck.fly();\n    myDuck.swim();\n\n    Flyer* flyerPtr = &myDuck;\n    Swimmer* swimmerPtr = &myDuck;\n\n    std::cout << \"\\nCalling methods via base class pointers:\" << std::endl;\n    flyerPtr->fly();\n    swimmerPtr->swim();\n\n    return 0;\n}",
   "code_quality": 5,
-  "correctness": 5,
+  "correctness": 4,
   "error_type": "Semantic Error",
   "errors": [
-    {
-      "line": 28,
-      "column": 23,
-      "message": "The `Department` class uses `std::vector<Employee>` to store `Employee` objects by value. This implies composition (ownership of copies) rather than aggregation (references/pointers to independently existing objects), which contradicts the spirit of 'An Employee object can exist independently of a Department' when added to the department's collection. Changes to original Employee objects will not reflect in the department's collection."
-    }
+    "The base class methods `Flyer::fly()` and `Swimmer::swim()` are not declared `virtual`. This prevents correct polymorphic behavior when accessing a `Duck` object through `Flyer*` or `Swimmer*` pointers, leading to base class methods being called instead of the derived class overrides, despite the question explicitly requiring virtual methods."
   ]
 }

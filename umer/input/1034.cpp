@@ -1,57 +1,33 @@
 #include <iostream>
 #include <string>
-#include <utility> // For std::move
+#include <vector>
 
-class SSD {
-private:
-    int capacity; // in GB
-    std::string type;
-
+class Book {
 public:
-    // Constructor - LOGICAL ERROR: capacity is always initialized to 0
-    SSD(int cap, std::string t) : capacity(0), type(std::move(t)) {} // Should be capacity(cap)
+    std::string title;
+    std::string author;
+    std::string isbn;
 
-    // Getters for demonstration/testing
-    int getCapacity() const { return capacity; }
-    const std::string& getType() const { return type; }
+    Book(const std::string& title, const std::string& author, const std::string& isbn)
+        : title(title), author(author), isbn(isbn) {}
 
-    // For printing
-    void printSSD() const {
-        std::cout << "SSD: " << type << " " << capacity << "GB\n";
-    }
+    friend std::ostream& operator<<(std::ostream& os, const Book& book);
 };
 
-class Laptop {
-private:
-    std::string brand;
-    SSD internalSSD; // Composition
-
-public:
-    // Constructor for Laptop
-    Laptop(std::string b, int ssd_capacity, std::string ssd_type)
-        : brand(std::move(b)), internalSSD(ssd_capacity, std::move(ssd_type)) {}
-
-    // Getters for demonstration/testing
-    const std::string& getBrand() const { return brand; }
-    const SSD& getSSD() const { return internalSSD; }
-
-    // For printing
-    void printLaptop() const {
-        std::cout << "Laptop Brand: " << brand << "\n";
-        internalSSD.printSSD();
-    }
-};
+std::ostream& operator<<(std::ostream& os, const Book& book) {
+    // LOGICAL ERROR: Prints title for both title and author fields
+    os << book.title << " by " << book.title << " (" << book.isbn << ")";
+    return os;
+}
 
 int main() {
-    // Test Case 1
-    Laptop myLaptop("Dell", 512, "NVMe");
-    std::cout << "--- Laptop 1 ---\n";
-    myLaptop.printLaptop(); // Expected: 512GB, Actual: 0GB
+    Book book1("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "978-0345391803");
+    Book book2("1984", "George Orwell", "978-0451524935");
+    Book book3("Pride and Prejudice", "Jane Austen", "978-0141439518");
 
-    // Test Case 2
-    Laptop gamingLaptop("Alienware", 1024, "PCIe Gen4");
-    std::cout << "--- Laptop 2 ---\n";
-    gamingLaptop.printLaptop(); // Expected: 1024GB, Actual: 0GB
+    std::cout << "Test Case 1: " << book1 << std::endl;
+    std::cout << "Test Case 2: " << book2 << std::endl;
+    std::cout << "Test Case 3: " << book3 << std::endl;
 
     return 0;
 }

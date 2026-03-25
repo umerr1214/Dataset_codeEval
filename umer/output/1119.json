@@ -1,14 +1,12 @@
 {
   "language": "c++",
-  "question": "Create a `MyString` class that manages a dynamic character array. Implement both a copy constructor and an assignment operator (`operator=`). Explain when each of these is invoked through code examples.",
+  "question": "For the `Date` class (from Q12 or similar with `day`, `month`, `year`), overload the `<<` (stream insertion) operator to allow `Date` objects to be printed directly using `std::cout` in the format `DD/MM/YYYY`.",
   "test_cases": [
-    { "input": "", "expected": "--- Demonstrating MyString Class with Semantic Error (Missing Destructor) ---\nConstructor invoked for: Hello\ns1: Hello\nCopy Constructor invoked for: Hello (from Hello)\ns2 (copy of s1): Hello\n\nCalling demonstrateCopy(s1)...\nCopy Constructor invoked for: Hello (from Hello)\nInside demonstrateCopy function. Value: Hello\nBack in main after demonstrateCopy(s1).\nConstructor invoked for: World\ns3: World\n\nAssigning s1 to s3 (s3 = s1)...\nAssignment Operator invoked for: Hello (from Hello)\ns3 (after assignment from s1): Hello\n\n--- Inside createAndDestroyStrings function ---\nConstructor invoked for: Temporary A\nConstructor invoked for: Temporary B\ntemp1: Temporary A, temp2: Temporary B\n--- Exiting createAndDestroyStrings function ---\n\n--- End of main ---\n" }
+    { "input": "", "expected": "Date 1: 01/01/2023\nDate 2: 15/07/2024\nDate 3: 05/12/2020\nDate 4: 10/10/2025\nDate 5: 02/03/0999\n" }
   ],
-  "driver": "int main() {\n    // The provided main function already serves as a driver.\n    // No additional driver code is needed.\n    return 0;\n}",
-  "code_quality": 5,
-  "correctness": 4,
-  "error_type": "Semantic Error",
-  "errors": [
-    "The class `MyString` is missing its destructor (`~MyString()`). This is a semantic error because it violates the RAII principle for resource management. Although the code compiles and runs, every `MyString` object that allocates dynamic memory will leak that memory when it goes out of scope, leading to resource exhaustion over time."
-  ]
+  "driver": "int main() {\n    Date d1(1, 1, 2023);\n    Date d2(15, 7, 2024);\n    Date d3(5, 12, 2020);\n    Date d4(10, 10, 2025);\n    Date d5(2, 3, 999);\n\n    std::cout << \"Date 1: \" << d1 << std::endl;\n    std::cout << \"Date 2: \" << d2 << std::endl;\n    std::cout << \"Date 3: \" << d3 << std::endl;\n    std::cout << \"Date 4: \" << d4 << std::endl;\n    std::cout << \"Date 5: \" << d5 << std::endl;\n\n    return 0;\n}",
+  "code_quality": 10,
+  "correctness": 10,
+  "error_type": "Correct Version",
+  "errors": []
 }

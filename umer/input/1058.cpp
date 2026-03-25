@@ -1,62 +1,58 @@
 #include <iostream>
-#include <string>
 
-// Base class for the 'fix' demonstration
-class Shape {
-public:
-    Shape() { std::cout << "Shape constructor called.\n"; }
-    // Correctly made virtual for the 'fix' demonstration part
-    virtual ~Shape() { std::cout << "Shape destructor called.\n"; }
-
-    virtual void draw() const { std::cout << "Drawing a generic shape.\n"; }
-};
-
-// Derived class for the 'fix' demonstration
-class Circle : public Shape {
+class DynamicArray {
 private:
-    std::string name;
-public:
-    Circle(const std::string& n = "Default Circle") : name(n) { std::cout << "Circle constructor called (" << name << ").\n"; }
-    ~Circle() override { std::cout << "Circle destructor called (" << name << ").\n"; }
+    int* _data;
+    int _size;
+    int _capacity;
 
-    void draw() const override { std::cout << "Drawing a circle named " << name << ".\n"; }
+    void reallocate() {
+        int newCapacity = (_capacity == 0) ? 1 : _capacity * 2;
+        int* newData = new int[newCapacity];
+        for (int i = 0; i < _size; ++i) {
+            newData[i] = _data[i];
+        }
+        delete[] _data;
+        _data = newData;
+        _capacity = newCapacity;
+    }
+
+public:
+    DynamicArray() : _data(nullptr), _size(0), _capacity(0) {}
+
+    ~DynamicArray() {
+        delete[] _data;
+    }
+
+    void add(int value) {
+        if (_size == _capacity) {
+            reallocate();
+        }
+        _data[_size++] = value;
+    }
+
+    void print() {
+        std::cout << "Array elements: [";
+        // Logical error: The loop iterates up to _capacity instead of _size.
+        // This will print uninitialized memory if _size < _capacity,
+        // leading to incorrect output or potential runtime errors.
+        for (int i = 0; i < _capacity; ++i) { // Should be 'i < _size'
+            std::cout << _data[i] << (i == _capacity - 1 ? "" : ", ");
+        }
+        std::cout << "]" << std::endl;
+    }
 };
 
 int main() {
-    // Inner classes to clearly demonstrate the 'problem' with non-virtual destructors
-    class ProblematicShape {
-    public:
-        ProblematicShape() { std::cout << "ProblematicShape constructor called.\n"; }
-        ~ProblematicShape() { std::cout << "ProblematicShape destructor called.\n"; } // Non-virtual
-        virtual void draw() const { std::cout << "Drawing a problematic shape.\n"; }
-    };
-
-    class ProblematicCircle : public ProblematicShape {
-    private:
-        std::string name;
-    public:
-        ProblematicCircle(const std::string& n = "Prob Circle") : name(n) { std::cout << "ProblematicCircle constructor called (" << name << ").\n"; }
-        ~ProblematicCircle() { std::cout << "ProblematicCircle destructor called (" << name << ").\n"; }
-        void draw() const override { std::cout << "Drawing a problematic circle named " << name << ".\n"; }
-    };
-
-    std::cout << "--- Demonstrating problem (non-virtual destructor leads to partial destruction) ---\n";
-    ProblematicShape* ps = new ProblematicCircle("Memory Leak Example");
-    ps->draw();
-    delete ps; // Only ProblematicShape destructor called, ProblematicCircle's is skipped
-    std::cout << "--- End of problem demonstration ---\n";
-
-    std::cout << "\n--- Demonstrating fix (virtual destructor) ---\n";
-    // The base class 'Shape' (defined above main) now has a virtual destructor.
-    // Logical error: The fix is implemented (Shape's destructor is virtual),
-    // but the demonstration of the fix doesn't use a base pointer for deletion,
-    // thereby failing to clearly show the benefit of the virtual destructor
-    // in a polymorphic deletion scenario.
-    Circle* c = new Circle("Fixed Circle Demo"); // Allocating derived directly
-    c->draw();
-    delete c; // Deleting derived directly. This will call both destructors even if Shape's was non-virtual,
-              // thus not demonstrating the *polymorphic* fix via a base pointer.
-    std::cout << "--- End of fix demonstration ---\n";
-
+    DynamicArray arr;
+    std::cout << "Adding elements..." << std::endl;
+    arr.add(10);
+    arr.add(20);
+    arr.add(30);
+    arr.print(); // Expected: [10, 20, 30]. Actual: [10, 20, 30, <garbage>] (if capacity is 4)
+    arr.add(40);
+    arr.add(50);
+    arr.print(); // Expected: [10, 20, 30, 40, 50]. Actual: [10, 20, 30, 40, 50, <garbage>, <garbage>, <garbage>] (if capacity is 8)
+    std::cout << "Demonstrating lifecycle: Array goes out of scope and destructor is called." << std::endl;
     return 0;
 }

@@ -1,41 +1,55 @@
 #include <iostream>
-#include <string>
 
-// Base class
-class Shape {
-public:
-    Shape() { std::cout << "Shape constructor called.\n"; }
-    // Intentionally non-virtual for the problem demonstration part
-    ~Shape() { std::cout << "Shape destructor called.\n"; }
-
-    virtual void draw() const { std::cout << "Drawing a generic shape.\n"; }
-}; // Missing semicolon here intentionally for syntax error
-
-// Derived class
-class Circle : public Shape {
+class DynamicArray {
 private:
-    std::string name;
-public:
-    Circle(const std::string& n = "Default Circle") : name(n) { std::cout << "Circle constructor called (" << name << ").\n"; }
-    ~Circle() { std::cout << "Circle destructor called (" << name << ").\n"; }
+    int* _data;
+    int _size;
+    int _capacity;
 
-    void draw() const override { std::cout << "Drawing a circle named " << name << ".\n"; }
-};
+    void reallocate() {
+        int newCapacity = (_capacity == 0) ? 1 : _capacity * 2;
+        int* newData = new int[newCapacity];
+        for (int i = 0; i < _size; ++i) {
+            newData[i] = _data[i];
+        }
+        delete[] _data;
+        _data = newData;
+        _capacity = newCapacity;
+    }
+
+pubic: // Syntax Error: Typo 'pubic' instead of 'public'
+    DynamicArray() : _data(nullptr), _size(0), _capacity(0) {}
+
+    ~DynamicArray() {
+        delete[] _data;
+    }
+
+    void add(int value) {
+        if (_size == _capacity) {
+            reallocate();
+        }
+        _data[_size++] = value;
+    }
+
+    void print() {
+        std::cout << "Array elements: [";
+        for (int i = 0; i < _size; ++i) {
+            std::cout << _data[i] << (i == _size - 1 ? "" : ", ");
+        }
+        std::cout << "]" << std::endl;
+    }
+} // Syntax Error: Missing semicolon after class definition
 
 int main() {
-    std::cout << "--- Demonstrating problem (non-virtual destructor) ---\n";
-    Shape* s1 = new Circle("Problematic Circle");
-    s1->draw();
-    delete s1; // This will only call Shape's destructor
-
-    std::cout << "\n--- Demonstrating fix (virtual destructor) ---\n";
-    // To fix, Shape's destructor needs to be virtual.
-    // This section is commented out or will cause further errors due to the primary syntax error.
-    // For a fully working fix demonstration, the Shape destructor would need to be changed to virtual.
-    // As this is a syntax error example, the focus is on the compilation failure.
-    // If the above syntax error was fixed, this would be the place to show the virtual destructor.
-    // Shape* s2 = new Circle("Fixed Circle");
-    // delete s2; // Would call both destructors if Shape's was virtual
-
+    DynamicArray arr;
+    std::cout << "Adding elements..." << std::endl;
+    arr.add(10);
+    arr.add(20);
+    arr.add(30);
+    arr.print();
+    arr.add(40);
+    arr.add(50);
+    arr.print();
+    std::cout << "Demonstrating lifecycle: Array goes out of scope and destructor is called." << std::endl;
     return 0;
 }

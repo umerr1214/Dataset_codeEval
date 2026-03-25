@@ -1,16 +1,14 @@
 {
   "language": "c++",
-  "question": "Create a `Calculator` class with overloaded `add` methods. One `add` method should take two integers, another two doubles, and a third `add` method should take three integers.",
+  "question": "Explain the importance of virtual destructors. Implement a base class `Shape` and a derived class `Circle`, both with destructors that print a message. Demonstrate the issue of memory leaks/partial destruction without a virtual destructor when deleting a derived object via a base pointer, and then fix it with a virtual destructor.",
   "test_cases": [
-    { "input": "calc.add(5, 3)", "expected": "8" },
-    { "input": "calc.add(5.5, 3.2)", "expected": "8.7" },
-    { "input": "calc.add(1, 2, 3)", "expected": "6" }
+    { "input": "", "expected": "Compilation Error: Missing semicolon after class definition." }
   ],
-  "driver": "#include <iostream>\n#include <sstream>\n\nint main() {\n    Calculator calc;\n    std::stringstream ss;\n    ss << calc.add(5, 3) << \"\\n\";\n    ss << calc.add(5.5, 3.2) << \"\\n\";\n    ss << calc.add(1, 2, 3) << \"\\n\";\n    std::cout << ss.str();\n    return 0;\n}",
+  "driver": "// No driver needed, as it won't compile.",
   "code_quality": 1,
   "correctness": 0,
   "error_type": "Syntax Error",
   "errors": [
-    "Missing semicolon after class definition."
+    "Missing semicolon after the definition of class 'Shape'. This prevents compilation."
   ]
 }

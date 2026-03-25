@@ -1,75 +1,52 @@
 #include <iostream>
 #include <string>
-#include <vector>
-#include <sstream>
 
-class Vehicle {
+class Animal {
 protected:
-    std::string brand;
-    int year;
+    int weight;
 public:
-    Vehicle(std::string brand, int year) : brand(brand), year(year) {}
-    // Semantic Error: 'virtual' keyword is missing.
-    // This means `displayInfo` is not a virtual function, preventing runtime polymorphism.
-    void displayInfo() const { // Not virtual
-        std::cout << "Brand: " << brand << ", Year: " << year;
+    Animal(int w = 0) : weight(w) {
+        std::cout << "Animal created with weight: " << weight << " kg." << std::endl;
     }
-    virtual ~Vehicle() {} // Destructor should still be virtual for proper cleanup
-};
-
-class Car : public Vehicle {
-private:
-    int numDoors;
-public:
-    Car(std::string brand, int year, int numDoors) : Vehicle(brand, year), numDoors(numDoors) {}
-    // Because Vehicle::displayInfo is not virtual, this is a new function, not an override.
-    // Removing 'override' keyword to make it compile, demonstrating the semantic issue.
-    void displayInfo() const {
-        Vehicle::displayInfo(); // This call is fine, but the polymorphic call will bypass this.
-        std::cout << ", Doors: " << numDoors;
+    void showAnimalWeight() {
+        std::cout << "Animal's current weight (from public method): " << weight << " kg." << std::endl;
     }
 };
 
-class Motorcycle : public Vehicle {
-private:
-    bool hasSidecar;
+class Dog : public Animal {
 public:
-    Motorcycle(std::string brand, int year, bool hasSidecar) : Vehicle(brand, year), hasSidecar(hasSidecar) {}
-    // Because Vehicle::displayInfo is not virtual, this is a new function, not an override.
-    // Removing 'override' keyword to make it compile, demonstrating the semantic issue.
-    void displayInfo() const {
-        Vehicle::displayInfo(); // This call is fine, but the polymorphic call will bypass this.
-        std::cout << ", Sidecar: " << (hasSidecar ? "Yes" : "No");
+    Dog(int w) : Animal(w) {
+        std::cout << "Dog created with initial weight: " << weight << " kg." << std::endl;
+    }
+
+    void bark() {
+        std::cout << "Woof! My weight is " << weight << " kg." << std::endl; // Dog correctly accesses protected member
+    }
+
+    void setDogWeight(int newWeight) {
+        weight = newWeight; // Dog can access protected member
+        std::cout << "Dog's weight updated to: " << weight << " kg." << std::endl;
     }
 };
+
+// External non-member function
+void demonstrateExternalAccess(Animal& animal) {
+    // SEMANTIC ERROR: Attempting to access protected member 'weight' from a non-member, non-friend function
+    std::cout << "Attempting to access Animal's weight from external function: " << animal.weight << " kg." << std::endl;
+}
 
 int main() {
-    // Redirect cout to a stringstream to capture output
-    std::stringstream ss;
-    std::streambuf* oldCout = std::cout.rdbuf();
-    std::cout.rdbuf(ss.rdbuf());
+    Animal genericAnimal(50);
+    Dog myDog(20);
 
-    Vehicle* v1 = new Car("Toyota", 2020, 4);
-    Vehicle* v2 = new Motorcycle("Harley-Davidson", 2022, false);
-    Vehicle* v3 = new Car("Honda", 2018, 2);
+    myDog.bark();
+    myDog.setDogWeight(25);
+    myDog.bark();
 
-    // Due to the missing 'virtual' keyword in the base class,
-    // these calls will perform static dispatch, calling Vehicle::displayInfo()
-    // instead of the derived class's displayInfo().
-    v1->displayInfo();
-    std::cout << std::endl;
-    v2->displayInfo();
-    std::cout << std::endl;
-    v3->displayInfo();
-    std::cout << std::endl;
+    // SEMANTIC ERROR: Attempting to access protected member 'weight' from main (non-derived, non-friend)
+    std::cout << "Attempting to access genericAnimal.weight from main: " << genericAnimal.weight << " kg." << std::endl;
 
-    delete v1;
-    delete v2;
-    delete v3;
-
-    // Restore cout
-    std::cout.rdbuf(oldCout);
-    std::cout << ss.str(); // Print captured output to actual stdout
+    demonstrateExternalAccess(genericAnimal);
 
     return 0;
 }

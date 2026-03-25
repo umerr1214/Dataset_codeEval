@@ -1,66 +1,58 @@
 #include <iostream>
 #include <string>
-#include <vector>
-#include <sstream>
 
-class Vehicle {
+class Animal {
 protected:
-    std::string brand;
-    int year;
+    int weight;
 public:
-    Vehicle(std::string brand, int year) : brand(brand), year(year) {}
-    virtual void displayInfo() const {
-        std::cout << "Brand: " << brand << ", Year: " << year;
+    Animal(int w = 0) : weight(w) {
+        std::cout << "Animal created with weight: " << weight << " kg." << std::endl;
     }
-    virtual ~Vehicle() {}
-} // Syntax Error: Missing semicolon here
+    void showAnimalWeight() {
+        std::cout << "Animal's current weight: " << weight << " kg." << std::endl;
+    }
+}; // Missing semicolon here intentionally for syntax error
 
-class Car : public Vehicle {
-private:
-    int numDoors;
+class Dog : public Animal {
 public:
-    Car(std::string brand, int year, int numDoors) : Vehicle(brand, year), numDoors(numDoors) {}
-    void displayInfo() const override {
-        Vehicle::displayInfo();
-        std::cout << ", Doors: " << numDoors;
+    Dog(int w) : Animal(w) {
+        std::cout << "Dog created with initial weight: " << weight << " kg." << std::endl;
+    }
+
+    void bark() {
+        std::cout << "Woof! My weight is " << weight << " kg." << std::endl;
+    }
+
+    void setDogWeight(int newWeight) {
+        weight = newWeight; // Dog can access protected member
+        std::cout << "Dog's weight updated to: " << weight << " kg." << std::endl;
     }
 };
 
-class Motorcycle : public Vehicle {
-private:
-    bool hasSidecar;
-public:
-    Motorcycle(std::string brand, int year, bool hasSidecar) : Vehicle(brand, year), hasSidecar(hasSidecar) {}
-    void displayInfo() const override {
-        Vehicle::displayInfo();
-        std::cout << ", Sidecar: " << (hasSidecar ? "Yes" : "No");
-    }
-};
+// External non-member function - cannot access protected members directly
+void demonstrateExternalAccess(Animal& animal) {
+    // This line would cause a semantic error (access violation) if uncommented:
+    // std::cout << "Attempting to access Animal's weight from external function: " << animal.weight << std::endl;
+    std::cout << "\n--- External Access Demonstration ---" << std::endl;
+    std::cout << "External function cannot directly access Animal's protected 'weight'." << std::endl;
+    animal.showAnimalWeight(); // Can access public methods
+    std::cout << "-----------------------------------" << std::endl;
+}
 
 int main() {
-    // Redirect cout to a stringstream to capture output
-    std::stringstream ss;
-    std::streambuf* oldCout = std::cout.rdbuf();
-    std::cout.rdbuf(ss.rdbuf());
+    // This part will not compile due to the syntax error above
+    Animal genericAnimal(50);
+    Dog myDog(20);
 
-    Vehicle* v1 = new Car("Toyota", 2020, 4);
-    Vehicle* v2 = new Motorcycle("Harley-Davidson", 2022, false);
-    Vehicle* v3 = new Car("Honda", 2018, 2);
+    myDog.bark();
+    myDog.setDogWeight(25);
+    myDog.bark();
 
-    v1->displayInfo();
-    std::cout << std::endl;
-    v2->displayInfo();
-    std::endl; // Another potential syntax error if this was meant to be std::cout << std::endl;
-    v3->displayInfo();
-    std::cout << std::endl;
+    // Attempting to access protected member from main (non-derived, non-friend)
+    // This would be a semantic error if the syntax error didn't prevent compilation
+    // std::cout << "Attempting to access genericAnimal.weight from main: " << genericAnimal.weight << std::endl;
 
-    delete v1;
-    delete v2;
-    delete v3;
-
-    // Restore cout
-    std::cout.rdbuf(oldCout);
-    std::cout << ss.str(); // Print captured output to actual stdout
+    demonstrateExternalAccess(genericAnimal);
 
     return 0;
 }

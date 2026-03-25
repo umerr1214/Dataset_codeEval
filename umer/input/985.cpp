@@ -1,42 +1,52 @@
 #include <iostream>
+#include <string>
 
-class ResourceTracker {
+class Person {
 public:
-    int* data;
-    int size // Missing semicolon here
+    std::string name;
+protected:
+    int age;
+private:
+    std::string ssn;
 
-    ResourceTracker(int s) : size(s) {
-        data = new int[size];
-        std::cout << "ResourceTracker(size=" << size << ") constructed, memory allocated at " << data << std::endl;
-        for (int i = 0; i < size; ++i) {
-            data[i] = i * 10;
-        }
+public:
+    Person(std::string n, int a, std::string s) : name(n), age(a), ssn(s) {}
+
+    // Method to allow derived classes to access protected members (if needed for complex logic)
+    int getAgeProtected() { return age; }
+    // No public method for SSN as it's private
+}; // SYNTAX ERROR: Missing semicolon here
+
+// A derived class to demonstrate access within a derived class
+class Student : public Person {
+public:
+    Student(std::string n, int a, std::string s, std::string major) : Person(n, a, s) {
+        // Derived class can access 'name' (public) and 'age' (protected)
+        // but not 'ssn' (private)
     }
 
-    ~ResourceTracker() {
-        std::cout << "ResourceTracker(size=" << size << ") destructed, memory at " << data << " deallocated" << std::endl;
-        delete[] data;
-    }
-
-    void printData() const {
-        std::cout << "Data: [";
-        for (int i = 0; i < size; ++i) {
-            std::cout << data[i] << (i == size - 1 ? "" : ", ");
-        }
-        std::cout << "]" << std::endl;
+    void demonstrateDerivedAccess() {
+        std::cout << "--- Inside Derived Class (Student) ---" << std::endl;
+        std::cout << "Accessible: Public member 'name': " << name << std::endl;
+        std::cout << "Accessible: Protected member 'age': " << age << std::endl;
+        // std::cout << "Inaccessible: Private member 'ssn': " << ssn << std::endl; // Would be a compile error
+        std::cout << "Note: Private member 'ssn' is not accessible from a derived class." << std::endl;
     }
 };
 
-void demonstrateLifecycle() {
-    std::cout << "\n--- Creating tracker1 ---" << std::endl;
-    ResourceTracker tracker1(5);
-    tracker1.printData();
-    std::cout << "--- tracker1 scope ending ---" << std::endl;
-}
-
 int main() {
-    std::cout << "Program start" << std::endl;
-    demonstrateLifecycle();
-    std::cout << "Program end" << std::endl;
+    Person p("Alice", 30, "123-45-6789");
+
+    std::cout << "--- Outside the Class (main function) ---" << std::endl;
+    std::cout << "Accessible: Public member 'name': " << p.name << std::endl;
+    // Attempting to access protected or private members directly will cause a compile-time error.
+    // std::cout << "Inaccessible: Protected member 'age': " << p.age << std::endl;
+    // std::cout << "Inaccessible: Private member 'ssn': " << p.ssn << std::endl;
+    std::cout << "Note: Protected member 'age' is not accessible from outside the class." << std::endl;
+    std::cout << "Note: Private member 'ssn' is not accessible from outside the class." << std::endl;
+
+    Student s("Bob", 22, "987-65-4321", "Computer Science");
+    s.demonstrateDerivedAccess();
+
     return 0;
 }
